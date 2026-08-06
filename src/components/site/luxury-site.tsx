@@ -33,6 +33,9 @@ import { SankalpSection } from "./sankalp-section";
 import { KrishnaNamesCounter } from "./krishna-names-counter";
 import { BrajWeather } from "./braj-weather";
 import { BrajRecipes } from "./braj-recipes";
+import { SadhanaTracker } from "./sadhana-tracker";
+import { DarshanGuide } from "./darshan-guide";
+import { ConstructionProgress } from "./construction-progress";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -98,7 +101,10 @@ export function LuxurySite() {
         <BrajCalendar />
         <BrajWeather />
         <SankalpSection />
+        <SadhanaTracker />
+        <DarshanGuide />
         <BrajRecipes />
+        <ConstructionProgress />
         <BlogPreview />
         <LeadCta />
       </main>

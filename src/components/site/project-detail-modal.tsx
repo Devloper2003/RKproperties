@@ -236,6 +236,49 @@ export function ProjectDetailModal() {
           )}
         </ScrollArea>
       </DialogContent>
+
+      {/* RealEstateListing Schema.org structured data for SEO */}
+      {project && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "RealEstateListing",
+              name: project.name,
+              description: project.longDescription,
+              url: `https://brajproperty.in/#projects`,
+              image: project.galleryImages?.map((img: string) => `https://brajproperty.in${img}`) || [],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: project.city,
+                addressRegion: "Uttar Pradesh",
+                addressCountry: "IN",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: project.latitude,
+                longitude: project.longitude,
+              },
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                price: project.priceRangeMin,
+                priceCurrency: "INR",
+                minPrice: project.priceRangeMin,
+                maxPrice: project.priceRangeMax,
+              },
+              areaServed: project.city,
+              identifier: project.reraNumber || project.mvdaNumber,
+              status: project.status === "selling" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
+              seller: {
+                "@type": "Organization",
+                name: "BrajProperty.in",
+                telephone: "+91-98370-12345",
+              },
+            }),
+          }}
+        />
+      )}
     </Dialog>
   );
 }

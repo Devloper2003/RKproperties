@@ -864,3 +864,126 @@ Site now has **44 sections** (was 41):
 8. Add a "Braj Darshan Guide" — temple-specific visiting guide with timings & etiquette
 9. Add a "Sadhana Tracker" for residents — daily japa, parikrama, seva logging
 10. Add live chat history export feature in admin
+
+---
+Task ID: 14 (Round 8 — Sadhana Tracker, Darshan Guide, Construction Progress, 108 Names expansion, RealEstateListing schema)
+Agent: main (cron webDevReview)
+Task: QA, expand 108 names to full 108, add Sadhana tracker, Darshan guide, Construction progress timeline, RealEstateListing schema.org
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server running, lint clean, all APIs returning 200
+- 44 site sections + 9 admin modules all functional (from rounds 1-7)
+- No bugs found during QA — proceeded to new feature development
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all 44 existing sections render
+- ✅ Admin login → dashboard → all 9 modules functional
+- ✅ Lint clean, no runtime errors in dev.log
+
+### New Features Added (3 components + 2 enhancements)
+
+1. **Sadhana Tracker** (`sadhana-tracker.tsx`)
+   - 6 daily spiritual activities: Japa (जप), Temple Darshan (दर्शन), Parikrama (परिक्रमा), Bhagavad Gita Reading (गीता पाठ), Go Seva (गो सेवा), Tulsi Worship (तुलसी पूजा)
+   - Each activity: icon, Sanskrit name, target count, unit, +/- buttons
+   - Progress bar per activity, turns green when complete
+   - 3 header stats: Day Streak (🔥), Goals Today (X/6), Day Complete (%)
+   - Overall progress bar
+   - Persists to localStorage (`braj_sadhana` key) — survives reloads
+   - Reset button for new day
+   - Completion celebration when all 6 goals met
+   - Toast notification on target completion
+   - Fixed React Compiler lint: used lazy initial state instead of useEffect setState
+
+2. **Braj Darshan Guide** (`darshan-guide.tsx`)
+   - 6 major temples: Banke Bihari, ISKCON, Krishna Janmabhoomi, Govardhan Hill Parikrama, Prem Mandir, Vishram Ghat
+   - Each temple: darshan timing, aarti schedule, dress code, 5 etiquette tips, best day to visit
+   - Expandable accordion cards with city-coded badges
+   - WhatsApp CTA per temple ("Ask about visiting...")
+   - General Braj temple tips card (8 tips: greeting, shoes, hydration, phones, etc.)
+   - Dark spiritual-temple tips section with cream text
+
+3. **Construction Progress Tracker** (`construction-progress.tsx`)
+   - 10 construction milestones: Land Acquisition → Site Grading → Internal Roads → Water & Sewage → Electrical → Temple Foundation → Entry Gate → Landscaping → Clubhouse → Final Handover
+   - 3 status types: Completed (green), In Progress (gold, spinning icon), Upcoming (gray)
+   - Project selector (4 townships)
+   - Overall progress card with % complete + milestone count
+   - Alternating left/right zigzag timeline with central vertical line
+   - "View Photos" button per completed/in-progress milestone (toast)
+   - End node: 🎉 Handover & Possession (Dec 2027)
+   - "Already a resident?" CTA → scrolls to Community Portal
+
+### Enhancements
+
+4. **Expanded Krishna 108 Names to Full Ashtottara Shatanamavali**
+   - Was 18 names → now **full 108 names**
+   - Comprehensive list covering: Vishnu names (1-26), Braj Krishna names (27-40), consort names (41-48), friendship names (49-55), Mahabharata names (56-63), demon-slayer names (64-75), Kansa slaying (76-82), theological names (83-95), divine attributes (96-108)
+   - Each with Sanskrit, transliteration, and English meaning
+   - The 108 Names Japa counter now uses all 108 unique names (no looping)
+
+5. **RealEstateListing Schema.org** (enhanced `project-detail-modal.tsx`)
+   - Added JSON-LD structured data to project detail modal
+   - Schema includes: name, description, url, image array, address (city/region/country), geo coordinates (lat/lng), priceSpecification (min/max price INR), areaServed, identifier (RERA/MVDA number), stock status, seller organization
+   - Improves SEO for project-specific pages when search engines crawl modal content
+
+### Types Enhancements (types.ts)
+- SADHANA_ACTIVITIES: 6 activities with Sanskrit/target/unit/color
+- DARSHAN_GUIDE: 6 temples with timing/aarti/dress/etiquette/bestDay
+- CONSTRUCTION_MILESTONES: 10 milestones with status/date/desc/icon
+- KRISHNA_108_NAMES: expanded from 18 to full 108 names
+
+### Bug Fix (lint)
+- `sadhana-tracker.tsx`: Fixed React Compiler `set-state-in-effect` error by using lazy initial state (`useState(() => loadSadhana())`) instead of `useEffect` + `setState`
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ Site loads HTTP 200
+- ✅ Sadhana Tracker: 6 activities render, +/- buttons work, progress bars animate, localStorage persists
+- ✅ Darshan Guide: 6 temples render, expandable content shows timing/aarti/dress/etiquette
+- ✅ Construction Progress: 10 milestones render, project selector works, timeline displays
+- ✅ 108 Names: full 108 names available (verified count in types)
+- ✅ RealEstateListing schema: JSON-LD injected when project modal opens
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/sadhana-tracker.tsx
+- NEW: src/components/site/darshan-guide.tsx
+- NEW: src/components/site/construction-progress.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added 3 new sections: SadhanaTracker, DarshanGuide, ConstructionProgress)
+- MODIFIED: src/components/site/project-detail-modal.tsx (added RealEstateListing schema.org JSON-LD)
+- MODIFIED: src/lib/types.ts (SADHANA_ACTIVITIES, DARSHAN_GUIDE, CONSTRUCTION_MILESTONES, expanded KRISHNA_108_NAMES to 108)
+
+## Current Section Count
+Site now has **47 sections** (was 44):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. Spiritual Quiz 8. Projects Showcase 9. Virtual Tour
+10. Plot Explorer 11. Vastu Compass 12. USPs 13. Braj Dham Map
+14. Township Map 15. Testimonials 16. Video Testimonials 17. Trust Signals
+18. Price Comparison 19. NRI Section 20. EMI Calculator 21. ROI Calculator
+22. Visit CTA 23. WhatsApp Flow 24. FAQ 25. Referral Program
+26. Community Portal 27. Bhajan Player 28. 108 Names Counter
+29. Braj Calendar 30. Braj Weather 31. Sankalp Section
+32. **Sadhana Tracker** (new) 33. **Darshan Guide** (new) 34. Braj Recipes
+35. **Construction Progress** (new) 36. Blog Preview 37. Lead CTA 38. Footer
++ FABs + 10 modals + Language Toggle + RealEstateListing schema
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Sadhana streak is mock (would need daily completion tracking backend in production)
+- Minor: Construction photos are mock (would need real photo uploads in production)
+- Minor: Darshan guide timings are static (would need real-time temple API in production)
+
+## Priority Recommendations for Next Phase
+1. Integrate TRANSLATIONS into all components (hero title, buttons, etc.)
+2. Add Google Maps integration for real directions to each township
+3. Add resident testimonial video upload feature in community portal
+4. Add email newsletter signup with spiritual content drip
+5. Add live chat history export feature in admin
+6. Add a "Braj Bhajan" lyrics display alongside the audio player
+7. Add a "Krishna Stories" section — illustrated short stories for children
+8. Add a "Festival Calendar" with RSVP for residents
+9. Add a "Vastu Consultation" booking feature (connect with Vastu expert)
+10. Add a "Plot Recommendation Engine" — AI-based plot matching user preferences
