@@ -504,3 +504,113 @@ Site now has **33 sections** (was 29):
 8. Add a "Braj Bhajan" audio player section (devotional music while browsing)
 9. Add interactive Vastu compass for plot selection
 10. Add a live chat history export feature in admin
+
+---
+Task ID: 11 (Round 5 — Vastu Compass, Bhajan Player, Community Portal, Price Comparison)
+Agent: main (cron webDevReview)
+Task: QA, add Vastu compass, Bhajan audio player, residents' community portal, competitor price comparison, Braj Dham places data
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server running (restarted once during QA), lint clean, all APIs returning 200
+- 33 site sections + 9 admin modules all functional (from rounds 1-4)
+- No bugs found during QA — proceeded to new feature development
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all 33 existing sections render
+- ✅ Admin login → dashboard → all 9 modules functional
+- ✅ Lint clean, no runtime errors in dev.log
+
+### New Features Added (4 components)
+
+1. **Vastu Compass** (`vastu-compass.tsx`)
+   - Interactive SVG compass rose with 8 directions (N, NE, E, SE, S, SW, W, NW)
+   - Each direction shows: Sanskrit name (उत्तर, ईशान, etc.), degree, deity (Kubera, Indra, Agni, Yama, etc.), element (Water, Fire, Earth, Air)
+   - Favorable/Avoid lists for each direction (e.g., NE = Pooja room favorable, avoid toilet)
+   - Animated needle rotates to selected direction (spring physics)
+   - Direction selector buttons + click-on-compass interaction
+   - Smart tips per direction (NE = "Most auspicious for Pooja room", SE = "Ideal for kitchen", etc.)
+   - Devanagari Sanskrit labels throughout
+
+2. **Braj Bhajan Player** (`bhajan-player.tsx`)
+   - 6 devotional bhajans: Achyutam Keshavam, Govind Bolo, Yashomati Maiya Se, Radhe Radhe Govind, Braj Bhumii Meri, Mero Mann Ram Ji
+   - Each bhajan: title, artist, duration, category (Morning/Kirtan/Lullaby/Meditation/Braj Folk/Evening), description
+   - Click to play → opens fixed bottom mini player
+   - Mini player: track info, prev/play/pause/next controls, progress bar, close button
+   - Mock playback simulation (progress advances, auto-advances to next track)
+   - Animated music note decorations (🎵🎶 floating up)
+   - Active track shows pulsing 🎵 emoji + progress bar on card
+
+3. **Residents' Community Portal** (`community-portal.tsx`)
+   - Login gate: enter booking ID → unlocks full portal dashboard
+   - 6 portal features: Construction Updates, Document Vault, Event RSVP, Resident Forum, Service Requests, Mobile App (PWA)
+   - Recent Updates feed: 4 mock updates (construction milestones, events, document uploads) with type icons
+   - Quick stats: 8 Documents, 3 Events
+   - Quick Actions: Download All Documents, RSVP Janmashtami, Resident Forum, WhatsApp Manager
+   - Welcome banner with booking ID + sign out
+   - "Not a resident yet?" CTA → opens lead form
+
+4. **Price Comparison** (`price-comparison.tsx`)
+   - Trust Score bar chart: 5 competitors (Local Builders 25, NRI Portals 50, National Devs 65, Religious Trusts 70, BrajProperty 95)
+   - Animated horizontal bars with gradient (gold for us, green/red for others)
+   - Full comparison table: 6 dimensions × 5 competitors (Type, Avg Price, Legal Clarity, Amenities, Spiritual, Trust Score)
+   - BrajProperty column highlighted with gold tint + 🏆 trophy
+   - Check/X icons for good/bad values
+   - "Our Edge" row showing each competitor's disadvantage vs our advantage
+   - 3 summary cards: 100% Legal Security, Temple Architecture, 95% Trust Score
+   - Row hover highlight (compare-row-highlight)
+
+### Data Enhancements (types.ts)
+- VASTU_DIRECTIONS: 8 directions with Sanskrit/deity/element/favorable/avoid arrays
+- BRAJ_BHAJANS: 6 devotional songs with category/duration/description
+- COMPETITORS: 5 competitor types with price/legal/amenities/spiritual/trustScore/ourAdvantage
+- COMMUNITY_FEATURES: 6 portal features with icon/title/desc
+- BRAJ_DHAM_PLACES: 16 sacred places (temples, ghats, kunds, villages, forests) with coordinates for future map enhancement
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ Vastu Compass: 8 directions render, needle rotates, favorable/avoid lists show
+- ✅ Bhajan Player: 6 bhajans render, click plays track, mini player appears with progress (0:22/4:32 verified)
+- ✅ Community Portal: login gate → enter booking ID → full dashboard unlocks with features + updates + quick actions
+- ✅ Price Comparison: trust score bars animate, comparison table with 5 competitors renders, BrajProperty highlighted
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/vastu-compass.tsx
+- NEW: src/components/site/bhajan-player.tsx
+- NEW: src/components/site/community-portal.tsx
+- NEW: src/components/site/price-comparison.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added 4 new sections: VastuCompass, PriceComparison, CommunityPortal, BhajanPlayer)
+- MODIFIED: src/lib/types.ts (VASTU_DIRECTIONS, BRAJ_BHAJANS, COMPETITORS, COMMUNITY_FEATURES, BRAJ_DHAM_PLACES)
+
+## Current Section Count
+Site now has **37 sections** (was 33):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. Spiritual Quiz 8. Projects Showcase 9. Virtual Tour
+10. Plot Explorer 11. **Vastu Compass** (new) 12. USPs 13. Township Map
+14. Testimonials 15. Video Testimonials 16. Trust Signals
+17. **Price Comparison** (new) 18. NRI Section 19. EMI Calculator 20. ROI Calculator
+21. Visit CTA 22. WhatsApp Flow 23. FAQ 24. Referral Program
+25. **Community Portal** (new) 26. **Bhajan Player** (new) 27. Blog Preview
+28. Lead Cta 29. Footer + FABs + 8 modals
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Bhajan player is mock (no real audio files — would need licensed bhajan recordings in production)
+- Minor: Community portal is demo (any 6+ char code unlocks — would need real booking ID verification in production)
+- Minor: Price comparison data is mock (would need real competitor research for production)
+
+## Priority Recommendations for Next Phase
+1. Add RealEstateListing schema.org to project detail modal
+2. Add multi-language toggle (Hindi/English/Hinglish) for content
+3. Add interactive Braj Dham guide map using BRAJ_DHAM_PLACES data (16 locations)
+4. Add a construction progress photo timeline for booked plots
+5. Add email newsletter signup with spiritual content drip
+6. Add live chat history export feature in admin
+7. Add a "Braj Calendar" — daily darshan/tithi/auspicious timing widget
+8. Add plot comparison tool (compare 2-3 plots side-by-side like project comparison)
+9. Add a "Sankalp" section — users can make a spiritual resolution/sankalp when booking
+10. Add Google Maps integration for real directions to each township

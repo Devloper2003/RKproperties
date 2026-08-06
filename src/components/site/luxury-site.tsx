@@ -7,22 +7,26 @@ import { Hero } from "./hero";
 import { QuoteRotator } from "./quote-rotator";
 import { SacredLocations } from "./sacred-locations";
 import { KrishnaLilaSection } from "./krishna-lila";
+import { SpiritualQuiz } from "./spiritual-quiz";
 import { ProjectsShowcase } from "./projects-showcase";
 import { VirtualTourSection, VirtualTourModal } from "./virtual-tour";
 import { PlotExplorer } from "./plot-explorer";
+import { VastuCompass } from "./vastu-compass";
 import { Usps } from "./usps";
 import { TownshipMap } from "./township-map";
 import { Testimonials } from "./testimonials";
 import { VideoTestimonials } from "./video-testimonials";
 import { TrustSignals } from "./trust-signals";
+import { PriceComparison } from "./price-comparison";
 import { NriSection } from "./nri-section";
 import { EmiCalculator } from "./emi-calculator";
 import { RoiCalculator } from "./roi-calculator";
-import { SpiritualQuiz } from "./spiritual-quiz";
 import { VisitCtaSection } from "./visit-cta-section";
 import { WhatsappFlow } from "./whatsapp-flow";
 import { FaqSection } from "./faq-section";
 import { ReferralProgram } from "./referral-program";
+import { CommunityPortal } from "./community-portal";
+import { BhajanPlayer } from "./bhajan-player";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -66,11 +70,13 @@ export function LuxurySite() {
         <ProjectsShowcase />
         <VirtualTourSection />
         <PlotExplorer />
+        <VastuCompass />
         <Usps />
         <TownshipMap />
         <Testimonials />
         <VideoTestimonials />
         <TrustSignals />
+        <PriceComparison />
         <NriSection />
         <EmiCalculator />
         <RoiCalculator />
@@ -78,6 +84,8 @@ export function LuxurySite() {
         <WhatsappFlow />
         <FaqSection />
         <ReferralProgram />
+        <CommunityPortal />
+        <BhajanPlayer />
         <BlogPreview />
         <LeadCta />
       </main>

@@ -485,4 +485,183 @@ export const ROI_ASSUMPTIONS = {
   gstOnConstruction: 0.18,
 };
 
+// ===== Vastu Compass data =====
+export const VASTU_DIRECTIONS: { direction: string; sanskrit: string; degree: number; deity: string; element: string; favorable: string[]; avoid: string[]; color: string }[] = [
+  {
+    direction: "North",
+    sanskrit: "उत्तर",
+    degree: 0,
+    deity: "Kubera (God of Wealth)",
+    element: "Water",
+    favorable: ["Main entrance", "Pooja room", "Living room", "Treasury/Cash box"],
+    avoid: ["Bedroom (master)", "Toilet", "Staircase"],
+    color: "from-blue-400/30 to-blue-600/20",
+  },
+  {
+    direction: "North-East",
+    sanskrit: "ईशान",
+    degree: 45,
+    deity: "Ishana (Shiva)",
+    element: "Water + Earth",
+    favorable: ["Pooja room (most auspicious)", "Meditation space", "Water source", "Tulsi plant"],
+    avoid: ["Toilet", "Kitchen", "Storeroom"],
+    color: "from-green-300/30 to-blue-400/20",
+  },
+  {
+    direction: "East",
+    sanskrit: "पूर्व",
+    degree: 90,
+    deity: "Indra (King of Gods)",
+    element: "Air",
+    favorable: ["Main entrance", "Bathroom", "Large windows", "Study room"],
+    avoid: ["Toilet", "Heavy furniture", "Storeroom"],
+    color: "from-amber-300/30 to-yellow-400/20",
+  },
+  {
+    direction: "South-East",
+    sanskrit: "अग्नेय",
+    degree: 135,
+    deity: "Agni (Fire)",
+    element: "Fire",
+    favorable: ["Kitchen (ideal)", "Electrical appliances", "Generator room"],
+    avoid: ["Bedroom", "Pooja room", "Water source"],
+    color: "from-orange-400/30 to-red-500/20",
+  },
+  {
+    direction: "South",
+    sanskrit: "दक्षिण",
+    degree: 180,
+    deity: "Yama (Lord of Death)",
+    element: "Earth",
+    favorable: ["Bedroom (heavy sleep)", "Storeroom", "Heavy furniture"],
+    avoid: ["Main entrance", "Pooja room", "Kitchen"],
+    color: "from-red-400/30 to-pink-500/20",
+  },
+  {
+    direction: "South-West",
+    sanskrit: "नैऋत्य",
+    degree: 225,
+    deity: "Nairutya (Demons)",
+    element: "Earth",
+    favorable: ["Master bedroom (ideal)", "Heavy storage", "Treasury", "Staircase"],
+    avoid: ["Main entrance", "Kitchen", "Toilet", "Water source"],
+    color: "from-purple-400/30 to-indigo-500/20",
+  },
+  {
+    direction: "West",
+    sanskrit: "पश्चिम",
+    degree: 270,
+    deity: "Varuna (God of Rain)",
+    element: "Air",
+    favorable: ["Children's bedroom", "Study", "Dining room"],
+    avoid: ["Main entrance (minor)", "Pooja room"],
+    color: "from-cyan-400/30 to-blue-500/20",
+  },
+  {
+    direction: "North-West",
+    sanskrit: "वायव्य",
+    degree: 315,
+    deity: "Vayu (Wind)",
+    element: "Air",
+    favorable: ["Guest room", "Garage", "Toilet (acceptable)", "Granary"],
+    avoid: ["Master bedroom", "Kitchen", "Pooja room"],
+    color: "from-gray-400/30 to-slate-500/20",
+  },
+];
+
+// ===== Braj Bhajans (devotional music) =====
+export const BRAJ_BHAJANS: { title: string; artist: string; duration: string; category: string; description: string }[] = [
+  { title: "Achyutam Keshavam", artist: "Traditional", duration: "4:32", category: "Morning", description: "Beautiful morning bhajan invoking Krishna's names — perfect start to your spiritual day." },
+  { title: "Govind Bolo Hari Gopal Bolo", artist: "Traditional", duration: "5:18", category: "Kirtan", description: "Energetic kirtan calling out to Govind — ideal for community singing." },
+  { title: "Yashomati Maiya Se", artist: "Traditional", duration: "3:45", category: "Lullaby", description: "Devotional song about Yashoda Maiya and child Krishna — soothing and heart-melting." },
+  { title: "Radhe Radhe Govind", artist: "Traditional", duration: "6:02", category: "Meditation", description: "Repetitive chant of Radha-Krishna names for deep meditation." },
+  { title: "Braj Bhumii Meri", artist: "Traditional", duration: "4:15", category: "Braj Folk", description: "Folk song celebrating the beauty and divinity of Braj Dham land." },
+  { title: "Mero Mann Ram Ji", artist: "Traditional", duration: "5:30", category: "Evening", description: "Evening prayer bhajan for inner peace and surrender." },
+];
+
+// ===== Competitor comparison data =====
+export const COMPETITORS: { name: string; type: string; avgPrice: string; legalClarity: string; amenities: string; spiritual: string; trustScore: number; ourAdvantage: string }[] = [
+  {
+    name: "Local Builders",
+    type: "Unorganized",
+    avgPrice: "₹3-5 L",
+    legalClarity: "Poor — No MVDA",
+    amenities: "Basic roads only",
+    spiritual: "None",
+    trustScore: 25,
+    ourAdvantage: "MVDA approved + premium amenities + temple architecture",
+  },
+  {
+    name: "National Developers",
+    type: "Corporate",
+    avgPrice: "₹8-15 L",
+    legalClarity: "Good but generic",
+    amenities: "Modern clubhouse",
+    spiritual: "None — generic design",
+    trustScore: 65,
+    ourAdvantage: "Braj-native brand + temple-themed architecture + spiritual environment",
+  },
+  {
+    name: "Religious Trusts/Ashrams",
+    type: "Non-profit",
+    avgPrice: "N/A (Donation)",
+    legalClarity: "Variable",
+    amenities: "Minimal",
+    spiritual: "High credibility",
+    trustScore: 70,
+    ourAdvantage: "Premium lifestyle + modern amenities + same spiritual depth",
+  },
+  {
+    name: "NRI-Focused Portals",
+    type: "Online-only",
+    avgPrice: "₹6-12 L",
+    legalClarity: "Inconsistent",
+    amenities: "Varies widely",
+    spiritual: "None",
+    trustScore: 50,
+    ourAdvantage: "Local office + WhatsApp + site visits + Braj-native trust",
+  },
+  {
+    name: "BrajProperty.in",
+    type: "Premium Braj-native",
+    avgPrice: "₹5-20 L",
+    legalClarity: "100% MVDA + RERA",
+    amenities: "Full premium gated",
+    spiritual: "Temple-themed + spiritual community",
+    trustScore: 95,
+    ourAdvantage: "The only developer combining divine location + legal security + lifestyle luxury",
+  },
+];
+
+// ===== Community portal features =====
+export const COMMUNITY_FEATURES: { icon: string; title: string; desc: string }[] = [
+  { icon: "🏗️", title: "Construction Updates", desc: "Photo timeline of your plot's development — monthly progress photos, milestone tracking, handover countdown." },
+  { icon: "📄", title: "Document Vault", desc: "Secure digital access to all your property documents — sale deed, MVDA certificate, tax receipts, RERA papers." },
+  { icon: "🎉", title: "Event RSVP", desc: "Community satsang, festival celebrations, Krishna Janmashtami, Holi — RSVP and join resident-only events." },
+  { icon: "💬", title: "Resident Forum", desc: "Connect with fellow devotee-residents. Share experiences, organize carpools, plan temple visits together." },
+  { icon: "🛠️", title: "Service Requests", desc: "Report maintenance issues, request plot visits, book community hall — all from your resident dashboard." },
+  { icon: "📱", title: "Mobile App", desc: "PWA installable on your phone — offline access to documents, push notifications for events and updates." },
+];
+
+// ===== Extended Braj Dham guide locations =====
+export const BRAJ_DHAM_PLACES: { name: string; type: string; city: string; significance: string; x: number; y: number; emoji: string }[] = [
+  { name: "Banke Bihari Temple", type: "Temple", city: "Vrindavan", significance: "Krishna in tribhanga form", x: 48, y: 42, emoji: "🛕" },
+  { name: "ISKCON Temple", type: "Temple", city: "Vrindavan", significance: "International Krishna consciousness", x: 52, y: 45, emoji: "🛕" },
+  { name: "Prem Mandir", type: "Temple", city: "Vrindavan", significance: "White marble beauty", x: 50, y: 40, emoji: "🛕" },
+  { name: "Krishna Janmabhoomi", type: "Temple", city: "Mathura", significance: "Krishna's birthplace", x: 32, y: 52, emoji: "👶" },
+  { name: "Vishram Ghat", type: "Ghat", city: "Mathura", significance: "Krishna rested here after Kansa", x: 30, y: 54, emoji: "🌊" },
+  { name: "Govardhan Hill", type: "Parikrama", city: "Govardhan", significance: "Krishna lifted on His finger", x: 22, y: 70, emoji: "⛰️" },
+  { name: "Mansi Ganga", type: "Ghat", city: "Govardhan", significance: "Sacred Kund for bathing", x: 20, y: 72, emoji: "🌊" },
+  { name: "Radha Kund", type: "Kund", city: "Govardhan", significance: "Most sacred Kund in Braj", x: 18, y: 74, emoji: "💧" },
+  { name: "Kusum Sarovar", type: "Sarovar", city: "Govardhan", significance: "Where Radha picked flowers", x: 16, y: 71, emoji: "🌸" },
+  { name: "Nidhivan", type: "Grove", city: "Vrindavan", significance: "Krishna's nightly Raas still happens", x: 49, y: 44, emoji: "🌳" },
+  { name: "Seva Kunj", type: "Grove", city: "Vrindavan", significance: "Eternal Raas sthala", x: 47, y: 43, emoji: "🌳" },
+  { name: "Barsana", type: "Village", city: "Near Govardhan", significance: "Radha's village", x: 15, y: 65, emoji: "🏡" },
+  { name: "Nandgaon", type: "Village", city: "Near Govardhan", significance: "Krishna's childhood home", x: 18, y: 62, emoji: "🏡" },
+  { name: "Gokul", type: "Village", city: "Near Mathura", significance: "Krishna's foster home", x: 35, y: 48, emoji: "🏡" },
+  { name: "Vrindavan Forest", type: "Forest", city: "Vrindavan", significance: "Krishna's cow-grazing grounds", x: 55, y: 38, emoji: "🌲" },
+  { name: "Yamuna River", type: "River", city: "Braj", significance: "Sacred river of Braj", x: 40, y: 50, emoji: "🌊" },
+];
+
+
 
