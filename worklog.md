@@ -1529,3 +1529,89 @@ Task: Update logo to RK Properties image, hide admin from website, make master a
 - ✅ Google Maps iframe in both Explore Braj Dham section AND project pages
 - ✅ Admin projects CRUD connected to project pages (same API, real-time updates)
 - ✅ No runtime errors in dev.log
+
+---
+Task ID: 20 (Round 14 — Fix admin live updates, separate project pages, Media Library, detailed editing)
+Agent: main (user request)
+Task: Fix admin changes not reflecting live, fix project click scrolling instead of opening page, add Media Library, enhance admin editing
+
+## User Complaints Fixed
+1. "ADMIN MEIN JO BHI CHANGE KAR RAHA HUN LIVE PR NAHI HO RAHA" → Fixed query invalidation
+2. "MASTER ADMIN KO THODA AUR DETAILED BANAO" → Added 8+ new editable fields
+3. "MEDIA LIBRARY ADD KRO MASTER TAKI IMAGES BHI CHANGE KAR PAU" → Created Media Library module
+4. "PAGES PR CLICK KAR RAHA HUN TOH HOME PR HI PAGES LEKAR JA RAHE HAIN" → Fixed: all project clicks now open separate page
+5. "PROJECTS PR CLICK KAR RAHA HUN TOH NICHE LEKAR CHALA GAYA" → Fixed: replaced old modal with full-page view
+
+## Work Completed
+
+### 1. Fixed: Admin Changes Not Reflecting Live
+- Root cause: Admin was invalidating `["admin-projects"]` and `["projects"]` but NOT `["project-detail"]`, `["project-page"]`, `["dashboard"]`
+- Fix: Added invalidation for ALL related query keys:
+  - `["admin-projects"]` — admin list
+  - `["projects"]` — public site project cards
+  - `["project-detail"]` — old project detail modal
+  - `["project-page"]` — new full-page project view
+  - `["dashboard"]` — admin dashboard stats
+  - `["blog-preview"]` — blog section
+- Toast now says "Live site updated!" to confirm
+- Verified: Edited project name → "Bankey Bihari Orchid - TEST EDIT" → instantly appeared on live site
+
+### 2. Fixed: Project Clicks Open Separate Page (Not Scroll)
+- Root cause: Many components still called `setSelectedProjectSlug(slug)` (opens old modal dialog) instead of `openProjectPage(slug)` (opens new full-page view)
+- Also: Old `ProjectDetailModal` was still rendered alongside `ProjectPageView`
+- Fix:
+  - Replaced ALL `setSelectedProjectSlug` calls with `openProjectPage` in: plot-recommendation, spiritual-quiz, virtual-tour, comparison-modal, footer, projects-showcase
+  - Removed `ProjectDetailModal` from luxury-site.tsx rendering
+  - Now ALL project clicks (from cards, quiz results, comparison, virtual tour, recommendation) open the full separate page
+
+### 3. Added: Media Library Module
+- New admin module: `src/components/admin/modules/media-library.tsx`
+- Added to admin sidebar between "Content" and "Analytics"
+- Features:
+  - Grid of all available images (10 images: hero, projects, temples, logo)
+  - Category filters: All, Hero, Township, Project, Temple, Brand
+  - Search by name or path
+  - Copy path button (clipboard) — paste into project "Hero Image URL" field
+  - "Add Image by URL" — save any web image URL for use in projects
+  - Image preview thumbnails
+  - "How to use" instructions card
+
+### 4. Enhanced: Master Admin Project Editing (8+ New Fields)
+- Added to project edit form:
+  1. **Possession Date** — text field (e.g., "Dec 2027")
+  2. **Latitude** — number (for Google Maps in project page)
+  3. **Longitude** — number (for Google Maps in project page)
+  4. **Hero Image URL** — text field (change main project photo)
+  5. **Long Description** — textarea (full detailed text for project page)
+  6. **Short Description** — textarea (for project cards)
+  7. **USP** — textarea (Unique Selling Proposition)
+  8. **Published** checkbox (toggle visibility on site)
+  9. **Featured** checkbox (show "Featured" badge)
+- Updated `emptyForm` to include `longDescription`, `latitude`, `longitude`
+- Updated save mutation to convert lat/lng to numbers
+- Every word in every field is editable — name, tagline, location, description, amenities, USP, etc.
+
+## Files Modified
+- MODIFIED: src/components/admin/modules/projects.tsx (8+ new form fields, query invalidation fix, lat/lng in save)
+- MODIFIED: src/components/site/luxury-site.tsx (removed ProjectDetailModal rendering)
+- MODIFIED: src/components/site/projects-showcase.tsx (removed unused setSelectedProjectSlug)
+- MODIFIED: src/components/site/plot-recommendation.tsx (openProjectPage instead of setSelectedProjectSlug)
+- MODIFIED: src/components/site/spiritual-quiz.tsx (openProjectPage)
+- MODIFIED: src/components/site/virtual-tour.tsx (openProjectPage)
+- MODIFIED: src/components/site/comparison-modal.tsx (openProjectPage)
+- MODIFIED: src/components/site/footer.tsx (openProjectPage)
+- MODIFIED: src/components/admin/admin-sidebar.tsx (added Media Library nav item + ImageIcon import)
+- MODIFIED: src/components/admin/admin-panel.tsx (added MediaLibrary import + case + title)
+
+## NEW Files
+- NEW: src/components/admin/modules/media-library.tsx (full media library with image grid, search, copy, URL upload)
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ Site loads HTTP 200
+- ✅ Project click opens SEPARATE FULL PAGE (not scroll) — "Back to Home" button, gallery, Google Map, etc.
+- ✅ Admin edit → Save → "Live site updated!" toast → change appears on live site INSTANTLY
+- ✅ Enhanced edit form shows all fields: Name, Tagline, Location, Possession, Lat/Lng, Hero Image URL, USP, Short + Long Description, Published/Featured checkboxes
+- ✅ Media Library module accessible in admin sidebar — shows image grid, copy path, add URL
+- ✅ Google Maps iframe shows in both Explore Braj Dham section AND individual project pages
+- ✅ No runtime errors in dev.log

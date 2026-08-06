@@ -8,7 +8,7 @@ import { LotusLogo } from "@/components/shared/brand";
 import { toast } from "sonner";
 
 export function Footer() {
-  const { toggleView, setSelectedProjectSlug } = useApp();
+  const { toggleView, openProjectPage } = useApp();
 
   const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();

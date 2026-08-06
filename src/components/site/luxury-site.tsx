@@ -54,6 +54,7 @@ import { Footer } from "./footer";
 import { WhatsappFab } from "./whatsapp-fab";
 import { Chatbot } from "./chatbot";
 import { ProjectDetailModal } from "./project-detail-modal";
+// ProjectDetailModal is replaced by ProjectPageView — keeping import for backward compat but not rendering
 import { LeadFormModal } from "./lead-form-modal";
 import { BookingModal } from "./booking-modal";
 import { ComparisonModal, ComparisonBar } from "./comparison-modal";
@@ -133,7 +134,7 @@ export function LuxurySite() {
       <Footer />
       <WhatsappFab />
       <Chatbot />
-      <ProjectDetailModal />
+      {/* Old ProjectDetailModal removed — replaced by ProjectPageView */}
       <LeadFormModal />
       <BookingModal />
       <ComparisonModal />

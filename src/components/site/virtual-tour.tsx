@@ -206,7 +206,7 @@ export function VirtualTourModal() {
                   size="sm"
                   onClick={() => {
                     closeTour();
-                    useApp.getState().setSelectedProjectSlug(project.slug);
+                    useApp.getState().openProjectPage(project.slug);
                   }}
                   className="border-gold/30 text-indigo-deep hover:bg-gold/10"
                 >

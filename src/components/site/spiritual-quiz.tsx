@@ -13,7 +13,7 @@ import { ChevronRight, RotateCcw, Sparkles, MapPin, ArrowRight, Check } from "lu
 type Phase = "intro" | "quiz" | "result";
 
 export function SpiritualQuiz() {
-  const { setSelectedProjectSlug, openLeadForm } = useApp();
+  const { openProjectPage, openLeadForm } = useApp();
   const [phase, setPhase] = useState<Phase>("intro");
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -241,7 +241,7 @@ export function SpiritualQuiz() {
                       {/* CTAs */}
                       <div className="flex flex-col sm:flex-row gap-2">
                         <Button
-                          onClick={() => setSelectedProjectSlug(projectSlug)}
+                          onClick={() => openProjectPage(projectSlug)}
                           className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-11"
                         >
                           <MapPin className="w-4 h-4 mr-2" />

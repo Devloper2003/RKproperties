@@ -16,6 +16,7 @@ import {
   LogOut,
   Menu,
   ExternalLink,
+  Image as ImageIcon,
 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { LotusLogo } from "@/components/shared/brand";
@@ -27,6 +28,7 @@ const NAV = [
   { id: "leads", label: "Lead Pipeline", icon: Users },
   { id: "bookings", label: "Bookings", icon: CalendarCheck },
   { id: "content", label: "Content", icon: FileText },
+  { id: "media", label: "Media Library", icon: ImageIcon },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
   { id: "reports", label: "Reports", icon: FileBarChart },
   { id: "settings", label: "Settings", icon: Settings },

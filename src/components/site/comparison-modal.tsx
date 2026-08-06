@@ -208,7 +208,7 @@ export function ComparisonModal() {
                           <Button
                             size="sm"
                             onClick={() => {
-                              useApp.getState().setSelectedProjectSlug(p.slug);
+                              useApp.getState().openProjectPage(p.slug);
                               setCompareOpen(false);
                             }}
                             className="w-full gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-8 text-xs"

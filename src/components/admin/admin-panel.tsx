@@ -9,6 +9,7 @@ import { Plots } from "./modules/plots";
 import { Leads } from "./modules/leads";
 import { Bookings } from "./modules/bookings";
 import { Content } from "./modules/content";
+import { MediaLibrary } from "./modules/media-library";
 import { Analytics } from "./modules/analytics";
 import { Reports } from "./modules/reports";
 import { Settings } from "./modules/settings";
@@ -22,6 +23,7 @@ const MODULE_TITLES: Record<string, { title: string; subtitle: string }> = {
   leads: { title: "Lead Pipeline", subtitle: "CRM — nurture devotees to residents" },
   bookings: { title: "Bookings", subtitle: "Track plot reservations and payments" },
   content: { title: "Content", subtitle: "Blog, testimonials, temples & team" },
+  media: { title: "Media Library", subtitle: "Manage all images — copy paths for projects" },
   analytics: { title: "Analytics", subtitle: "Business intelligence & insights" },
   reports: { title: "Reports", subtitle: "Generate and export business reports" },
   settings: { title: "Settings", subtitle: "Site configuration & preferences" },
@@ -44,6 +46,7 @@ export function AdminPanel() {
       case "leads": return <Leads />;
       case "bookings": return <Bookings />;
       case "content": return <Content />;
+      case "media": return <MediaLibrary />;
       case "analytics": return <Analytics />;
       case "reports": return <Reports />;
       case "settings": return <Settings />;

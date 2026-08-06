@@ -14,7 +14,7 @@ import { RECOMMENDATION_CRITERIA, formatINR, type Project } from "@/lib/types";
 import { toast } from "sonner";
 
 export function PlotRecommendation() {
-  const { setSelectedProjectSlug, openLeadForm } = useApp();
+  const { openProjectPage, openLeadForm } = useApp();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showResult, setShowResult] = useState(false);
@@ -240,7 +240,7 @@ export function PlotRecommendation() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button
                       onClick={() => {
-                        setSelectedProjectSlug(topMatch.project.slug);
+                        openProjectPage(topMatch.project.slug);
                         toast.success(`Opening ${topMatch.project.name} details...`);
                       }}
                       className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-12"

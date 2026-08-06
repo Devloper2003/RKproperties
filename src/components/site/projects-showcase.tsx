@@ -11,7 +11,6 @@ import { useApp } from "@/lib/store";
 import { formatINR, PROJECT_STATUS_LABELS, type Project } from "@/lib/types";
 
 export function ProjectsShowcase() {
-  const setSelectedProjectSlug = useApp((s) => s.setSelectedProjectSlug);
   const openProjectPage = useApp((s) => s.openProjectPage);
   const openLeadForm = useApp((s) => s.openLeadForm);
   const toggleCompare = useApp((s) => s.toggleCompare);
