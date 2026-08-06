@@ -40,6 +40,9 @@ import { PlotRecommendation } from "./plot-recommendation";
 import { KrishnaStories } from "./krishna-stories";
 import { NewsletterSignup } from "./newsletter-signup";
 import { VastuConsultationModal } from "./vastu-consultation-modal";
+import { PilgrimagePlanner } from "./pilgrimage-planner";
+import { SatsangSchedule } from "./satsang-schedule";
+import { MantraLibrary } from "./mantra-library";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -102,12 +105,15 @@ export function LuxurySite() {
         <ReferralProgram />
         <CommunityPortal />
         <BhajanPlayer />
+        <MantraLibrary />
         <KrishnaNamesCounter />
         <BrajCalendar />
         <BrajWeather />
         <SankalpSection />
         <SadhanaTracker />
         <DarshanGuide />
+        <PilgrimagePlanner />
+        <SatsangSchedule />
         <BrajRecipes />
         <ConstructionProgress />
         <KrishnaStories />

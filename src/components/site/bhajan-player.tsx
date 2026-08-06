@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Play, Pause, SkipForward, SkipBack, Volume2, Music, X } from "lucide-react";
 import { SectionHeading } from "./section-heading";
-import { BRAJ_BHAJANS } from "@/lib/types";
+import { BRAJ_BHAJANS, BHAJAN_LYRICS } from "@/lib/types";
 
 export function BhajanPlayer() {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -164,6 +164,52 @@ export function BhajanPlayer() {
             );
           })}
         </div>
+
+        {/* Lyrics display for current bhajan */}
+        {showPlayer && BHAJAN_LYRICS[bhajan.title] && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6"
+          >
+            <Card className="bg-cream/5 backdrop-blur-sm border-gold/25 rounded-2xl">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <Music className="w-4 h-4 text-gold" />
+                  <span className="text-xs uppercase tracking-[0.25em] text-gold">Lyrics</span>
+                  <span className="text-xs text-cream/60 ml-auto">Now playing: {bhajan.title}</span>
+                </div>
+
+                <div className="space-y-4">
+                  {BHAJAN_LYRICS[bhajan.title].map((verse, vi) => (
+                    <motion.div
+                      key={vi}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: vi * 0.15 }}
+                      className="p-4 rounded-xl bg-cream/5 border border-gold/10"
+                    >
+                      {verse.lines.map((line, li) => (
+                        <p key={li} className="font-devanagari text-base sm:text-lg text-cream leading-relaxed text-center mb-1">
+                          {line}
+                        </p>
+                      ))}
+                      <p className="text-[11px] text-cream/50 italic mt-2 text-center">
+                        {verse.translation}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="mt-4 p-3 rounded-lg bg-gold/10 border border-gold/20 text-center">
+                  <p className="text-xs text-cream/70 italic">
+                    🎵 Sing along with devotion. The Sanskrit syllables carry spiritual potency — each sound vibration purifies the heart.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
 
         <p className="text-center text-xs text-cream/40 mt-6">
           📻 Demo player — in production, these would stream actual bhajan recordings

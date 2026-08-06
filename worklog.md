@@ -1116,3 +1116,119 @@ Site now has **50 sections** (was 47):
 8. Add a "Braj Pilgrimage Planner" — multi-day itinerary generator
 9. Add a "Satsang Schedule" — weekly community satsang timings & RSVP
 10. Add a "Spiritual Shop" — purchase prasad, malas, deity photos, books
+
+---
+Task ID: 16 (Round 10 — Pilgrimage Planner, Satsang Schedule, Mantra Library, Bhajan Lyrics)
+Agent: main (cron webDevReview)
+Task: QA, add Braj pilgrimage planner, satsang schedule, Krishna mantra library, bhajan lyrics display
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server running, lint clean, all APIs returning 200
+- 50 site sections + 9 admin modules all functional (from rounds 1-9)
+- No bugs found during QA — proceeded to new feature development
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all 50 existing sections render
+- ✅ Admin login → dashboard → all 9 modules functional
+- ✅ Lint clean, no runtime errors in dev.log
+
+### New Features Added (3 components + 1 enhancement)
+
+1. **Braj Pilgrimage Planner** (`pilgrimage-planner.tsx`)
+   - 4 duration options: 1 Day (Divine), 2 Days (Weekend), 3 Days (Trilogy), 7 Days (Saptaah)
+   - Intensity levels: Relaxed, Moderate, Intensive
+   - Detailed day-by-day itineraries with morning/afternoon/evening temple visits
+   - Each time slot: temple name, activity, timing
+   - Daily tips (e.g., "Nidhivan closes at sunset", "Janmabhoomi strict security")
+   - 7-day itinerary covers: Vrindavan, Mathura, Gokul, Govardhan, Barsana, Nandgaon
+   - PDF download button (mock), WhatsApp planning CTA
+   - Animated transitions between day selections
+
+2. **Satsang Schedule** (`satsang-schedule.tsx`)
+   - 7 weekly sessions: Monday Kirtan, Tuesday Gita Path, Wednesday Bhajan Sandhya, Thursday Tulsi Puja & Japa, Friday Katha Discourse, Saturday Children Satsang, Sunday Feast & Kirtan
+   - Each session: day, time, type, venue, leader, capacity, fee, description, emoji
+   - RSVP toggle with toast confirmation + checkmark animation
+   - Stats footer: 7 Weekly Sessions, 100% Free, Your RSVPs count, 500+ Prasad Plates
+   - Day-coded badges (Monday=gold, Tuesday=temple-red, etc.)
+   - All sessions free and open to residents & visitors
+
+3. **Krishna Mantra Library** (`mantra-library.tsx`)
+   - 6 powerful mantras: Hare Krishna Maha Mantra, Pancha Tattva, Govindam Adi Purusham, Krishnashtakam, Radha Krishna Pranam, Damodarashtakam
+   - Each mantra: Sanskrit text, transliteration, purpose, target count, duration, difficulty, description
+   - Interactive counter with progress bar ("🕉️ Chant +1" button)
+   - Difficulty badges: Beginner, Intermediate, Advanced
+   - Mantra selector sidebar + detail card with Sanskrit + transliteration
+   - Navigation: Prev/Next + dot indicators
+   - Completion toast when target count reached
+   - Decorative floating ॐ symbols
+   - Tip about tulsi mala (108 beads)
+
+4. **Bhajan Lyrics Enhancement** (enhanced `bhajan-player.tsx`)
+   - Added lyrics display below bhajan grid
+   - Shows when a bhajan is playing (showPlayer = true)
+   - Sanskrit verses (Devanagari script) + English translation
+   - Lyrics for 6 bhajans: Achyutam Keshavam, Govind Bolo, Yashomati Maiya Se, Radhe Radhe Govind, Braj Bhumii Meri, Mero Mann Ram Ji
+   - Animated verse appearance (staggered)
+   - "Sing along with devotion" tip about sound vibration potency
+
+### Types Enhancements (types.ts)
+- PILGRIMAGE_DURATIONS: 4 durations with intensity levels
+- PILGRIMAGE_ITINERARIES: complete day-by-day schedules for 1, 2, 3, 7 days
+- SATSANG_SCHEDULE: 7 weekly sessions with full details
+- KRISHNA_MANTRAS: 6 mantras with Sanskrit/transliteration/purpose/count/difficulty
+- BHAJAN_LYRICS: lyrics + translations for 6 bhajans
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ Site loads HTTP 200
+- ✅ Pilgrimage Planner: 4 duration options render, 3-day itinerary shows Banke Bihari + ISKCON + Govardhan
+- ✅ Satsang Schedule: 7 sessions render, RSVP buttons work
+- ✅ Mantra Library: 6 mantras render, counter works, Sanskrit displays
+- ✅ Bhajan Lyrics: displays when bhajan playing (verified in code)
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/pilgrimage-planner.tsx
+- NEW: src/components/site/satsang-schedule.tsx
+- NEW: src/components/site/mantra-library.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added PilgrimagePlanner, SatsangSchedule, MantraLibrary sections)
+- MODIFIED: src/components/site/bhajan-player.tsx (added lyrics display + BHAJAN_LYRICS import)
+- MODIFIED: src/lib/types.ts (PILGRIMAGE_DURATIONS, PILGRIMAGE_ITINERARIES, SATSANG_SCHEDULE, KRISHNA_MANTRAS, BHAJAN_LYRICS)
+
+## Current Section Count
+Site now has **53 sections** (was 50):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. Spiritual Quiz 8. Projects Showcase 9. Virtual Tour
+10. Plot Explorer 11. Vastu Compass 12. Plot Recommendation 13. USPs
+14. Braj Dham Map 15. Township Map 16. Testimonials 17. Video Testimonials
+18. Trust Signals 19. Price Comparison 20. NRI Section 21. EMI Calculator
+22. ROI Calculator 23. Visit CTA 24. WhatsApp Flow 25. FAQ 26. Referral Program
+27. Community Portal 28. Bhajan Player (+ lyrics) 29. **Mantra Library** (new)
+30. 108 Names Counter 31. Braj Calendar 32. Braj Weather 33. Sankalp Section
+34. Sadhana Tracker 35. Darshan Guide 36. **Pilgrimage Planner** (new)
+37. **Satsang Schedule** (new) 38. Braj Recipes 39. Construction Progress
+40. Krishna Stories 41. Blog Preview 42. Newsletter Signup 43. Lead CTA 44. Footer
++ FABs + 11 modals + Language Toggle
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Pilgrimage itineraries are static templates (would need dynamic customization in production)
+- Minor: Satsang RSVP is client-side only (would need backend calendar integration in production)
+- Minor: Mantra counter doesn't produce audio (would need recorded mantra audio in production)
+- Minor: Bhajan lyrics appear only when playing (could add standalone lyrics view)
+
+## Priority Recommendations for Next Phase
+1. Integrate TRANSLATIONS into all components (hero title, buttons, etc.)
+2. Add Google Maps integration for real directions to each township
+3. Add resident testimonial video upload feature in community portal
+4. Add live chat history export feature in admin
+5. Add a "Spiritual Shop" — purchase prasad, malas, deity photos, books
+6. Add a "Braj Festival Calendar" with RSVP for residents
+7. Add a "Goshala" section — adopt/sponsor a sacred cow
+8. Add a "Krishna Quiz" — test knowledge of Krishna's leelas
+9. Add a "Braj Photo Gallery" — user-submitted Braj Dham photos
+10. Add a "Spiritual Birthday Calculator" — find your Krishna-linked tithi birthday

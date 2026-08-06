@@ -1146,6 +1146,229 @@ export const NEWSLETTER_SERIES: { day: number; subject: string; preview: string;
   { day: 14, subject: "Janmashtami in Braj — A Once-in-a-Lifetime Experience", preview: "Midnight abhishek, ras lila, prasad — celebrate Krishna's birthday where He was born.", category: "Festival" },
 ];
 
+// ===== Braj Pilgrimage Planner — itinerary templates =====
+export const PILGRIMAGE_DURATIONS: { days: number; title: string; subtitle: string; emoji: string; intensity: "relaxed" | "moderate" | "intensive" }[] = [
+  { days: 1, title: "Day Divine", subtitle: "Quick spiritual reset", emoji: "🌅", intensity: "relaxed" },
+  { days: 2, title: "Weekend Blessing", subtitle: "Saturday-Sunday Braj immersion", emoji: "Weekend", intensity: "moderate" },
+  { days: 3, title: "Sacred Trilogy", subtitle: "Vrindavan · Mathura · Govardhan", emoji: "🛕", intensity: "moderate" },
+  { days: 7, title: "Braj Saptaah", subtitle: "Complete Braj Dham immersion", emoji: "🕉️", intensity: "intensive" },
+];
+
+export const PILGRIMAGE_ITINERARIES: Record<number, { day: number; morning: { temple: string; activity: string; time: string }; afternoon: { temple: string; activity: string; time: string }; evening: { temple: string; activity: string; time: string }; tip: string }[]> = {
+  1: [
+    {
+      day: 1,
+      morning: { temple: "Banke Bihari Temple", activity: "Mangala darshan & aarti", time: "7:45 AM" },
+      afternoon: { temple: "Prem Mandir", activity: "Garden stroll & light show prep", time: "4:00 PM" },
+      evening: { temple: "ISKCON Temple", activity: "Sandhya aarti & kirtan", time: "6:30 PM" },
+      tip: "Start early to avoid crowds. Carry a reusable water bottle.",
+    },
+  ],
+  2: [
+    {
+      day: 1,
+      morning: { temple: "Banke Bihari Temple", activity: "Morning darshan", time: "8:00 AM" },
+      afternoon: { temple: "Seva Kunj & Nidhivan", activity: "Sacred grove visit", time: "3:00 PM" },
+      evening: { temple: "Prem Mandir", activity: "Light & sound show", time: "7:30 PM" },
+      tip: "Nidhivan closes at sunset — no one allowed after dark. Legend says Krishna comes nightly.",
+    },
+    {
+      day: 2,
+      morning: { temple: "Krishna Janmabhoomi", activity: "Birthplace darshan", time: "5:00 AM" },
+      afternoon: { temple: "Vishram Ghat", activity: "Yamuna aarti & boat ride", time: "4:00 PM" },
+      evening: { temple: "Dwarkadhish Temple", activity: "Evening aarti", time: "7:00 PM" },
+      tip: "Janmabhoomi has strict security — no phones, no bags. Carry only ID proof.",
+    },
+  ],
+  3: [
+    {
+      day: 1,
+      morning: { temple: "Banke Bihari Temple", activity: "Morning darshan", time: "7:45 AM" },
+      afternoon: { temple: "ISKCON Temple", activity: "Rajbhog aarti & prasad", time: "12:00 PM" },
+      evening: { temple: "Prem Mandir", activity: "Light show", time: "7:30 PM" },
+      tip: "Vrindavan day — wear comfortable shoes for temple hopping.",
+    },
+    {
+      day: 2,
+      morning: { temple: "Krishna Janmabhoomi", activity: "Birthplace darshan", time: "5:00 AM" },
+      afternoon: { temple: "Gokul & Raman Reti", activity: "Krishna's childhood spots", time: "2:00 PM" },
+      evening: { temple: "Vishram Ghat", activity: "Yamuna Sandhya aarti", time: "6:30 PM" },
+      tip: "Mathura day — visit Gokul for authentic Krishna childhood leela sites.",
+    },
+    {
+      day: 3,
+      morning: { temple: "Govardhan Hill", activity: "Start 21km parikrama", time: "Sunrise" },
+      afternoon: { temple: "Radha Kund & Kusum Sarovar", activity: "Sacred kund baths", time: "1:00 PM" },
+      evening: { temple: "Mansi Ganga", activity: "Evening aarti & rest", time: "6:00 PM" },
+      tip: "Govardhan parikrama is 21km — 4-5 hours walk. Start early, carry water, wear walking shoes.",
+    },
+  ],
+  7: [
+    {
+      day: 1,
+      morning: { temple: "Banke Bihari Temple", activity: "Arrival & first darshan", time: "8:00 AM" },
+      afternoon: { temple: "Loi Bazaar", activity: "Spiritual shopping & rest", time: "3:00 PM" },
+      evening: { temple: "Prem Mandir", activity: "Light show", time: "7:30 PM" },
+      tip: "Day 1: Settle in, acclimatize. Don't overdo it.",
+    },
+    {
+      day: 2,
+      morning: { temple: "ISKCON Temple", activity: "Mangala aarti (4:30 AM)", time: "4:30 AM" },
+      afternoon: { temple: "Seva Kunj & Nidhivan", activity: "Sacred groves", time: "2:00 PM" },
+      evening: { temple: "Banke Bihari", activity: "Sandhya darshan", time: "7:00 PM" },
+      tip: "Day 2: Deep Vrindavan immersion. ISKCON mangala at 4:30 AM is life-changing.",
+    },
+    {
+      day: 3,
+      morning: { temple: "Krishna Janmabhoomi", activity: "Birthplace darshan", time: "5:00 AM" },
+      afternoon: { temple: "Dwarkadhish Temple", activity: "Temple architecture tour", time: "2:00 PM" },
+      evening: { temple: "Vishram Ghat", activity: "Yamuna aarti", time: "6:30 PM" },
+      tip: "Day 3: Mathura exploration. Janmabhoomi requires ID proof.",
+    },
+    {
+      day: 4,
+      morning: { temple: "Gokul", activity: "Krishna's foster home", time: "8:00 AM" },
+      afternoon: { temple: "Raman Reti", activity: "Krishna's playground", time: "2:00 PM" },
+      evening: { temple: "Mahavan", activity: "Ancient temple visits", time: "5:00 PM" },
+      tip: "Day 4: Gokul — where Krishna grew up. Don't miss Raman Reti sand darshan.",
+    },
+    {
+      day: 5,
+      morning: { temple: "Govardhan Hill", activity: "Full parikrama (21km)", time: "Sunrise" },
+      afternoon: { temple: "Radha Kund", activity: "Sacred bath & meditation", time: "2:00 PM" },
+      evening: { temple: "Kusum Sarovar", activity: "Sunset meditation", time: "6:00 PM" },
+      tip: "Day 5: The big day — Govardhan parikrama. Most auspicious. Take it slow.",
+    },
+    {
+      day: 6,
+      morning: { temple: "Barsana", activity: "Radha's village & Shriji Temple", time: "8:00 AM" },
+      afternoon: { temple: "Nandgaon", activity: "Krishna's childhood home", time: "2:00 PM" },
+      evening: { temple: "Vrindavan", activity: "Return & rest", time: "6:00 PM" },
+      tip: "Day 6: Radha-Krishna's village tour. Barsana is Radha's birthplace — very sacred.",
+    },
+    {
+      day: 7,
+      morning: { temple: "Banke Bihari", activity: "Farewell darshan", time: "8:00 AM" },
+      afternoon: { temple: "Local markets", activity: "Souvenirs & prasad shopping", time: "2:00 PM" },
+      evening: { temple: "Departure", activity: "Carry blessings home", time: "—" },
+      tip: "Day 7: Farewell. Take Banke Bihari's blessings one last time before leaving Braj.",
+    },
+  ],
+};
+
+// ===== Satsang Schedule =====
+export const SATSANG_SCHEDULE: { day: string; time: string; type: string; temple: string; leader: string; capacity: string; fee: string; desc: string; emoji: string }[] = [
+  { day: "Monday", time: "6:00 AM - 7:30 AM", type: "Morning Kirtan", temple: "Township Temple Complex", leader: "Pandit Gopal Shastri", capacity: "50", fee: "Free", desc: "Start your week with divine kirtan. Open to all residents. Prasad served after.", emoji: "🌅" },
+  { day: "Tuesday", time: "5:30 PM - 7:00 PM", type: "Bhagavad Gita Path", temple: "Community Hall", leader: "Smt. Meera Devi", capacity: "30", fee: "Free", desc: "Chapter-by-chapter Gita reading with explanation. Perfect for spiritual seekers.", emoji: "📖" },
+  { day: "Wednesday", time: "7:00 PM - 8:30 PM", type: "Bhajan Sandhya", temple: "Township Temple Complex", leader: "Braj Bhajan Mandali", capacity: "100", fee: "Free", desc: "Evening of devotional bhajans. Musical instruments welcome. Tea & prasad.", emoji: "🎵" },
+  { day: "Thursday", time: "6:00 AM - 8:00 AM", type: "Tulsi Puja & Japa", temple: "Tulsi Garden", leader: "Self-led", capacity: "Unlimited", fee: "Free", desc: "Guruvar special — worship Tulsi Maharani and chant 16 rounds of Hare Krishna maha-mantra.", emoji: "🌿" },
+  { day: "Friday", time: "7:00 PM - 9:00 PM", type: "Katha & Discourse", temple: "Community Hall", leader: "Guest Speaker (rotating)", capacity: "80", fee: "Free", desc: "Spiritual discourse on Krishna's leelas. Guest speakers from ISKCON & local ashrams.", emoji: "🗣️" },
+  { day: "Saturday", time: "5:00 PM - 7:00 PM", type: "Children Satsang", temple: "Community Hall", leader: "Smt. Radha Rani", capacity: "40", fee: "Free", desc: "Special satsang for children — Krishna stories, bhajans, art & craft. Ages 4-12.", emoji: "🧒" },
+  { day: "Sunday", time: "10:00 AM - 1:00 PM", type: "Sunday Feast & Kirtan", temple: "Township Temple Complex", leader: "Community", capacity: "200", fee: "Free", desc: "Weekly community feast — free vegetarian meal, kirtan, spiritual discussion. All welcome.", emoji: "🍽️" },
+];
+
+// ===== Krishna Mantra Library =====
+export const KRISHNA_MANTRAS: { id: string; name: string; sanskrit: string; transliteration: string; purpose: string; count: number; duration: string; difficulty: string; desc: string; emoji: string }[] = [
+  {
+    id: "maha",
+    name: "Hare Krishna Maha Mantra",
+    sanskrit: "हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे, हरे राम हरे राम राम राम हरे हरे",
+    transliteration: "Hare Krishna Hare Krishna Krishna Krishna Hare Hare, Hare Rama Hare Rama Rama Rama Hare Hare",
+    purpose: "Spiritual liberation (moksha)",
+    count: 16,
+    duration: "2 hours",
+    difficulty: "Beginner",
+    desc: "The most powerful mantra in Kali Yuga. Chanted by ISKCON devotees worldwide. 16 rounds daily on tulsi mala is the standard practice.",
+    emoji: "📿",
+  },
+  {
+    id: "panchtattva",
+    name: "Pancha Tattva Mantra",
+    sanskrit: "श्री कृष्ण चैतन्य प्रभु नित्यानंद श्री अद्वैत गदाधर श्रीवसादि गौर भक्त वृंद",
+    transliteration: "Sri Krishna Chaitanya Prabhu Nityananda Sri Advaita Gadadhara Srivasadi Gaura Bhakta Vrinda",
+    purpose: "Before any kirtan or japa",
+    count: 3,
+    duration: "2 minutes",
+    difficulty: "Beginner",
+    desc: "Chanted before starting any kirtan or japa. Invokes the mercy of Chaitanya Mahaprabhu and His associates. Essential for all devotees.",
+    emoji: "🙏",
+  },
+  {
+    id: "govindam",
+    name: "Govindam Adi Purusham",
+    sanskrit: "गोविंदमादिपुरुषं तमहं भजामि",
+    transliteration: "Govindam Adi-purusham tam aham bhajami",
+    purpose: "Morning invocation",
+    count: 1,
+    duration: "5 minutes",
+    difficulty: "Beginner",
+    desc: "From Brahma Samhita. Sung at ISKCON temples worldwide during Mangala aarti (4:30 AM). Invokes Krishna as the Supreme Original Person.",
+    emoji: "🌅",
+  },
+  {
+    id: "krishna-ashtakam",
+    name: "Krishnashtakam",
+    sanskrit: "वस्त्रे विभाति विद्युद्वत् तवास्यं चारु हासितम्",
+    transliteration: "Vastre vibhati vidyudvat tasyam charu hasitam",
+    purpose: "Meditation on Krishna's form",
+    count: 1,
+    duration: "10 minutes",
+    difficulty: "Intermediate",
+    desc: "Eight verses glorifying Krishna's beautiful form. Recited during morning worship to fix the mind on Krishna's divine appearance.",
+    emoji: "✨",
+  },
+  {
+    id: "radha-krishna",
+    name: "Radha Krishna Pranam",
+    sanskrit: "राधे राधे गोविंदा, राधे राधे गोपाला",
+    transliteration: "Radhe Radhe Govinda, Radhe Radhe Gopala",
+    purpose: "Daily remembrance",
+    count: 108,
+    duration: "15 minutes",
+    difficulty: "Beginner",
+    desc: "Simple yet powerful mantra remembering Radha and Krishna. Common greeting in Braj — say 'Radhe Radhe' everywhere. 108 times = one mala round.",
+    emoji: "🌸",
+  },
+  {
+    id: "damodar",
+    name: "Damodarashtakam",
+    sanskrit: "नमामीश्वरं सचिदानंद रूपं लसत्कुंडलं गोकुले ब्रजमणि",
+    transliteration: "Namamishvaram sac-cid-ananda rupam lasat kundalam gokule bhrajamanam",
+    purpose: "Kartik month special",
+    count: 1,
+    duration: "10 minutes",
+    difficulty: "Intermediate",
+    desc: "Eight prayers to baby Krishna as Damodar (bound by Yashoda's love). Especially chanted during Kartik month (Oct-Nov) for immense spiritual merit.",
+    emoji: "🪔",
+  },
+];
+
+// ===== Bhajan Lyrics =====
+export const BHAJAN_LYRICS: Record<string, { lines: string[]; translation: string }[]> = {
+  "Achyutam Keshavam": [
+    { lines: ["अच्युतं केशवं रामानारायणं कृष्णं दामोदरं वासुदेवं हरिम्", "श्रीधरं माधवं गोपालो विष्णुम् जय यादवं श्रीवत्सांकं वरदम्"], translation: "I bow to Achyuta, Keshava, Rama, Narayana, Krishna, Damodara, Vasudeva, Hari, Sridhara, Madhava, Gopala, Vishnu — victory to Yadava, the bearer of Srivatsa mark, the boon-giver." },
+    { lines: ["कृष्णं गोविंदं गोपालं वरदम् जय यादवं श्रीवत्सांकं वरदम्"], translation: "Glory to Krishna, Govinda, Gopala — the boon-giver, the Yadava, the bearer of Srivatsa mark." },
+  ],
+  "Govind Bolo Hari Gopal Bolo": [
+    { lines: ["गोविंद बोलो हरि गोपाल बोलो", "राधा रमण हरि गोविंद बोलो"], translation: "Sing Govind! Sing Hari Gopal! Sing to Radha's beloved, Hari Govind!" },
+    { lines: ["हे गोपाल कृष्णा गोविंद गिरधर", "हे मधुसूदन मुरारी"], translation: "O Gopal Krishna, Govind Girdhar! O Madhusudan, Murari (slayer of Mura demon)!" },
+  ],
+  "Yashomati Maiya Se": [
+    { lines: ["यशोमती मैया से बोलो नंदलाला", "संग मेरे सखा गोकुल के बाला"], translation: "Tell mother Yashoda, O beloved Nandalal! With me are the boys of Gokul." },
+    { lines: ["माखन खायो नहीं मैया, मैंने तो भोला"], translation: "'Mother, I didn't eat the butter — I'm innocent!' says Krishna with butter on his face." },
+  ],
+  "Radhe Radhe Govind": [
+    { lines: ["राधे राधे गोविंद, राधे राधे गोपाला", "राधे राधे गोकुल के धनी, राधे राधे ब्रजलाला"], translation: "Radhe Radhe Govind, Radhe Radhe Gopala! Radhe Radhe Lord of Gokul, Radhe Radhe child of Braj!" },
+  ],
+  "Braj Bhumii Meri": [
+    { lines: ["ब्रज भूमि मेरी जन्म भूमि है", "यमुना के तीरे कृष्ण की लीला है"], translation: "Braj land is my birthplace. On Yamuna's banks, Krishna's divine play unfolds." },
+  ],
+  "Mero Mann Ram Ji": [
+    { lines: ["मेरो मन राम जी पठै घर आवो", "मैं तो हौं दासी तुम्हारी"], translation: "My mind calls out: 'O Ram, come home!' I am your humble servant." },
+  ],
+};
+
+
 
 
 
