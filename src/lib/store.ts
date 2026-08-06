@@ -66,6 +66,12 @@ interface AppState {
   tourProjectSlug: string | null;
   openTour: (slug: string) => void;
   closeTour: () => void;
+
+  // Real site visit booking
+  visitOpen: boolean;
+  visitProjectId?: string;
+  openVisit: (projectId?: string) => void;
+  closeVisit: () => void;
 }
 
 const WISHLIST_KEY = "braj_wishlist";
@@ -168,4 +174,10 @@ export const useApp = create<AppState>((set, get) => ({
   tourProjectSlug: null,
   openTour: (tourProjectSlug) => set({ tourOpen: true, tourProjectSlug }),
   closeTour: () => set({ tourOpen: false, tourProjectSlug: null }),
+
+  // Real site visit
+  visitOpen: false,
+  visitProjectId: undefined,
+  openVisit: (visitProjectId) => set({ visitOpen: true, visitProjectId }),
+  closeVisit: () => set({ visitOpen: false, visitProjectId: undefined }),
 }));

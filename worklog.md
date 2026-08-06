@@ -238,3 +238,145 @@ The BrajProperty.in platform was stable entering this round:
 8. Persist festival banner dismissal + comparison selections to localStorage
 9. Add more Krishna pastimes/lila content section for spiritual depth
 10. Enhance mobile responsiveness details (bottom nav, swipe gestures for tour)
+
+---
+Task ID: 9 (Round 3 — Spiritual Content, Site Visit Booking, Lead Scoring, SEO, More Blog Posts)
+Agent: main (cron webDevReview)
+Task: QA, add Krishna Lila section, WhatsApp flow viz, FAQ with schema.org, site visit calendar booking, lead scoring automation, 6 new blog posts, SEO enhancements
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server restarted successfully (was down at start)
+- Lint clean, all APIs returning 200
+- 24 site sections + 9 admin modules all functional (from rounds 1-2)
+- No bugs found during QA — proceeded to new feature development
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all 24 existing sections render
+- ✅ Dev server restarted cleanly
+- ✅ Lint clean, no runtime errors in dev.log
+
+### New Features Added (5 components + 2 enhancements)
+
+1. **Krishna Lila Section** (`krishna-lila.tsx`)
+   - Interactive showcase of 6 divine pastimes: Govardhan Lila, Ras Lila, Kaliya Daman, Janma Lila, Damodar Lila, Maharaas at Seva Kunj
+   - Left sidebar selector + right detail card with emoji, place, summary, spiritual lesson
+   - Dark spiritual-temple background with twinkling star decorations (twinkle animation)
+   - lotus-bloom entrance animation on emoji change
+   - Prev/Next navigation + dot indicators
+   - Each lila includes a "Spiritual Lesson" callout in gold-tinted box
+
+2. **WhatsApp Flow Visualization** (`whatsapp-flow.tsx`)
+   - 8-step timeline diagram (from PDF spec section 21): Welcome → Project Selection → Details → Price → Human Transfer → Cold Follow-up → Booking → Visit Reminder
+   - Alternating left/right zigzag layout with central vertical connecting line
+   - Each step: numbered node with icon, trigger, message type badge, chat bubble preview (green=auto, red=human), mode badge
+   - End node: "Lead converted → Booking confirmed 🎉"
+   - Stats footer: <30s response, 30% conversion, 1000+ msgs/day, 15% human handoff
+
+3. **FAQ Section with Schema.org** (`faq-section.tsx`)
+   - 10 comprehensive FAQs across 8 categories: Legal, Booking, NRI, Amenities, Investment, Visit, Payment, Construction
+   - Search box + category filter chips
+   - Accordion with smooth expand/collapse animation (ring-gold-glow on open)
+   - "Still have questions?" WhatsApp CTA card
+   - **Schema.org FAQPage structured data** injected via JSON-LD for SEO
+
+4. **Book a Real Site Visit** (`site-visit-modal.tsx` + `visit-cta-section.tsx`)
+   - New CTA section with 3 visit options: Physical Visit (complimentary pickup), Video Tour (WhatsApp live), NRI Virtual (dedicated advisor)
+   - 4-step booking modal: Date & Time → Visit Type → Details → Confirmed
+   - Calendar date picker (disables past dates + Sundays)
+   - 6 time slots (9 AM - 5 PM)
+   - Visit type selection with icons + descriptions
+   - Personal details form with pickup location (for physical visits)
+   - Confirmation screen with booking ID (VST-XXXXXX) + WhatsApp confirmation link
+   - Hero "Book a Site Visit" button now opens this modal (instead of lead form)
+
+5. **Lead Scoring Automation** (enhanced `/api/leads` POST)
+   - NRI auto-detection via timezone header (+15 points)
+   - Budget-based scoring: ₹20L+ → +25, ₹15-20L → +20, ₹10-15L → +15, ₹5-10L → +10
+   - Project interest (+5), email provided (+5)
+   - Intent keyword detection in notes (+8 for "book/visit/buy/invest/schedule/callback/urgent")
+   - Source quality scoring: whatsapp=20, walk-in=30, referral=25, ads=15, website=10
+   - Auto-stage assignment: score≥60 → "qualified", ≥35 → "contacted", else "new"
+   - Score capped at 100, returns scoring breakdown in API response meta
+   - Verified: test lead with budget ₹15-20L + email + ads source + intent notes = score 48 → auto-staged "contacted"
+
+### Content & SEO Enhancements
+
+6. **6 New Blog Posts** (total now 12)
+   - Krishna Janmashtami 2026 Celebration Guide
+   - Razorpay Secure Booking Guide
+   - Top 10 Temples Near Townships
+   - Why Gated Townships Beat Independent Plots
+   - Braj Dham Real Estate Market Report Q3 2026
+   - Building Your Dream Home: Construction Guidelines
+
+7. **Schema.org Structured Data**
+   - Organization schema (name, contact, address, sameAs social links) in layout head
+   - WebSite schema with SearchAction
+   - FAQPage schema in FAQ section
+   - Enhanced metadata: 12 keywords, OG image, Twitter card, robots config, canonical URL, locale en_IN
+
+8. **SEO Files**
+   - Updated `public/robots.txt` with sitemap reference + Disallow /api/ and /admin
+   - Created `public/sitemap.xml` with 9 URLs + image sitemap for hero
+
+### Types Enhancements (types.ts)
+- KRISHNA_LILAS: 6 pastimes with title/place/summary/lesson/emoji
+- FAQS: 10 questions with category
+- WHATSAPP_FLOW_STEPS: 8 steps from PDF spec section 21
+- LEAD_SCORING_SIGNALS: 12 scoring signals from PDF spec section 15
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200 (including enhanced /api/leads with scoring)
+- ✅ Krishna Lila: 6 pastimes render, selector + detail card work
+- ✅ WhatsApp Flow: all 8 steps + chat bubbles + stats render
+- ✅ FAQ: 10 questions across 8 categories, search + filter + accordion work
+- ✅ Site Visit: calendar date picker → time slots → visit type → details → confirmation flow verified
+- ✅ Lead scoring: test lead scored 48, auto-staged "contacted", breakdown returned
+- ✅ 12 blog posts confirmed via API
+- ✅ Schema.org JSON-LD in page source
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/krishna-lila.tsx
+- NEW: src/components/site/whatsapp-flow.tsx
+- NEW: src/components/site/faq-section.tsx
+- NEW: src/components/site/site-visit-modal.tsx
+- NEW: src/components/site/visit-cta-section.tsx
+- NEW: public/sitemap.xml
+- MODIFIED: src/components/site/luxury-site.tsx (added 5 new sections)
+- MODIFIED: src/components/site/hero.tsx (Book Site Visit → openVisit)
+- MODIFIED: src/lib/store.ts (added visitOpen/visitProjectId/openVisit/closeVisit)
+- MODIFIED: src/lib/types.ts (KRISHNA_LILAS, FAQS, WHATSAPP_FLOW_STEPS, LEAD_SCORING_SIGNALS)
+- MODIFIED: src/app/api/leads/route.ts (NRI detection + multi-signal scoring + auto-stage)
+- MODIFIED: src/app/layout.tsx (Organization + WebSite schema.org, enhanced metadata)
+- MODIFIED: prisma/seed.ts (6 new blog posts)
+- MODIFIED: public/robots.txt (sitemap ref + disallow rules)
+
+## Current Section Count
+Site now has **29 sections** (was 24):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. Projects Showcase 8. Virtual Tour 9. Plot Explorer
+10. USPs 11. Township Map 12. Testimonials 13. Trust Signals 14. NRI Section
+15. EMI Calculator 16. Visit CTA 17. WhatsApp Flow 18. FAQ 19. Blog Preview
+20. Lead CTA 21. Footer + FABs + 7 modals (Chatbot, Project Detail, Lead Form, Booking, Comparison, Wishlist, Virtual Tour, Site Visit)
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Lead scoring NRI detection relies on `x-vercel-ip-timezone` header (works in production, not in local dev — expected)
+- Minor: Site visit booking creates a lead but doesn't yet send real WhatsApp (would need WhatsApp Business API integration in production)
+
+## Priority Recommendations for Next Phase
+1. Add RealEstateListing schema.org to project detail modal (for project-specific SEO)
+2. Add lead activity timeline in admin (track scoring events over time)
+3. Add a "Spiritual Quiz" — help users find their ideal Braj city based on preferences
+4. Add price comparison vs local competitors in NRI section
+5. Add a residents' community portal (post-purchase: construction updates, document downloads, event RSVP)
+6. Add multi-language toggle (Hindi/English/Hinglish) for content
+7. Add a referral program section (existing residents refer new buyers)
+8. Add a "Braj Dham guide" interactive map with 50+ temples, ghats, parikrama routes
+9. Add video testimonials (embed YouTube shorts of resident stories)
+10. Add a ROI calculator (plot price + construction + 5-year appreciation projection)

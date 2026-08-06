@@ -6,6 +6,7 @@ import { FestivalBanner } from "./festival-banner";
 import { Hero } from "./hero";
 import { QuoteRotator } from "./quote-rotator";
 import { SacredLocations } from "./sacred-locations";
+import { KrishnaLilaSection } from "./krishna-lila";
 import { ProjectsShowcase } from "./projects-showcase";
 import { VirtualTourSection, VirtualTourModal } from "./virtual-tour";
 import { PlotExplorer } from "./plot-explorer";
@@ -15,6 +16,9 @@ import { Testimonials } from "./testimonials";
 import { TrustSignals } from "./trust-signals";
 import { NriSection } from "./nri-section";
 import { EmiCalculator } from "./emi-calculator";
+import { VisitCtaSection } from "./visit-cta-section";
+import { WhatsappFlow } from "./whatsapp-flow";
+import { FaqSection } from "./faq-section";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -26,6 +30,7 @@ import { BookingModal } from "./booking-modal";
 import { ComparisonModal, ComparisonBar } from "./comparison-modal";
 import { WishlistPanel } from "./wishlist-panel";
 import { ScrollProgress } from "./scroll-progress";
+import { SiteVisitModal } from "./site-visit-modal";
 import { useApp } from "@/lib/store";
 
 export function LuxurySite() {
@@ -52,6 +57,7 @@ export function LuxurySite() {
         <Hero />
         <QuoteRotator />
         <SacredLocations />
+        <KrishnaLilaSection />
         <ProjectsShowcase />
         <VirtualTourSection />
         <PlotExplorer />
@@ -61,6 +67,9 @@ export function LuxurySite() {
         <TrustSignals />
         <NriSection />
         <EmiCalculator />
+        <VisitCtaSection />
+        <WhatsappFlow />
+        <FaqSection />
         <BlogPreview />
         <LeadCta />
       </main>
@@ -74,6 +83,7 @@ export function LuxurySite() {
       <ComparisonBar />
       <WishlistPanel />
       <VirtualTourModal />
+      <SiteVisitModal />
     </div>
   );
 }

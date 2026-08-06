@@ -233,3 +233,132 @@ export const COMPARISON_DIMENSIONS: { key: string; label: string; icon: string }
   { key: "nearbyTemplesCount", label: "Nearby Temples", icon: "🛕" },
   { key: "usp", label: "USP", icon: "⭐" },
 ];
+
+// ===== Krishna Lila (Divine Pastimes) =====
+export const KRISHNA_LILAS: { title: string; place: string; summary: string; lesson: string; emoji: string }[] = [
+  {
+    title: "Govardhan Lila",
+    place: "Govardhan Hill",
+    summary: "When Indra sent devastating rains upon Braj, young Krishna lifted the entire Govardhan Hill on His little finger, sheltering all residents and cattle for seven days. Humiliated, Indra surrendered and worshipped Krishna as the Supreme.",
+    lesson: "Divine protection awaits those who surrender to the Supreme. Living near Govardhan is living under Krishna's lifted hand.",
+    emoji: "⛰️",
+  },
+  {
+    title: "Ras Lila",
+    place: "Vrindavan",
+    summary: "On a full moon autumn night, Krishna danced the Maha Raas with the Gopis by the banks of Yamuna. Each Gopi felt Krishna was dancing exclusively with her, yet He remained one — the supreme mystical union of devotee and Divine.",
+    lesson: "True devotion brings the experience of Krishna's intimate presence. Vrindavan remains forever the stage of this divine dance.",
+    emoji: "🌙",
+  },
+  {
+    title: "Kaliya Daman",
+    place: "Yamuna River, Vrindavan",
+    summary: "The poisonous serpent Kaliya had polluted the Yamuna, killing all life. Young Krishna jumped into the river, danced on Kaliya's multiple hoods, and subdued him — not to kill, but to grant him liberation and send him away purified.",
+    lesson: "Divine intervention purifies what is toxic. The Yamuna of Braj flows with the energy of this redemption.",
+    emoji: "🐍",
+  },
+  {
+    title: "Janma Lila",
+    place: "Mathura",
+    summary: "Born in a prison cell to Devaki and Vasudeva at midnight, Krishna was miraculously freed by divine will. The prison guards fell asleep, locks opened, and Vasudeva carried baby Krishna across the flooded Yamuna to safety in Gokul.",
+    lesson: "Where there is divine purpose, no prison can hold. Mathura is forever the birthplace of the eternal.",
+    emoji: "👶",
+  },
+  {
+    title: "Damodar Lila",
+    place: "Gokul",
+    summary: "Young Krishna was tied to a mortar by mother Yashoda for His playful mischief. Yet the mortar, dragged by Krishna, got stuck between two massive Arjuna trees — which Krishna uprooted with ease, liberating two celestial beings cursed to live as trees.",
+    lesson: "Even bound by maternal love, the Divine liberates souls. Devotion softens the heart of the infinite.",
+    emoji: "🪢",
+  },
+  {
+    title: "Maharaas at Seva Kunj",
+    place: "Seva Kunj, Vrindavan",
+    summary: "In the secluded grove of Seva Kunj, Krishna and Radha conducted the most intimate pastimes, served by countless devotees. Even today, devotees believe Krishna descends nightly to perform the eternal Raas here — no one is allowed after sunset.",
+    lesson: "Some pastimes are eternal, beyond time. The sacred groves of Vrindavan resonate with divine love perpetually.",
+    emoji: "🌳",
+  },
+];
+
+// ===== FAQ data =====
+export const FAQS: { question: string; answer: string; category: string }[] = [
+  {
+    question: "Are BrajProperty plots MVDA-approved?",
+    answer: "Yes, every BrajProperty township carries a valid MVDA (Mathura-Vrindavan Development Authority) approval number, verifiable on the official MVDA portal. This is the gold standard of legal security for property buyers in the Braj region, ensuring proper zoning, approved layouts, and legally binding infrastructure commitments.",
+    category: "Legal",
+  },
+  {
+    question: "What is the booking amount and is it refundable?",
+    answer: "The booking amount ranges from ₹10,000 to ₹50,000 depending on the project and plot size. It is 100% refundable within 48 hours of booking. After 48 hours, the amount is adjusted against the plot price. The booking blocks your chosen plot for 15 days while you complete documentation and payment.",
+    category: "Booking",
+  },
+  {
+    question: "Can NRIs buy plots in BrajProperty townships?",
+    answer: "Absolutely. Under FEMA regulations, NRIs and OCIs can purchase residential plots in India without special RBI approval. We provide complete NRI documentation assistance including Power of Attorney, foreign remittance tracking, FEMA compliance certificates, and repatriation guidance for up to 2 residential properties.",
+    category: "NRI",
+  },
+  {
+    question: "What amenities are included in the township?",
+    answer: "Amenities vary by project but typically include: temple complex, community hall, gardens with tulsi plantation, jogging track, children's play area, 24/7 security with CCTV, RFID gated entry, underground electrical wiring, rainwater harvesting, and 30-40% green belt coverage. Premium projects add clubhouse, swimming pool, goshala, organic farm, and amphitheater.",
+    category: "Amenities",
+  },
+  {
+    question: "What is the expected price appreciation?",
+    answer: "Based on historical data (2021-2026), Vrindavan premium plots have appreciated 22% annually on average — outperforming Mathura (18%) and Govardhan (20%). Key drivers: Delhi-Mumbai Expressway connectivity, upcoming Jewar International Airport (45 min away), 50M+ annual spiritual tourists, and the state government's pilgrimage infrastructure push. Projected 2027 appreciation: 25-30% for premium gated townships.",
+    category: "Investment",
+  },
+  {
+    question: "How do I schedule a site visit?",
+    answer: "You can schedule a site visit in three ways: (1) Use the 'Book Site Visit' button on any project page and pick a date; (2) WhatsApp us at +91 98370 12345 — we respond within 30 minutes; (3) Call us directly. We arrange complimentary pickup from Mathura/Vrindavan railway station for outstation visitors. Virtual video tours are also available for NRIs.",
+    category: "Visit",
+  },
+  {
+    question: "What documents will I receive after purchase?",
+    answer: "Post full payment, you receive: (1) Sale Deed registered with Sub-Registrar; (2) Mutation entry in revenue records; (3) MVDA completion certificate; (4) RERA registration documents; (5) Tax paid receipts; (6) Society/Association membership; (7) Possession letter with plot dimensions and boundaries; (8) Original title chain. All documents are also available digitally via your BrajProperty account.",
+    category: "Legal",
+  },
+  {
+    question: "Is financing available through banks?",
+    answer: "Yes, we have partnerships with leading banks (SBI, HDFC, ICICI, Axis) offering preferential home loan rates starting from 8.35% p.a. for plot + construction loans. Use our EMI calculator to estimate monthly payments. Our team assists with end-to-end loan documentation and bank coordination. Loans up to 80% of plot value are available subject to eligibility.",
+    category: "Payment",
+  },
+  {
+    question: "What happens if I want to cancel my booking?",
+    answer: "Cancellation policy: 100% refund within 48 hours of booking; 90% refund within 7 days (10% administrative charge); 75% refund within 15 days; after 15 days, the booking amount is forfeited as the plot was reserved exclusively for you. Refunds are processed within 7-10 working days to the original payment method.",
+    category: "Booking",
+  },
+  {
+    question: "Are the plots ready for construction immediately?",
+    answer: "For 'Selling' status projects (Orchid, Lotus Greens, Kunj), plots are ready for immediate construction with all infrastructure in place — internal roads, water, electricity, drainage. For 'Pre-Launch' projects (Dham), possession is as per the announced date (Dec 2027) with construction allowed post-possession. Construction guidelines and approved architects list are provided to all plot owners.",
+    category: "Construction",
+  },
+];
+
+// ===== WhatsApp Flow Steps (from PDF spec section 21) =====
+export const WHATSAPP_FLOW_STEPS: { step: number; trigger: string; type: string; content: string; mode: string }[] = [
+  { step: 1, trigger: "First WhatsApp click", type: "Template", content: "Namaste! Welcome to BrajProperty.in. How can I help you today?", mode: "Auto" },
+  { step: 2, trigger: "User responds 'project'", type: "Interactive List", content: "Which project: Orchid, Lotus Greens, Kunj, Dham?", mode: "Auto" },
+  { step: 3, trigger: "User selects project", type: "Rich Message", content: "Project details + brochure PDF + plot availability link", mode: "Auto" },
+  { step: 4, trigger: "User asks 'price'", type: "Calculator Template", content: "EMI calculator link + starting price info", mode: "Auto" },
+  { step: 5, trigger: "User asks complex query", type: "Transfer Notice", content: "Let me connect you with our property advisor...", mode: "Auto→Human" },
+  { step: 6, trigger: "Lead goes cold (48h)", type: "Follow-up Template", content: "Gentle check-in: 'Kya aapne decision liya?'", mode: "Auto (1x only)" },
+  { step: 7, trigger: "Booking initiated", type: "Confirmation Template", content: "Booking details + payment link + next steps", mode: "Auto" },
+  { step: 8, trigger: "Site visit scheduled", type: "Reminder Template", content: "Visit details + map link + contact info", mode: "Auto (1hr before)" },
+];
+
+// ===== Lead scoring signals (from PDF spec section 15) =====
+export const LEAD_SCORING_SIGNALS: { signal: string; points: number; trigger: string; type: string }[] = [
+  { signal: "Viewed project page", points: 5, trigger: "Page view event", type: "Auto" },
+  { signal: "Used EMI calculator", points: 10, trigger: "Calculator interaction", type: "Auto" },
+  { signal: "Submitted WhatsApp query", points: 20, trigger: "WhatsApp message received", type: "Auto" },
+  { signal: "Requested callback", points: 15, trigger: "Form submission", type: "Auto" },
+  { signal: "Viewed plot details (>30s)", points: 8, trigger: "Plot page view >30s", type: "Auto" },
+  { signal: "Downloaded brochure", points: 15, trigger: "PDF download event", type: "Auto" },
+  { signal: "Visited site physically", points: 30, trigger: "Sales person entry", type: "Manual" },
+  { signal: "Attended virtual tour", points: 20, trigger: "Tour completion event", type: "Auto" },
+  { signal: "Repeated visitor (3+ sessions)", points: 10, trigger: "Analytics event", type: "Auto" },
+  { signal: "NRI profile detected", points: 15, trigger: "Location/timezone data", type: "Auto" },
+  { signal: "Budget confirmed (verbal)", points: 25, trigger: "Sales person entry", type: "Manual" },
+  { signal: "Comparison page viewed", points: 12, trigger: "Comparison tool use", type: "Auto" },
+];
+

@@ -8,7 +8,7 @@ import { useApp } from "@/lib/store";
 import { MandalaSVG } from "@/components/shared/brand";
 
 export function Hero() {
-  const { openLeadForm } = useApp();
+  const { openLeadForm, openVisit } = useApp();
 
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -104,7 +104,7 @@ export function Hero() {
             <ChevronDown className="w-4 h-4 ml-2" />
           </Button>
           <Button
-            onClick={() => openLeadForm()}
+            onClick={() => openVisit()}
             size="lg"
             variant="outline"
             className="bg-cream/5 backdrop-blur-sm border-cream/40 text-cream hover:bg-cream/15 hover:text-gold font-medium text-base px-8 py-6 h-auto rounded-full"

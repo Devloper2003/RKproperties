@@ -370,6 +370,84 @@ const blogPosts = [
     author: "BrajProperty Insights Team",
     readTime: 9,
   },
+  {
+    title: "Krishna Janmashtami 2026: Complete Celebration Guide for Braj Dham",
+    slug: "krishna-janmashtami-2026-braj-dham-guide",
+    excerpt:
+      "Everything you need to know about celebrating Krishna Janmashtami 2026 in Vrindavan, Mathura, and Govardhan — temple timings, special events, and resident celebrations.",
+    content:
+      "Janmashtami in Braj Dham is unlike anywhere else on Earth. The celebrations begin at midnight (the hour of Krishna's appearance) with elaborate abhishek, aarti, and flower showers at every major temple. Banke Bihari Temple draws over 500,000 devotees for the midnight darshan. ISKCON Vrindavan hosts a 3-day festival with international devotees. Mathura's Krishna Janmabhoomi (the exact birthplace) performs a special abhishek at midnight. For BrajProperty residents, our township temples organize community celebrations with ras lila performances, prasad distribution, and children's fancy dress competitions. Plan your visit 2-3 months in advance — accommodation fills rapidly.",
+    featuredImage: "/images/temples/banke-bihari.png",
+    category: "spiritual",
+    tags: JSON.stringify(["Janmashtami", "Festival", "2026", "Guide"]),
+    author: "Spiritual Editorial Team",
+    readTime: 7,
+  },
+  {
+    title: "Razorpay Guide: How to Securely Book Your Plot Online",
+    slug: "razorpay-secure-plot-booking-guide",
+    excerpt:
+      "A step-by-step walkthrough of our Razorpay-powered booking flow — UPI, cards, net banking, EMI options, and security measures explained.",
+    content:
+      "Booking your plot online with BrajProperty is 100% secure via Razorpay (PCI DSS Level 1 certified). The 3-step flow: (1) Review plot summary and booking amount (₹10K-50K); (2) Enter your personal details; (3) Pay via UPI (GPay/PhonePe/Paytm), Credit/Debit card, Net Banking, or EMI (3/6/12 months for bookings above ₹30K). Your booking is confirmed instantly with a unique Booking ID, and the plot is reserved for 15 days. 18% GST applies on the booking amount. Full refund available within 48 hours. The booking amount is adjusted against your final plot price.",
+    featuredImage: "/images/township-aerial.png",
+    category: "guide",
+    tags: JSON.stringify(["Razorpay", "Payment", "Booking", "Security"]),
+    author: "BrajProperty Tech Team",
+    readTime: 5,
+  },
+  {
+    title: "Top 10 Temples to Visit Near Your BrajProperty Township",
+    slug: "top-10-temples-near-braj-property-townships",
+    excerpt:
+      "A curated guide to the 10 most sacred temples within walking distance or short drive from our Vrindavan, Mathura, and Govardhan townships.",
+    content:
+      "Living in a BrajProperty township means daily access to Braj's holiest shrines. From Bankey Bihari Orchid: Banke Bihari Temple (1.2 km), Krishna Janmabhoomi (3.5 km), Vishram Ghat (4 km). From Braj Lotus Greens: Govardhan Hill (0.8 km), Daan Ghati (2 km), Mansi Ganga (1.5 km). From Bankey Bihari Kunj: ISKCON Temple (0.5 km), Prem Mandir (1.2 km), Banke Bihari (3.8 km). From Bankey Bihari Dham: all Vrindavan temples within 5 km. Each temple has unique darshan timings, festival significance, and historical depth — we provide a complimentary temple guidebook to every plot owner.",
+    featuredImage: "/images/temples/iskcon.png",
+    category: "spiritual",
+    tags: JSON.stringify(["Temples", "Guide", "Nearby", "Braj"]),
+    author: "Spiritual Editorial Team",
+    readTime: 10,
+  },
+  {
+    title: "Why Gated Townships Beat Independent Plots in Braj",
+    slug: "gated-townships-vs-independent-plots-braj",
+    excerpt:
+      "Security, amenities, legal clarity, and community — 5 reasons why gated townships outperform independent plots in the Braj region.",
+    content:
+      "Independent plots in Braj often suffer from unclear titles, lack of infrastructure, and security concerns. Gated townships like ours solve all three: (1) Legal — MVDA-approved layouts with clear titles, no dispute risk; (2) Infrastructure — internal roads, underground drainage, water, electricity already in place; (3) Security — 24/7 CCTV, RFID gated entry, trained guards; (4) Amenities — temple complex, gardens, community hall, jogging track; (5) Community — like-minded spiritual seekers as neighbors, satsang groups, festival celebrations. The 15-20% premium over independent plots is recovered within 2 years through faster appreciation and hassle-free living.",
+    featuredImage: "/images/projects/bankey-bihari-dham.png",
+    category: "investment",
+    tags: JSON.stringify(["Gated", "Township", "Comparison", "Investment"]),
+    author: "BrajProperty Insights Team",
+    readTime: 6,
+  },
+  {
+    title: "Braj Dham Real Estate Market Report Q3 2026",
+    slug: "braj-dham-real-estate-market-report-q3-2026",
+    excerpt:
+      "Quarterly market analysis: price trends, demand drivers, new launches, and investment outlook for Vrindavan, Mathura, and Govardhan.",
+    content:
+      "Q3 2026 Braj real estate update: Vrindavan premium gated plots up 8.2% QoQ, Mathura +6.7%, Govardhan +7.1%. Key demand drivers: Jewar Airport construction ahead of schedule (45% complete), Delhi-Mumbai Expressway second lane opened, spiritual tourism recovery to 92% of pre-COVID peak. NRI inquiries up 34% YoY, particularly from US/Gulf markets. MVDA approved 7 new projects this quarter (vs 4 in Q3 2025). Supply remains constrained in premium segment — only 3,200 plots available across all MVDA-approved gated townships. Outlook: 25-30% annual appreciation expected to continue through 2027. BrajProperty Dham pre-launch oversubscribed 2.3x.",
+    featuredImage: "/images/township-aerial.png",
+    category: "market-news",
+    tags: JSON.stringify(["Market Report", "Q3 2026", "Trends", "Analysis"]),
+    author: "BrajProperty Insights Team",
+    readTime: 11,
+  },
+  {
+    title: "Building Your Dream Home: Construction Guidelines for Braj Plots",
+    slug: "building-dream-home-construction-guidelines-braj",
+    excerpt:
+      "Everything you need to know about constructing on your BrajProperty plot — approvals, architects, Vastu, timelines, and costs.",
+    content:
+      "Once you own a BrajProperty plot, construction is straightforward with our guidance. Step 1: Obtain MVDA building sanction (we assist with paperwork, 30-45 days). Step 2: Choose from our approved architects panel (familiar with Braj aesthetic + Vastu compliance). Step 3: Vastu considerations — east/north facing plots preferred, temple/pooja room in north-east, kitchen in south-east. Step 4: Construction cost ₹1,500-2,200 per sq.ft. depending on finishes. Step 5: Timeline 8-12 months for a 2BHK villa. We provide approved contractor lists, material suppliers with negotiated rates, and project management support. Many residents rent out their homes during peak pilgrimage seasons (₹15K-25K/week).",
+    featuredImage: "/images/projects/braj-lotus-greens.png",
+    category: "guide",
+    tags: JSON.stringify(["Construction", "Vastu", "Building", "Guide"]),
+    author: "BrajProperty Construction Team",
+    readTime: 12,
+  },
 ];
 
 const temples = [
