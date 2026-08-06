@@ -701,6 +701,173 @@ export const PLOT_COMPARISON_DIMENSIONS: { key: string; label: string; icon: str
   { key: "pricePerSqyd", label: "₹/sq.yd", icon: "📉" },
 ];
 
+// ===== Krishna 108 Names (Ashtottara Shatanamavali) =====
+export const KRISHNA_108_NAMES: { sanskrit: string; transliteration: string; meaning: string }[] = [
+  { sanskrit: "ॐ श्री कृष्णाय नमः", transliteration: "Om Sri Krishnaya Namah", meaning: "Salutations to Lord Krishna" },
+  { sanskrit: "ॐ केशवाय नमः", transliteration: "Om Keshavaya Namah", meaning: "The one with beautiful hair" },
+  { sanskrit: "ॐ गोविंदाय नमः", transliteration: "Om Govindaya Namah", meaning: "Protector of cows" },
+  { sanskrit: "ॐ माधवाय नमः", transliteration: "Om Madhavaya Namah", meaning: "Lord of Lakshmi" },
+  { sanskrit: "ॐ नारायणाय नमः", transliteration: "Om Narayanaya Namah", meaning: "The refuge of all beings" },
+  { sanskrit: "ॐ विष्णवे नमः", transliteration: "Om Vishnave Namah", meaning: "The all-pervading one" },
+  { sanskrit: "ॐ मधुसूदनाय नमः", transliteration: "Om Madhusudanaya Namah", meaning: "Slayer of demon Madhu" },
+  { sanskrit: "ॐ त्रिविक्रमाय नमः", transliteration: "Om Trivikramaya Namah", meaning: "Who measured the three worlds" },
+  { sanskrit: "ॐ श्रीधराय नमः", transliteration: "Om Sridharaya Namah", meaning: "Bearer of Sri (Lakshmi)" },
+  { sanskrit: "ॐ पद्मनाभाय नमः", transliteration: "Om Padmanabhaya Namah", meaning: "Lotus-navel Lord" },
+  { sanskrit: "ॐ दामोदराय नमः", transliteration: "Om Damodaraya Namah", meaning: "Bound by mother Yashoda's love" },
+  { sanskrit: "ॐ वासुदेवाय नमः", transliteration: "Om Vasudevaya Namah", meaning: "Son of Vasudeva" },
+  { sanskrit: "ॐ जनार्दनाय नमः", transliteration: "Om Janardanaya Namah", meaning: "Protector of people" },
+  { sanskrit: "ॐ हरये नमः", transliteration: "Om Haraye Namah", meaning: "The remover of sins" },
+  { sanskrit: "ॐ श्रीनिवासाय नमः", transliteration: "Om Srinivasaya Namah", meaning: "Abode of Sri" },
+  { sanskrit: "ॐ गोपालाय नमः", transliteration: "Om Gopalaya Namah", meaning: "Cowherd boy" },
+  { sanskrit: "ॐ मुरारये नमः", transliteration: "Om Muraraye Namah", meaning: "Enemy of demon Mura" },
+  { sanskrit: "ॐ अच्युताय नमः", transliteration: "Om Achyutaya Namah", meaning: "The infallible one" },
+];
+
+// ===== Braj Weather — Darshan suitability forecast =====
+export const BRAJ_WEATHER: { day: string; date: string; temp: string; condition: string; icon: string; darshan: "excellent" | "good" | "moderate" | "avoid"; darshanNote: string; crowd: string; bestTime: string }[] = [
+  { day: "Today", date: "Aug 6", temp: "32°C / 26°C", condition: "Partly Cloudy", icon: "⛅", darshan: "good", darshanNote: "Pleasant morning darshan. Carry umbrella for afternoon.", crowd: "Moderate", bestTime: "6-9 AM" },
+  { day: "Tomorrow", date: "Aug 7", temp: "34°C / 27°C", condition: "Sunny", icon: "☀️", darshan: "good", darshanNote: "Clear skies — excellent for outdoor parikrama. Hydrate well.", crowd: "Moderate", bestTime: "Sunrise & Sunset" },
+  { day: "Aug 8", date: "Aug 8", temp: "30°C / 25°C", condition: "Light Rain", icon: "🌧️", darshan: "moderate", darshanNote: "Light monsoon showers. Indoor temple darshan recommended. Avoid parikrama.", crowd: "Low", bestTime: "10 AM - 4 PM" },
+  { day: "Aug 9", date: "Aug 9", temp: "28°C / 24°C", condition: "Thunderstorm", icon: "⛈️", darshan: "avoid", darshanNote: "Heavy rain expected. Avoid outdoor activities. Virtual darshan available.", crowd: "Very Low", bestTime: "Indoor only" },
+  { day: "Aug 10", date: "Aug 10", temp: "31°C / 25°C", condition: "Cloudy", icon: "☁️", darshan: "excellent", darshanNote: "Post-rain freshness — most auspicious for Govardhan Parikrama. Cool breeze.", crowd: "High", bestTime: "Full day" },
+  { day: "Aug 11", date: "Aug 11", temp: "33°C / 26°C", condition: "Sunny", icon: "☀️", darshan: "good", darshanNote: "Bright and clear. Best for photography at Prem Mandir.", crowd: "High", bestTime: "Morning" },
+  { day: "Aug 12", date: "Aug 12", temp: "35°C / 28°C", condition: "Hot", icon: "🥵", darshan: "moderate", darshanNote: "Hot day — visit temples with AC. Carry water. Avoid noon parikrama.", crowd: "Low", bestTime: "After 5 PM" },
+];
+
+// ===== Braj Prasad Recipes =====
+export const BRAJ_RECIPES: { name: string; sanskrit: string; occasion: string; time: string; servings: string; difficulty: string; ingredients: string[]; steps: string[]; significance: string; emoji: string }[] = [
+  {
+    name: "Makhan Mishri",
+    sanskrit: "माखन मिश्री",
+    occasion: "Daily offering to Krishna",
+    time: "10 min",
+    servings: "4",
+    difficulty: "Easy",
+    ingredients: ["200g fresh white butter (makhan)", "100g rock sugar (mishri)", "4-5 tulsi leaves", "Pinch of cardamom powder"],
+    steps: [
+      "Take fresh churned white butter in a silver or brass bowl.",
+      "Crush rock sugar (mishri) into small pieces — do not powder completely.",
+      "Gently fold mishri into the butter — do not over-mix.",
+      "Add finely chopped tulsi leaves and cardamom powder.",
+      "Offer to Krishna with 'Om Namo Bhagavate Vasudevaya' mantra.",
+      "Distribute as prasad after 5 minutes.",
+    ],
+    significance: "Krishna's favorite — He stole butter (makhan) as a child in Gokul. This is the most beloved offering in Braj.",
+    emoji: "🧈",
+  },
+  {
+    name: "Panchamrit",
+    sanskrit: "पंचामृत",
+    occasion: "Abhishek & festivals",
+    time: "15 min",
+    servings: "10",
+    difficulty: "Easy",
+    ingredients: ["1 cup milk", "1/2 cup yogurt (dahi)", "1/2 cup ghee", "1/2 cup honey", "1/2 cup sugar or jaggery", "10-12 tulsi leaves", "Cardamom, saffron threads"],
+    steps: [
+      "Combine milk and yogurt in a silver bowl — whisk smooth.",
+      "Add melted ghee, honey, and sugar. Mix clockwise (pradakshina direction).",
+      "Crush cardamom and add with saffron threads.",
+      "Add tulsi leaves — they purify the mixture.",
+      "Chant 'Om Namo Bhagavate Vasudevaya' 108 times while preparing.",
+      "Use for abhishek of deity, then distribute as prasad.",
+    ],
+    significance: "The 'five nectars' — used for Krishna's abhishek on Janmashtami. Symbolizes the five elements and spiritual purity.",
+    emoji: "🥛",
+  },
+  {
+    name: "Charnamrit",
+    sanskrit: "चरणामृत",
+    occasion: "Daily temple darshan",
+    time: "5 min",
+    servings: "20",
+    difficulty: "Easy",
+    ingredients: ["2 cups water", "1 tbsp milk", "1 tsp honey", "2-3 tulsi leaves", "Cardamom powder", "Saffron threads"],
+    steps: [
+      "Boil water and cool to room temperature.",
+      "Add milk, honey, cardamom, and saffron.",
+      "Place tulsi leaves — represents purity.",
+      "Offer at deity's lotus feet (charan).",
+      "Collect and distribute in right hand cupped.",
+    ],
+    significance: "The 'nectar of the Lord's feet' — most sacred prasad. Sipped from cupped hand after darshan at every Braj temple.",
+    emoji: "💧",
+  },
+  {
+    name: "Panjiri",
+    sanskrit: "पंजीरी",
+    occasion: "Janmashtami special",
+    time: "30 min",
+    servings: "15",
+    difficulty: "Medium",
+    ingredients: ["2 cups whole wheat flour", "1 cup ghee", "1/2 cup powdered sugar", "1/4 cup almonds, cashews, raisins", "2 tbsp melon seeds", "1 tbsp fennel seeds", "1 tsp cardamom", "1/2 tsp nutmeg"],
+    steps: [
+      "Roast flour in ghee on low flame until golden and aromatic (15 min).",
+      "Cool slightly, then add powdered sugar.",
+      "Add chopped dry fruits, melon seeds, fennel.",
+      "Mix cardamom and nutmeg powders.",
+      "Store in airtight container. Offer to Krishna at midnight.",
+      "Distribute as Janmashtami prasad — believed to be Krishna's birthday feast.",
+    ],
+    significance: "Traditional Janmashtami prasad across Braj. Represents nourishment and is believed to have been prepared by Yashoda Maiya for baby Krishna.",
+    emoji: "🌰",
+  },
+];
+
+// ===== Multi-language content =====
+export const TRANSLATIONS = {
+  en: {
+    heroTitle: "Your Spiritual Home in Braj Dham",
+    heroSubtitle: "Premium MVDA-approved plotted townships in the sacred land of Krishna.",
+    bookNow: "Book Now",
+    exploreProjects: "Explore Projects",
+    bookSiteVisit: "Book a Site Visit",
+    namaste: "Namaste",
+    viewDetails: "View Details",
+    enquire: "Enquire",
+    compare: "Compare",
+    wishlist: "Wishlist",
+    learnMore: "Learn More",
+    getCallback: "Get Callback",
+    sendWishlist: "Send Wishlist to Advisor",
+    beginJourney: "Begin the Journey",
+  },
+  hi: {
+    heroTitle: "ब्रज धाम में आपका आध्यात्मिक घर",
+    heroSubtitle: "कृष्ण की पावन भूमि में प्रीमियम एमवीडीए-अनुमोदित प्लॉटेड टाउनशिप।",
+    bookNow: "अभी बुक करें",
+    exploreProjects: "प्रोजेक्ट्स देखें",
+    bookSiteVisit: "साइट विज़िट बुक करें",
+    namaste: "नमस्ते",
+    viewDetails: "विवरण देखें",
+    enquire: "पूछताछ",
+    compare: "तुलना करें",
+    wishlist: "पसंदीदा",
+    learnMore: "और जानें",
+    getCallback: "कॉलबैक पाएं",
+    sendWishlist: "सलाहकार को पसंदीदा भेजें",
+    beginJourney: "यात्रा शुरू करें",
+  },
+  hinglish: {
+    heroTitle: "Braj Dham mein aapka Spiritual Home",
+    heroSubtitle: "Premium MVDA-approved plotted townships Krishna ki sacred land mein.",
+    bookNow: "Abhi Book Karein",
+    exploreProjects: "Projects Dekhein",
+    bookSiteVisit: "Site Visit Book Karein",
+    namaste: "Namaste 🙏",
+    viewDetails: "Details Dekhein",
+    enquire: "Enquiry Karein",
+    compare: "Compare Karein",
+    wishlist: "Wishlist",
+    learnMore: "Aur Jaanein",
+    getCallback: "Callback Pao",
+    sendWishlist: "Advisor ko Wishlist Bhejein",
+    beginJourney: "Journey Shuru Karein",
+  },
+};
+
+export type Language = keyof typeof TRANSLATIONS;
+
+
 
 
 

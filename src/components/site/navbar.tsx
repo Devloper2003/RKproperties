@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import { useApp } from "@/lib/store";
 import { LotusLogo } from "@/components/shared/brand";
+import { LanguageToggle } from "./language-toggle";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -73,6 +74,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2">
+            <LanguageToggle light={!scrolled} />
             <a
               href="tel:+919837012345"
               className={`flex items-center gap-1.5 text-sm font-medium px-3 py-2 rounded-md transition-colors ${

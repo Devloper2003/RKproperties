@@ -79,6 +79,10 @@ interface AppState {
   isPlotComparing: (id: string) => boolean;
   plotCompareOpen: boolean;
   setPlotCompareOpen: (v: boolean) => void;
+
+  // Language
+  language: "en" | "hi" | "hinglish";
+  setLanguage: (lang: "en" | "hi" | "hinglish") => void;
 }
 
 const WISHLIST_KEY = "braj_wishlist";
@@ -205,4 +209,8 @@ export const useApp = create<AppState>((set, get) => ({
   isPlotComparing: (id) => get().comparePlotIds.includes(id),
   plotCompareOpen: false,
   setPlotCompareOpen: (plotCompareOpen) => set({ plotCompareOpen }),
+
+  // Language
+  language: "en",
+  setLanguage: (language) => set({ language }),
 }));

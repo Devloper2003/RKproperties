@@ -30,6 +30,9 @@ import { CommunityPortal } from "./community-portal";
 import { BhajanPlayer } from "./bhajan-player";
 import { BrajCalendar } from "./braj-calendar";
 import { SankalpSection } from "./sankalp-section";
+import { KrishnaNamesCounter } from "./krishna-names-counter";
+import { BrajWeather } from "./braj-weather";
+import { BrajRecipes } from "./braj-recipes";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -91,8 +94,11 @@ export function LuxurySite() {
         <ReferralProgram />
         <CommunityPortal />
         <BhajanPlayer />
+        <KrishnaNamesCounter />
         <BrajCalendar />
+        <BrajWeather />
         <SankalpSection />
+        <BrajRecipes />
         <BlogPreview />
         <LeadCta />
       </main>

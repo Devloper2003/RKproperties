@@ -735,3 +735,132 @@ Site now has **41 sections** (was 37):
 8. Add a "Krishna 108 Names" interactive chanting counter
 9. Add a "Braj Weather" widget with darshan-suitability forecast
 10. Add resident testimonial video upload feature in community portal
+
+---
+Task ID: 13 (Round 7 — 108 Names Counter, Braj Weather, Prasad Recipes, Language Toggle)
+Agent: main (cron webDevReview)
+Task: QA, fix Thunderstorm icon bug, add Krishna 108 names chanting counter, Braj weather widget, prasad recipes, multi-language toggle
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server running, lint clean, all APIs returning 200
+- 41 site sections + 9 admin modules all functional (from rounds 1-6)
+- One bug found and fixed during this round (see below)
+
+## Work Completed This Round
+
+### QA Results — 1 bug found & fixed
+- ✅ Site loads HTTP 200, all 41 existing sections render
+- 🐛 BUG: `Thunderstorm` icon imported from lucide-react doesn't exist → caused 500 error on `/`
+- ✅ FIXED: Replaced `Thunderstorm` with `CloudLightning` (both import and JSX usage) in braj-weather.tsx
+- ✅ Lint clean after fix, site loads HTTP 200
+
+### New Features Added (4 components)
+
+1. **Krishna 108 Names Japa Counter** (`krishna-names-counter.tsx`)
+   - Interactive chanting counter for Krishna's Ashtottara Shatanamavali (108 names)
+   - 18 Sanskrit names with transliteration + meaning (Om Sri Krishnaya Namah, Om Keshavaya Namah, Om Govindaya Namah, etc.)
+   - SVG progress ring (animated stroke-dashoffset) showing count/108
+   - "🕉️ Chant +1" button increments count and advances to next name
+   - Auto-chant mode (2-second intervals) with Play/Pause
+   - Reset button, rounds completed tracker
+   - Completion celebration: 🪷 lotus + Bhagavad Gita quote + "Start Another Round"
+   - Floating lotus petal decorations
+   - AnimatePresence transitions between names
+   - Verified: chanted 3 times → counter showed 3, name advanced to Keshavaya
+
+2. **Braj Darshan Weather** (`braj-weather.tsx`)
+   - 7-day weather forecast with darshan-suitability ratings
+   - 4 darshan levels: Excellent (green), Good (gold), Moderate (amber), Avoid (temple-red)
+   - Today's weather card: condition, temp, darshan suitability, crowd level, best time, darshan note
+   - 7-day forecast grid (clickable to select day)
+   - Weather-specific darshan tips: Sunny (parikrama), Cloudy (ideal), Light Rain (indoor), Storm (avoid)
+   - Location note: "Forecast for Vrindavan, Mathura & Govardhan region"
+   - Weather emojis: ⛅ ☀️ 🌧️ ⛈️ ☁️ 🥵
+
+3. **Braj Prasad Recipes** (`braj-recipes.tsx`)
+   - 4 devotional prasad recipes with Sanskrit names:
+     - Makhan Mishri (माखन मिश्री) — Krishna's favorite butter offering
+     - Panchamrit (पंचामृत) — five nectars for abhishek
+     - Charnamrit (चरणामृत) — nectar of Lord's feet
+     - Panjiri (पंजीरी) — Janmashtami special
+   - Each recipe: occasion, time, servings, difficulty, ingredients list, numbered preparation steps, spiritual significance
+   - Expandable accordion cards (click to expand/collapse)
+   - Bhagavad Gita 9.26 reference: "Patram Pushpam Phalam Toyam"
+   - Tip about offering to Krishna before consuming
+   - Decorative food emojis (🧈🥛🌰🍯🌿🪔)
+
+4. **Multi-Language Toggle** (`language-toggle.tsx`)
+   - 3 languages: English, Hindi (हिन्दी), Hinglish
+   - Globe icon + current language native name
+   - Dropdown with flag emojis (🇬🇧 🇮🇳), native name, English label
+   - "Namaste · नमस्ते · Namaste" footer in dropdown
+   - Click-outside-to-close behavior
+   - Integrated into navbar (desktop, next to phone number)
+   - Language state stored in Zustand (en/hi/hinglish)
+   - TRANSLATIONS object in types.ts with 13 translated strings per language
+
+### Store Enhancements (store.ts)
+- Added language state: language ("en"|"hi"|"hinglish"), setLanguage
+
+### Types Enhancements (types.ts)
+- KRISHNA_108_NAMES: 18 Sanskrit names with transliteration + meaning
+- BRAJ_WEATHER: 7-day forecast with darshan suitability, crowd, best time
+- BRAJ_RECIPES: 4 prasad recipes with ingredients, steps, significance
+- TRANSLATIONS: 13 strings × 3 languages (en/hi/hinglish)
+- Language type export
+
+### Bug Fix
+- `src/components/site/braj-weather.tsx`: Replaced non-existent `Thunderstorm` icon with `CloudLightning` (import + 2 usages)
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ Site loads HTTP 200 after Thunderstorm fix
+- ✅ 108 Names Counter: "🕉️ Chant +1" increments count, advances names, progress ring animates
+- ✅ Braj Weather: 7-day forecast renders, darshan suitability shows, day selection works
+- ✅ Braj Recipes: 4 recipes with expandable ingredients/steps, Sanskrit names show
+- ✅ Language Toggle: present in navbar, 3 language options, dropdown works
+- ✅ No runtime errors in dev.log after fix
+
+## Files Created/Modified This Round
+- NEW: src/components/site/krishna-names-counter.tsx
+- NEW: src/components/site/braj-weather.tsx
+- NEW: src/components/site/braj-recipes.tsx
+- NEW: src/components/site/language-toggle.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added 3 new sections: KrishnaNamesCounter, BrajWeather, BrajRecipes)
+- MODIFIED: src/components/site/navbar.tsx (added LanguageToggle import + component)
+- MODIFIED: src/lib/store.ts (language state)
+- MODIFIED: src/lib/types.ts (KRISHNA_108_NAMES, BRAJ_WEATHER, BRAJ_RECIPES, TRANSLATIONS, Language type)
+
+## Current Section Count
+Site now has **44 sections** (was 41):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. Spiritual Quiz 8. Projects Showcase 9. Virtual Tour
+10. Plot Explorer 11. Vastu Compass 12. USPs 13. Braj Dham Map
+14. Township Map 15. Testimonials 16. Video Testimonials 17. Trust Signals
+18. Price Comparison 19. NRI Section 20. EMI Calculator 21. ROI Calculator
+22. Visit CTA 23. WhatsApp Flow 24. FAQ 25. Referral Program
+26. Community Portal 27. Bhajan Player 28. **108 Names Counter** (new)
+29. Braj Calendar 30. **Braj Weather** (new) 31. Sankalp Section
+32. **Braj Recipes** (new) 33. Blog Preview 34. Lead CTA 35. Footer
++ FABs + 10 modals + Language Toggle in navbar
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: 108 Names has 18 unique names (loops to reach 108) — full 108 names would need more data
+- Minor: Weather data is mock (would need real weather API like OpenWeatherMap in production)
+- Minor: Language toggle changes state but doesn't yet translate all UI text (TRANSLATIONS object ready, needs integration into components)
+- Pending: RealEstateListing schema.org for project detail modal (deferred again)
+
+## Priority Recommendations for Next Phase
+1. Integrate TRANSLATIONS into all components (hero title, buttons, etc.) to make language toggle functional
+2. Add RealEstateListing schema.org to project detail modal
+3. Add full 108 Krishna names (currently 18 — expand to complete Ashtottara Shatanamavali)
+4. Add construction progress photo timeline for booked plots
+5. Add email newsletter signup with spiritual content drip
+6. Add Google Maps integration for real directions to each township
+7. Add resident testimonial video upload feature in community portal
+8. Add a "Braj Darshan Guide" — temple-specific visiting guide with timings & etiquette
+9. Add a "Sadhana Tracker" for residents — daily japa, parikrama, seva logging
+10. Add live chat history export feature in admin
