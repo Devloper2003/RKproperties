@@ -663,5 +663,44 @@ export const BRAJ_DHAM_PLACES: { name: string; type: string; city: string; signi
   { name: "Yamuna River", type: "River", city: "Braj", significance: "Sacred river of Braj", x: 40, y: 50, emoji: "🌊" },
 ];
 
+// ===== Braj Calendar — Tithi & Auspicious Timings =====
+export const BRAJ_CALENDAR: { date: string; tithi: string; event: string; temple: string; timing: string; type: "darshan" | "festival" | "fasting" | "auspicious"; description: string }[] = [
+  { date: "Today", tithi: "Ashtami", event: "Krishna Ashtami", temple: "Banke Bihari Temple", timing: "5:30 AM - 12:00 PM, 5:30 - 9:00 PM", type: "darshan", description: "Special shringar darshan of Banke Bihari. Ashtami is highly auspicious — Krishna appeared on Ashtami." },
+  { date: "Tomorrow", tithi: "Navami", event: "Radha Ashtami Vrata", temple: "ISKCON Temple", timing: "4:30 AM Mangala Aarti", type: "fasting", description: "Fasting day for devotees who observed Radha Ashtami. Break fast during 9:00-9:30 AM window." },
+  { date: "Aug 23", tithi: "Tritiya", event: "Hariyali Teej", temple: "All Temples", timing: "Full day celebration", type: "festival", description: "Monsoon festival celebrating Krishna's divine play. Women apply mehndi, swing on jhulas in temple courtyards." },
+  { date: "Aug 26", tithi: "Ashtami (Rohini)", event: "Krishna Janmashtami", temple: "Krishna Janmabhoomi", timing: "Midnight 12:00 AM (Abhishek)", type: "festival", description: "The most sacred day — Krishna's divine appearance. Midnight abhishek at Janmabhoomi. 500K+ devotees expected." },
+  { date: "Aug 27", tithi: "Navami", event: "Nandotsav", temple: "Nandgaon & all temples", timing: "Morning celebrations", type: "festival", description: "Celebration of Krishna's naming ceremony by Nanda Baba. Joyous festival with dance and prasad distribution." },
+  { date: "Sep 11", tithi: "Ashtami", event: "Radhashtami", temple: "Barsana & Vrindavan", timing: "Full day", type: "festival", description: "Appearance day of Radharani. Special darshan at Barsana (Radha's village) and all Vrindavan temples." },
+  { date: "Daily", tithi: "Varies", event: "Mangala Aarti", temple: "ISKCON Vrindavan", timing: "4:30 AM", type: "darshan", description: "Pre-dawn aarti — the most intimate darshan of the day. Limited to early risers. Spiritual energy at its peak." },
+  { date: "Daily", tithi: "Varies", event: "Sandhya Aarti", temple: "Vishram Ghat, Mathura", timing: "Sunset (6:30 PM)", type: "darshan", description: "Evening Yamuna aarti with floating diyas. Where Krishna rested after defeating Kansa. Free for all." },
+  { date: "Weekly", tithi: "Ekadashi", event: "Ekadashi Fasting", temple: "All temples", timing: "Sunrise to next sunrise", type: "fasting", description: "Bi-monthly Ekadashi fast — most auspicious day for Krishna devotees. Break fast on Dwadashi." },
+  { date: "Monthly", tithi: "Purnima", event: "Full Moon Parikrama", temple: "Govardhan Hill", timing: "Sunrise start (21 km)", type: "auspicious", description: "Full moon Govardhan Parikrama — most auspicious day for the 21km sacred walk. Lakhs of devotees participate." },
+];
+
+// ===== Sankalp options =====
+export const SANKALP_TYPES: { id: string; title: string; sanskrit: string; desc: string; emoji: string }[] = [
+  { id: "seva", title: "Community Seva", sanskrit: "सेवा", desc: "Pledge to serve the Braj community — volunteer at temple events, help elderly residents, organize cleanliness drives.", emoji: "🤝" },
+  { id: "sadhana", title: "Daily Sadhana", sanskrit: "साधना", desc: "Commit to daily spiritual practice — japa meditation, Bhagavad Gita reading, temple darshan.", emoji: "📿" },
+  { id: "go-seva", title: "Go Seva", sanskrit: "गो सेवा", desc: "Serve the sacred cows at our goshala — feed, groom, and care for Krishna's beloved cows.", emoji: "🐄" },
+  { id: "parikrama", title: "Monthly Parikrama", sanskrit: "परिक्रमा", desc: "Walk the sacred Govardhan or Vrindavan parikrama monthly — 21km spiritual journey.", emoji: "🚶" },
+  { id: "vridhi", title: "Tulsi Vridhi", sanskrit: "तुलसी वृद्धि", desc: "Plant and nurture Tulsi in your plot — the holiest plant, embodiment of Vrindadevi.", emoji: "🌿" },
+  { id: "daan", title: "Anna Daan", sanskrit: "अन्न दान", desc: "Sponsor prasad meals at our township temple — feed devotees and pilgrims regularly.", emoji: "🍲" },
+];
+
+// ===== Plot comparison dimensions =====
+export const PLOT_COMPARISON_DIMENSIONS: { key: string; label: string; icon: string }[] = [
+  { key: "plotNumber", label: "Plot Number", icon: "🔢" },
+  { key: "project", label: "Project", icon: "🏙️" },
+  { key: "sizeSqyd", label: "Size", icon: "📐" },
+  { key: "dimensions", label: "Dimensions", icon: "📏" },
+  { key: "facing", label: "Facing", icon: "🧭" },
+  { key: "price", label: "Price", icon: "💰" },
+  { key: "status", label: "Status", icon: "📊" },
+  { key: "isCorner", label: "Corner Plot", icon: "⭐" },
+  { key: "isRoadFacing", label: "Road Facing", icon: "🛣️" },
+  { key: "pricePerSqyd", label: "₹/sq.yd", icon: "📉" },
+];
+
+
 
 

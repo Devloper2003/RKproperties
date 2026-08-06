@@ -72,6 +72,13 @@ interface AppState {
   visitProjectId?: string;
   openVisit: (projectId?: string) => void;
   closeVisit: () => void;
+
+  // Plot comparison
+  comparePlotIds: string[];
+  togglePlotCompare: (id: string) => void;
+  isPlotComparing: (id: string) => boolean;
+  plotCompareOpen: boolean;
+  setPlotCompareOpen: (v: boolean) => void;
 }
 
 const WISHLIST_KEY = "braj_wishlist";
@@ -180,4 +187,22 @@ export const useApp = create<AppState>((set, get) => ({
   visitProjectId: undefined,
   openVisit: (visitProjectId) => set({ visitOpen: true, visitProjectId }),
   closeVisit: () => set({ visitOpen: false, visitProjectId: undefined }),
+
+  // Plot comparison
+  comparePlotIds: [],
+  togglePlotCompare: (id) => {
+    const current = get().comparePlotIds;
+    let next: string[];
+    if (current.includes(id)) {
+      next = current.filter((x) => x !== id);
+    } else if (current.length < 3) {
+      next = [...current, id];
+    } else {
+      next = [current[1], current[2], id];
+    }
+    set({ comparePlotIds: next });
+  },
+  isPlotComparing: (id) => get().comparePlotIds.includes(id),
+  plotCompareOpen: false,
+  setPlotCompareOpen: (plotCompareOpen) => set({ plotCompareOpen }),
 }));

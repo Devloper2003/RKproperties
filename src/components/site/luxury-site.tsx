@@ -13,6 +13,7 @@ import { VirtualTourSection, VirtualTourModal } from "./virtual-tour";
 import { PlotExplorer } from "./plot-explorer";
 import { VastuCompass } from "./vastu-compass";
 import { Usps } from "./usps";
+import { BrajDhamMap } from "./braj-dham-map";
 import { TownshipMap } from "./township-map";
 import { Testimonials } from "./testimonials";
 import { VideoTestimonials } from "./video-testimonials";
@@ -27,6 +28,8 @@ import { FaqSection } from "./faq-section";
 import { ReferralProgram } from "./referral-program";
 import { CommunityPortal } from "./community-portal";
 import { BhajanPlayer } from "./bhajan-player";
+import { BrajCalendar } from "./braj-calendar";
+import { SankalpSection } from "./sankalp-section";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -36,6 +39,7 @@ import { ProjectDetailModal } from "./project-detail-modal";
 import { LeadFormModal } from "./lead-form-modal";
 import { BookingModal } from "./booking-modal";
 import { ComparisonModal, ComparisonBar } from "./comparison-modal";
+import { PlotComparisonModal, PlotCompareBar } from "./plot-comparison-modal";
 import { WishlistPanel } from "./wishlist-panel";
 import { ScrollProgress } from "./scroll-progress";
 import { SiteVisitModal } from "./site-visit-modal";
@@ -72,6 +76,7 @@ export function LuxurySite() {
         <PlotExplorer />
         <VastuCompass />
         <Usps />
+        <BrajDhamMap />
         <TownshipMap />
         <Testimonials />
         <VideoTestimonials />
@@ -86,6 +91,8 @@ export function LuxurySite() {
         <ReferralProgram />
         <CommunityPortal />
         <BhajanPlayer />
+        <BrajCalendar />
+        <SankalpSection />
         <BlogPreview />
         <LeadCta />
       </main>
@@ -97,6 +104,8 @@ export function LuxurySite() {
       <BookingModal />
       <ComparisonModal />
       <ComparisonBar />
+      <PlotComparisonModal />
+      <PlotCompareBar />
       <WishlistPanel />
       <VirtualTourModal />
       <SiteVisitModal />

@@ -14,7 +14,7 @@ import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Filter, MapPin, Compass, IndianRupee, Maximize, MessageCircle, BookOpen, Loader2, Heart, HeartCrack } from "lucide-react";
+import { Filter, MapPin, Compass, IndianRupee, Maximize, MessageCircle, BookOpen, Loader2, Heart, HeartCrack, GitCompare, Check } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { useApp } from "@/lib/store";
 import { formatINRFull, PLOT_STATUS_CONFIG, type Plot, type Project } from "@/lib/types";
@@ -23,7 +23,7 @@ const FACINGS = ["all", "north", "south", "east", "west", "ne", "nw", "se", "sw"
 const STATUSES = ["all", "available", "reserved", "booked", "sold"];
 
 export function PlotExplorer() {
-  const { selectedProjectForPlots, setSelectedProjectForPlots, openBooking, toggleWishlist, isWishlisted, setWishlistOpen, wishlistPlotIds, initWishlist } = useApp();
+  const { selectedProjectForPlots, setSelectedProjectForPlots, openBooking, toggleWishlist, isWishlisted, setWishlistOpen, wishlistPlotIds, initWishlist, togglePlotCompare, isPlotComparing, setPlotCompareOpen, comparePlotIds } = useApp();
   const [projectFilter, setProjectFilter] = useState<string>("all");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [facingFilter, setFacingFilter] = useState<string>("all");
@@ -143,9 +143,17 @@ export function PlotExplorer() {
               );
             })}
             <button
+              onClick={() => setPlotCompareOpen(true)}
+              disabled={comparePlotIds.length < 2}
+              className="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-gold/40 text-gold hover:bg-gold/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <GitCompare className="w-3 h-3" />
+              Compare {comparePlotIds.length > 0 && <span className="font-bold">({comparePlotIds.length})</span>}
+            </button>
+            <button
               onClick={() => setWishlistOpen(true)}
               disabled={wishlistPlotIds.length === 0}
-              className="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-temple-red/30 text-temple-red hover:bg-temple-red/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-temple-red/30 text-temple-red hover:bg-temple-red/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <Heart className={`w-3 h-3 ${wishlistPlotIds.length > 0 ? "fill-current" : ""}`} />
               Wishlist {wishlistPlotIds.length > 0 && <span className="font-bold">({wishlistPlotIds.length})</span>}
@@ -204,15 +212,26 @@ export function PlotExplorer() {
                           </div>
                         </div>
                         {plot.isCorner && <span className="absolute top-1 right-1 text-[8px] text-gold">★</span>}
-                        <div className="mt-2 pt-2 border-t border-gold/10">
+                        <div className="mt-2 pt-2 border-t border-gold/10 flex gap-1">
                           <Button
                             size="sm"
                             disabled={!isAvailable}
                             onClick={() => openBooking(plot.id)}
-                            className="w-full h-7 text-[11px] gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep disabled:opacity-40 disabled:bg-muted disabled:from-muted disabled:to-muted"
+                            className="flex-1 h-7 text-[11px] gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep disabled:opacity-40 disabled:bg-muted disabled:from-muted disabled:to-muted"
                           >
-                            {isAvailable ? "Book Now" : "View"}
+                            {isAvailable ? "Book" : "View"}
                           </Button>
+                          <button
+                            onClick={() => togglePlotCompare(plot.id)}
+                            aria-label={isPlotComparing(plot.id) ? "Remove from comparison" : "Add to comparison"}
+                            className={`px-2 h-7 rounded-md text-[10px] font-medium border transition-all flex items-center gap-0.5 ${
+                              isPlotComparing(plot.id)
+                                ? "bg-gold/15 border-gold/50 text-gold"
+                                : "bg-white border-gold/20 text-muted-foreground hover:border-gold/40 hover:text-gold"
+                            }`}
+                          >
+                            {isPlotComparing(plot.id) ? <Check className="w-3 h-3" /> : <GitCompare className="w-3 h-3" />}
+                          </button>
                         </div>
                       </CardContent>
                     </Card>

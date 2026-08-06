@@ -614,3 +614,124 @@ Site now has **37 sections** (was 33):
 8. Add plot comparison tool (compare 2-3 plots side-by-side like project comparison)
 9. Add a "Sankalp" section — users can make a spiritual resolution/sankalp when booking
 10. Add Google Maps integration for real directions to each township
+
+---
+Task ID: 12 (Round 6 — Braj Calendar, Dham Map, Plot Comparison, Sankalp)
+Agent: main (cron webDevReview)
+Task: QA, add Braj spiritual calendar, interactive Braj Dham guide map, plot comparison tool, Sankalp section
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server running, lint clean, all APIs returning 200
+- 37 site sections + 9 admin modules all functional (from rounds 1-5)
+- No bugs found during QA — proceeded to new feature development
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all 37 existing sections render
+- ✅ Admin login → dashboard → all 9 modules functional
+- ✅ Lint clean, no runtime errors in dev.log
+
+### New Features Added (4 components)
+
+1. **Braj Spiritual Calendar** (`braj-calendar.tsx`)
+   - 10 calendar entries: daily darshan timings, festival dates, fasting days, auspicious parikrama moments
+   - Events: Krishna Ashtami, Radha Ashtami Vrata, Hariyali Teej, Krishna Janmashtami (midnight abhishek), Nandotsav, Radhashtami, Mangala Aarti (daily 4:30 AM), Sandhya Aarti (sunset), Ekadashi fasting, Purnima parikrama
+   - 4 event types: Darshan, Festival, Fasting, Auspicious — each with unique color/icon
+   - Left sidebar list (scrollable) + right detail card with temple, timing, significance
+   - Contextual tips per type (darshan pro tips, festival resident info, fasting rules)
+   - Prev/Next navigation + dot indicators
+   - Decorative moon + diya animations
+
+2. **Interactive Braj Dham Map** (`braj-dham-map.tsx`)
+   - 16 sacred places: Banke Bihari, ISKCON, Prem Mandir, Krishna Janmabhoomi, Vishram Ghat, Govardhan Hill, Mansi Ganga, Radha Kund, Kusum Sarovar, Nidhivan, Seva Kunj, Barsana, Nandgaon, Gokul, Vrindavan Forest, Yamuna River
+   - SVG map with pulsing pins (animated rings), emoji markers, name labels
+   - Type color-coding: Temple (gold), Ghat (blue), Parikrama (green), Kund (cyan), Village (amber), Grove (green), River (blue)
+   - 7 filter chips: All, Temple, Ghat, Parikrama, Kund, Village, Grove
+   - Right sidebar with all places list (scrollable)
+   - Click pin → detail modal with significance + "Plan a Visit" WhatsApp CTA
+   - Yamuna river + Govardhan hill rendered on map
+   - Legend, twinkling stars background
+
+3. **Plot Comparison Tool** (`plot-comparison-modal.tsx`)
+   - Compare up to 3 plots side-by-side
+   - 10 dimensions: Plot Number, Project, Size, Dimensions, Facing, Price, Status, Corner Plot, Road Facing, ₹/sq.yd
+   - 🏆 Trophy marks best value per numeric dimension (largest size, lowest price, best ₹/sq.yd)
+   - Compare toggle button on each plot card (GitCompare icon)
+   - Floating bottom "Compare (N)" bar activates at 2+ plots
+   - "Book This" CTA per plot in comparison table
+   - Price per sq.yd auto-calculated (price / size)
+   - Verified: compared 2 plots (150 sq.yd vs 240 sq.yd, WEST facing, ₹8,00,000)
+
+4. **Sankalp Section** (`sankalp-section.tsx`)
+   - 6 Sankalp types with Sanskrit names: Community Seva (सेवा), Daily Sadhana (साधना), Go Seva (गो सेवा), Monthly Parikrama (परिक्रमा), Tulsi Vridhi (तुलसी वृद्धि), Anna Daan (अन्न दान)
+   - Form: name + gotra (optional) + personal resolution text
+   - Commit flow: select type → enter details → "Offer My Sankalp to Krishna" button
+   - Confirmation screen: Sankalp ID (SKP-XXXXXX), "will be inscribed on copper plate at township temple"
+   - Note about copper plate inscription + digital copy in resident portal
+   - Reset + "Continue to Booking" CTAs
+   - Diya flicker decorations
+
+### Store Enhancements (store.ts)
+- Added plot comparison state: comparePlotIds, togglePlotCompare (max 3), isPlotComparing, plotCompareOpen, setPlotCompareOpen
+
+### Plot Explorer Enhancement (`plot-explorer.tsx`)
+- Added compare toggle button (GitCompare icon) on each plot card next to Book button
+- Added "Compare (N)" button in filter bar (activates at 2+)
+- Book button now shows "Book" (shorter) to fit compare button
+
+### Types Enhancements (types.ts)
+- BRAJ_CALENDAR: 10 entries with date/tithi/event/temple/timing/type/description
+- SANKALP_TYPES: 6 sankalp options with Sanskrit/desc/emoji
+- PLOT_COMPARISON_DIMENSIONS: 10 comparison dimensions with icons
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ Braj Calendar: 10 events render, list + detail card work, type-specific tips show
+- ✅ Braj Dham Map: 16 places render, filter chips work, pins pulse, detail modal opens
+- ✅ Plot Comparison: selected 2 plots → "Compare Now" → modal with 10 dimensions + trophies
+- ✅ Sankalp: 6 options render, select → enter details → commit → confirmation with ID
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/braj-calendar.tsx
+- NEW: src/components/site/braj-dham-map.tsx
+- NEW: src/components/site/plot-comparison-modal.tsx (modal + PlotCompareBar)
+- NEW: src/components/site/sankalp-section.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added 4 new sections + PlotComparisonModal + PlotCompareBar)
+- MODIFIED: src/components/site/plot-explorer.tsx (added compare toggle on cards + Compare button in filter bar)
+- MODIFIED: src/lib/store.ts (plot comparison state)
+- MODIFIED: src/lib/types.ts (BRAJ_CALENDAR, SANKALP_TYPES, PLOT_COMPARISON_DIMENSIONS)
+
+## Current Section Count
+Site now has **41 sections** (was 37):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. Spiritual Quiz 8. Projects Showcase 9. Virtual Tour
+10. Plot Explorer 11. Vastu Compass 12. USPs 13. **Braj Dham Map** (new)
+14. Township Map 15. Testimonials 16. Video Testimonials 17. Trust Signals
+18. Price Comparison 19. NRI Section 20. EMI Calculator 21. ROI Calculator
+22. Visit CTA 23. WhatsApp Flow 24. FAQ 25. Referral Program
+26. Community Portal 27. Bhajan Player 28. **Braj Calendar** (new)
+29. **Sankalp Section** (new) 30. Blog Preview 31. Lead CTA 32. Footer
++ FABs + 10 modals (added PlotComparisonModal)
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Braj Calendar dates are static mock (would need real Panchang API in production)
+- Minor: Braj Dham Map pins are stylized positions (would need real lat/lng → SVG mapping for accuracy)
+- Minor: Sankalp is demo (would need backend persistence + real copper plate inscription service in production)
+- Pending: RealEstateListing schema.org for project detail modal (deferred to next round)
+
+## Priority Recommendations for Next Phase
+1. Add RealEstateListing schema.org to project detail modal
+2. Add multi-language toggle (Hindi/English/Hinglish) for content
+3. Add construction progress photo timeline for booked plots
+4. Add email newsletter signup with spiritual content drip
+5. Add live chat history export feature in admin
+6. Add Google Maps integration for real directions to each township
+7. Add a "Braj Recipes" section — devotional prasad recipes for festivals
+8. Add a "Krishna 108 Names" interactive chanting counter
+9. Add a "Braj Weather" widget with darshan-suitability forecast
+10. Add resident testimonial video upload feature in community portal
