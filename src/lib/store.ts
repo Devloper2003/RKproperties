@@ -97,6 +97,16 @@ interface AppState {
   projectPageSlug: string | null;
   openProjectPage: (slug: string) => void;
   closeProjectPage: () => void;
+
+  // Full-page blog post view
+  blogPageSlug: string | null;
+  openBlogPage: (slug: string) => void;
+  closeBlogPage: () => void;
+
+  // Full-page temple view
+  templePageSlug: string | null;
+  openTemplePage: (slug: string) => void;
+  closeTemplePage: () => void;
 }
 
 const WISHLIST_KEY = "braj_wishlist";
@@ -244,4 +254,20 @@ export const useApp = create<AppState>((set, get) => ({
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "instant" });
   },
   closeProjectPage: () => set({ projectPageSlug: null }),
+
+  // Full-page blog post view
+  blogPageSlug: null,
+  openBlogPage: (blogPageSlug) => {
+    set({ blogPageSlug });
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "instant" });
+  },
+  closeBlogPage: () => set({ blogPageSlug: null }),
+
+  // Full-page temple view
+  templePageSlug: null,
+  openTemplePage: (templePageSlug) => {
+    set({ templePageSlug });
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "instant" });
+  },
+  closeTemplePage: () => set({ templePageSlug: null }),
 }));

@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { MapPin, Navigation, Compass } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeading } from "./section-heading";
+import { useApp } from "@/lib/store";
 import type { Temple, Project } from "@/lib/types";
 
 // Stylized Braj region map positions (approx %)
@@ -16,6 +17,7 @@ const CITY_POSITIONS: Record<string, { x: number; y: number }> = {
 };
 
 export function TownshipMap() {
+  const { openTemplePage } = useApp();
   const { data: temples = [] } = useQuery<Temple[]>({
     queryKey: ["temples"],
     queryFn: async () => (await fetch("/api/temples")).json().then((j) => j.data),
@@ -77,7 +79,7 @@ export function TownshipMap() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
                 >
-                  <Card className="card-luxury rounded-2xl overflow-hidden">
+                  <Card className="card-luxury rounded-2xl overflow-hidden cursor-pointer" onClick={() => openTemplePage(temple.slug)}>
                     <div className="flex gap-4">
                       <div className="relative w-28 h-28 flex-shrink-0">
                         <Image

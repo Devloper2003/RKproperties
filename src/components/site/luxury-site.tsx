@@ -40,7 +40,6 @@ import { PlotRecommendation } from "./plot-recommendation";
 import { KrishnaStories } from "./krishna-stories";
 import { NewsletterSignup } from "./newsletter-signup";
 import { VastuConsultationModal } from "./vastu-consultation-modal";
-import { ProjectPageView } from "./project-page-view";
 import { PilgrimagePlanner } from "./pilgrimage-planner";
 import { SatsangSchedule } from "./satsang-schedule";
 import { MantraLibrary } from "./mantra-library";
@@ -145,7 +144,6 @@ export function LuxurySite() {
       <VirtualTourModal />
       <SiteVisitModal />
       <VastuConsultationModal />
-      <ProjectPageView />
     </div>
   );
 }

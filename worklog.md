@@ -1615,3 +1615,79 @@ Task: Fix admin changes not reflecting live, fix project click scrolling instead
 - ✅ Media Library module accessible in admin sidebar — shows image grid, copy path, add URL
 - ✅ Google Maps iframe shows in both Explore Braj Dham section AND individual project pages
 - ✅ No runtime errors in dev.log
+
+---
+Task ID: 21 (Round 15 — REAL separate pages: Project, Blog, Temple)
+Agent: main (user request — 3rd time asking)
+Task: Create GENUINE separate pages (not overlays) for projects, blog posts, and temples
+
+## Root Cause of Previous Failure
+The previous "ProjectPageView" was a `fixed inset-0 z-[90]` OVERLAY on top of the homepage.
+User could still see/feel the homepage behind it. It didn't feel like a separate page.
+
+## Fix: Complete Page Replacement
+Changed `page.tsx` to conditionally render ENTIRELY different page components:
+
+```tsx
+if (projectPageSlug) return <ProjectPageView />;  // Project detail page
+if (blogPageSlug) return <BlogPageView />;        // Blog post page
+if (templePageSlug) return <TemplePageView />;    // Temple detail page
+return <LuxurySite />;                            // Homepage (default)
+```
+
+When a project/blog/temple is clicked:
+1. The ENTIRE homepage (LuxurySite) is UNMOUNTED
+2. The detail page is MOUNTED in its place
+3. User sees ONLY the detail page — no homepage behind
+4. "Back to Home" button unmounts detail page and remounts homepage
+
+## Three Separate Detail Pages Created
+
+### 1. Project Detail Page (`project-page-view.tsx`)
+- Sticky top bar (dark spiritual-temple): Back to Home + Project name + Enquire + Share
+- Hero gallery with thumbnails + prev/next navigation
+- Quick stats (area, plot sizes, price, possession)
+- USP highlight banner
+- About section (full longDescription)
+- Trust signals (MVDA + RERA)
+- Amenities grid
+- Nearby temples list
+- Plot availability grid (clickable → booking)
+- Google Maps embed (project lat/lng)
+- Resident testimonials
+- 3 CTAs (Book Site Visit, Schedule Visit, WhatsApp)
+
+### 2. Blog Post Page (`blog-page-view.tsx`)
+- Sticky top bar: Back to Home + Share
+- Article header: category badge, title, date, read time, author
+- Featured image
+- Full article content
+- Tags
+- CTA: "Interested in Braj Dham plots?" with callback + WhatsApp buttons
+
+### 3. Temple Detail Page (`temple-page-view.tsx`)
+- Sticky top bar: Back to Home + Share
+- Hero image with temple name + location
+- Spiritual significance banner
+- Full description
+- Google Maps embed (temple name + location)
+- CTA: "Want to visit?" with WhatsApp button
+
+## Store Enhancements
+- `blogPageSlug` + `openBlogPage(slug)` + `closeBlogPage()`
+- `templePageSlug` + `openTemplePage(slug)` + `closeTemplePage()`
+
+## Click Handlers Updated
+- **Project cards** → `openProjectPage(slug)` → separate project page
+- **Blog cards** → `openBlogPage(slug)` → separate blog page
+- **Temple cards** (in township-map section) → `openTemplePage(slug)` → separate temple page
+
+## Verification Results
+- ✅ Lint clean
+- ✅ Project click → COMPLETELY SEPARATE PAGE (homepage unmounted, verified "PROJECT PAGE ONLY")
+- ✅ Back to Home → returns to homepage (verified "HOMEPAGE")
+- ✅ No homepage content visible behind project page
+- ✅ Google Maps iframe shows in project page
+- ✅ Gallery with thumbnails works
+- ✅ Blog cards open separate blog page
+- ✅ Temple cards open separate temple page

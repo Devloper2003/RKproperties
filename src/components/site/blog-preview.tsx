@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, ArrowRight } from "lucide-react";
 import { SectionHeading } from "./section-heading";
+import { useApp } from "@/lib/store";
 import type { BlogPost } from "@/lib/types";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -18,6 +18,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export function BlogPreview() {
+  const { openBlogPage } = useApp();
   const { data: posts = [] } = useQuery<BlogPost[]>({
     queryKey: ["blog-preview"],
     queryFn: async () => (await fetch("/api/blog?limit=3")).json().then((j) => j.data),
@@ -45,7 +46,7 @@ export function BlogPreview() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
               >
-                <Card className="card-luxury rounded-2xl overflow-hidden h-full flex flex-col group cursor-pointer">
+                <Card className="card-luxury rounded-2xl overflow-hidden h-full flex flex-col group cursor-pointer" onClick={() => openBlogPage(post.slug)}>
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={post.featuredImage}
