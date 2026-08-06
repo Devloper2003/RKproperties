@@ -42,9 +42,54 @@ interface AppState {
   bookingPlotId?: string;
   openBooking: (plotId: string) => void;
   closeBooking: () => void;
+
+  // Plot Wishlist (favorites) - persisted to localStorage
+  wishlistPlotIds: string[];
+  toggleWishlist: (plotId: string) => void;
+  isWishlisted: (plotId: string) => boolean;
+  clearWishlist: () => void;
+  initWishlist: () => void;
+
+  // Project Comparison Tool
+  compareProjectSlugs: string[];
+  toggleCompare: (slug: string) => void;
+  isComparing: (slug: string) => boolean;
+  compareOpen: boolean;
+  setCompareOpen: (v: boolean) => void;
+
+  // Wishlist panel
+  wishlistOpen: boolean;
+  setWishlistOpen: (v: boolean) => void;
+
+  // Virtual site tour
+  tourOpen: boolean;
+  tourProjectSlug: string | null;
+  openTour: (slug: string) => void;
+  closeTour: () => void;
 }
 
-export const useApp = create<AppState>((set) => ({
+const WISHLIST_KEY = "braj_wishlist";
+
+function loadWishlist(): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = localStorage.getItem(WISHLIST_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveWishlist(ids: string[]) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(WISHLIST_KEY, JSON.stringify(ids));
+  } catch {
+    /* ignore */
+  }
+}
+
+export const useApp = create<AppState>((set, get) => ({
   view: "site",
   setView: (view) => set({ view }),
   toggleView: () => set((s) => ({ view: s.view === "site" ? "admin" : "site" })),
@@ -74,4 +119,53 @@ export const useApp = create<AppState>((set) => ({
   bookingPlotId: undefined,
   openBooking: (bookingPlotId) => set({ bookingPlotId }),
   closeBooking: () => set({ bookingPlotId: undefined }),
+
+  // Wishlist
+  wishlistPlotIds: [],
+  toggleWishlist: (plotId) => {
+    const current = get().wishlistPlotIds;
+    const next = current.includes(plotId)
+      ? current.filter((id) => id !== plotId)
+      : [...current, plotId];
+    saveWishlist(next);
+    set({ wishlistPlotIds: next });
+  },
+  isWishlisted: (plotId) => get().wishlistPlotIds.includes(plotId),
+  clearWishlist: () => {
+    saveWishlist([]);
+    set({ wishlistPlotIds: [] });
+  },
+  initWishlist: () => {
+    if (get().wishlistPlotIds.length === 0) {
+      set({ wishlistPlotIds: loadWishlist() });
+    }
+  },
+
+  // Comparison
+  compareProjectSlugs: [],
+  toggleCompare: (slug) => {
+    const current = get().compareProjectSlugs;
+    let next: string[];
+    if (current.includes(slug)) {
+      next = current.filter((s) => s !== slug);
+    } else if (current.length < 3) {
+      next = [...current, slug];
+    } else {
+      next = [current[1], current[2], slug];
+    }
+    set({ compareProjectSlugs: next });
+  },
+  isComparing: (slug) => get().compareProjectSlugs.includes(slug),
+  compareOpen: false,
+  setCompareOpen: (compareOpen) => set({ compareOpen }),
+
+  // Wishlist panel
+  wishlistOpen: false,
+  setWishlistOpen: (wishlistOpen) => set({ wishlistOpen }),
+
+  // Virtual tour
+  tourOpen: false,
+  tourProjectSlug: null,
+  openTour: (tourProjectSlug) => set({ tourOpen: true, tourProjectSlug }),
+  closeTour: () => set({ tourOpen: false, tourProjectSlug: null }),
 }));

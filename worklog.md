@@ -108,3 +108,133 @@ Stage Summary:
 - Lead capture → CRM Kanban pipeline, drag-and-drop stage updates
 - All APIs returning 200, lint clean, no runtime errors
 - Demo admin: admin@brajproperty.in / braj2026
+
+---
+Task ID: 8 (Round 2 — QA + New Features + Styling Enhancements)
+Agent: main (cron webDevReview)
+Task: Assess project status, QA via agent-browser, add new features (comparison, NRI section, virtual tour, wishlist, quote rotator, festival banner), enhance styling
+
+## Current Project Status Assessment
+The BrajProperty.in platform was stable entering this round:
+- Dev server was down (restarted successfully on port 3000)
+- Lint clean, all APIs returning 200
+- 18 luxury site sections + 9 admin modules all functional
+- AI chatbot working with live DB context
+- No bugs found during QA — site renders correctly, admin login→dashboard works, booking modal works, Kanban drag-drop works
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all sections render
+- ✅ Booking modal 3-step flow works (Plot Summary → Details → Payment → Confirmed)
+- ✅ Admin login (admin@brajproperty.in / braj2026) → Dashboard with KPIs/charts
+- ✅ AI chatbot returns accurate project pricing responses
+- ✅ Lint clean, no runtime errors
+
+### New Features Added (6 components)
+
+1. **Festival Banner** (`festival-banner.tsx`)
+   - Gold gradient top banner showing next upcoming festival (Krishna Janmashtami)
+   - Expandable modal with full 6-festival calendar (Janmashtami, Radhashtami, Govardhan Puja, Holi, Kartik Purnima, Jhulan Yatra)
+   - Each festival has emoji, date, description
+   - Dismissible, festival-shimmer animation
+
+2. **Krishna Quote Rotator** (`quote-rotator.tsx`)
+   - Auto-rotating Bhagavad Gita quotes (8 total) every 8 seconds
+   - Spiritual-temple dark background with flickering diya emojis (diya-flicker animation)
+   - Manual navigation dots, quote-fade transition
+   - Situated between Hero and Sacred Locations
+
+3. **Project Comparison Tool** (`comparison-modal.tsx` + `ComparisonBar`)
+   - "Compare" toggle button on each project card (top-right)
+   - Floating bottom comparison bar showing count + "Compare Now" button (activates at 2+)
+   - Side-by-side modal with 12 dimensions (location, area, plot size, price, status, RERA, MVDA, amenities, USP, etc.)
+   - 🏆 Trophy icon marks "best value" per dimension (largest area, most amenities, most accessible price)
+   - Compare up to 3 projects; can remove individually
+
+4. **Virtual Site Tour** (`virtual-tour.tsx`)
+   - New section with 4 project tour cards (Play button + pulse-divine animation)
+   - Full-screen modal with 6 tour stops: Grand Entrance, Temple Complex, Spiritual Gardens, Premium Plots, Clubhouse & Pool, 24/7 Security
+   - Image gallery carousel with prev/next navigation
+   - Stop selector strip with tour-stop-active highlight
+   - CTA to book real visit or view project details
+
+5. **NRI Investment Section** (`nri-section.tsx`)
+   - Dedicated section for Non-Resident Indian investors
+   - 4 stat cards: Annual Appreciation 22%, Rental Yield 4-6%, FEMA Compliant 100%, Repatriation up to 2 properties (text-shimmer-gold animation)
+   - ComposedChart (Area + Lines) showing price appreciation 2021-2027 across Braj avg / Vrindavan / Mathura / Govardhan (indexed base 100)
+   - 4 NRI features: Global Access, FEMA Compliant, Free Repatriation, Power of Attorney
+   - Delhi & Jewar Airport connectivity stats
+   - "Talk to NRI Specialist" CTA
+
+6. **Plot Wishlist** (`wishlist-panel.tsx`)
+   - Heart icon on every plot card (heart-pop animation on toggle)
+   - Wishlist count badge in plot filter bar
+   - Right-side Sheet panel showing saved plots with: plot number, project, status, size/facing/price, Book + WhatsApp buttons
+   - Total Wishlist Value + Avg Price summary cards
+   - "Send Wishlist to Advisor" WhatsApp action (pre-fills message with all plot numbers)
+   - Clear Wishlist button
+   - Persists to localStorage (`braj_wishlist` key) — survives page reloads
+   - Empty state with heart icon and "Browse Plots" CTA
+
+### Styling Enhancements (globals.css)
+- 7 new utility classes/animations: heart-pop, festival-shimmer, quote-fade, tour-stop-active, compare-row-highlight, ring-gold-glow, text-shimmer-gold, diya-flicker, lotus-bloom
+- ScrollProgress bar (gold gradient, spring physics) at top of page
+
+### Store Enhancements (store.ts)
+- Added wishlist state: wishlistPlotIds, toggleWishlist, isWishlisted, clearWishlist, initWishlist (with localStorage persistence)
+- Added comparison state: compareProjectSlugs, toggleCompare, isComparing, compareOpen, setCompareOpen
+- Added virtual tour state: tourOpen, tourProjectSlug, openTour, closeTour
+- Added wishlist panel state: wishlistOpen, setWishlistOpen
+
+### Types Enhancements (types.ts)
+- KRISHNA_QUOTES: 8 Bhagavad Gita verses with sources
+- FESTIVALS: 6 Braj festivals with dates/descriptions/emojis
+- PRICE_APPRECIATION_DATA: 7-year indexed data (2021-2027) for 4 regions
+- NRI_STATS: 4 investment metrics
+- TOUR_STOPS: 6 virtual tour locations with icons/descriptions
+- COMPARISON_DIMENSIONS: 12 comparison criteria with icons
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ Festival banner renders + modal opens with all 6 festivals
+- ✅ Quote rotator shows Bhagavad Gita quotes with navigation dots
+- ✅ Comparison: clicked 2 projects → "Compare Now" → modal with side-by-side data + trophies
+- ✅ Virtual tour: opened modal, 6 stops with prev/next navigation
+- ✅ NRI section: all 4 stats + price appreciation chart + 4 features render
+- ✅ Wishlist: hearted 3 plots → "Wishlist (3)" badge → panel shows total value ₹28.8L + WhatsApp action
+- ✅ ScrollProgress bar visible at top
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/festival-banner.tsx
+- NEW: src/components/site/quote-rotator.tsx
+- NEW: src/components/site/comparison-modal.tsx (modal + ComparisonBar)
+- NEW: src/components/site/virtual-tour.tsx (section + modal)
+- NEW: src/components/site/nri-section.tsx
+- NEW: src/components/site/wishlist-panel.tsx
+- NEW: src/components/site/scroll-progress.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added all new sections + modals)
+- MODIFIED: src/components/site/projects-showcase.tsx (added Compare toggle + hint)
+- MODIFIED: src/components/site/plot-explorer.tsx (added heart wishlist + wishlist badge)
+- MODIFIED: src/lib/store.ts (wishlist, comparison, tour state + localStorage)
+- MODIFIED: src/lib/types.ts (quotes, festivals, price data, NRI stats, tour stops, comparison dimensions)
+- MODIFIED: src/app/globals.css (9 new utility classes/animations)
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Festival banner dismissal is in-memory only (resets on reload) — could persist to localStorage in future
+- Minor: Comparison "best value" logic is dimension-specific (largest area, most amenities, lowest entry price) — could add more sophisticated scoring
+
+## Priority Recommendations for Next Phase
+1. Add more blog posts (currently 6 — target 15+ for SEO authority)
+2. Add Schema.org structured data (RealEstateListing, FAQ, BlogPosting, Organization) for SEO
+3. Add sitemap.xml + robots.txt enhancement
+4. Add lead scoring automation (auto-update score based on website behavior events)
+5. Add price comparison vs local competitors in NRI section
+6. Add a "Book a Real Site Visit" calendar with date/time picker
+7. Add WhatsApp flow visualization (8-step diagram from spec section 21)
+8. Persist festival banner dismissal + comparison selections to localStorage
+9. Add more Krishna pastimes/lila content section for spiritual depth
+10. Enhance mobile responsiveness details (bottom nav, swipe gestures for tour)

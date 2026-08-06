@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MapPin, Maximize, IndianRupee, ArrowRight, BadgeCheck } from "lucide-react";
+import { MapPin, Maximize, IndianRupee, ArrowRight, BadgeCheck, GitCompare } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +13,9 @@ import { formatINR, PROJECT_STATUS_LABELS, type Project } from "@/lib/types";
 export function ProjectsShowcase() {
   const setSelectedProjectSlug = useApp((s) => s.setSelectedProjectSlug);
   const openLeadForm = useApp((s) => s.openLeadForm);
+  const toggleCompare = useApp((s) => s.toggleCompare);
+  const isComparing = useApp((s) => s.isComparing);
+  const setCompareOpen = useApp((s) => s.setCompareOpen);
 
   const { data: projects = [], isLoading } = useQuery<Project[]>({
     queryKey: ["projects"],
@@ -32,6 +35,14 @@ export function ProjectsShowcase() {
           highlight="Gated Communities"
           subtitle="Each BrajProperty township is crafted with temple-themed architecture, MVDA-approved legal security, and modern amenities — your spiritual home awaits."
         />
+
+        {/* Compare hint */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 text-xs text-indigo-deep">
+            <GitCompare className="w-3.5 h-3.5 text-gold" />
+            <span>Tip: Click <strong className="text-gold">Compare</strong> on any project to compare up to 3 side-by-side</span>
+          </div>
+        </div>
 
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -73,8 +84,21 @@ export function ProjectsShowcase() {
                     >
                       {statusInfo.label}
                     </Badge>
+                    {/* Compare toggle */}
+                    <button
+                      onClick={() => toggleCompare(project.slug)}
+                      aria-label={isComparing(project.slug) ? "Remove from comparison" : "Add to comparison"}
+                      className={`absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide transition-all ${
+                        isComparing(project.slug)
+                          ? "bg-gold text-indigo-deep ring-gold-glow"
+                          : "bg-cream/90 text-indigo-deep hover:bg-gold"
+                      }`}
+                    >
+                      <GitCompare className="w-3 h-3" />
+                      {isComparing(project.slug) ? "Comparing" : "Compare"}
+                    </button>
                     {project.isFeatured && (
-                      <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-gold text-indigo-deep text-[10px] font-bold uppercase tracking-wide flex items-center gap-1">
+                      <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-gold text-indigo-deep text-[10px] font-bold uppercase tracking-wide flex items-center gap-1">
                         <BadgeCheck className="w-3 h-3" />
                         Featured
                       </div>

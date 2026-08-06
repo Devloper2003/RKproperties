@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -14,7 +14,7 @@ import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Filter, MapPin, Compass, IndianRupee, Maximize, MessageCircle, BookOpen, Loader2 } from "lucide-react";
+import { Filter, MapPin, Compass, IndianRupee, Maximize, MessageCircle, BookOpen, Loader2, Heart, HeartCrack } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { useApp } from "@/lib/store";
 import { formatINRFull, PLOT_STATUS_CONFIG, type Plot, type Project } from "@/lib/types";
@@ -23,12 +23,15 @@ const FACINGS = ["all", "north", "south", "east", "west", "ne", "nw", "se", "sw"
 const STATUSES = ["all", "available", "reserved", "booked", "sold"];
 
 export function PlotExplorer() {
-  const { selectedProjectForPlots, setSelectedProjectForPlots, openBooking } = useApp();
+  const { selectedProjectForPlots, setSelectedProjectForPlots, openBooking, toggleWishlist, isWishlisted, setWishlistOpen, wishlistPlotIds, initWishlist } = useApp();
   const [projectFilter, setProjectFilter] = useState<string>("all");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [facingFilter, setFacingFilter] = useState<string>("all");
   const [sizeRange, setSizeRange] = useState<[number, number]>([80, 400]);
   const [visibleCount, setVisibleCount] = useState(24);
+
+  // Initialize wishlist from localStorage on mount
+  useEffect(() => { initWishlist(); }, [initWishlist]);
 
   const { data: projects = [] } = useQuery<Project[]>({
     queryKey: ["projects"],
@@ -128,8 +131,8 @@ export function PlotExplorer() {
             </div>
           </div>
 
-          {/* Status summary */}
-          <div className="flex flex-wrap gap-2 mt-5 pt-5 border-t border-gold/10">
+          {/* Status summary + wishlist */}
+          <div className="flex flex-wrap items-center gap-2 mt-5 pt-5 border-t border-gold/10">
             {Object.entries(statusCounts).map(([status, count]) => {
               const cfg = PLOT_STATUS_CONFIG[status];
               return (
@@ -139,6 +142,14 @@ export function PlotExplorer() {
                 </Badge>
               );
             })}
+            <button
+              onClick={() => setWishlistOpen(true)}
+              disabled={wishlistPlotIds.length === 0}
+              className="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-temple-red/30 text-temple-red hover:bg-temple-red/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <Heart className={`w-3 h-3 ${wishlistPlotIds.length > 0 ? "fill-current" : ""}`} />
+              Wishlist {wishlistPlotIds.length > 0 && <span className="font-bold">({wishlistPlotIds.length})</span>}
+            </button>
           </div>
         </Card>
 
@@ -170,7 +181,16 @@ export function PlotExplorer() {
                       <CardContent className="p-3">
                         <div className="flex items-center justify-between mb-2">
                           <span className="font-mono text-sm font-bold text-indigo-deep">{plot.plotNumber}</span>
-                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full text-white ${cfg.bg}`}>{cfg.label}</span>
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() => toggleWishlist(plot.id)}
+                              aria-label={isWishlisted(plot.id) ? "Remove from wishlist" : "Add to wishlist"}
+                              className={`p-1 rounded transition-colors ${isWishlisted(plot.id) ? "text-temple-red heart-pop" : "text-muted-foreground hover:text-temple-red"}`}
+                            >
+                              <Heart className={`w-3.5 h-3.5 ${isWishlisted(plot.id) ? "fill-current" : ""}`} />
+                            </button>
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded-full text-white ${cfg.bg}`}>{cfg.label}</span>
+                          </div>
                         </div>
                         <div className="space-y-1 text-xs">
                           <div className="flex items-center gap-1 text-muted-foreground">
