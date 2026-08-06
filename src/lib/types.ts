@@ -362,3 +362,127 @@ export const LEAD_SCORING_SIGNALS: { signal: string; points: number; trigger: st
   { signal: "Comparison page viewed", points: 12, trigger: "Comparison tool use", type: "Auto" },
 ];
 
+// ===== Video Testimonials =====
+export const VIDEO_TESTIMONIALS: { name: string; role: string; location: string; thumbnail: string; duration: string; quote: string; project: string }[] = [
+  {
+    name: "Rajesh Agrawal",
+    role: "Retired Professor",
+    location: "Delhi → Mathura",
+    thumbnail: "/images/temples/banke-bihari.png",
+    duration: "2:34",
+    quote: "Every morning I walk to Banke Bihari Temple. It feels like a dream come true.",
+    project: "Bankey Bihari Orchid",
+  },
+  {
+    name: "Dr. Anjali Mehta",
+    role: "NRI Cardiologist",
+    location: "New Jersey → Vrindavan",
+    thumbnail: "/images/temples/iskcon.png",
+    duration: "3:12",
+    quote: "My plot has already appreciated 22%. The BrajProperty team made it effortless.",
+    project: "Bankey Bihari Dham",
+  },
+  {
+    name: "Suresh & Lakshmi Sharma",
+    role: "Devotee Couple",
+    location: "Bangalore → Vrindavan",
+    thumbnail: "/images/temples/govardhan.png",
+    duration: "2:48",
+    quote: "The satsang halls and devotional library transformed our spiritual life.",
+    project: "Bankey Bihari Kunj",
+  },
+];
+
+// ===== Spiritual Quiz Questions =====
+export const SPIRITUAL_QUIZ: { question: string; options: { text: string; scores: Record<string, number> }[] }[] = [
+  {
+    question: "Which Krishna pastime resonates most with you?",
+    options: [
+      { text: "Birth at midnight in Mathura (Janma Lila)", scores: { Mathura: 3, Vrindavan: 0, Govardhan: 0 } },
+      { text: "Childhood pranks in Vrindavan (Baal Lila)", scores: { Vrindavan: 3, Mathura: 0, Govardhan: 0 } },
+      { text: "Lifting Govardhan Hill (Giriraj Lila)", scores: { Govardhan: 3, Vrindavan: 0, Mathura: 0 } },
+      { text: "Divine dance with Gopis (Ras Lila)", scores: { Vrindavan: 2, Govardhan: 1, Mathura: 0 } },
+    ],
+  },
+  {
+    question: "What kind of spiritual environment do you seek?",
+    options: [
+      { text: "Bustling temple town with urban convenience", scores: { Mathura: 3, Vrindavan: 1, Govardhan: 0 } },
+      { text: "Devotional community with international devotees", scores: { Vrindavan: 3, Mathura: 0, Govardhan: 1 } },
+      { text: "Quiet, intense parikrama-focused atmosphere", scores: { Govardhan: 3, Vrindavan: 1, Mathura: 0 } },
+      { text: "Mix of all — close to everything", scores: { Vrindavan: 2, Mathura: 2, Govardhan: 1 } },
+    ],
+  },
+  {
+    question: "Which temple would you visit daily if possible?",
+    options: [
+      { text: "Krishna Janmabhoomi (birthplace)", scores: { Mathura: 3, Vrindavan: 0, Govardhan: 0 } },
+      { text: "Banke Bihari / ISKCON / Prem Mandir", scores: { Vrindavan: 3, Mathura: 0, Govardhan: 0 } },
+      { text: "Govardhan Hill / Daan Ghati / Mansi Ganga", scores: { Govardhan: 3, Vrindavan: 0, Mathura: 0 } },
+      { text: "All of them — I love pilgrimage", scores: { Vrindavan: 1, Mathura: 1, Govardhan: 2 } },
+    ],
+  },
+  {
+    question: "What's your primary investment goal?",
+    options: [
+      { text: "Spiritual home for retirement (steady, mature city)", scores: { Mathura: 3, Vrindavan: 1, Govardhan: 0 } },
+      { text: "Second home + community living (premium, international)", scores: { Vrindavan: 3, Mathura: 0, Govardhan: 1 } },
+      { text: "Highest spiritual significance + appreciation potential", scores: { Govardhan: 3, Vrindavan: 1, Mathura: 0 } },
+      { text: "Budget-friendly entry into Braj Dham", scores: { Vrindavan: 2, Mathura: 1, Govardhan: 1 } },
+    ],
+  },
+  {
+    question: "How important is proximity to Delhi/NCR?",
+    options: [
+      { text: "Very — Mathura is on the main Delhi-Agra route", scores: { Mathura: 3, Vrindavan: 1, Govardhan: 0 } },
+      { text: "Moderate — Vrindavan is well-connected too", scores: { Vrindavan: 2, Mathura: 2, Govardhan: 1 } },
+      { text: "Not important — spiritual depth matters more", scores: { Govardhan: 3, Vrindavan: 1, Mathura: 0 } },
+      { text: "I'm an NRI — airport connectivity is key", scores: { Vrindavan: 2, Mathura: 2, Govardhan: 1 } },
+    ],
+  },
+];
+
+// Quiz results descriptions
+export const QUIZ_RESULTS: Record<string, { title: string; subtitle: string; description: string; emoji: string; gradient: string }>= {
+  Mathura: {
+    title: "Mathura",
+    subtitle: "The Divine Birthplace",
+    description: "Your spiritual home is where Krishna was born. Mathura offers the perfect blend of urban convenience, devotional depth, and main-route connectivity. Our Bankey Bihari Orchid township (25 acres, ₹6-12L plots) is walking distance from Banke Bihari Temple.",
+    emoji: "👶",
+    gradient: "from-green-light/30 to-gold/20",
+  },
+  Vrindavan: {
+    title: "Vrindavan",
+    subtitle: "Krishna's Playground",
+    description: "Your heart belongs in Vrindavan — the eternal stage of Krishna's divine pastimes. With ISKCON, Banke Bihari, and Prem Mandir, this is home to international devotees. Explore Bankey Bihari Kunj (₹5-10L) or the mega Bankey Bihari Dham (₹10-20L).",
+    emoji: "🦚",
+    gradient: "from-gold/30 to-temple-red/20",
+  },
+  Govardhan: {
+    title: "Govardhan",
+    subtitle: "Under Giriraj's Shelter",
+    description: "You seek the most intense spiritual atmosphere — Govardhan, where Krishna lifted the hill on His finger. Our Braj Lotus Greens township offers direct Parikrama route access with premium-plus amenities. The most spiritually significant address in all of Braj.",
+    emoji: "⛰️",
+    gradient: "from-green-deep/30 to-sandstone/20",
+  },
+};
+
+// ===== Referral Program tiers =====
+export const REFERRAL_TIERS: { tier: string; referrals: string; reward: string; perk: string; color: string }[] = [
+  { tier: "Sevak", referrals: "1-2", reward: "₹10,000", perk: "Silver kalash memento + temple prasad", color: "from-sandstone/40 to-sandstone/20" },
+  { tier: "Bhakta", referrals: "3-5", reward: "₹25,000", perk: "Gold-plated Krishna idol + priority event invites", color: "from-gold/40 to-gold/20" },
+  { tier: "Priya", referrals: "6-10", reward: "₹50,000", perk: "Personalized temple visit + 2-night Braj stay package", color: "from-gold/50 to-temple-red/20" },
+  { tier: "Parijana", referrals: "10+", reward: "₹1,00,000", perk: "Lifetime VIP darshan + named groove in township temple", color: "from-temple-red/40 to-indigo-deep/20" },
+];
+
+// ===== ROI Calculator assumptions =====
+export const ROI_ASSUMPTIONS = {
+  avgAppreciationRate: 0.22, // 22% annual
+  constructionCostPerSqft: 1800,
+  rentalYield: 0.05, // 5%
+  pilgrimageSeasonWeeks: 12, // weeks/year rentable
+  weeklyRental: 20000,
+  gstOnConstruction: 0.18,
+};
+
+

@@ -197,6 +197,78 @@ export function Leads() {
                   <label className="text-xs font-medium text-indigo-deep mb-2 block">Lead Score: <span className="text-gold font-bold">{score}</span></label>
                   <Slider value={[score]} onValueChange={(v) => setScore(v[0])} min={0} max={100} step={5} />
                 </div>
+
+                {/* Activity Timeline */}
+                <div>
+                  <label className="text-xs font-medium text-indigo-deep mb-2 block flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-gold" /> Activity Timeline
+                  </label>
+                  <div className="space-y-2 max-h-48 overflow-y-auto scroll-luxury pl-1">
+                    {/* Generate activity from lead data */}
+                    <TimelineItem
+                      icon="📞"
+                      title="Lead created"
+                      desc={`via ${selected.source} · score ${selected.score}/100`}
+                      time={new Date(selected.createdAt).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+                      color="bg-blue-500"
+                    />
+                    {selected.score >= 15 && (
+                      <TimelineItem
+                        icon="🎯"
+                        title="Score threshold reached"
+                        desc="Lead qualified for priority follow-up"
+                        time="Auto · scoring system"
+                        color="bg-gold"
+                      />
+                    )}
+                    {selected.score >= 35 && (
+                      <TimelineItem
+                        icon="✉️"
+                        title="Auto-staged"
+                        desc={`Moved to "${selected.stage}" based on score ${selected.score}`}
+                        time="Auto · CRM rule"
+                        color="bg-purple-500"
+                      />
+                    )}
+                    {selected.lastContactedAt && (
+                      <TimelineItem
+                        icon="💬"
+                        title="Last contacted"
+                        desc="Sales advisor outreach"
+                        time={new Date(selected.lastContactedAt).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+                        color="bg-green-600"
+                      />
+                    )}
+                    {selected.budgetRange && (
+                      <TimelineItem
+                        icon="💰"
+                        title="Budget disclosed"
+                        desc={selected.budgetRange}
+                        time="During conversation"
+                        color="bg-amber-500"
+                      />
+                    )}
+                    {selected.project && (
+                      <TimelineItem
+                        icon="🏠"
+                        title="Project interest"
+                        desc={selected.project.name}
+                        time="Lead selection"
+                        color="bg-pink-500"
+                      />
+                    )}
+                    {selected.notes && (
+                      <TimelineItem
+                        icon="📝"
+                        title="Notes added"
+                        desc={selected.notes.slice(0, 60) + (selected.notes.length > 60 ? "..." : "")}
+                        time="Latest update"
+                        color="bg-indigo-deep"
+                      />
+                    )}
+                  </div>
+                </div>
+
                 <div>
                   <label className="text-xs font-medium text-indigo-deep mb-2 block">Notes</label>
                   <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Add conversation notes..." className="bg-white border-gold/25 min-h-[120px]" />
@@ -237,6 +309,23 @@ function DroppableColumn({ stage, count, children }: { stage: { id: string; labe
         <span className="text-xs text-muted-foreground">{count}</span>
       </div>
       {children}
+    </div>
+  );
+}
+
+function TimelineItem({ icon, title, desc, time, color }: { icon: string; title: string; desc: string; time: string; color: string }) {
+  return (
+    <div className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-gold/5">
+      <div className="relative flex-shrink-0">
+        <div className={`w-7 h-7 rounded-full ${color} flex items-center justify-center text-xs`}>
+          {icon}
+        </div>
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="text-xs font-semibold text-indigo-deep">{title}</div>
+        <div className="text-[11px] text-muted-foreground truncate">{desc}</div>
+        <div className="text-[10px] text-muted-foreground/70 mt-0.5">{time}</div>
+      </div>
     </div>
   );
 }

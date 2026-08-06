@@ -380,3 +380,127 @@ Site now has **29 sections** (was 24):
 8. Add a "Braj Dham guide" interactive map with 50+ temples, ghats, parikrama routes
 9. Add video testimonials (embed YouTube shorts of resident stories)
 10. Add a ROI calculator (plot price + construction + 5-year appreciation projection)
+
+---
+Task ID: 10 (Round 4 — ROI Calculator, Spiritual Quiz, Referral Program, Video Testimonials, Lead Activity Timeline)
+Agent: main (cron webDevReview)
+Task: QA, add ROI calculator, spiritual quiz, referral program, video testimonials, admin lead activity timeline, styling enhancements
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server running, lint clean, all APIs returning 200
+- 29 site sections + 9 admin modules all functional (from rounds 1-3)
+- No bugs found during QA — proceeded to new feature development
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all 29 existing sections render
+- ✅ Admin login → dashboard → all 9 modules functional
+- ✅ Lint clean, no runtime errors in dev.log
+
+### New Features Added (5 components)
+
+1. **ROI Calculator** (`roi-calculator.tsx`)
+   - Comprehensive 5-year investment projection tool
+   - 4 inputs: Plot Price (₹1L-20L), Plot Size (80-400 sq.yd), Construction Size (500-3000 sq.ft), Hold Period (1-10 yrs)
+   - Calculates: total investment (plot + construction + GST), future land value (22% appreciation), future construction value (2% depreciation), rental income (12 weeks pilgrimage season × ₹20K/week)
+   - 4 KPI cards: Total Returns, Net Profit, Total ROI %, CAGR %
+   - BarChart showing year-by-year projection (Invested vs Land Value vs Total Value)
+   - Breakdown card with future land value + annual rental income
+   - "Get Detailed Investment Report" CTA → opens lead form
+   - Disclaimer about past performance
+
+2. **Spiritual Quiz** (`spiritual-quiz.tsx`)
+   - 5-question quiz matching users to their ideal Braj city (Mathura/Vrindavan/Govardhan)
+   - Questions about: Krishna pastime preference, spiritual environment, daily temple, investment goal, Delhi proximity
+   - Each option scores 3 cities; results calculated by total score
+   - 3 phases: intro (with city previews) → quiz (with progress bar) → result
+   - Result screen: winner city with emoji, subtitle, description, animated score bars for all 3 cities, CTAs (View Match Project, Discuss with Advisor, Retake Quiz)
+   - Floating decorative emojis (🦚🪈🪔🌸⛰️🕉️) with float-up animation
+   - Animated peacock on intro, rotating scale-in emoji on result
+
+3. **Referral Program** (`referral-program.tsx`)
+   - 4-tier reward system: Sevak (1-2 refs, ₹10K), Bhakta (3-5, ₹25K), Priya (6-10, ₹50K), Parijana (10+, ₹1L)
+   - Each tier shows Devanagari name (सेवक/भक्त/प्रिय/परिजन), referral count, reward, perk description, gradient color
+   - 3-step "How it works" cards (Share → They Book → You Both Earn)
+   - Code generator: enter name → generates unique code (BRJ-NAME-####)
+   - Copy-to-clipboard button with Check animation
+   - Social share row (WhatsApp, Facebook, Twitter) with pre-filled messages
+   - Referee benefit callout (₹5,000 off their booking)
+   - Decorative dot pattern background
+
+4. **Video Testimonials** (`video-testimonials.tsx`)
+   - 3 resident video cards with temple image thumbnails, play button (pulse-divine), duration badge, quote overlay
+   - Resident info: avatar, name, role, 5-star rating, location, project badge
+   - Click opens full video player modal (mock) with large play button, quote, resident details
+   - Stats strip: 500+ Happy Families, 4.9/5 Rating, 92% Would Recommend, 3 Cities Served
+   - Demo player note (would embed YouTube/Vimeo in production)
+
+5. **Lead Activity Timeline** (enhanced admin `leads.tsx`)
+   - Added to lead detail Sheet (right drawer) in admin
+   - 7 timeline items generated from lead data:
+     - 📞 Lead created (source + score)
+     - 🎯 Score threshold reached (if score ≥15)
+     - ✉️ Auto-staged (if score ≥35, shows stage + score)
+     - 💬 Last contacted (if lastContactedAt exists)
+     - 💰 Budget disclosed (if budgetRange exists)
+     - 🏠 Project interest (if project assigned)
+     - 📝 Notes added (truncated preview)
+   - Each item: colored icon circle, title, description, timestamp
+   - Scrollable container with scroll-luxury styling
+   - New TimelineItem helper component
+
+### Types Enhancements (types.ts)
+- VIDEO_TESTIMONIALS: 3 resident stories with name/role/location/thumbnail/duration/quote/project
+- SPIRITUAL_QUIZ: 5 questions with 4 options each, scoring 3 cities
+- QUIZ_RESULTS: Mathura/Vrindavan/Govardhan result descriptions with emoji/gradient
+- REFERRAL_TIERS: 4 tiers (Sevak/Bhakta/Priya/Parijana) with rewards/perks
+- ROI_ASSUMPTIONS: appreciation rate (22%), construction cost (₹1800/sq.ft), rental yield (5%), pilgrimage weeks (12), weekly rental (₹20K), GST (18%)
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ ROI Calculator: all 4 inputs + 4 KPIs + BarChart + breakdown render
+- ✅ Spiritual Quiz: intro → 5 questions → result with score bars verified
+- ✅ Referral Program: 4 tiers + code generator (generated "BRJ-RAVIKUMA-5815" from "Ravi Kumar") + social share verified
+- ✅ Video Testimonials: 3 cards + video modal with demo player note verified
+- ✅ Lead Activity Timeline: all 7 timeline items render in admin lead detail drawer
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/roi-calculator.tsx
+- NEW: src/components/site/spiritual-quiz.tsx
+- NEW: src/components/site/referral-program.tsx
+- NEW: src/components/site/video-testimonials.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added 4 new sections: SpiritualQuiz, VideoTestimonials, RoiCalculator, ReferralProgram)
+- MODIFIED: src/components/admin/modules/leads.tsx (added Activity Timeline + TimelineItem component)
+- MODIFIED: src/lib/types.ts (VIDEO_TESTIMONIALS, SPIRITUAL_QUIZ, QUIZ_RESULTS, REFERRAL_TIERS, ROI_ASSUMPTIONS)
+
+## Current Section Count
+Site now has **33 sections** (was 29):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. **Spiritual Quiz** (new) 8. Projects Showcase 9. Virtual Tour
+10. Plot Explorer 11. USPs 12. Township Map 13. Testimonials
+14. **Video Testimonials** (new) 15. Trust Signals 16. NRI Section 17. EMI Calculator
+18. **ROI Calculator** (new) 19. Visit CTA 20. WhatsApp Flow 21. FAQ
+22. **Referral Program** (new) 23. Blog Preview 24. Lead CTA 25. Footer
++ FABs + 8 modals (Chatbot, Project Detail, Lead Form, Booking, Comparison, Wishlist, Virtual Tour, Site Visit)
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Video testimonials use mock player (would need YouTube/Vimeo embeds in production)
+- Minor: Referral code generation is client-side only (would need backend persistence for tracking in production)
+- Minor: Quiz state resets on page reload (could persist to localStorage in future)
+
+## Priority Recommendations for Next Phase
+1. Add RealEstateListing schema.org to project detail modal
+2. Add residents' community portal (post-purchase: construction updates, document downloads, event RSVP)
+3. Add multi-language toggle (Hindi/English/Hinglish) for content
+4. Add a "Braj Dham guide" interactive map with 50+ temples, ghats, parikrama routes
+5. Add price comparison vs local competitors in NRI section
+6. Add a construction progress tracker for booked plots (photo timeline)
+7. Add email newsletter signup with spiritual content drip
+8. Add a "Braj Bhajan" audio player section (devotional music while browsing)
+9. Add interactive Vastu compass for plot selection
+10. Add a live chat history export feature in admin

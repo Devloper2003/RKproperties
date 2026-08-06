@@ -13,12 +13,16 @@ import { PlotExplorer } from "./plot-explorer";
 import { Usps } from "./usps";
 import { TownshipMap } from "./township-map";
 import { Testimonials } from "./testimonials";
+import { VideoTestimonials } from "./video-testimonials";
 import { TrustSignals } from "./trust-signals";
 import { NriSection } from "./nri-section";
 import { EmiCalculator } from "./emi-calculator";
+import { RoiCalculator } from "./roi-calculator";
+import { SpiritualQuiz } from "./spiritual-quiz";
 import { VisitCtaSection } from "./visit-cta-section";
 import { WhatsappFlow } from "./whatsapp-flow";
 import { FaqSection } from "./faq-section";
+import { ReferralProgram } from "./referral-program";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -58,18 +62,22 @@ export function LuxurySite() {
         <QuoteRotator />
         <SacredLocations />
         <KrishnaLilaSection />
+        <SpiritualQuiz />
         <ProjectsShowcase />
         <VirtualTourSection />
         <PlotExplorer />
         <Usps />
         <TownshipMap />
         <Testimonials />
+        <VideoTestimonials />
         <TrustSignals />
         <NriSection />
         <EmiCalculator />
+        <RoiCalculator />
         <VisitCtaSection />
         <WhatsappFlow />
         <FaqSection />
+        <ReferralProgram />
         <BlogPreview />
         <LeadCta />
       </main>
