@@ -49,8 +49,8 @@ export function AdminTopbar({ title, subtitle }: { title: string; subtitle: stri
               </AvatarFallback>
             </Avatar>
             <div className="hidden lg:block">
-              <div className="text-sm font-semibold text-indigo-deep leading-tight">Super Admin</div>
-              <div className="text-[10px] text-muted-foreground">admin@rkproperties.in</div>
+              <div className="text-sm font-semibold text-indigo-deep leading-tight">Master Admin</div>
+              <div className="text-[10px] text-muted-foreground">masteradmin@rkproperties.in</div>
             </div>
           </div>
         </div>

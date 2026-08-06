@@ -50,7 +50,7 @@ function NavContent({ activeModule, onNavigate, onViewSite, onSignOut }: NavCont
             <div className="font-display text-base font-bold text-cream leading-tight">
               RK Properties<span className="text-gold">.in</span>
             </div>
-            <div className="text-[10px] uppercase tracking-wider text-cream/50">Admin Console</div>
+            <div className="text-[10px] uppercase tracking-wider text-cream/50">Master Admin Console</div>
           </div>
         </div>
       </div>

@@ -77,11 +77,6 @@ export function Footer() {
               <li><a href="#invest" className="text-cream/70 hover:text-gold transition-colors">EMI Calculator</a></li>
               <li><a href="#blog" className="text-cream/70 hover:text-gold transition-colors">Blog & Insights</a></li>
               <li><a href="#testimonials" className="text-cream/70 hover:text-gold transition-colors">Testimonials</a></li>
-              <li>
-                <button onClick={toggleView} className="text-cream/70 hover:text-gold transition-colors flex items-center gap-1.5">
-                  <Shield className="w-3 h-3" /> Admin Login
-                </button>
-              </li>
             </ul>
           </div>
 

@@ -11,7 +11,7 @@ import { LotusLogo, MandalaSVG } from "@/components/shared/brand";
 
 export function AdminLogin() {
   const { setAdminAuthed, setView } = useApp();
-  const [email, setEmail] = useState("admin@rkproperties.in");
+  const [email, setEmail] = useState("masteradmin@rkproperties.in");
   const [password, setPassword] = useState("braj2026");
   const [loading, setLoading] = useState(false);
 
@@ -67,7 +67,7 @@ export function AdminLogin() {
           <form onSubmit={submit} className="p-8 space-y-5">
             <div className="text-center mb-2">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-medium">
-                <Shield className="w-3 h-3" /> Secure Admin Portal
+                <Shield className="w-3 h-3" /> Master Admin Portal
               </div>
             </div>
 
@@ -111,14 +111,14 @@ export function AdminLogin() {
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" /> Sign In to Dashboard
+                  <Sparkles className="w-4 h-4" /> Sign In as Master Admin
                 </span>
               )}
             </Button>
 
             <div className="text-center pt-3 border-t border-gold/15">
               <p className="text-[11px] text-muted-foreground mb-2">
-                Demo: <code className="text-gold">admin@rkproperties.in</code> / <code className="text-gold">braj2026</code>
+                Demo: <code className="text-gold">masteradmin@rkproperties.in</code> / <code className="text-gold">braj2026</code>
               </p>
               <button
                 type="button"

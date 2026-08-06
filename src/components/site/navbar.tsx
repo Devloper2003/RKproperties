@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, Phone, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,20 @@ const NAV_LINKS = [
 export function Navbar({ scrolled }: { scrolled: boolean }) {
   const { toggleView, setMobileMenuOpen, openLeadForm, festivalDismissed } = useApp();
   const [mobileOpen, setMobile] = useState(false);
+  const [logoClicks, setLogoClicks] = useState(0);
+  const logoClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleLogoClick = () => {
+    const newCount = logoClicks + 1;
+    setLogoClicks(newCount);
+    if (logoClickTimer.current) clearTimeout(logoClickTimer.current);
+    if (newCount >= 3) {
+      setLogoClicks(0);
+      toggleView(); // Secret admin access
+    } else {
+      logoClickTimer.current = setTimeout(() => setLogoClicks(0), 600);
+    }
+  };
 
   return (
     <header
@@ -35,26 +49,26 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
     >
       <nav className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-2.5 group">
-            <LotusLogo className="w-9 h-9 text-gold transition-transform group-hover:scale-110" />
-            <div className="flex flex-col leading-none">
+          {/* Logo — triple click for secret admin access */}
+          <button onClick={handleLogoClick} className="flex items-center gap-2.5 group cursor-pointer">
+            <LotusLogo className="w-9 h-9 transition-transform group-hover:scale-110" />
+            <div className="flex flex-col leading-none text-left">
               <span
-                className={`font-display text-xl font-bold tracking-tight ${
+                className={`font-display text-lg font-bold tracking-tight ${
                   scrolled ? "text-indigo-deep" : "text-cream"
                 }`}
               >
                 RK Properties
               </span>
               <span
-                className={`text-[10px] uppercase tracking-[0.2em] ${
+                className={`text-[9px] uppercase tracking-[0.2em] ${
                   scrolled ? "text-muted-foreground" : "text-cream/70"
                 }`}
               >
-                Spiritual Living in Braj
+                Shahid Ravi Karan Singh
               </span>
             </div>
-          </a>
+          </button>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1">
@@ -92,19 +106,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
             >
               Book Site Visit
             </Button>
-            <Button
-              onClick={toggleView}
-              size="sm"
-              variant="outline"
-              className={`border-gold/40 ${
-                scrolled
-                  ? "text-indigo-deep hover:bg-gold/10"
-                  : "text-cream border-cream/30 hover:bg-cream/10"
-              }`}
-            >
-              <Shield className="w-3.5 h-3.5 mr-1.5" />
-              Admin
-            </Button>
+            {/* Admin access hidden — triple-click logo to access */}
           </div>
 
           {/* Mobile hamburger */}
@@ -156,17 +158,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
                     >
                       Book Site Visit
                     </Button>
-                    <Button
-                      onClick={() => {
-                        setMobile(false);
-                        toggleView();
-                      }}
-                      variant="outline"
-                      className="border-gold/40 text-indigo-deep"
-                    >
-                      <Shield className="w-4 h-4 mr-2" />
-                      Admin Panel
-                    </Button>
+                    {/* Admin hidden from mobile menu — triple-click logo */}
                     <a
                       href="tel:+919837012345"
                       className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-2"

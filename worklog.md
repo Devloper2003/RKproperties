@@ -1440,3 +1440,92 @@ Task: Rebrand BrajProperty to RK Properties, fix top bar overlap, create separat
 - ✅ Google Maps shows in individual project pages
 - ✅ Admin projects CRUD connected to project pages via same API
 - ✅ No runtime errors in dev.log
+
+---
+Task ID: 19 (Round 13 — RK Logo, Hidden Admin, Master Admin, Enhanced Project Pages, Google Maps)
+Agent: main (user request)
+Task: Update logo to RK Properties image, hide admin from website, make master admin, create eye-catchy dynamic project pages, verify Google Maps
+
+## User Requirements
+1. Explore Braj Dham Map mein real map ko input karo (already done — verified Google Maps iframe)
+2. Yahan logo ko update kar (update logo to RK Properties uploaded image)
+3. Admin ko website se hide karo (hide admin from website)
+4. Admin ko master admin banao jahan se sab kuch edit kar saku (make master admin with full edit control)
+5. Sab ka separate page banao jo detailed ho, eye-catchy dynamic website ho (create separate detailed eye-catchy dynamic pages)
+6. Projects par open karu to new page open ho (clicking project opens new page)
+
+## Work Completed
+
+### 1. Logo Updated to RK Properties Image
+- Copied uploaded `pasted_image_1786018342889.jpg` → `public/images/rk-logo.png`
+- Updated `LotusLogo` component to use `<Image>` from next/image instead of SVG
+- Logo shows "RK" house icon with red+blue theme + "SHAHID RAVI KARAN SINGH" text
+- Navbar subtitle changed from "Spiritual Living in Braj" to "Shahid Ravi Karan Singh"
+- Logo used everywhere: navbar, footer, admin sidebar, admin login
+
+### 2. Admin Hidden from Website
+- Removed "Admin" button from desktop navbar
+- Removed "Admin Panel" button from mobile Sheet menu
+- Removed "Admin Login" link from footer
+- **Secret access**: Triple-click the RK Properties logo in navbar → opens Master Admin Portal
+- Admin is completely invisible to regular website visitors
+
+### 3. Master Admin with Full Edit Control
+- Admin login text updated: "Secure Admin Portal" → "Master Admin Portal"
+- Login button: "Sign In to Dashboard" → "Sign In as Master Admin"
+- Admin sidebar: "Admin Console" → "Master Admin Console"
+- Admin topbar: "Super Admin" → "Master Admin", email → "masteradmin@rkproperties.in"
+- Master Admin has full CRUD access to ALL modules:
+  - Projects: Create, Edit, Delete (reflects on project pages in real-time)
+  - Plots: Add, Edit status, Delete
+  - Leads: Full Kanban + edit + delete
+  - Bookings: View, mark complete
+  - Content: Blog, testimonials, temples, team
+  - Analytics, Reports, Settings (6 tabs including user management + audit log)
+
+### 4. Enhanced Eye-Catchy Dynamic Project Pages
+- Completely rewrote `project-page-view.tsx` with:
+  - **Image gallery** with prev/next navigation + thumbnail strip
+  - Animated hero with staggered text reveals (Framer Motion)
+  - Eye-catchy quick stats cards with colored icons
+  - USP highlight banner (dark spiritual-temple background)
+  - Amenities grid with staggered reveal
+  - Nearby temples list
+  - Plot availability grid (clickable → opens booking)
+  - Google Maps embed (project-specific lat/lng)
+  - Project testimonials section with star ratings
+  - 3-button CTA row (Book Site Visit, Schedule Visit, WhatsApp)
+  - Smooth page transitions (AnimatePresence)
+  - All content dynamically fetched from `/api/projects/[slug]` — admin edits reflect instantly
+
+### 5. Google Maps Verified
+- **Explore Braj Dham section**: Real Google Maps iframe showing Vrindavan, Mathura, Govardhan region
+- **Each project page**: Google Maps with project's actual lat/lng coordinates
+- Both verified working via agent-browser (iframe elements confirmed)
+
+## Store Enhancements
+- `festivalDismissed` + `setFestivalDismissed` (global state for navbar positioning)
+- `projectPageSlug` + `openProjectPage(slug)` + `closeProjectPage()` (full-page project view)
+
+## Files Created/Modified
+- NEW: public/images/rk-logo.png (uploaded RK Properties logo)
+- MODIFIED: src/components/shared/brand.tsx (LotusLogo → Image component using RK logo)
+- MODIFIED: src/components/site/navbar.tsx (RK logo, "Shahid Ravi Karan Singh" subtitle, removed Admin button, triple-click secret access, useRef import)
+- MODIFIED: src/components/site/footer.tsx (removed Admin Login link)
+- MODIFIED: src/components/site/project-page-view.tsx (complete rewrite — eye-catchy gallery, animations, testimonials, 3 CTAs)
+- MODIFIED: src/components/admin/admin-login.tsx (Master Admin Portal, masteradmin@rkproperties.in)
+- MODIFIED: src/components/admin/admin-sidebar.tsx (Master Admin Console)
+- MODIFIED: src/components/admin/admin-topbar.tsx (Master Admin, masteradmin@rkproperties.in)
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ Site loads HTTP 200
+- ✅ RK Properties logo (image) shows in navbar with "SHAHID RAVI KARAN SINGH" subtitle
+- ✅ No "Admin" button visible anywhere on public website
+- ✅ Triple-click logo opens "Master Admin Portal" login
+- ✅ Sign in as Master Admin → Dashboard with "MASTER ADMIN CONSOLE" sidebar
+- ✅ Project detail page opens as separate full-page view
+- ✅ Gallery with thumbnails, animated reveals, USP banner, testimonials
+- ✅ Google Maps iframe in both Explore Braj Dham section AND project pages
+- ✅ Admin projects CRUD connected to project pages (same API, real-time updates)
+- ✅ No runtime errors in dev.log
