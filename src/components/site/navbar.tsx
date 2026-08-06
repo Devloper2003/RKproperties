@@ -20,12 +20,14 @@ const NAV_LINKS = [
 ];
 
 export function Navbar({ scrolled }: { scrolled: boolean }) {
-  const { toggleView, setMobileMenuOpen, openLeadForm } = useApp();
+  const { toggleView, setMobileMenuOpen, openLeadForm, festivalDismissed } = useApp();
   const [mobileOpen, setMobile] = useState(false);
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 z-50 transition-all duration-500 ${
+        festivalDismissed ? "top-0" : "top-[40px]"
+      } ${
         scrolled
           ? "bg-cream/95 backdrop-blur-md shadow-[0_2px_20px_rgba(197,162,62,0.12)] border-b border-gold/15"
           : "bg-transparent"
@@ -42,8 +44,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
                   scrolled ? "text-indigo-deep" : "text-cream"
                 }`}
               >
-                BrajProperty
-                <span className="text-gold">.in</span>
+                RK Properties
               </span>
               <span
                 className={`text-[10px] uppercase tracking-[0.2em] ${
@@ -125,7 +126,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
                   <div className="flex items-center gap-2">
                     <LotusLogo className="w-7 h-7 text-gold" />
                     <span className="font-display text-lg font-bold text-indigo-deep">
-                      BrajProperty<span className="text-gold">.in</span>
+                      RK Properties<span className="text-gold">.in</span>
                     </span>
                   </div>
                   <SheetClose asChild>

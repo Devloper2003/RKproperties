@@ -1,4 +1,4 @@
-// BrajProperty.in - Prisma Schema
+// RK Properties - Prisma Schema
 // Premium plotted development real estate platform
 
 generator client {
@@ -134,7 +134,7 @@ model BlogPost {
   featuredImage String
   category      String // investment, spiritual, market-news, guide
   tags          String // JSON array
-  author        String   @default("BrajProperty Team")
+  author        String   @default("RK Properties Team")
   readTime      Int      @default(5)
   isPublished   Boolean  @default(true)
   publishedAt   DateTime @default(now())

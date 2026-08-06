@@ -1,4 +1,4 @@
-// Shared types for BrajProperty.in
+// Shared types for RK Properties
 
 export interface NearbyTemple {
   name: string;
@@ -182,7 +182,7 @@ export const KRISHNA_QUOTES: { text: string; source: string }[] = [
 
 export const FESTIVALS: { name: string; date: string; description: string; emoji: string }[] = [
   { name: "Krishna Janmashtami", date: "Aug 26, 2026", description: "Celebrating the divine appearance of Lord Krishna in Braj. Special aarti at all our township temples.", emoji: "🦚" },
-  { name: "Radhashtami", date: "Sep 11, 2026", description: "The appearance day of Radharani, Krishna's divine consort. Sweets distributed at BrajProperty offices.", emoji: "🌸" },
+  { name: "Radhashtami", date: "Sep 11, 2026", description: "The appearance day of Radharani, Krishna's divine consort. Sweets distributed at RK Properties offices.", emoji: "🌸" },
   { name: "Govardhan Puja", date: "Oct 21, 2026", description: "Commemorating Krishna lifting Giriraj Hill. Special parikrama events at Braj Lotus Greens.", emoji: "⛰️" },
   { name: "Holi in Braj", date: "Mar 14, 2027", description: "The festival of colors celebrated in Vrindavan with divine fervor. Residents enjoy community festivities.", emoji: "🎨" },
   { name: "Kartik Purnima", date: "Nov 5, 2026", description: "The most auspicious month for Braj pilgrimage. Deep daan at all township temples.", emoji: "🪔" },
@@ -283,8 +283,8 @@ export const KRISHNA_LILAS: { title: string; place: string; summary: string; les
 // ===== FAQ data =====
 export const FAQS: { question: string; answer: string; category: string }[] = [
   {
-    question: "Are BrajProperty plots MVDA-approved?",
-    answer: "Yes, every BrajProperty township carries a valid MVDA (Mathura-Vrindavan Development Authority) approval number, verifiable on the official MVDA portal. This is the gold standard of legal security for property buyers in the Braj region, ensuring proper zoning, approved layouts, and legally binding infrastructure commitments.",
+    question: "Are RK Properties plots MVDA-approved?",
+    answer: "Yes, every RK Properties township carries a valid MVDA (Mathura-Vrindavan Development Authority) approval number, verifiable on the official MVDA portal. This is the gold standard of legal security for property buyers in the Braj region, ensuring proper zoning, approved layouts, and legally binding infrastructure commitments.",
     category: "Legal",
   },
   {
@@ -293,7 +293,7 @@ export const FAQS: { question: string; answer: string; category: string }[] = [
     category: "Booking",
   },
   {
-    question: "Can NRIs buy plots in BrajProperty townships?",
+    question: "Can NRIs buy plots in RK Properties townships?",
     answer: "Absolutely. Under FEMA regulations, NRIs and OCIs can purchase residential plots in India without special RBI approval. We provide complete NRI documentation assistance including Power of Attorney, foreign remittance tracking, FEMA compliance certificates, and repatriation guidance for up to 2 residential properties.",
     category: "NRI",
   },
@@ -314,7 +314,7 @@ export const FAQS: { question: string; answer: string; category: string }[] = [
   },
   {
     question: "What documents will I receive after purchase?",
-    answer: "Post full payment, you receive: (1) Sale Deed registered with Sub-Registrar; (2) Mutation entry in revenue records; (3) MVDA completion certificate; (4) RERA registration documents; (5) Tax paid receipts; (6) Society/Association membership; (7) Possession letter with plot dimensions and boundaries; (8) Original title chain. All documents are also available digitally via your BrajProperty account.",
+    answer: "Post full payment, you receive: (1) Sale Deed registered with Sub-Registrar; (2) Mutation entry in revenue records; (3) MVDA completion certificate; (4) RERA registration documents; (5) Tax paid receipts; (6) Society/Association membership; (7) Possession letter with plot dimensions and boundaries; (8) Original title chain. All documents are also available digitally via your RK Properties account.",
     category: "Legal",
   },
   {
@@ -336,7 +336,7 @@ export const FAQS: { question: string; answer: string; category: string }[] = [
 
 // ===== WhatsApp Flow Steps (from PDF spec section 21) =====
 export const WHATSAPP_FLOW_STEPS: { step: number; trigger: string; type: string; content: string; mode: string }[] = [
-  { step: 1, trigger: "First WhatsApp click", type: "Template", content: "Namaste! Welcome to BrajProperty.in. How can I help you today?", mode: "Auto" },
+  { step: 1, trigger: "First WhatsApp click", type: "Template", content: "Namaste! Welcome to RK Properties. How can I help you today?", mode: "Auto" },
   { step: 2, trigger: "User responds 'project'", type: "Interactive List", content: "Which project: Orchid, Lotus Greens, Kunj, Dham?", mode: "Auto" },
   { step: 3, trigger: "User selects project", type: "Rich Message", content: "Project details + brochure PDF + plot availability link", mode: "Auto" },
   { step: 4, trigger: "User asks 'price'", type: "Calculator Template", content: "EMI calculator link + starting price info", mode: "Auto" },
@@ -379,7 +379,7 @@ export const VIDEO_TESTIMONIALS: { name: string; role: string; location: string;
     location: "New Jersey → Vrindavan",
     thumbnail: "/images/temples/iskcon.png",
     duration: "3:12",
-    quote: "My plot has already appreciated 22%. The BrajProperty team made it effortless.",
+    quote: "My plot has already appreciated 22%. The RK Properties team made it effortless.",
     project: "Bankey Bihari Dham",
   },
   {
@@ -622,7 +622,7 @@ export const COMPETITORS: { name: string; type: string; avgPrice: string; legalC
     ourAdvantage: "Local office + WhatsApp + site visits + Braj-native trust",
   },
   {
-    name: "BrajProperty.in",
+    name: "RK Properties",
     type: "Premium Braj-native",
     avgPrice: "₹5-20 L",
     legalClarity: "100% MVDA + RERA",
@@ -1140,7 +1140,7 @@ export const KRISHNA_STORIES: { title: string; emoji: string; ageGroup: string; 
 export const NEWSLETTER_SERIES: { day: number; subject: string; preview: string; category: string }[] = [
   { day: 1, subject: "Namaste! Welcome to Braj Dham 🙏", preview: "Begin your spiritual journey with Krishna's sacred land. Discover why millions call Braj their spiritual home.", category: "Welcome" },
   { day: 3, subject: "The Story of Banke Bihari Temple", preview: "Discover how Krishna appeared in His tribhanga form to Swami Haridas in Nidhivan, 1864.", category: "Spiritual" },
-  { day: 5, subject: "Why MVDA Approval Matters for Your Investment", preview: "Legal clarity, clear titles, and approved infrastructure — the BrajProperty difference explained.", category: "Investment" },
+  { day: 5, subject: "Why MVDA Approval Matters for Your Investment", preview: "Legal clarity, clear titles, and approved infrastructure — the RK Properties difference explained.", category: "Investment" },
   { day: 7, subject: "Govardhan Parikrama: A 21km Spiritual Journey", preview: "Everything you need to know about the most sacred walk in Braj — route, timing, significance.", category: "Guide" },
   { day: 10, subject: "NRI Investment Guide for Braj Dham", preview: "FEMA compliance, repatriation rules, and how NRIs can own a piece of sacred Vrindavan.", category: "NRI" },
   { day: 14, subject: "Janmashtami in Braj — A Once-in-a-Lifetime Experience", preview: "Midnight abhishek, ras lila, prasad — celebrate Krishna's birthday where He was born.", category: "Festival" },
@@ -1416,12 +1416,12 @@ export const BRAJ_PHOTOS: { id: string; title: string; location: string; categor
   { id: "p1", title: "Sunrise at Banke Bihari", location: "Vrindavan", category: "Temple", image: "/images/temples/banke-bihari.png", desc: "First rays of dawn illuminating the temple spire as devotees queue for Mangala darshan.", photographer: "Rajesh K." },
   { id: "p2", title: "Govardhan Parikrama Path", location: "Govardhan", category: "Parikrama", image: "/images/temples/govardhan.png", desc: "The sacred 21km path around Giriraj Hill, walked by millions of devotees each year.", photographer: "Suresh M." },
   { id: "p3", title: "ISKCON Evening Aarti", location: "Vrindavan", category: "Temple", image: "/images/temples/iskcon.png", desc: "Sandhya aarti at ISKCON — hundreds of devotees singing kirtan as lamps are offered.", photographer: "Anjali D." },
-  { id: "p4", title: "Township Aerial View", location: "Vrindavan", category: "Township", image: "/images/township-aerial.png", desc: "Bird's eye view of our premium gated township with temple-themed entrance and green belt.", photographer: "BrajProperty Team" },
-  { id: "p5", title: "Vrindavan Golden Dawn", location: "Vrindavan", category: "Landscape", image: "/images/hero-vrindavan.png", desc: "The sacred land of Braj at golden hour — temple silhouettes and morning mist over Yamuna.", photographer: "BrajProperty Team" },
-  { id: "p6", title: "Bankey Bihari Orchid Entrance", location: "Mathura", category: "Township", image: "/images/projects/bankey-bihari-orchid.png", desc: "Temple-themed entrance gate inspired by Banke Bihari Temple — marble facade with gold accents.", photographer: "BrajProperty Team" },
-  { id: "p7", title: "Braj Lotus Greens Garden", location: "Govardhan", category: "Township", image: "/images/projects/braj-lotus-greens.png", desc: "Lotus-themed water fountain at the entrance, with Govardhan Hill in the background.", photographer: "BrajProperty Team" },
-  { id: "p8", title: "Bankey Bihari Kunj", location: "Vrindavan", category: "Township", image: "/images/projects/bankey-bihari-kunj.png", desc: "ISKCON-inspired entrance gate with devotional gardens and tulsi plantation.", photographer: "BrajProperty Team" },
-  { id: "p9", title: "Bankey Bihari Dham Grand Gate", location: "Vrindavan", category: "Township", image: "/images/projects/bankey-bihari-dham.png", desc: "Grand 3-domed temple architecture entrance — Braj's largest gated township.", photographer: "BrajProperty Team" },
+  { id: "p4", title: "Township Aerial View", location: "Vrindavan", category: "Township", image: "/images/township-aerial.png", desc: "Bird's eye view of our premium gated township with temple-themed entrance and green belt.", photographer: "RK Properties Team" },
+  { id: "p5", title: "Vrindavan Golden Dawn", location: "Vrindavan", category: "Landscape", image: "/images/hero-vrindavan.png", desc: "The sacred land of Braj at golden hour — temple silhouettes and morning mist over Yamuna.", photographer: "RK Properties Team" },
+  { id: "p6", title: "Bankey Bihari Orchid Entrance", location: "Mathura", category: "Township", image: "/images/projects/bankey-bihari-orchid.png", desc: "Temple-themed entrance gate inspired by Banke Bihari Temple — marble facade with gold accents.", photographer: "RK Properties Team" },
+  { id: "p7", title: "Braj Lotus Greens Garden", location: "Govardhan", category: "Township", image: "/images/projects/braj-lotus-greens.png", desc: "Lotus-themed water fountain at the entrance, with Govardhan Hill in the background.", photographer: "RK Properties Team" },
+  { id: "p8", title: "Bankey Bihari Kunj", location: "Vrindavan", category: "Township", image: "/images/projects/bankey-bihari-kunj.png", desc: "ISKCON-inspired entrance gate with devotional gardens and tulsi plantation.", photographer: "RK Properties Team" },
+  { id: "p9", title: "Bankey Bihari Dham Grand Gate", location: "Vrindavan", category: "Township", image: "/images/projects/bankey-bihari-dham.png", desc: "Grand 3-domed temple architecture entrance — Braj's largest gated township.", photographer: "RK Properties Team" },
 ];
 
 

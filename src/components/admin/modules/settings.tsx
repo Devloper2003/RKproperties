@@ -30,7 +30,7 @@ export function Settings() {
       <TabsContent value="general" className="mt-4">
         <Card className="card-luxury rounded-xl"><CardContent className="p-6 space-y-4 max-w-2xl">
           <h3 className="font-display text-lg font-bold text-indigo-deep">General Settings</h3>
-          <div><Label className="text-xs">Site Name</Label><Input defaultValue="BrajProperty.in" className="bg-white border-gold/25 mt-1" /></div>
+          <div><Label className="text-xs">Site Name</Label><Input defaultValue="RK Properties" className="bg-white border-gold/25 mt-1" /></div>
           <div><Label className="text-xs">Tagline</Label><Input defaultValue="Your Spiritual Home in Braj Dham" className="bg-white border-gold/25 mt-1" /></div>
           <div><Label className="text-xs">Description</Label><Textarea defaultValue="Premium MVDA-approved plotted townships in Vrindavan, Mathura & Govardhan." className="bg-white border-gold/25 mt-1 min-h-[80px]" /></div>
           <div className="flex items-center justify-between p-3 rounded-lg bg-marble">
@@ -47,8 +47,8 @@ export function Settings() {
           <div className="grid grid-cols-2 gap-3">
             <div><Label className="text-xs">Primary Phone</Label><Input defaultValue="+91 98370 12345" className="bg-white border-gold/25 mt-1" /></div>
             <div><Label className="text-xs">WhatsApp Number</Label><Input defaultValue="919837012345" className="bg-white border-gold/25 mt-1" /></div>
-            <div><Label className="text-xs">Primary Email</Label><Input defaultValue="info@brajproperty.in" className="bg-white border-gold/25 mt-1" /></div>
-            <div><Label className="text-xs">Support Email</Label><Input defaultValue="support@brajproperty.in" className="bg-white border-gold/25 mt-1" /></div>
+            <div><Label className="text-xs">Primary Email</Label><Input defaultValue="info@rkproperties.in" className="bg-white border-gold/25 mt-1" /></div>
+            <div><Label className="text-xs">Support Email</Label><Input defaultValue="support@rkproperties.in" className="bg-white border-gold/25 mt-1" /></div>
           </div>
           <div><Label className="text-xs">Office Address</Label><Textarea defaultValue="Braj Dham Heights, Vrindavan, Mathura, Uttar Pradesh 281121" className="bg-white border-gold/25 mt-1 min-h-[60px]" /></div>
           <Button onClick={() => save("Contact")} className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold"><Save className="w-4 h-4 mr-1" /> Save</Button>
@@ -58,7 +58,7 @@ export function Settings() {
       <TabsContent value="seo" className="mt-4">
         <Card className="card-luxury rounded-xl"><CardContent className="p-6 space-y-4 max-w-2xl">
           <h3 className="font-display text-lg font-bold text-indigo-deep">SEO Defaults</h3>
-          <div><Label className="text-xs">Default Meta Title</Label><Input defaultValue="BrajProperty.in — Premium Plots in Braj Dham" className="bg-white border-gold/25 mt-1" /></div>
+          <div><Label className="text-xs">Default Meta Title</Label><Input defaultValue="RK Properties — Premium Plots in Braj Dham" className="bg-white border-gold/25 mt-1" /></div>
           <div><Label className="text-xs">Default Meta Description</Label><Textarea defaultValue="Buy MVDA-approved residential plots in Vrindavan, Mathura & Govardhan. Premium gated townships with clear legal titles." className="bg-white border-gold/25 mt-1 min-h-[70px]" /></div>
           <div><Label className="text-xs">Meta Keywords (comma-separated)</Label><Input defaultValue="plot in vrindavan, property in mathura, govardhan plot, braj dham, mvda approved" className="bg-white border-gold/25 mt-1" /></div>
           <div className="grid grid-cols-2 gap-3">
@@ -95,10 +95,10 @@ export function Settings() {
           </div>
           <div className="space-y-2">
             {[
-              { name: "Super Admin", email: "admin@brajproperty.in", role: "SuperAdmin", color: "bg-temple-red/15 text-temple-red border-temple-red/30" },
-              { name: "Gopal Das", email: "gopal@brajproperty.in", role: "Admin", color: "bg-gold/15 text-gold border-gold/30" },
-              { name: "Arjun Sharma", email: "arjun@brajproperty.in", role: "Sales Manager", color: "bg-green-light/15 text-green-deep border-green-light/30" },
-              { name: "Meera Gupta", email: "meera@brajproperty.in", role: "Editor", color: "bg-indigo-deep/10 text-indigo-deep border-indigo-deep/30" },
+              { name: "Super Admin", email: "admin@rkproperties.in", role: "SuperAdmin", color: "bg-temple-red/15 text-temple-red border-temple-red/30" },
+              { name: "Gopal Das", email: "gopal@rkproperties.in", role: "Admin", color: "bg-gold/15 text-gold border-gold/30" },
+              { name: "Arjun Sharma", email: "arjun@rkproperties.in", role: "Sales Manager", color: "bg-green-light/15 text-green-deep border-green-light/30" },
+              { name: "Meera Gupta", email: "meera@rkproperties.in", role: "Editor", color: "bg-indigo-deep/10 text-indigo-deep border-indigo-deep/30" },
             ].map((u) => (
               <div key={u.email} className="flex items-center justify-between p-3 rounded-lg bg-marble">
                 <div className="flex items-center gap-3">

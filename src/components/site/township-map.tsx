@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { MapPin, Navigation } from "lucide-react";
+import { MapPin, Navigation, Compass } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeading } from "./section-heading";
 import type { Temple, Project } from "@/lib/types";
@@ -37,7 +37,7 @@ export function TownshipMap() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Stylized SVG map */}
+          {/* Real Google Map of Braj Dham region */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -45,84 +45,21 @@ export function TownshipMap() {
             transition={{ duration: 0.8 }}
             className="relative aspect-square max-w-lg mx-auto w-full"
           >
-            <div className="absolute inset-0 rounded-full bg-spiritual-dawn opacity-20 blur-3xl" />
-            <svg viewBox="0 0 400 400" className="relative w-full h-full">
-              {/* Yamuna river curve */}
-              <path
-                d="M 50 50 Q 150 150 180 220 T 350 380"
-                stroke="#87CEEB"
-                strokeWidth="3"
-                fill="none"
-                opacity="0.4"
-                strokeLinecap="round"
+            <div className="absolute inset-0 rounded-2xl overflow-hidden border-4 border-gold/30 shadow-2xl">
+              <iframe
+                src="https://www.google.com/maps?q=Vrindavan,Mathura,Uttar+Pradesh&z=10&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Braj Dham region map - Vrindavan, Mathura, Govardhan"
+                className="w-full h-full"
               />
-              <text x="60" y="45" fill="#87CEEB" fontSize="10" opacity="0.7" fontStyle="italic">
-                Yamuna Ji
-              </text>
-
-              {/* Govardhan hill arc */}
-              <path
-                d="M 40 280 Q 90 240 140 290"
-                stroke="#4A7A2E"
-                strokeWidth="4"
-                fill="none"
-                opacity="0.5"
-                strokeLinecap="round"
-              />
-              <text x="50" y="320" fill="#4A7A2E" fontSize="10" opacity="0.8" fontStyle="italic">
-                Giriraj
-              </text>
-
-              {/* City pins */}
-              {Object.entries(CITY_POSITIONS).map(([city, pos]) => {
-                const cityProjects = projects.filter((p) => p.city.toLowerCase() === city.toLowerCase());
-                return (
-                  <g key={city}>
-                    {/* Pulsing ring */}
-                    <circle cx={pos.x * 4} cy={pos.y * 4} r="20" fill="#C5A23E" opacity="0.15">
-                      <animate attributeName="r" values="20;32;20" dur="3s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.3;0;0.3" dur="3s" repeatCount="indefinite" />
-                    </circle>
-                    <circle cx={pos.x * 4} cy={pos.y * 4} r="8" fill="#C5A23E" />
-                    <circle cx={pos.x * 4} cy={pos.y * 4} r="3" fill="#1A1A2E" />
-                    <text
-                      x={pos.x * 4}
-                      y={pos.y * 4 - 14}
-                      textAnchor="middle"
-                      fill="#1A1A2E"
-                      fontSize="13"
-                      fontWeight="700"
-                      fontFamily="Playfair Display, serif"
-                    >
-                      {city}
-                    </text>
-                    <text
-                      x={pos.x * 4}
-                      y={pos.y * 4 + 22}
-                      textAnchor="middle"
-                      fill="#8B6914"
-                      fontSize="9"
-                      fontWeight="600"
-                    >
-                      {cityProjects.length} {cityProjects.length === 1 ? "township" : "townships"}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Connecting pilgrimage route */}
-              <path
-                d="M 128 208 Q 160 180 192 168 Q 200 200 88 280"
-                stroke="#C5A23E"
-                strokeWidth="1.5"
-                strokeDasharray="4 4"
-                fill="none"
-                opacity="0.5"
-              />
-            </svg>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-muted-foreground flex items-center gap-1.5">
+            </div>
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-xs text-muted-foreground flex items-center gap-1.5 bg-cream/90 px-3 py-1.5 rounded-full shadow-md">
               <Navigation className="w-3 h-3 text-gold" />
-              Stylized map of sacred Braj Dham region
+              Real map of Braj Dham · Vrindavan · Mathura · Govardhan
             </div>
           </motion.div>
 

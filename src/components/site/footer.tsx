@@ -29,7 +29,7 @@ export function Footer() {
               <LotusLogo className="w-10 h-10 text-gold" />
               <div>
                 <div className="font-display text-xl font-bold text-cream">
-                  BrajProperty<span className="text-gold">.in</span>
+                  RK Properties
                 </div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-cream/60">Spiritual Living</div>
               </div>
@@ -73,7 +73,7 @@ export function Footer() {
           <div>
             <h4 className="font-display text-base font-bold text-gold mb-4 uppercase tracking-wide">Quick Links</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><a href="#about" className="text-cream/70 hover:text-gold transition-colors">Why BrajProperty</a></li>
+              <li><a href="#about" className="text-cream/70 hover:text-gold transition-colors">Why RK Properties</a></li>
               <li><a href="#invest" className="text-cream/70 hover:text-gold transition-colors">EMI Calculator</a></li>
               <li><a href="#blog" className="text-cream/70 hover:text-gold transition-colors">Blog & Insights</a></li>
               <li><a href="#testimonials" className="text-cream/70 hover:text-gold transition-colors">Testimonials</a></li>
@@ -99,13 +99,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@brajproperty.in" className="flex items-center gap-2.5 text-cream/70 hover:text-gold transition-colors">
-                  <Mail className="w-4 h-4 text-gold" /> info@brajproperty.in
+                <a href="mailto:info@rkproperties.in" className="flex items-center gap-2.5 text-cream/70 hover:text-gold transition-colors">
+                  <Mail className="w-4 h-4 text-gold" /> info@rkproperties.in
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/919837012345?text=Namaste! I'd like to know more about BrajProperty plots"
+                  href="https://wa.me/919837012345?text=Namaste! I'd like to know more about RK Properties plots"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full bg-green-light text-cream text-xs font-semibold hover:bg-green-deep transition-colors"
@@ -140,7 +140,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-gold/15 bg-indigo-deep/40">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/50">
-          <div>© 2026 BrajProperty.in — All rights reserved. Made with 🙏 in Braj Dham.</div>
+          <div>© 2026 RK Properties — All rights reserved. Made with 🙏 in Braj Dham.</div>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">✓ MVDA Approved</span>
             <span className="flex items-center gap-1.5">✓ RERA Registered</span>

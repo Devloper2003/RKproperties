@@ -196,7 +196,7 @@ export function BrajDhamMap() {
                 <p className="text-sm text-indigo-deep/80 leading-relaxed mb-4">{selected.significance}</p>
                 <div className="p-3 rounded-lg bg-gold/10 border border-gold/20">
                   <p className="text-xs text-indigo-deep/70 italic">
-                    ✨ This sacred place is accessible from our BrajProperty townships. Ask our property advisor about visiting arrangements during your site visit.
+                    ✨ This sacred place is accessible from our RK Properties townships. Ask our property advisor about visiting arrangements during your site visit.
                   </p>
                 </div>
                 <a

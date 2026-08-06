@@ -27,11 +27,11 @@ const notoSerifSC = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "BrajProperty.in — Your Spiritual Home in Braj Dham | Premium Plots in Vrindavan, Mathura & Govardhan",
+  title: "RK Properties — Your Spiritual Home in Braj Dham | Premium Plots in Vrindavan, Mathura & Govardhan",
   description:
     "Premium MVDA-approved plotted townships in the sacred land of Vrindavan, Mathura & Govardhan. Gated communities with temple-themed architecture, clear legal titles, and modern amenities. 4 townships, 185+ plots, 22% annual appreciation.",
   keywords: [
-    "BrajProperty",
+    "RK Properties",
     "plot in Vrindavan",
     "property in Mathura",
     "Govardhan plot",
@@ -44,23 +44,23 @@ export const metadata: Metadata = {
     "Banke Bihari temple plot",
     "spiritual real estate India",
   ],
-  authors: [{ name: "BrajProperty.in" }],
-  metadataBase: new URL("https://brajproperty.in"),
+  authors: [{ name: "RK Properties" }],
+  metadataBase: new URL("https://rkproperties.in"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "BrajProperty.in — Your Spiritual Home in Braj Dham",
+    title: "RK Properties — Your Spiritual Home in Braj Dham",
     description:
       "Premium MVDA-approved plotted townships in Vrindavan, Mathura & Govardhan. 4 townships, 185+ plots, 22% annual appreciation.",
-    siteName: "BrajProperty.in",
+    siteName: "RK Properties",
     type: "website",
     locale: "en_IN",
     images: [{ url: "/images/hero-vrindavan.png", width: 1344, height: 768, alt: "Vrindavan at golden dawn" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BrajProperty.in",
+    title: "RK Properties",
     description: "Premium plotted townships in sacred Braj Dham.",
     images: ["/images/hero-vrindavan.png"],
   },
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "BrajProperty.in",
-  url: "https://brajproperty.in",
-  logo: "https://brajproperty.in/logo.svg",
+  name: "RK Properties",
+  url: "https://rkproperties.in",
+  logo: "https://rkproperties.in/logo.svg",
   description: "Premium MVDA-approved plotted townships in Vrindavan, Mathura & Govardhan.",
   foundingDate: "2024",
   areaServed: ["Vrindavan", "Mathura", "Govardhan", "Braj Dham", "India"],
@@ -86,7 +86,7 @@ const organizationSchema = {
     "@type": "ContactPoint",
     telephone: "+91-98370-12345",
     contactType: "sales",
-    email: "info@brajproperty.in",
+    email: "info@rkproperties.in",
     areaServed: "IN",
     availableLanguage: ["Hindi", "English", "Hinglish"],
   },
@@ -99,9 +99,9 @@ const organizationSchema = {
     addressCountry: "IN",
   },
   sameAs: [
-    "https://facebook.com/brajproperty",
-    "https://instagram.com/brajproperty",
-    "https://youtube.com/@brajproperty",
+    "https://facebook.com/rkproperties",
+    "https://instagram.com/rkproperties",
+    "https://youtube.com/@rkproperties",
   ],
 };
 
@@ -109,12 +109,12 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "BrajProperty.in",
-  url: "https://brajproperty.in",
+  name: "RK Properties",
+  url: "https://rkproperties.in",
   description: "Premium plotted townships in sacred Braj Dham",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://brajproperty.in/search?q={search_term_string}",
+    target: "https://rkproperties.in/search?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };

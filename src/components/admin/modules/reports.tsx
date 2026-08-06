@@ -75,9 +75,9 @@ export function Reports() {
           </h3>
           <div className="space-y-2">
             {[
-              { name: "Daily Lead Summary", schedule: "Every day at 9:00 AM", recipients: "sales@brajproperty.in" },
-              { name: "Weekly Sales Snapshot", schedule: "Every Monday at 8:00 AM", recipients: "admin@brajproperty.in, director@brajproperty.in" },
-              { name: "Monthly Board Report", schedule: "1st of every month", recipients: "board@brajproperty.in" },
+              { name: "Daily Lead Summary", schedule: "Every day at 9:00 AM", recipients: "sales@rkproperties.in" },
+              { name: "Weekly Sales Snapshot", schedule: "Every Monday at 8:00 AM", recipients: "admin@rkproperties.in, director@rkproperties.in" },
+              { name: "Monthly Board Report", schedule: "1st of every month", recipients: "board@rkproperties.in" },
             ].map((s) => (
               <div key={s.name} className="flex items-center justify-between p-3 rounded-lg bg-marble">
                 <div>

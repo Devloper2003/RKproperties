@@ -186,7 +186,7 @@ export function EmiCalculator() {
                 </div>
 
                 <p className="text-[11px] text-cream/50 mt-4 leading-relaxed">
-                  * EMI calculation is indicative. Actual rates depend on your bank, credit profile, and loan terms. BrajProperty partners with leading banks for preferential rates.
+                  * EMI calculation is indicative. Actual rates depend on your bank, credit profile, and loan terms. RK Properties partners with leading banks for preferential rates.
                 </p>
               </CardContent>
             </Card>

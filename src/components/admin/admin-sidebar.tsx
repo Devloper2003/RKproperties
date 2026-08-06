@@ -48,7 +48,7 @@ function NavContent({ activeModule, onNavigate, onViewSite, onSignOut }: NavCont
           <LotusLogo className="w-9 h-9 text-gold" />
           <div>
             <div className="font-display text-base font-bold text-cream leading-tight">
-              BrajProperty<span className="text-gold">.in</span>
+              RK Properties<span className="text-gold">.in</span>
             </div>
             <div className="text-[10px] uppercase tracking-wider text-cream/50">Admin Console</div>
           </div>
@@ -137,7 +137,7 @@ export function AdminSidebar() {
         </Sheet>
         <div className="flex items-center gap-2">
           <LotusLogo className="w-6 h-6 text-gold" />
-          <span className="font-display text-sm font-bold text-cream">BrajProperty Admin</span>
+          <span className="font-display text-sm font-bold text-cream">RK Properties Admin</span>
         </div>
         <div className="w-8" />
       </div>

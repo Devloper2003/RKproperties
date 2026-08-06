@@ -88,6 +88,15 @@ interface AppState {
   vastuOpen: boolean;
   openVastu: () => void;
   closeVastu: () => void;
+
+  // Festival banner dismissed state (for navbar positioning)
+  festivalDismissed: boolean;
+  setFestivalDismissed: (v: boolean) => void;
+
+  // Full-page project view (separate "page" within SPA)
+  projectPageSlug: string | null;
+  openProjectPage: (slug: string) => void;
+  closeProjectPage: () => void;
 }
 
 const WISHLIST_KEY = "braj_wishlist";
@@ -223,4 +232,16 @@ export const useApp = create<AppState>((set, get) => ({
   vastuOpen: false,
   openVastu: () => set({ vastuOpen: true }),
   closeVastu: () => set({ vastuOpen: false }),
+
+  // Festival banner
+  festivalDismissed: false,
+  setFestivalDismissed: (festivalDismissed) => set({ festivalDismissed }),
+
+  // Full-page project view
+  projectPageSlug: null,
+  openProjectPage: (projectPageSlug) => {
+    set({ projectPageSlug });
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "instant" });
+  },
+  closeProjectPage: () => set({ projectPageSlug: null }),
 }));

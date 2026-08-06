@@ -1350,3 +1350,93 @@ Site now has **57 sections** (was 53):
 8. Add a "Krishna Stories" audio narration (AI-generated voice reading)
 9. Add a "Plot Price Alert" — subscribe to price drop notifications
 10. Add a "Virtual Aarti" — participate in live aarti via video stream
+
+---
+Task ID: 18 (Round 12 — Rebrand to RK Properties, Fix Overlap, Separate Project Pages, Google Maps)
+Agent: main (user request)
+Task: Rebrand BrajProperty to RK Properties, fix top bar overlap, create separate project detail pages, add Google Maps
+
+## User Requirements
+1. Har page ka separate detailed page banao (create separate detail pages for each project)
+2. Admin se change kar sake (editable from admin)
+3. Connected rakhna (keep them connected)
+4. "Explore the Land of Braj Dham" ke andar real Google Map show karo
+5. Rebrand karo Braj Property hatakar RK Properties karo
+6. Top bar mein overlap ho rahe hain text fix karo
+
+## Work Completed
+
+### 1. Rebranding: BrajProperty → RK Properties
+- Global search-and-replace across ALL files (27+ source files, prisma schema, seed data)
+- Replaced: "BrajProperty.in" → "RK Properties", "BrajProperty" → "RK Properties", "brajproperty.in" → "rkproperties.in"
+- Updated: navbar, footer, admin login, admin sidebar, admin panel, admin settings, all site components, types.ts, layout.tsx metadata, seed.ts, schema.prisma
+- Removed ".in" suffix from logo text (was "BrajProperty.in", now "RK Properties")
+- Verified: 0 remaining "BrajProperty" references in codebase
+
+### 2. Fixed Top Bar Text Overlap
+- Root cause: Navbar was `fixed top-0` which overlapped the festival banner (also at top)
+- Fix: 
+  - Made festival banner `sticky top-0 z-[55]` (stays above navbar)
+  - Made navbar position dynamic: `top-[40px]` when festival banner visible, `top-0` when dismissed
+  - Added `festivalDismissed` state to global Zustand store
+  - Festival banner now uses global `festivalDismissed` state (was local)
+  - Smooth transition between positions
+
+### 3. Separate Full-Page Project Detail View
+- Created `project-page-view.tsx` — full-screen overlay that acts as a separate "page"
+- When user clicks "View Details" on a project card, opens full-page view (not modal)
+- Full-page view includes:
+  - Sticky top bar with "Back to Home" button + Enquire + Share
+  - Hero image (50-60vh) with project name, tagline, status badge, location
+  - Quick stats grid (area, plot sizes, price range, possession)
+  - Full description section
+  - Trust signals (MVDA + RERA numbers)
+  - Amenities grid
+  - Nearby temples list
+  - Plot availability grid (clickable to book)
+  - Google Maps embed (project-specific lat/lng)
+  - CTAs (Book Site Visit + WhatsApp)
+- Connected to admin: uses same `/api/projects/[slug]` API — admin edits via Projects CRUD reflect on these pages
+- State managed via `projectPageSlug` in Zustand store
+- Scroll to top on page open
+
+### 4. Google Maps Integration
+- **Explore Braj Dham section** (township-map.tsx): Replaced stylized SVG map with real Google Maps iframe embed showing Vrindavan, Mathura, Govardhan region
+- **Project detail pages**: Each project page shows a Google Map with the project's actual lat/lng coordinates
+- Both maps use Google Maps embed API (no API key required for basic embed)
+- Map label: "Real map of Braj Dham · Vrindavan · Mathura · Govardhan"
+
+### 5. Admin Connectivity
+- Project pages fetch data from `/api/projects/[slug]` — same API admin uses
+- Admin Projects module (CRUD): create, edit, delete projects
+- Changes made in admin (name, description, amenities, price, etc.) reflect on project pages in real-time (TanStack Query auto-refetches)
+- Project detail pages are fully data-driven — no hardcoded content
+
+## Store Enhancements (store.ts)
+- `festivalDismissed: boolean` + `setFestivalDismissed` — tracks festival banner state globally
+- `projectPageSlug: string | null` + `openProjectPage(slug)` + `closeProjectPage()` — manages full-page project view
+
+## Files Created/Modified
+- NEW: src/components/site/project-page-view.tsx (full-page project detail view)
+- MODIFIED: src/components/site/festival-banner.tsx (sticky positioning, global state)
+- MODIFIED: src/components/site/navbar.tsx (dynamic top positioning, rebranded)
+- MODIFIED: src/components/site/projects-showcase.tsx (View Details → openProjectPage)
+- MODIFIED: src/components/site/township-map.tsx (SVG → Google Maps iframe)
+- MODIFIED: src/components/site/luxury-site.tsx (added ProjectPageView)
+- MODIFIED: src/components/site/footer.tsx (rebranded)
+- MODIFIED: src/lib/store.ts (festivalDismissed, projectPageSlug state)
+- MODIFIED: 27+ files (global rebrand BrajProperty → RK Properties)
+- MODIFIED: prisma/schema.prisma, prisma/seed.ts (rebranded)
+- MODIFIED: src/app/layout.tsx (rebranded metadata)
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ Site loads HTTP 200
+- ✅ "RK Properties" branding shows everywhere (navbar, footer, sections, admin)
+- ✅ Zero "BrajProperty" references remaining
+- ✅ Festival banner and navbar no longer overlap (navbar positions below banner)
+- ✅ Project page view opens full-screen with Back to Home, all details, Google Map
+- ✅ Google Maps iframe shows in Explore Braj Dham section
+- ✅ Google Maps shows in individual project pages
+- ✅ Admin projects CRUD connected to project pages via same API
+- ✅ No runtime errors in dev.log

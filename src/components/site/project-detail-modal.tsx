@@ -247,8 +247,8 @@ export function ProjectDetailModal() {
               "@type": "RealEstateListing",
               name: project.name,
               description: project.longDescription,
-              url: `https://brajproperty.in/#projects`,
-              image: project.galleryImages?.map((img: string) => `https://brajproperty.in${img}`) || [],
+              url: `https://rkproperties.in/#projects`,
+              image: project.galleryImages?.map((img: string) => `https://rkproperties.in${img}`) || [],
               address: {
                 "@type": "PostalAddress",
                 addressLocality: project.city,
@@ -272,7 +272,7 @@ export function ProjectDetailModal() {
               status: project.status === "selling" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
               seller: {
                 "@type": "Organization",
-                name: "BrajProperty.in",
+                name: "RK Properties",
                 telephone: "+91-98370-12345",
               },
             }),

@@ -11,7 +11,7 @@ import { LotusLogo, MandalaSVG } from "@/components/shared/brand";
 
 export function AdminLogin() {
   const { setAdminAuthed, setView } = useApp();
-  const [email, setEmail] = useState("admin@brajproperty.in");
+  const [email, setEmail] = useState("admin@rkproperties.in");
   const [password, setPassword] = useState("braj2026");
   const [loading, setLoading] = useState(false);
 
@@ -58,7 +58,7 @@ export function AdminLogin() {
             </div>
             <div className="relative">
               <LotusLogo className="w-14 h-14 text-gold mx-auto mb-3" />
-              <h1 className="font-display text-2xl font-bold text-cream">BrajProperty Admin</h1>
+              <h1 className="font-display text-2xl font-bold text-cream">RK Properties Admin</h1>
               <p className="text-xs text-cream/60 mt-1 tracking-wider uppercase">Spiritual Property Management</p>
             </div>
           </div>
@@ -118,7 +118,7 @@ export function AdminLogin() {
 
             <div className="text-center pt-3 border-t border-gold/15">
               <p className="text-[11px] text-muted-foreground mb-2">
-                Demo: <code className="text-gold">admin@brajproperty.in</code> / <code className="text-gold">braj2026</code>
+                Demo: <code className="text-gold">admin@rkproperties.in</code> / <code className="text-gold">braj2026</code>
               </p>
               <button
                 type="button"

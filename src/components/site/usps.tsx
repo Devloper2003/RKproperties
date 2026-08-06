@@ -111,7 +111,7 @@ export function Usps() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Why Choose Us"
-          title="The BrajProperty"
+          title="The RK Properties"
           highlight="Difference"
           subtitle="We deliver the rare combination of divine location, legal security, and lifestyle luxury that makes your investment both a spiritual homecoming and a wise financial decision."
         />

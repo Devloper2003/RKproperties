@@ -84,7 +84,7 @@ export function PlotRecommendation() {
           eyebrow="AI-Powered Matching"
           title="Find Your Perfect"
           highlight="Braj Plot"
-          subtitle="Not sure which township is right for you? Answer 4 quick questions about your budget, location preference, and priorities — our recommendation engine will match you with your ideal BrajProperty plot."
+          subtitle="Not sure which township is right for you? Answer 4 quick questions about your budget, location preference, and priorities — our recommendation engine will match you with your ideal RK Properties plot."
         />
 
         <AnimatePresence mode="wait">

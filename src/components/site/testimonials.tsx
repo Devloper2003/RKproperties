@@ -20,7 +20,7 @@ export function Testimonials() {
           eyebrow="Devotee Voices"
           title="Voices from our"
           highlight="Devotee-Residents"
-          subtitle="Real stories from families who found their spiritual home with BrajProperty. Their journeys inspire our mission every day."
+          subtitle="Real stories from families who found their spiritual home with RK Properties. Their journeys inspire our mission every day."
         />
 
         {testimonials.length === 0 ? (

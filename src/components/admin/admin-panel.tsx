@@ -62,7 +62,7 @@ export function AdminPanel() {
         <footer className="border-t border-gold/15 px-6 py-3 text-xs text-muted-foreground flex items-center justify-between bg-cream">
           <span className="flex items-center gap-1.5">
             <LotusLogo className="w-4 h-4 text-gold" />
-            BrajProperty Admin · © 2026
+            RK Properties Admin · © 2026
           </span>
           <span>MVDA Approved · Secure Session</span>
         </footer>

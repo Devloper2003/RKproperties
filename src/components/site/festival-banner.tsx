@@ -4,12 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar } from "lucide-react";
 import { FESTIVALS } from "@/lib/types";
+import { useApp } from "@/lib/store";
 
 export function FestivalBanner() {
   const [expanded, setExpanded] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
+  const { festivalDismissed, setFestivalDismissed } = useApp();
 
-  if (dismissed) return null;
+  if (festivalDismissed) return null;
 
   // Show the nearest upcoming festival
   const nextFestival = FESTIVALS[0];
@@ -20,7 +21,7 @@ export function FestivalBanner() {
       <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="relative bg-gradient-to-r from-gold-dark via-gold to-gold-light text-indigo-deep z-40"
+        className="sticky top-0 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-indigo-deep z-[55]"
       >
         <div className="festival-shimmer absolute inset-0 pointer-events-none" />
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2.5 relative flex items-center justify-between gap-3">
@@ -37,7 +38,7 @@ export function FestivalBanner() {
             <span className="hidden sm:inline text-[10px] underline opacity-70 ml-1">View all festivals →</span>
           </button>
           <button
-            onClick={() => setDismissed(true)}
+            onClick={() => setFestivalDismissed(true)}
             aria-label="Dismiss"
             className="p-1 rounded hover:bg-indigo-deep/10 flex-shrink-0"
           >
@@ -107,7 +108,7 @@ export function FestivalBanner() {
               <div className="px-6 pb-6">
                 <div className="rounded-xl bg-gold/10 border border-gold/20 p-4 text-center">
                   <p className="text-sm text-indigo-deep">
-                    🙏 All festival celebrations are complimentary for BrajProperty residents and their families.
+                    🙏 All festival celebrations are complimentary for RK Properties residents and their families.
                   </p>
                 </div>
               </div>

@@ -27,7 +27,7 @@ export function PriceComparison() {
           eyebrow="Honest Comparison"
           title="How We"
           highlight="Compare to Others"
-          subtitle="The Braj real estate market has many players — but only one combines divine location, legal security, and lifestyle luxury. See for yourself why BrajProperty.in stands apart."
+          subtitle="The Braj real estate market has many players — but only one combines divine location, legal security, and lifestyle luxury. See for yourself why RK Properties stands apart."
         />
 
         {/* Trust score bar chart */}
@@ -44,7 +44,7 @@ export function PriceComparison() {
               </h3>
               <div className="space-y-3">
                 {COMPETITORS.map((c, i) => {
-                  const isUs = c.name === "BrajProperty.in";
+                  const isUs = c.name === "RK Properties";
                   return (
                     <motion.div
                       key={c.name}
@@ -98,7 +98,7 @@ export function PriceComparison() {
                       Dimension
                     </th>
                     {COMPETITORS.map((c) => {
-                      const isUs = c.name === "BrajProperty.in";
+                      const isUs = c.name === "RK Properties";
                       return (
                         <th
                           key={c.name}
@@ -131,7 +131,7 @@ export function PriceComparison() {
                       </td>
                       {COMPETITORS.map((c) => {
                         const value = (c as any)[dim.key];
-                        const isUs = c.name === "BrajProperty.in";
+                        const isUs = c.name === "RK Properties";
                         const isGood = isUs || (dim.key === "trustScore" && c.trustScore >= 65);
                         const isBad = !isUs && (dim.key === "legalClarity" && c.legalClarity.includes("Poor"));
                         return (
@@ -163,7 +163,7 @@ export function PriceComparison() {
                       </div>
                     </td>
                     {COMPETITORS.map((c) => {
-                      const isUs = c.name === "BrajProperty.in";
+                      const isUs = c.name === "RK Properties";
                       return (
                         <td key={c.name} className={`px-4 py-3 ${isUs ? "bg-gold/10" : ""}`}>
                           {isUs ? (

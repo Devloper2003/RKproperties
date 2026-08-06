@@ -158,7 +158,7 @@ export function LeadCta() {
                 {!submitting && <Send className="w-4 h-4 ml-2" />}
               </Button>
               <p className="text-[11px] text-center text-muted-foreground">
-                By submitting, you agree to be contacted about BrajProperty plots.
+                By submitting, you agree to be contacted about RK Properties plots.
               </p>
             </form>
           </div>

@@ -239,7 +239,7 @@ const testimonials = [
     name: "Rajesh Agrawal",
     designation: "Retired Professor, Delhi",
     content:
-      "After years of searching, BrajProperty gave us the perfect spiritual home in Vrindavan. The MVDA approval and clear legal title gave us complete peace of mind. Every morning I walk to the Banke Bihari Temple — it feels like a dream come true.",
+      "After years of searching, RK Properties gave us the perfect spiritual home in Vrindavan. The MVDA approval and clear legal title gave us complete peace of mind. Every morning I walk to the Banke Bihari Temple — it feels like a dream come true.",
     rating: 5,
     location: "Bankey Bihari Orchid, Mathura",
     projectName: "Bankey Bihari Orchid",
@@ -248,7 +248,7 @@ const testimonials = [
     name: "Dr. Anjali Mehta",
     designation: "NRI Cardiologist, New Jersey",
     content:
-      "As an NRI, I was initially skeptical about investing in Vrindavan remotely. But the transparency, virtual site visits, and WhatsApp updates from the BrajProperty team made the entire process effortless. My plot in Bankey Bihari Dham has already appreciated 22%.",
+      "As an NRI, I was initially skeptical about investing in Vrindavan remotely. But the transparency, virtual site visits, and WhatsApp updates from the RK Properties team made the entire process effortless. My plot in Bankey Bihari Dham has already appreciated 22%.",
     rating: 5,
     location: "Bankey Bihari Dham, Vrindavan",
     projectName: "Bankey Bihari Dham",
@@ -275,7 +275,7 @@ const testimonials = [
     name: "Meera Devi",
     designation: "Spiritual Seeker, Mumbai",
     content:
-      "I was looking for a peaceful retirement home where I could spend my days in devotion. BrajProperty understood my spiritual needs, not just my investment needs. The herbal garden and meditation spaces in Lotus Greens have transformed my daily life.",
+      "I was looking for a peaceful retirement home where I could spend my days in devotion. RK Properties understood my spiritual needs, not just my investment needs. The herbal garden and meditation spaces in Lotus Greens have transformed my daily life.",
     rating: 5,
     location: "Braj Lotus Greens, Govardhan",
     projectName: "Braj Lotus Greens",
@@ -302,7 +302,7 @@ const blogPosts = [
     featuredImage: "/images/hero-vrindavan.png",
     category: "investment",
     tags: JSON.stringify(["Vrindavan", "Investment", "Real Estate", "2026"]),
-    author: "BrajProperty Insights Team",
+    author: "RK Properties Insights Team",
     readTime: 7,
   },
   {
@@ -341,7 +341,7 @@ const blogPosts = [
     featuredImage: "/images/township-aerial.png",
     category: "investment",
     tags: JSON.stringify(["NRI", "Investment", "FEMA", "Legal"]),
-    author: "BrajProperty Legal Team",
+    author: "RK Properties Legal Team",
     readTime: 10,
   },
   {
@@ -350,11 +350,11 @@ const blogPosts = [
     excerpt:
       "Understanding the Mathura-Vrindavan Development Authority (MVDA) approval process and why it is the single most important trust signal for property buyers in Braj.",
     content:
-      "MVDA approval is the gold standard of legal security for property buyers in the Braj region. It ensures that the land is properly zoned, the layout is approved, and all necessary infrastructure commitments are legally binding. Unapproved developments risk demolition, legal disputes, and complete loss of investment. Every BrajProperty project carries a valid MVDA number, verifiable on the official MVDA portal. This single trust signal separates premium developers from unorganized local builders.",
+      "MVDA approval is the gold standard of legal security for property buyers in the Braj region. It ensures that the land is properly zoned, the layout is approved, and all necessary infrastructure commitments are legally binding. Unapproved developments risk demolition, legal disputes, and complete loss of investment. Every RK Properties project carries a valid MVDA number, verifiable on the official MVDA portal. This single trust signal separates premium developers from unorganized local builders.",
     featuredImage: "/images/projects/bankey-bihari-orchid.png",
     category: "guide",
     tags: JSON.stringify(["MVDA", "Legal", "Trust", "Guide"]),
-    author: "BrajProperty Legal Team",
+    author: "RK Properties Legal Team",
     readTime: 5,
   },
   {
@@ -367,7 +367,7 @@ const blogPosts = [
     featuredImage: "/images/hero-vrindavan.png",
     category: "guide",
     tags: JSON.stringify(["Comparison", "Vrindavan", "Mathura", "Govardhan"]),
-    author: "BrajProperty Insights Team",
+    author: "RK Properties Insights Team",
     readTime: 9,
   },
   {
@@ -376,7 +376,7 @@ const blogPosts = [
     excerpt:
       "Everything you need to know about celebrating Krishna Janmashtami 2026 in Vrindavan, Mathura, and Govardhan — temple timings, special events, and resident celebrations.",
     content:
-      "Janmashtami in Braj Dham is unlike anywhere else on Earth. The celebrations begin at midnight (the hour of Krishna's appearance) with elaborate abhishek, aarti, and flower showers at every major temple. Banke Bihari Temple draws over 500,000 devotees for the midnight darshan. ISKCON Vrindavan hosts a 3-day festival with international devotees. Mathura's Krishna Janmabhoomi (the exact birthplace) performs a special abhishek at midnight. For BrajProperty residents, our township temples organize community celebrations with ras lila performances, prasad distribution, and children's fancy dress competitions. Plan your visit 2-3 months in advance — accommodation fills rapidly.",
+      "Janmashtami in Braj Dham is unlike anywhere else on Earth. The celebrations begin at midnight (the hour of Krishna's appearance) with elaborate abhishek, aarti, and flower showers at every major temple. Banke Bihari Temple draws over 500,000 devotees for the midnight darshan. ISKCON Vrindavan hosts a 3-day festival with international devotees. Mathura's Krishna Janmabhoomi (the exact birthplace) performs a special abhishek at midnight. For RK Properties residents, our township temples organize community celebrations with ras lila performances, prasad distribution, and children's fancy dress competitions. Plan your visit 2-3 months in advance — accommodation fills rapidly.",
     featuredImage: "/images/temples/banke-bihari.png",
     category: "spiritual",
     tags: JSON.stringify(["Janmashtami", "Festival", "2026", "Guide"]),
@@ -389,20 +389,20 @@ const blogPosts = [
     excerpt:
       "A step-by-step walkthrough of our Razorpay-powered booking flow — UPI, cards, net banking, EMI options, and security measures explained.",
     content:
-      "Booking your plot online with BrajProperty is 100% secure via Razorpay (PCI DSS Level 1 certified). The 3-step flow: (1) Review plot summary and booking amount (₹10K-50K); (2) Enter your personal details; (3) Pay via UPI (GPay/PhonePe/Paytm), Credit/Debit card, Net Banking, or EMI (3/6/12 months for bookings above ₹30K). Your booking is confirmed instantly with a unique Booking ID, and the plot is reserved for 15 days. 18% GST applies on the booking amount. Full refund available within 48 hours. The booking amount is adjusted against your final plot price.",
+      "Booking your plot online with RK Properties is 100% secure via Razorpay (PCI DSS Level 1 certified). The 3-step flow: (1) Review plot summary and booking amount (₹10K-50K); (2) Enter your personal details; (3) Pay via UPI (GPay/PhonePe/Paytm), Credit/Debit card, Net Banking, or EMI (3/6/12 months for bookings above ₹30K). Your booking is confirmed instantly with a unique Booking ID, and the plot is reserved for 15 days. 18% GST applies on the booking amount. Full refund available within 48 hours. The booking amount is adjusted against your final plot price.",
     featuredImage: "/images/township-aerial.png",
     category: "guide",
     tags: JSON.stringify(["Razorpay", "Payment", "Booking", "Security"]),
-    author: "BrajProperty Tech Team",
+    author: "RK Properties Tech Team",
     readTime: 5,
   },
   {
-    title: "Top 10 Temples to Visit Near Your BrajProperty Township",
+    title: "Top 10 Temples to Visit Near Your RK Properties Township",
     slug: "top-10-temples-near-braj-property-townships",
     excerpt:
       "A curated guide to the 10 most sacred temples within walking distance or short drive from our Vrindavan, Mathura, and Govardhan townships.",
     content:
-      "Living in a BrajProperty township means daily access to Braj's holiest shrines. From Bankey Bihari Orchid: Banke Bihari Temple (1.2 km), Krishna Janmabhoomi (3.5 km), Vishram Ghat (4 km). From Braj Lotus Greens: Govardhan Hill (0.8 km), Daan Ghati (2 km), Mansi Ganga (1.5 km). From Bankey Bihari Kunj: ISKCON Temple (0.5 km), Prem Mandir (1.2 km), Banke Bihari (3.8 km). From Bankey Bihari Dham: all Vrindavan temples within 5 km. Each temple has unique darshan timings, festival significance, and historical depth — we provide a complimentary temple guidebook to every plot owner.",
+      "Living in a RK Properties township means daily access to Braj's holiest shrines. From Bankey Bihari Orchid: Banke Bihari Temple (1.2 km), Krishna Janmabhoomi (3.5 km), Vishram Ghat (4 km). From Braj Lotus Greens: Govardhan Hill (0.8 km), Daan Ghati (2 km), Mansi Ganga (1.5 km). From Bankey Bihari Kunj: ISKCON Temple (0.5 km), Prem Mandir (1.2 km), Banke Bihari (3.8 km). From Bankey Bihari Dham: all Vrindavan temples within 5 km. Each temple has unique darshan timings, festival significance, and historical depth — we provide a complimentary temple guidebook to every plot owner.",
     featuredImage: "/images/temples/iskcon.png",
     category: "spiritual",
     tags: JSON.stringify(["Temples", "Guide", "Nearby", "Braj"]),
@@ -419,7 +419,7 @@ const blogPosts = [
     featuredImage: "/images/projects/bankey-bihari-dham.png",
     category: "investment",
     tags: JSON.stringify(["Gated", "Township", "Comparison", "Investment"]),
-    author: "BrajProperty Insights Team",
+    author: "RK Properties Insights Team",
     readTime: 6,
   },
   {
@@ -428,24 +428,24 @@ const blogPosts = [
     excerpt:
       "Quarterly market analysis: price trends, demand drivers, new launches, and investment outlook for Vrindavan, Mathura, and Govardhan.",
     content:
-      "Q3 2026 Braj real estate update: Vrindavan premium gated plots up 8.2% QoQ, Mathura +6.7%, Govardhan +7.1%. Key demand drivers: Jewar Airport construction ahead of schedule (45% complete), Delhi-Mumbai Expressway second lane opened, spiritual tourism recovery to 92% of pre-COVID peak. NRI inquiries up 34% YoY, particularly from US/Gulf markets. MVDA approved 7 new projects this quarter (vs 4 in Q3 2025). Supply remains constrained in premium segment — only 3,200 plots available across all MVDA-approved gated townships. Outlook: 25-30% annual appreciation expected to continue through 2027. BrajProperty Dham pre-launch oversubscribed 2.3x.",
+      "Q3 2026 Braj real estate update: Vrindavan premium gated plots up 8.2% QoQ, Mathura +6.7%, Govardhan +7.1%. Key demand drivers: Jewar Airport construction ahead of schedule (45% complete), Delhi-Mumbai Expressway second lane opened, spiritual tourism recovery to 92% of pre-COVID peak. NRI inquiries up 34% YoY, particularly from US/Gulf markets. MVDA approved 7 new projects this quarter (vs 4 in Q3 2025). Supply remains constrained in premium segment — only 3,200 plots available across all MVDA-approved gated townships. Outlook: 25-30% annual appreciation expected to continue through 2027. RK Properties Dham pre-launch oversubscribed 2.3x.",
     featuredImage: "/images/township-aerial.png",
     category: "market-news",
     tags: JSON.stringify(["Market Report", "Q3 2026", "Trends", "Analysis"]),
-    author: "BrajProperty Insights Team",
+    author: "RK Properties Insights Team",
     readTime: 11,
   },
   {
     title: "Building Your Dream Home: Construction Guidelines for Braj Plots",
     slug: "building-dream-home-construction-guidelines-braj",
     excerpt:
-      "Everything you need to know about constructing on your BrajProperty plot — approvals, architects, Vastu, timelines, and costs.",
+      "Everything you need to know about constructing on your RK Properties plot — approvals, architects, Vastu, timelines, and costs.",
     content:
-      "Once you own a BrajProperty plot, construction is straightforward with our guidance. Step 1: Obtain MVDA building sanction (we assist with paperwork, 30-45 days). Step 2: Choose from our approved architects panel (familiar with Braj aesthetic + Vastu compliance). Step 3: Vastu considerations — east/north facing plots preferred, temple/pooja room in north-east, kitchen in south-east. Step 4: Construction cost ₹1,500-2,200 per sq.ft. depending on finishes. Step 5: Timeline 8-12 months for a 2BHK villa. We provide approved contractor lists, material suppliers with negotiated rates, and project management support. Many residents rent out their homes during peak pilgrimage seasons (₹15K-25K/week).",
+      "Once you own a RK Properties plot, construction is straightforward with our guidance. Step 1: Obtain MVDA building sanction (we assist with paperwork, 30-45 days). Step 2: Choose from our approved architects panel (familiar with Braj aesthetic + Vastu compliance). Step 3: Vastu considerations — east/north facing plots preferred, temple/pooja room in north-east, kitchen in south-east. Step 4: Construction cost ₹1,500-2,200 per sq.ft. depending on finishes. Step 5: Timeline 8-12 months for a 2BHK villa. We provide approved contractor lists, material suppliers with negotiated rates, and project management support. Many residents rent out their homes during peak pilgrimage seasons (₹15K-25K/week).",
     featuredImage: "/images/projects/braj-lotus-greens.png",
     category: "guide",
     tags: JSON.stringify(["Construction", "Vastu", "Building", "Guide"]),
-    author: "BrajProperty Construction Team",
+    author: "RK Properties Construction Team",
     readTime: 12,
   },
 ];
@@ -496,7 +496,7 @@ const teamMembers = [
 const settings = [
   { key: "whatsapp_number", value: "919837012345", type: "text", group: "contact" },
   { key: "phone_primary", value: "+91 98370 12345", type: "text", group: "contact" },
-  { key: "email_primary", value: "info@brajproperty.in", type: "text", group: "contact" },
+  { key: "email_primary", value: "info@rkproperties.in", type: "text", group: "contact" },
   { key: "office_address", value: "Braj Dham Heights, Vrindavan, Mathura, UP 281121", type: "text", group: "contact" },
   { key: "booking_amount_min", value: "10000", type: "text", group: "booking" },
   { key: "booking_amount_max", value: "50000", type: "text", group: "booking" },
@@ -504,7 +504,7 @@ const settings = [
 ];
 
 async function main() {
-  console.log("🌱 Seeding BrajProperty.in database...");
+  console.log("🌱 Seeding RK Properties.in database...");
 
   // Clean existing
   await db.contactMessage.deleteMany();
@@ -601,13 +601,13 @@ async function main() {
   // Admin user
   await db.adminUser.create({
     data: {
-      email: "admin@brajproperty.in",
+      email: "admin@rkproperties.in",
       name: "Super Admin",
       role: "superadmin",
       password: "braj2026", // demo only
     },
   });
-  console.log("✓ Created admin user (admin@brajproperty.in / braj2026)");
+  console.log("✓ Created admin user (admin@rkproperties.in / braj2026)");
 
   console.log("\n🎉 Seeding complete!");
   const projectCount = await db.project.count();

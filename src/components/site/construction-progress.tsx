@@ -38,7 +38,7 @@ export function ConstructionProgress() {
           eyebrow="Build Transparency"
           title="Construction"
           highlight="Progress Tracker"
-          subtitle="Watch your future home take shape. Real-time construction milestones, photo updates, and handover timelines for every BrajProperty township. We believe in complete transparency."
+          subtitle="Watch your future home take shape. Real-time construction milestones, photo updates, and handover timelines for every RK Properties township. We believe in complete transparency."
         />
 
         {/* Project selector */}

@@ -151,7 +151,7 @@ export function FaqSection() {
             <h3 className="font-display text-lg font-bold text-indigo-deep mb-1">Still have questions?</h3>
             <p className="text-sm text-muted-foreground mb-4">Our property advisors speak Hindi, English & Hinglish.</p>
             <a
-              href="https://wa.me/919837012345?text=Namaste! I have a question about BrajProperty plots"
+              href="https://wa.me/919837012345?text=Namaste! I have a question about RK Properties plots"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1da851] transition-colors"

@@ -141,7 +141,7 @@ export function BrajCalendar() {
                       <div className="p-3 rounded-lg bg-temple-red/10 border border-temple-red/20 flex items-start gap-2">
                         <Calendar className="w-4 h-4 text-temple-red flex-shrink-0 mt-0.5" />
                         <p className="text-xs text-indigo-deep/80">
-                          <strong>BrajProperty residents:</strong> Special community celebrations at township temples. Complimentary prasad + cultural programs. RSVP via resident portal.
+                          <strong>RK Properties residents:</strong> Special community celebrations at township temples. Complimentary prasad + cultural programs. RSVP via resident portal.
                         </p>
                       </div>
                     )}

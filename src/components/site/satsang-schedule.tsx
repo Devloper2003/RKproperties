@@ -42,7 +42,7 @@ export function SatsangSchedule() {
           eyebrow="Weekly Community"
           title="Satsang"
           highlight="Schedule"
-          subtitle="Join our resident community for weekly satsang — kirtan, Gita path, bhajan sandhya, discourses, and children's programs. All sessions are free and open to BrajProperty residents & visitors."
+          subtitle="Join our resident community for weekly satsang — kirtan, Gita path, bhajan sandhya, discourses, and children's programs. All sessions are free and open to RK Properties residents & visitors."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

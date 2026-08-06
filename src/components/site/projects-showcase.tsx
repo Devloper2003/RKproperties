@@ -12,6 +12,7 @@ import { formatINR, PROJECT_STATUS_LABELS, type Project } from "@/lib/types";
 
 export function ProjectsShowcase() {
   const setSelectedProjectSlug = useApp((s) => s.setSelectedProjectSlug);
+  const openProjectPage = useApp((s) => s.openProjectPage);
   const openLeadForm = useApp((s) => s.openLeadForm);
   const toggleCompare = useApp((s) => s.toggleCompare);
   const isComparing = useApp((s) => s.isComparing);
@@ -33,7 +34,7 @@ export function ProjectsShowcase() {
           eyebrow="Premium Townships"
           title="Four Sacred"
           highlight="Gated Communities"
-          subtitle="Each BrajProperty township is crafted with temple-themed architecture, MVDA-approved legal security, and modern amenities — your spiritual home awaits."
+          subtitle="Each RK Properties township is crafted with temple-themed architecture, MVDA-approved legal security, and modern amenities — your spiritual home awaits."
         />
 
         {/* Compare hint */}
@@ -144,7 +145,7 @@ export function ProjectsShowcase() {
 
                     <div className="mt-auto pt-5 flex gap-2">
                       <Button
-                        onClick={() => setSelectedProjectSlug(project.slug)}
+                        onClick={() => openProjectPage(project.slug)}
                         className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold hover:shadow-[0_4px_14px_rgba(197,162,62,0.4)]"
                         size="sm"
                       >

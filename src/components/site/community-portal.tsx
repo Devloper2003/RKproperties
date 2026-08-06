@@ -46,7 +46,7 @@ export function CommunityPortal() {
           eyebrow="Resident Exclusive"
           title="Your Spiritual"
           highlight="Community Portal"
-          subtitle="Already a BrajProperty resident? Access your personalized dashboard — track construction progress, download documents, RSVP to community events, and connect with fellow devotee-residents."
+          subtitle="Already a RK Properties resident? Access your personalized dashboard — track construction progress, download documents, RSVP to community events, and connect with fellow devotee-residents."
         />
 
         {!unlocked ? (
