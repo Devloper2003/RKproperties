@@ -1368,6 +1368,63 @@ export const BHAJAN_LYRICS: Record<string, { lines: string[]; translation: strin
   ],
 };
 
+// ===== Goshala — Sacred Cow adoption/sponsorship =====
+export const GOSHALA_COWS: { id: string; name: string; sanskrit: string; breed: string; age: string; temperament: string; story: string; sponsorshipPerMonth: number; emoji: string; sponsored: boolean }[] = [
+  { id: "gauri", name: "Gauri", sanskrit: "गौरी", breed: "Gir", age: "5 years", temperament: "Gentle & affectionate", story: "Gauri was rescued from a slaughterhouse in 2024. She now lives peacefully in our goshala, producing 8 liters of milk daily for temple offerings.", sponsorshipPerMonth: 2100, emoji: "🐄", sponsored: false },
+  { id: "nandini", name: "Nandini", sanskrit: "नंदिनी", breed: "Sahiwal", age: "3 years", temperament: "Playful & energetic", story: "Nandini was born on Krishna Janmashtami 2023 — a divine sign! She loves being brushed and will nuzzle anyone who feeds her fresh grass.", sponsorshipPerMonth: 2100, emoji: "🐄", sponsored: false },
+  { id: "kamdhenu", name: "Kamdhenu", sanskrit: "कामधेनु", breed: "Tharparkar", age: "8 years", temperament: "Wise & calm mother", story: "Our eldest cow, Kamdhenu has mothered 4 calves. She embodies the wish-fulfilling cow of Hindu mythology — her presence brings peace to all who visit.", sponsorshipPerMonth: 3100, emoji: "🐄", sponsored: true },
+  { id: "shyama", name: "Shyama", sanskrit: "श्यामा", breed: "Krishna Valley", age: "2 years", temperament: "Shy but curious", story: "Shyama was found wandering near Govardhan Hill. Dark as Krishna Himself, she's named after the Lord. Still adjusting to goshala life but thriving.", sponsorshipPerMonth: 1500, emoji: "🐄", sponsored: false },
+  { id: "radha", name: "Radha", sanskrit: "राधा", breed: "Hariana", age: "6 years", temperament: "Loving & protective", story: "Radha adopted an orphaned calf as her own — she represents maternal devotion. She produces the richest milk used for Krishna's daily abhishek.", sponsorshipPerMonth: 2100, emoji: "🐄", sponsored: false },
+  { id: "balaram", name: "Balaram", sanskrit: "बलराम", breed: "Kankrej", age: "4 years", temperament: "Strong & dignified ox", story: "Balaram is our plough ox — strong as Krishna's brother. He helps plough the organic farm where we grow vegetables for prasad meals.", sponsorshipPerMonth: 1500, emoji: "🐂", sponsored: false },
+];
+
+export const GOSHALA_STATS: { label: string; value: string; emoji: string }[] = [
+  { label: "Sacred Cows", value: "47", emoji: "🐄" },
+  { label: "Acres of Grazing", value: "8", emoji: "🌿" },
+  { label: "Liters/Day Milk", value: "180L", emoji: "🥛" },
+  { label: "Sponsored", value: "23", emoji: "❤️" },
+];
+
+// ===== Krishna Quiz — test knowledge =====
+export const KRISHNA_QUIZ_QUESTIONS: { question: string; options: string[]; answer: number; explanation: string }[] = [
+  { question: "Where was Krishna born?", options: ["Vrindavan", "Mathura", "Gokul", "Govardhan"], answer: 1, explanation: "Krishna was born in a prison cell in Mathura to Devaki and Vasudeva at midnight on Ashtami." },
+  { question: "Who was Krishna's foster mother?", options: ["Devaki", "Yashoda", "Radha", "Rukmini"], answer: 1, explanation: "Yashoda Maiya raised Krishna in Gokul. She is the embodiment of maternal devotion (vatsalya bhava)." },
+  { question: "Which hill did Krishna lift on his finger?", options: ["Nandgaon Hill", "Govardhan Hill", "Vrindavan Hill", "Barsana Hill"], answer: 1, explanation: "Krishna lifted Govardhan Hill for 7 days to protect Braj from Indra's devastating rains." },
+  { question: "What is the name of Krishna's flute?", options: ["Bansuri", "Venu", "Shankh", "Both Bansuri and Venu"], answer: 3, explanation: "Krishna's flute is called both Bansuri and Venu. Its enchanting sound attracted all of Braj — humans, animals, and even the Yamuna river." },
+  { question: "Who was Krishna's best childhood friend (poor devotee)?", options: ["Arjuna", "Uddhava", "Sudama", "Balarama"], answer: 2, explanation: "Sudama was Krishna's poor childhood friend. When he visited Krishna with just flattened rice (poha), Krishna blessed him with a palace." },
+  { question: "Which serpent did Krishna subdue in the Yamuna?", options: ["Vasuki", "Kaliya", "Takshaka", "Shesha"], answer: 1, explanation: "Krishna danced on Kaliya's hundred hoods, subduing (not killing) him. Kaliya was sent to the ocean, purified by divine touch." },
+  { question: "How many wives did Krishna have (as per tradition)?", options: ["8", "108", "16108", "1008"], answer: 2, explanation: "Krishna had 16,108 wives — 8 principal queens and 16,100 maidens rescued from demon Narakasura's captivity." },
+  { question: "What does 'Damodara' mean?", options: ["One with lotus eyes", "Bound by mother's love", "The cowherd", "The supreme enjoyer"], answer: 1, explanation: "Damodara means 'bound around the belly' — when Yashoda tied Krishna to a mortar with a rope around his stomach." },
+  { question: "Which festival celebrates Krishna's birthday?", options: ["Holi", "Diwali", "Janmashtami", "Rath Yatra"], answer: 2, explanation: "Janmashtami celebrates Krishna's divine appearance at midnight on Ashtami (8th day) of Krishna Paksha in Bhadrapada month." },
+  { question: "What is the Hare Krishna Maha Mantra?", options: ["Om Namo Bhagavate", "Hare Krishna Hare Krishna Krishna Krishna Hare Hare", "Om Namo Shivaya", "Om Gam Ganapataye"], answer: 1, explanation: "The Maha Mantra: 'Hare Krishna Hare Krishna Krishna Krishna Hare Hare, Hare Rama Hare Rama Rama Rama Hare Hare' — recommended for Kali Yuga." },
+];
+
+// ===== Spiritual Shop products =====
+export const SPIRITUAL_PRODUCTS: { id: string; name: string; sanskrit: string; category: string; price: number; desc: string; emoji: string; inStock: boolean }[] = [
+  { id: "tulsi-mala-108", name: "Tulsi Mala (108 beads)", sanskrit: "तुलसी माला", category: "Japa Mala", price: 501, desc: "Hand-strung sacred Tulsi beads from Vrindavan for chanting 108 mantras. Comes with silk pouch.", emoji: "📿", inStock: true },
+  { id: "krishna-idol-brass", name: "Brass Krishna Idol", sanskrit: "कृष्ण मूर्ति", category: "Deity", price: 2100, desc: "Beautifully crafted brass Krishna standing in tribhanga pose, playing flute. 6 inches tall.", emoji: "🛕", inStock: true },
+  { id: "panchamrit-set", name: "Panchamrit Set", sanskrit: "पंचामृत सेट", category: "Puja Items", price: 350, desc: "Complete set for preparing panchamrit — silver bowl, spoon, and recipe card. From Braj temples.", emoji: "🥛", inStock: true },
+  { id: "makhan-mishri-prasad", name: "Makhan Mishri Prasad", sanskrit: "माखन मिश्री", category: "Prasad", price: 150, desc: "Krishna's favorite offering — fresh butter with rock sugar & tulsi. Shipped from Vrindavan.", emoji: "🧈", inStock: true },
+  { id: "bhagavad-gita-pocket", name: "Pocket Bhagavad Gita", sanskrit: "श्रीमद्भगवद्गीता", category: "Books", price: 110, desc: "Compact Bhagavad Gita with Sanskrit + Hindi + English translation. Perfect for daily reading.", emoji: "📖", inStock: true },
+  { id: "diya-brass-set", name: "Brass Diya Set (5 pcs)", sanskrit: "दीपक सेट", category: "Puja Items", price: 550, desc: "Set of 5 traditional brass diyas for aarti. Handmade by Braj artisans. Includes cotton wicks.", emoji: "🪔", inStock: true },
+  { id: "radha-krishna-photo", name: "Radha Krishna Photo Frame", sanskrit: "राधा-कृष्ण फोटो", category: "Decor", price: 750, desc: "Framed Radha-Krishna photo from Vrindavan's Prem Mandir. Wooden frame with gold accents.", emoji: "🖼️", inStock: true },
+  { id: "chandan-tilak", name: "Chandan Tilak Set", sanskrit: "चंदन तिलक", category: "Puja Items", price: 210, desc: "Pure sandalwood paste (chandan) for applying tilak. From Braj's sacred forests.", emoji: "🕉️", inStock: true },
+];
+
+// ===== Braj Photo Gallery =====
+export const BRAJ_PHOTOS: { id: string; title: string; location: string; category: string; image: string; desc: string; photographer: string }[] = [
+  { id: "p1", title: "Sunrise at Banke Bihari", location: "Vrindavan", category: "Temple", image: "/images/temples/banke-bihari.png", desc: "First rays of dawn illuminating the temple spire as devotees queue for Mangala darshan.", photographer: "Rajesh K." },
+  { id: "p2", title: "Govardhan Parikrama Path", location: "Govardhan", category: "Parikrama", image: "/images/temples/govardhan.png", desc: "The sacred 21km path around Giriraj Hill, walked by millions of devotees each year.", photographer: "Suresh M." },
+  { id: "p3", title: "ISKCON Evening Aarti", location: "Vrindavan", category: "Temple", image: "/images/temples/iskcon.png", desc: "Sandhya aarti at ISKCON — hundreds of devotees singing kirtan as lamps are offered.", photographer: "Anjali D." },
+  { id: "p4", title: "Township Aerial View", location: "Vrindavan", category: "Township", image: "/images/township-aerial.png", desc: "Bird's eye view of our premium gated township with temple-themed entrance and green belt.", photographer: "BrajProperty Team" },
+  { id: "p5", title: "Vrindavan Golden Dawn", location: "Vrindavan", category: "Landscape", image: "/images/hero-vrindavan.png", desc: "The sacred land of Braj at golden hour — temple silhouettes and morning mist over Yamuna.", photographer: "BrajProperty Team" },
+  { id: "p6", title: "Bankey Bihari Orchid Entrance", location: "Mathura", category: "Township", image: "/images/projects/bankey-bihari-orchid.png", desc: "Temple-themed entrance gate inspired by Banke Bihari Temple — marble facade with gold accents.", photographer: "BrajProperty Team" },
+  { id: "p7", title: "Braj Lotus Greens Garden", location: "Govardhan", category: "Township", image: "/images/projects/braj-lotus-greens.png", desc: "Lotus-themed water fountain at the entrance, with Govardhan Hill in the background.", photographer: "BrajProperty Team" },
+  { id: "p8", title: "Bankey Bihari Kunj", location: "Vrindavan", category: "Township", image: "/images/projects/bankey-bihari-kunj.png", desc: "ISKCON-inspired entrance gate with devotional gardens and tulsi plantation.", photographer: "BrajProperty Team" },
+  { id: "p9", title: "Bankey Bihari Dham Grand Gate", location: "Vrindavan", category: "Township", image: "/images/projects/bankey-bihari-dham.png", desc: "Grand 3-domed temple architecture entrance — Braj's largest gated township.", photographer: "BrajProperty Team" },
+];
+
+
 
 
 

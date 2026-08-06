@@ -43,6 +43,10 @@ import { VastuConsultationModal } from "./vastu-consultation-modal";
 import { PilgrimagePlanner } from "./pilgrimage-planner";
 import { SatsangSchedule } from "./satsang-schedule";
 import { MantraLibrary } from "./mantra-library";
+import { GoshalaSection } from "./goshala-section";
+import { KrishnaQuiz } from "./krishna-quiz";
+import { SpiritualShop } from "./spiritual-shop";
+import { BrajPhotoGallery } from "./braj-photo-gallery";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -115,8 +119,12 @@ export function LuxurySite() {
         <PilgrimagePlanner />
         <SatsangSchedule />
         <BrajRecipes />
+        <GoshalaSection />
         <ConstructionProgress />
         <KrishnaStories />
+        <KrishnaQuiz />
+        <BrajPhotoGallery />
+        <SpiritualShop />
         <BlogPreview />
         <NewsletterSignup />
         <LeadCta />
