@@ -1,0 +1,341 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-devanagari: var(--font-devanagari);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* ===== BRAJ BRAND TOKENS ===== */
+  --color-gold: #c5a23e;
+  --color-gold-dark: #8b6914;
+  --color-gold-light: #e0c468;
+  --color-green-deep: #2d5016;
+  --color-green-light: #4a7a2e;
+  --color-cream: #fff8e7;
+  --color-marble: #f5f0e8;
+  --color-indigo-deep: #1a1a2e;
+  --color-temple-red: #8b2500;
+  --color-sandstone: #d4c5a0;
+
+  /* Spacing scale (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Animation easings */
+  --ease-spiritual: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-divine: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-glide: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-emerge: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Brand shadows */
+  --shadow-gold-glow: 0 4px 14px rgba(197, 162, 62, 0.35);
+  --shadow-gold-glow-lg: 0 8px 28px rgba(197, 162, 62, 0.45);
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Braj luxury palette - warm cream base */
+  --background: #fff8e7;
+  --foreground: #1a1a2e;
+  --card: #ffffff;
+  --card-foreground: #1a1a2e;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a2e;
+  --primary: #c5a23e;
+  --primary-foreground: #1a1a2e;
+  --secondary: #f5f0e8;
+  --secondary-foreground: #1a1a2e;
+  --muted: #f5f0e8;
+  --muted-foreground: #6b6557;
+  --accent: #2d5016;
+  --accent-foreground: #fff8e7;
+  --destructive: #8b2500;
+  --border: #d4c5a0;
+  --input: #d4c5a0;
+  --ring: #c5a23e;
+  --chart-1: #c5a23e;
+  --chart-2: #2d5016;
+  --chart-3: #8b2500;
+  --chart-4: #4a7a2e;
+  --chart-5: #d4c5a0;
+  --sidebar: #1a1a2e;
+  --sidebar-foreground: #fff8e7;
+  --sidebar-primary: #c5a23e;
+  --sidebar-primary-foreground: #1a1a2e;
+  --sidebar-accent: #2d5016;
+  --sidebar-accent-foreground: #fff8e7;
+  --sidebar-border: rgba(197, 162, 62, 0.25);
+  --sidebar-ring: #c5a23e;
+}
+
+.dark {
+  --background: #0f0f1a;
+  --foreground: #fff8e7;
+  --card: #1a1a2e;
+  --card-foreground: #fff8e7;
+  --popover: #1a1a2e;
+  --popover-foreground: #fff8e7;
+  --primary: #c5a23e;
+  --primary-foreground: #1a1a2e;
+  --secondary: #252538;
+  --secondary-foreground: #fff8e7;
+  --muted: #252538;
+  --muted-foreground: #b8b0a0;
+  --accent: #c5a23e;
+  --accent-foreground: #1a1a2e;
+  --destructive: #c1440e;
+  --border: rgba(197, 162, 62, 0.2);
+  --input: rgba(197, 162, 62, 0.3);
+  --ring: #c5a23e;
+  --sidebar: #0a0a14;
+  --sidebar-foreground: #fff8e7;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), "Playfair Display", Georgia, serif;
+  }
+}
+
+/* ===== BRAJ LUXURY UTILITIES ===== */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), "Playfair Display", Georgia, serif;
+  }
+  .font-body {
+    font-family: var(--font-body), Inter, system-ui, sans-serif;
+  }
+  .font-devanagari {
+    font-family: var(--font-devanagari), "Noto Serif SC", serif;
+  }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #e0c468 0%, #c5a23e 45%, #8b6914 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Gold shimmer animation for CTAs */
+  .gold-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .gold-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255, 248, 231, 0.5) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.9s var(--ease-spiritual);
+  }
+  .gold-shimmer:hover::after {
+    transform: translateX(100%);
+  }
+
+  /* Premium card with gold border glow */
+  .card-luxury {
+    background: linear-gradient(145deg, #ffffff 0%, #f5f0e8 100%);
+    border: 1px solid rgba(197, 162, 62, 0.25);
+    box-shadow:
+      0 1px 2px rgba(26, 26, 46, 0.04),
+      0 10px 30px -10px rgba(197, 162, 62, 0.15);
+    transition: all 0.5s var(--ease-spiritual);
+  }
+  .card-luxury:hover {
+    border-color: rgba(197, 162, 62, 0.55);
+    box-shadow:
+      0 1px 2px rgba(26, 26, 46, 0.04),
+      0 20px 40px -12px rgba(197, 162, 62, 0.3);
+    transform: translateY(-4px);
+  }
+
+  /* Dark luxury card */
+  .card-luxury-dark {
+    background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%);
+    border: 1px solid rgba(197, 162, 62, 0.25);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Marble texture background */
+  .bg-marble {
+    background-color: #f5f0e8;
+    background-image:
+      radial-gradient(at 20% 30%, rgba(197, 162, 62, 0.05) 0px, transparent 50%),
+      radial-gradient(at 80% 70%, rgba(45, 80, 22, 0.04) 0px, transparent 50%);
+  }
+
+  /* Sacred gradient backgrounds */
+  .bg-spiritual-dawn {
+    background: linear-gradient(135deg, #fff8e7 0%, #ffe9b3 35%, #f5d785 70%, #c5a23e 100%);
+  }
+  .bg-spiritual-dusk {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b3d 40%, #4a2c5a 70%, #8b6914 100%);
+  }
+  .bg-spiritual-temple {
+    background:
+      radial-gradient(ellipse at top, rgba(197, 162, 62, 0.18) 0%, transparent 60%),
+      linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+  }
+
+  /* Mandala rotating background */
+  .mandala-spin {
+    animation: mandala-rotate 60s linear infinite;
+  }
+  @keyframes mandala-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Floating diya particle */
+  .float-particle {
+    animation: float-up 8s ease-in-out infinite;
+  }
+  @keyframes float-up {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-30px) scale(1.1); opacity: 1; }
+  }
+
+  /* Devotional pulse */
+  .pulse-divine {
+    animation: pulse-divine 3s ease-in-out infinite;
+  }
+  @keyframes pulse-divine {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(197, 162, 62, 0.5); }
+    50% { box-shadow: 0 0 0 12px rgba(197, 162, 62, 0); }
+  }
+
+  /* Slow reveal */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s var(--ease-spiritual), transform 1s var(--ease-spiritual);
+  }
+  .reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Gold divider with lotus */
+  .divider-gold {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(197, 162, 62, 0.5) 20%,
+      #c5a23e 50%,
+      rgba(197, 162, 62, 0.5) 80%,
+      transparent 100%
+    );
+  }
+
+  /* Section heading ornament */
+  .heading-ornament::before,
+  .heading-ornament::after {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c5a23e);
+    vertical-align: middle;
+    margin: 0 16px;
+  }
+  .heading-ornament::after {
+    background: linear-gradient(90deg, #c5a23e, transparent);
+  }
+
+  /* Custom scrollbar */
+  .scroll-luxury::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scroll-luxury::-webkit-scrollbar-track {
+    background: #f5f0e8;
+  }
+  .scroll-luxury::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #c5a23e, #8b6914);
+    border-radius: 4px;
+  }
+  .scroll-luxury::-webkit-scrollbar-thumb:hover {
+    background: #c5a23e;
+  }
+
+  /* Plot status colors */
+  .plot-available { background-color: #4a7a2e; }
+  .plot-reserved { background-color: #c5a23e; }
+  .plot-sold { background-color: #8b2500; }
+  .plot-booked { background-color: #1a1a2e; }
+}
+
+/* Global smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background: rgba(197, 162, 62, 0.3);
+  color: #1a1a2e;
+}

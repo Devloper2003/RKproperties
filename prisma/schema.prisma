@@ -1,0 +1,203 @@
+// BrajProperty.in - Prisma Schema
+// Premium plotted development real estate platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ===== PROJECTS (Townships) =====
+model Project {
+  id              String   @id @default(cuid())
+  name            String
+  slug            String   @unique
+  tagline         String
+  location        String
+  city            String // vrindavan, mathura, govardhan
+  latitude        Float
+  longitude       Float
+  totalAreaAcres  Int
+  minPlotSize     Int // sq.yd
+  maxPlotSize     Int
+  priceRangeMin   Int // INR
+  priceRangeMax   Int
+  status          String   @default("selling") // selling, pre-launch, sold-out
+  reraNumber      String?
+  mvdaNumber      String?
+  possessionDate  String?
+  heroImage       String
+  galleryImages   String // JSON array
+  amenities       String // JSON array
+  nearbyTemples   String // JSON array of {name, distance, walkTime}
+  usp             String
+  description     String
+  longDescription String
+  isPublished     Boolean  @default(true)
+  isFeatured      Boolean  @default(false)
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  plots         Plot[]
+  testimonials  Testimonial[]
+  leads         Lead[]
+  bookings      Booking[]
+}
+
+// ===== PLOTS (Inventory) =====
+model Plot {
+  id           String   @id @default(cuid())
+  projectId    String
+  project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  plotNumber   String
+  sizeSqyd     Int
+  facing       String // north, south, east, west, ne, nw, se, sw
+  dimensions   String // e.g. "20x30"
+  price        Int // INR
+  status       String   @default("available") // available, reserved, booked, sold
+  isCorner     Boolean  @default(false)
+  isRoadFacing Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  bookings Booking[]
+
+  @@unique([projectId, plotNumber])
+  @@index([projectId, status])
+}
+
+// ===== LEADS (CRM) =====
+model Lead {
+  id          String   @id @default(cuid())
+  name        String
+  phone       String
+  email       String?
+  source      String   @default("website") // website, whatsapp, referral, walk-in, ads
+  projectId   String?
+  project     Project? @relation(fields: [projectId], references: [id])
+  budgetRange String?
+  score       Int      @default(0)
+  stage       String   @default("new") // new, contacted, qualified, site-visit, negotiation, won, lost
+  notes       String?
+  assignedTo  String?
+  lastContactedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  bookings Booking[]
+}
+
+// ===== BOOKINGS =====
+model Booking {
+  id            String   @id @default(cuid())
+  leadId        String
+  lead          Lead     @relation(fields: [leadId], references: [id])
+  projectId     String
+  project       Project  @relation(fields: [projectId], references: [id])
+  plotId        String
+  plot          Plot     @relation(fields: [plotId], references: [id])
+  bookingAmount Int
+  paymentStatus String   @default("pending") // pending, partial, completed, refunded
+  agreementUrl  String?
+  bookingDate   DateTime @default(now())
+  expiryDate    DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ===== TESTIMONIALS =====
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  designation String?
+  content     String
+  avatar      String?
+  projectId   String?
+  project     Project? @relation(fields: [projectId], references: [id])
+  rating      Int      @default(5)
+  location    String?
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+// ===== BLOG POSTS =====
+model BlogPost {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  excerpt       String
+  content       String
+  featuredImage String
+  category      String // investment, spiritual, market-news, guide
+  tags          String // JSON array
+  author        String   @default("BrajProperty Team")
+  readTime      Int      @default(5)
+  isPublished   Boolean  @default(true)
+  publishedAt   DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ===== TEMPLES =====
+model Temple {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String
+  longDescription String
+  image       String
+  location    String
+  significance String
+  distanceFromVrindavan String?
+  createdAt   DateTime @default(now())
+}
+
+// ===== TEAM MEMBERS =====
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  photo     String
+  phone     String?
+  email     String?
+  whatsapp  String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+// ===== SITE SETTINGS =====
+model SiteSetting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+  type  String @default("text") // text, json, image
+  group String @default("general")
+}
+
+// ===== ADMIN USERS (simplified) =====
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      String   @default("admin") // superadmin, admin, sales_manager, sales_exec, editor, viewer
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ===== CONTACT MESSAGES =====
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String?
+  subject   String
+  message   String
+  projectId String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
