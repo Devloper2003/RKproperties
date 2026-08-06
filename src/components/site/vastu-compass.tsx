@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Compass, Check, X, Sparkles } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { VASTU_DIRECTIONS } from "@/lib/types";
+import { useApp } from "@/lib/store";
 
 export function VastuCompass() {
   const [selected, setSelected] = useState(1); // North-East default (most auspicious)
@@ -207,6 +208,15 @@ export function VastuCompass() {
                 </button>
               ))}
             </div>
+
+            {/* CTA: Book Vastu Consultation */}
+            <button
+              onClick={() => useApp.getState().openVastu()}
+              className="mt-4 w-full p-3 rounded-xl bg-gradient-to-r from-gold/10 to-gold/5 border border-gold/20 hover:border-gold/40 transition-all flex items-center justify-center gap-2 text-sm text-indigo-deep"
+            >
+              <Compass className="w-4 h-4 text-gold" />
+              <span>Need personalized Vastu advice? <strong className="text-gold">Book Expert Consultation →</strong></span>
+            </button>
           </div>
         </div>
       </div>

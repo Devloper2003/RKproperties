@@ -1048,6 +1048,105 @@ export const CONSTRUCTION_MILESTONES: { phase: string; status: "completed" | "in
   { phase: "Final Handover", status: "upcoming", date: "Dec 2027", desc: "Plot possession, documentation, society formation, key handover.", icon: "🎉" },
 ];
 
+// ===== Plot Recommendation Engine — preferences =====
+export const RECOMMENDATION_CRITERIA: { id: string; question: string; options: { value: string; label: string; emoji: string; weight: Record<string, number> }[] }[] = [
+  {
+    id: "budget",
+    question: "What's your budget range?",
+    options: [
+      { value: "5-10", label: "₹5-10 Lakh", emoji: "💸", weight: { "bankey-bihari-kunj": 3, "bankey-bihari-orchid": 1, "braj-lotus-greens": 0, "bankey-bihari-dham": 0 } },
+      { value: "6-12", label: "₹6-12 Lakh", emoji: "💰", weight: { "bankey-bihari-orchid": 3, "bankey-bihari-kunj": 2, "braj-lotus-greens": 1, "bankey-bihari-dham": 0 } },
+      { value: "8-15", label: "₹8-15 Lakh", emoji: "💎", weight: { "braj-lotus-greens": 3, "bankey-bihari-orchid": 2, "bankey-bihari-dham": 1, "bankey-bihari-kunj": 0 } },
+      { value: "10-20", label: "₹10-20 Lakh", emoji: "👑", weight: { "bankey-bihari-dham": 3, "braj-lotus-greens": 2, "bankey-bihari-orchid": 0, "bankey-bihari-kunj": 0 } },
+    ],
+  },
+  {
+    id: "city",
+    question: "Which sacred city calls to you?",
+    options: [
+      { value: "vrindavan", label: "Vrindavan — Krishna's playground", emoji: "🦚", weight: { "bankey-bihari-kunj": 3, "bankey-bihari-dham": 3, "bankey-bihari-orchid": 0, "braj-lotus-greens": 0 } },
+      { value: "mathura", label: "Mathura — Krishna's birthplace", emoji: "👶", weight: { "bankey-bihari-orchid": 3, "bankey-bihari-kunj": 0, "bankey-bihari-dham": 0, "braj-lotus-greens": 0 } },
+      { value: "govardhan", label: "Govardhan — Giriraj's shelter", emoji: "⛰️", weight: { "braj-lotus-greens": 3, "bankey-bihari-orchid": 0, "bankey-bihari-kunj": 0, "bankey-bihari-dham": 0 } },
+    ],
+  },
+  {
+    id: "size",
+    question: "What plot size do you need?",
+    options: [
+      { value: "small", label: "Compact (80-150 sq.yd)", emoji: "📐", weight: { "bankey-bihari-kunj": 3, "bankey-bihari-orchid": 2, "braj-lotus-greens": 0, "bankey-bihari-dham": 0 } },
+      { value: "medium", label: "Medium (120-250 sq.yd)", emoji: "📏", weight: { "bankey-bihari-orchid": 2, "braj-lotus-greens": 3, "bankey-bihari-kunj": 1, "bankey-bihari-dham": 0 } },
+      { value: "large", label: "Large (150-400 sq.yd)", emoji: "🗺️", weight: { "bankey-bihari-dham": 3, "braj-lotus-greens": 2, "bankey-bihari-orchid": 1, "bankey-bihari-kunj": 0 } },
+    ],
+  },
+  {
+    id: "priority",
+    question: "What matters most to you?",
+    options: [
+      { value: "spiritual", label: "Walking distance to temple", emoji: "🛕", weight: { "bankey-bihari-orchid": 3, "bankey-bihari-kunj": 3, "braj-lotus-greens": 2, "bankey-bihari-dham": 1 } },
+      { value: "investment", label: "Highest appreciation potential", emoji: "📈", weight: { "bankey-bihari-dham": 3, "braj-lotus-greens": 2, "bankey-bihari-orchid": 1, "bankey-bihari-kunj": 0 } },
+      { value: "amenities", label: "Premium amenities (pool, clubhouse)", emoji: "🏊", weight: { "bankey-bihari-dham": 3, "braj-lotus-greens": 2, "bankey-bihari-orchid": 1, "bankey-bihari-kunj": 0 } },
+      { value: "community", label: "Devotee community living", emoji: "🤝", weight: { "bankey-bihari-kunj": 3, "bankey-bihari-orchid": 2, "braj-lotus-greens": 1, "bankey-bihari-dham": 2 } },
+    ],
+  },
+];
+
+// ===== Krishna Stories for children =====
+export const KRISHNA_STORIES: { title: string; emoji: string; ageGroup: string; moral: string; story: string }[] = [
+  {
+    title: "Krishna and the Butter Thief",
+    emoji: "🧈",
+    ageGroup: "3-6 years",
+    moral: "Even the Divine loves playful mischief — but always share with love.",
+    story: "Little Krishna loved butter more than anything! He would climb up to high shelves where mother Yashoda kept the butter pot, sometimes with his friends, sometimes all by himself. When Yashoda caught him, his big innocent eyes would melt her heart. 'I didn't take it, Maiya!' he would say, butter still on his face. She would tie him to a mortar as gentle punishment, but even that became a divine play — Krishna dragged the mortar between two trees, uprooting them and freeing two cursed souls. The lesson? Even God's mischief carries deeper purpose, and a mother's love forgives all.",
+  },
+  {
+    title: "Krishna Lifts Govardhan Hill",
+    emoji: "⛰️",
+    ageGroup: "5-9 years",
+    moral: "Have faith in the Divine — God protects those who surrender to Him.",
+    story: "Lord Indra, god of rain, was angry because the people of Braj stopped worshipping him and started praying to Govardhan Hill instead (on Krishna's advice). Indra sent terrible storms! For seven days, rain poured and winds howled. But young Krishna simply lifted the entire Govardhan Hill on his little finger, creating a giant umbrella. All the people, cows, and animals took shelter underneath. Indra realized Krishna was no ordinary boy — He was the Supreme Lord! Indra came down, bowed to Krishna, and begged forgiveness. Krishna smiled and blessed Indra. From that day, Govardhan Puja is celebrated every year.",
+  },
+  {
+    title: "Krishna and Kaliya the Serpent",
+    emoji: "🐍",
+    ageGroup: "5-9 years",
+    moral: "Divine love purifies even the most dangerous beings.",
+    story: "The Yamuna river had become poisonous because a hundred-headed serpent named Kaliya lived in it. No fish could survive, no bird could fly over it. One day, Krishna's friends fell unconscious after drinking the water! Krishna jumped into the river to confront Kaliya. A fierce battle followed — Krishna danced on Kaliya's many hoods. Kaliya's wives begged for mercy. Krishna didn't kill Kaliya — instead, He sent him away to the ocean, purified by His divine touch. The Yamuna became clean again. The lesson? Krishna doesn't destroy — He transforms and purifies.",
+  },
+  {
+    title: "Krishna's Best Friend Sudama",
+    emoji: "🤝",
+    ageGroup: "6-10 years",
+    moral: "True friendship is beyond wealth — God remembers His devotees always.",
+    story: "Sudama was Krishna's childhood friend. They studied together in the ashram of Sandipani Muni. Years later, Sudama was very poor. His wife said, 'Go to Krishna, who is now a great king in Dwaraka. He will help us.' Sudama took a small pouch of flattened rice (poha) — Krishna's favorite as a child. When Krishna saw Sudama, He ran to embrace him, washed his feet with tears of joy, and ate the simple poha with great love. Krishna didn't ask what Sudama wanted. When Sudama returned home, he found a beautiful palace where his hut had been, filled with wealth and comfort. Krishna knew his friend's need without being asked.",
+  },
+  {
+    title: "Krishna and the Demoness Putana",
+    emoji: "👼",
+    ageGroup: "3-7 years",
+    moral: "God protects innocents — evil intentions always fail.",
+    story: "When Krishna was a baby, the wicked king Kansa sent a demoness named Putana to kill Him. She disguised herself as a beautiful woman and offered to nurse baby Krishna. But her breasts were smeared with poison! Little Krishna smiled at her, took her breast in His tiny mouth, and drank not just the milk but her very life-force. Putana screamed and tried to escape, but Krishna held on. She fell dead, and in her true demon form, she was huge as a mountain. But because Krishna had drunk her milk, she attained liberation — even evil beings who encounter the Divine are freed.",
+  },
+  {
+    title: "Krishna's Ras Leela",
+    emoji: "🌙",
+    ageGroup: "7-12 years",
+    moral: "Pure devotion connects you directly with the Divine — eternally.",
+    story: "On a beautiful full moon night in autumn, Krishna played His flute on the banks of the Yamuna. The Gopis of Vrindavan heard the enchanting melody and left everything — their homes, families, chores — to be with Krishna. Krishna expanded Himself into many forms, so each Gopi felt He was dancing only with her. This was the Maha Ras Leela — the divine dance of love. It symbolizes that the Supreme Lord is always present for every devotee who loves Him purely. The Gopis didn't seek anything from Krishna — they only wanted to be with Him. This selfless love is the highest form of devotion, and Vrindavan remains forever the stage of this eternal dance.",
+  },
+];
+
+// ===== Newsletter series =====
+export const NEWSLETTER_SERIES: { day: number; subject: string; preview: string; category: string }[] = [
+  { day: 1, subject: "Namaste! Welcome to Braj Dham 🙏", preview: "Begin your spiritual journey with Krishna's sacred land. Discover why millions call Braj their spiritual home.", category: "Welcome" },
+  { day: 3, subject: "The Story of Banke Bihari Temple", preview: "Discover how Krishna appeared in His tribhanga form to Swami Haridas in Nidhivan, 1864.", category: "Spiritual" },
+  { day: 5, subject: "Why MVDA Approval Matters for Your Investment", preview: "Legal clarity, clear titles, and approved infrastructure — the BrajProperty difference explained.", category: "Investment" },
+  { day: 7, subject: "Govardhan Parikrama: A 21km Spiritual Journey", preview: "Everything you need to know about the most sacred walk in Braj — route, timing, significance.", category: "Guide" },
+  { day: 10, subject: "NRI Investment Guide for Braj Dham", preview: "FEMA compliance, repatriation rules, and how NRIs can own a piece of sacred Vrindavan.", category: "NRI" },
+  { day: 14, subject: "Janmashtami in Braj — A Once-in-a-Lifetime Experience", preview: "Midnight abhishek, ras lila, prasad — celebrate Krishna's birthday where He was born.", category: "Festival" },
+];
+
+
 
 
 

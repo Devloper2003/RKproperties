@@ -83,6 +83,11 @@ interface AppState {
   // Language
   language: "en" | "hi" | "hinglish";
   setLanguage: (lang: "en" | "hi" | "hinglish") => void;
+
+  // Vastu consultation
+  vastuOpen: boolean;
+  openVastu: () => void;
+  closeVastu: () => void;
 }
 
 const WISHLIST_KEY = "braj_wishlist";
@@ -213,4 +218,9 @@ export const useApp = create<AppState>((set, get) => ({
   // Language
   language: "en",
   setLanguage: (language) => set({ language }),
+
+  // Vastu consultation
+  vastuOpen: false,
+  openVastu: () => set({ vastuOpen: true }),
+  closeVastu: () => set({ vastuOpen: false }),
 }));

@@ -987,3 +987,132 @@ Site now has **47 sections** (was 44):
 8. Add a "Festival Calendar" with RSVP for residents
 9. Add a "Vastu Consultation" booking feature (connect with Vastu expert)
 10. Add a "Plot Recommendation Engine" — AI-based plot matching user preferences
+
+---
+Task ID: 15 (Round 9 — Plot Recommendation Engine, Krishna Stories, Newsletter, Vastu Consultation)
+Agent: main (cron webDevReview)
+Task: QA, add AI plot recommendation engine, Krishna children's stories, newsletter signup, Vastu consultation booking
+
+## Current Project Status Assessment
+Platform was stable entering this round:
+- Dev server running (restarted once), lint clean, all APIs returning 200
+- 47 site sections + 9 admin modules all functional (from rounds 1-8)
+- No bugs found during QA — proceeded to new feature development
+
+## Work Completed This Round
+
+### QA Results (no bugs found)
+- ✅ Site loads HTTP 200, all 47 existing sections render
+- ✅ Admin login → dashboard → all 9 modules functional
+- ✅ Lint clean, no runtime errors in dev.log
+
+### New Features Added (4 components)
+
+1. **Plot Recommendation Engine** (`plot-recommendation.tsx`)
+   - 4-question quiz: Budget, City preference, Plot size, Priority
+   - Weighted scoring algorithm across 4 townships
+   - Budget: ₹5-10L → Kunj, ₹6-12L → Orchid, ₹8-15L → Lotus Greens, ₹10-20L → Dham
+   - City: Vrindavan → Kunj/Dham, Mathura → Orchid, Govardhan → Lotus Greens
+   - Size: Compact → Kunj, Medium → Lotus Greens, Large → Dham
+   - Priority: Spiritual → Orchid/Kunj, Investment → Dham, Amenities → Dham, Community → Kunj
+   - Results: Top match card with 🏆 + match %, all matches ranked with animated bars
+   - CTAs: View matched project details, Book a Visit, Retake
+   - Progress bar, auto-advance through questions
+   - Verified: Vrindavan + Compact + Spiritual = Bankey Bihari Kunj (correct match)
+
+2. **Krishna Bal Katha Stories** (`krishna-stories.tsx`)
+   - 6 illustrated stories for children with age groups:
+     - Krishna and the Butter Thief (3-6y) — mischief & sharing
+     - Krishna Lifts Govardhan Hill (5-9y) — faith & protection
+     - Krishna and Kaliya the Serpent (5-9y) — divine purification
+     - Krishna's Best Friend Sudama (6-10y) — true friendship
+     - Krishna and the Demoness Putana (3-7y) — divine protection
+     - Krishna's Ras Leela (7-12y) — pure devotion
+   - Left sidebar selector + right story card with emoji header, sparkles animation
+   - "Read full story" expand, Moral of the Story callout
+   - Prev/Next navigation + dot indicators
+   - Parent tip at bottom
+   - Kid-friendly floating decorations (🦚🪈🦋🌸🌟🪔)
+
+3. **Newsletter Signup** (`newsletter-signup.tsx`)
+   - 6-email spiritual content drip over 14 days:
+     - Day 1: Namaste! Welcome to Braj Dham (Welcome)
+     - Day 3: Story of Banke Bihari Temple (Spiritual)
+     - Day 5: Why MVDA Approval Matters (Investment)
+     - Day 7: Govardhan Parikrama Guide (Guide)
+     - Day 10: NRI Investment Guide (NRI)
+     - Day 14: Janmashtami in Braj (Festival)
+   - Email signup form with validation
+   - Success state with confirmation
+   - Category-coded badges for each email
+   - "Join 10,000+ devotees" social proof
+   - 4 benefits checklist (no spam, exclusive content, etc.)
+
+4. **Vastu Consultation Modal** (`vastu-consultation-modal.tsx`)
+   - 3 consultation types: Basic (Free/30min), Standard (₹1,100/60min), Premium (₹2,100/90min)
+   - Each type: features list, duration, price
+   - 3-step booking: Type → Details → Confirmed
+   - Form: name, phone, plot/project, vastu question
+   - Confirmation with VST-XXXXXX booking ID
+   - Expert info card: "Vastu Shastri, 20+ years, 5000+ consultations"
+   - CTA button added to Vastu Compass section: "Book Expert Consultation →"
+
+### Store Enhancements (store.ts)
+- Added Vastu consultation state: vastuOpen, openVastu, closeVastu
+
+### Types Enhancements (types.ts)
+- RECOMMENDATION_CRITERIA: 4 questions with weighted options for 4 townships
+- KRISHNA_STORIES: 6 stories with title/emoji/ageGroup/moral/story
+- NEWSLETTER_SERIES: 6 emails with day/subject/preview/category
+
+## Verification Results
+- ✅ Lint clean (no errors, no warnings)
+- ✅ All APIs return 200
+- ✅ Site loads HTTP 200
+- ✅ Plot Recommendation: quiz flow works, matched Vrindavan+Compact+Spiritual → Bankey Bihari Kunj
+- ✅ Krishna Stories: 6 stories render, selector + story card work
+- ✅ Newsletter: signup form + 6-email series preview render
+- ✅ Vastu Consultation: CTA in Vastu Compass opens 3-step booking modal
+- ✅ No runtime errors in dev.log
+
+## Files Created/Modified This Round
+- NEW: src/components/site/plot-recommendation.tsx
+- NEW: src/components/site/krishna-stories.tsx
+- NEW: src/components/site/newsletter-signup.tsx
+- NEW: src/components/site/vastu-consultation-modal.tsx
+- MODIFIED: src/components/site/luxury-site.tsx (added PlotRecommendation, KrishnaStories, NewsletterSignup sections + VastuConsultationModal)
+- MODIFIED: src/components/site/vastu-compass.tsx (added "Book Expert Consultation" CTA button)
+- MODIFIED: src/lib/store.ts (vastuOpen/openVastu/closeVastu state)
+- MODIFIED: src/lib/types.ts (RECOMMENDATION_CRITERIA, KRISHNA_STORIES, NEWSLETTER_SERIES)
+
+## Current Section Count
+Site now has **50 sections** (was 47):
+1. Festival Banner 2. Navbar 3. Hero 4. Quote Rotator 5. Sacred Locations
+6. Krishna Lila 7. Spiritual Quiz 8. Projects Showcase 9. Virtual Tour
+10. Plot Explorer 11. Vastu Compass 12. **Plot Recommendation** (new) 13. USPs
+14. Braj Dham Map 15. Township Map 16. Testimonials 17. Video Testimonials
+18. Trust Signals 19. Price Comparison 20. NRI Section 21. EMI Calculator
+22. ROI Calculator 23. Visit CTA 24. WhatsApp Flow 25. FAQ 26. Referral Program
+27. Community Portal 28. Bhajan Player 29. 108 Names Counter 30. Braj Calendar
+31. Braj Weather 32. Sankalp Section 33. Sadhana Tracker 34. Darshan Guide
+35. Braj Recipes 36. Construction Progress 37. **Krishna Stories** (new)
+38. Blog Preview 39. **Newsletter Signup** (new) 40. Lead CTA 41. Footer
++ FABs + 11 modals (added VastuConsultationModal) + Language Toggle
+
+## Unresolved Issues / Risks
+- None blocking. All features work as designed.
+- Minor: Recommendation weights are heuristic (would need ML training on real user data in production)
+- Minor: Newsletter is demo (would need email service like SendGrid/AWS SES in production)
+- Minor: Vastu consultation creates no real booking (would need calendar integration in production)
+
+## Priority Recommendations for Next Phase
+1. Integrate TRANSLATIONS into all components (hero title, buttons, etc.)
+2. Add Google Maps integration for real directions to each township
+3. Add resident testimonial video upload feature in community portal
+4. Add live chat history export feature in admin
+5. Add a "Braj Bhajan" lyrics display alongside the audio player
+6. Add a "Festival Calendar" with RSVP for residents
+7. Add a "Krishna Mantra" audio library (different mantras for different purposes)
+8. Add a "Braj Pilgrimage Planner" — multi-day itinerary generator
+9. Add a "Satsang Schedule" — weekly community satsang timings & RSVP
+10. Add a "Spiritual Shop" — purchase prasad, malas, deity photos, books

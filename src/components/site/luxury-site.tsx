@@ -36,6 +36,10 @@ import { BrajRecipes } from "./braj-recipes";
 import { SadhanaTracker } from "./sadhana-tracker";
 import { DarshanGuide } from "./darshan-guide";
 import { ConstructionProgress } from "./construction-progress";
+import { PlotRecommendation } from "./plot-recommendation";
+import { KrishnaStories } from "./krishna-stories";
+import { NewsletterSignup } from "./newsletter-signup";
+import { VastuConsultationModal } from "./vastu-consultation-modal";
 import { BlogPreview } from "./blog-preview";
 import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
@@ -81,6 +85,7 @@ export function LuxurySite() {
         <VirtualTourSection />
         <PlotExplorer />
         <VastuCompass />
+        <PlotRecommendation />
         <Usps />
         <BrajDhamMap />
         <TownshipMap />
@@ -105,7 +110,9 @@ export function LuxurySite() {
         <DarshanGuide />
         <BrajRecipes />
         <ConstructionProgress />
+        <KrishnaStories />
         <BlogPreview />
+        <NewsletterSignup />
         <LeadCta />
       </main>
       <Footer />
@@ -121,6 +128,7 @@ export function LuxurySite() {
       <WishlistPanel />
       <VirtualTourModal />
       <SiteVisitModal />
+      <VastuConsultationModal />
     </div>
   );
 }
