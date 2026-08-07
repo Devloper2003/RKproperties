@@ -73,19 +73,29 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`px-3.5 py-2 text-sm font-medium rounded-md transition-colors ${
-                  scrolled
-                    ? "text-indigo-deep/80 hover:text-gold hover:bg-gold/5"
-                    : "text-cream/90 hover:text-gold hover:bg-cream/10"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const linkClass = `px-3.5 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer ${
+                scrolled
+                  ? "text-indigo-deep/80 hover:text-gold hover:bg-gold/5"
+                  : "text-cream/90 hover:text-gold hover:bg-cream/10"
+              }`;
+              if (link.route) {
+                return (
+                  <button
+                    key={link.label}
+                    onClick={() => navigate({ name: link.route })}
+                    className={linkClass}
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+              return (
+                <a key={link.label} href={link.href} className={linkClass}>
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Desktop CTAs */}
