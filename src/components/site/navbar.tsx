@@ -13,11 +13,11 @@ import { LanguageToggle } from "./language-toggle";
 const NAV_LINKS = [
   { label: "Home", route: "home" as const },
   { label: "Projects", route: "projects" as const },
-  { label: "Plots", href: "#plots" },
-  { label: "About", href: "#about" },
-  { label: "Invest", href: "#invest" },
+  { label: "Plots", route: "plots" as const },
+  { label: "About", route: "about" as const },
+  { label: "Invest", route: "invest" as const },
   { label: "Blog", route: "blog" as const },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", route: "contact" as const },
 ];
 
 export function Navbar({ scrolled }: { scrolled: boolean }) {
@@ -71,31 +71,21 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
             </div>
           </button>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — ALL links navigate to separate pages */}
           <div className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((link) => {
-              const linkClass = `px-3.5 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer ${
-                scrolled
-                  ? "text-indigo-deep/80 hover:text-gold hover:bg-gold/5"
-                  : "text-cream/90 hover:text-gold hover:bg-cream/10"
-              }`;
-              if (link.route) {
-                return (
-                  <button
-                    key={link.label}
-                    onClick={() => navigate({ name: link.route })}
-                    className={linkClass}
-                  >
-                    {link.label}
-                  </button>
-                );
-              }
-              return (
-                <a key={link.label} href={link.href} className={linkClass}>
-                  {link.label}
-                </a>
-              );
-            })}
+            {NAV_LINKS.map((link) => (
+              <button
+                key={link.label}
+                onClick={() => navigate({ name: link.route })}
+                className={`px-3.5 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer ${
+                  scrolled
+                    ? "text-indigo-deep/80 hover:text-gold hover:bg-gold/5"
+                    : "text-cream/90 hover:text-gold hover:bg-cream/10"
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
           </div>
 
           {/* Desktop CTAs */}
@@ -149,27 +139,16 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
                   </SheetClose>
                 </div>
                 <nav className="flex flex-col p-4 gap-1">
-                  {NAV_LINKS.map((link) => {
-                    if (link.route) {
-                      return (
-                        <SheetClose asChild key={link.label}>
-                          <button
-                            onClick={() => { setMobile(false); navigate({ name: link.route }); }}
-                            className="text-left px-4 py-3 text-indigo-deep font-medium rounded-md hover:bg-gold/10 hover:text-gold transition-colors"
-                          >
-                            {link.label}
-                          </button>
-                        </SheetClose>
-                      );
-                    }
-                    return (
-                      <SheetClose asChild key={link.label}>
-                        <a href={link.href} className="px-4 py-3 text-indigo-deep font-medium rounded-md hover:bg-gold/10 hover:text-gold transition-colors">
-                          {link.label}
-                        </a>
-                      </SheetClose>
-                    );
-                  })}
+                  {NAV_LINKS.map((link) => (
+                    <SheetClose asChild key={link.label}>
+                      <button
+                        onClick={() => { setMobile(false); navigate({ name: link.route }); }}
+                        className="text-left px-4 py-3 text-indigo-deep font-medium rounded-md hover:bg-gold/10 hover:text-gold transition-colors"
+                      >
+                        {link.label}
+                      </button>
+                    </SheetClose>
+                  ))}
                   <div className="mt-4 pt-4 border-t border-gold/15 flex flex-col gap-2">
                     <Button
                       onClick={() => {

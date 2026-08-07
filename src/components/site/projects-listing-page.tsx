@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, MapPin, Maximize, IndianRupee, ArrowRight, Search } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { navigate } from "@/lib/router";
+import { InnerNavbar } from "./inner-navbar";
 import { formatINR, PROJECT_STATUS_LABELS, type Project } from "@/lib/types";
 import { useState } from "react";
 
@@ -31,12 +32,7 @@ export function ProjectsListingPage() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Top bar */}
-      <div className="sticky top-0 z-50 bg-spiritual-temple border-b border-gold/20 px-4 sm:px-6 py-3 flex items-center justify-between shadow-lg">
-        <button onClick={() => navigate({ name: "home" })} className="flex items-center gap-2 text-sm font-medium text-cream hover:text-gold transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to Home
-        </button>
-        <div className="text-cream font-display text-sm font-bold hidden sm:block">All Projects</div>
-      </div>
+      <InnerNavbar title="All Projects" />
 
       {/* Hero header */}
       <div className="relative h-48 sm:h-64 bg-spiritual-temple overflow-hidden">

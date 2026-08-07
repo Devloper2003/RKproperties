@@ -24,6 +24,7 @@ export type Route =
   | { name: "home" }
   | { name: "projects" }
   | { name: "project"; slug: string }
+  | { name: "plots" }
   | { name: "blog" }
   | { name: "blog-post"; slug: string }
   | { name: "temples" }
@@ -46,6 +47,7 @@ export function parseHash(): Route {
   if (parts[0] === "blog" && parts[1]) return { name: "blog-post", slug: parts[1] };
   if (parts[0] === "temples" && parts.length === 1) return { name: "temples" };
   if (parts[0] === "temples" && parts[1]) return { name: "temple", slug: parts[1] };
+  if (parts[0] === "plots") return { name: "plots" };
   if (parts[0] === "about") return { name: "about" };
   if (parts[0] === "invest") return { name: "invest" };
   if (parts[0] === "contact") return { name: "contact" };
@@ -63,6 +65,7 @@ export function routeToHash(route: Route): string {
     case "blog-post": return `#/blog/${route.slug}`;
     case "temples": return "#/temples";
     case "temple": return `#/temples/${route.slug}`;
+    case "plots": return "#/plots";
     case "about": return "#/about";
     case "invest": return "#/invest";
     case "contact": return "#/contact";
@@ -121,6 +124,13 @@ export function useHashRouter() {
 
     switch (route.name) {
       case "home":
+      case "projects":
+      case "plots":
+      case "blog":
+      case "temples":
+      case "about":
+      case "invest":
+      case "contact":
         setView("site");
         break;
       case "admin":

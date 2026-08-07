@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Clock, ArrowRight, Search } from "lucide-react";
 import { navigate } from "@/lib/router";
+import { InnerNavbar } from "./inner-navbar";
 import type { BlogPost } from "@/lib/types";
 import { useState } from "react";
 
@@ -36,12 +37,7 @@ export function BlogListingPage() {
 
   return (
     <div className="min-h-screen bg-cream">
-      <div className="sticky top-0 z-50 bg-spiritual-temple border-b border-gold/20 px-4 sm:px-6 py-3 flex items-center justify-between shadow-lg">
-        <button onClick={() => navigate({ name: "home" })} className="flex items-center gap-2 text-sm font-medium text-cream hover:text-gold">
-          <ArrowLeft className="w-4 h-4" /> Back to Home
-        </button>
-        <div className="text-cream font-display text-sm font-bold hidden sm:block">Blog & Insights</div>
-      </div>
+      <InnerNavbar title="Blog & Insights" />
 
       <div className="relative h-48 sm:h-64 bg-gradient-to-br from-indigo-deep to-[#2d1b3d] flex items-center justify-center">
         <div className="text-center">
