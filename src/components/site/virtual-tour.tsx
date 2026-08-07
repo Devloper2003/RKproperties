@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Play, X, ChevronRight, ChevronLeft, MapPin, Compass, Camera } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { useApp } from "@/lib/store";
+import { navigate } from "@/lib/router";
 import { TOUR_STOPS, type Project } from "@/lib/types";
 
 export function VirtualTourSection() {
@@ -206,7 +207,7 @@ export function VirtualTourModal() {
                   size="sm"
                   onClick={() => {
                     closeTour();
-                    useApp.getState().openProjectPage(project.slug);
+                    navigate({name:"project",slug:project.slug});
                   }}
                   className="border-gold/30 text-indigo-deep hover:bg-gold/10"
                 >

@@ -10,6 +10,7 @@ import { Progress } from "@/components/ui/progress";
 import { Sparkles, Trophy, RotateCcw, ArrowRight, MapPin, IndianRupee, Check } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { useApp } from "@/lib/store";
+import { navigate } from "@/lib/router";
 import { RECOMMENDATION_CRITERIA, formatINR, type Project } from "@/lib/types";
 import { toast } from "sonner";
 
@@ -240,7 +241,7 @@ export function PlotRecommendation() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button
                       onClick={() => {
-                        openProjectPage(topMatch.project.slug);
+                        navigate({name:"project",slug:topMatch.project.slug});
                         toast.success(`Opening ${topMatch.project.name} details...`);
                       }}
                       className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-12"

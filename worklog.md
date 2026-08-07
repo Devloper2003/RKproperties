@@ -1691,3 +1691,54 @@ When a project/blog/temple is clicked:
 - ✅ Gallery with thumbnails works
 - ✅ Blog cards open separate blog page
 - ✅ Temple cards open separate temple page
+
+---
+Task ID: 22 (Round 16 — REAL separate pages with URL routing, listing pages, browser back button)
+Agent: main (user request — 4th time asking for separate pages)
+Task: Create genuine separate pages with URL changes, listing pages, and browser back button support
+
+## What Was Wrong Before
+Previous "separate pages" were just conditional renders — the URL never changed, no listing pages existed, browser back button didn't work. User couldn't tell they were on a "different page."
+
+## What's Fixed Now
+
+### 1. URL Hash Routing (`src/lib/router.ts`)
+- Full hash-based router: `#/projects/[slug]`, `#/blog/[slug]`, `#/temples/[slug]`
+- `navigate()` function updates URL + store
+- `useHashRouter()` hook listens to `popstate` + `hashchange` events
+- Browser back/forward button works perfectly
+
+### 2. Three Listing Pages (NEW)
+- **Projects Listing** (`#/projects`): All 4 townships in a grid with search + city filter
+- **Blog Listing** (`#/blog`): All 12 articles with search + category filter
+- **Temples Listing** (`#/temples`): All temples in a grid
+
+### 3. Three Detail Pages (enhanced)
+- **Project Detail** (`#/projects/[slug]`): Full page with gallery, Google Map, amenities, plots, testimonials
+- **Blog Post** (`#/blog/[slug]`): Full article with featured image, content, tags, CTA
+- **Temple Detail** (`#/temples/[slug]`): Temple info, significance, Google Map, visit CTA
+
+### 4. Navbar Links Updated
+- "Projects" → `navigate({name:"projects"})` → Projects listing page
+- "Blog" → `navigate({name:"blog"})` → Blog listing page
+- Other links still scroll (Plots, About, Invest, Contact)
+- Mobile menu also uses navigate for Projects/Blog
+
+### 5. All Click Handlers Use `navigate()`
+- Project cards → `navigate({name:"project", slug})`
+- Blog cards → `navigate({name:"blog-post", slug})`
+- Temple cards → `navigate({name:"temple", slug})`
+- View all articles → `navigate({name:"blog"})`
+- Back to Home → `navigate({name:"home"})`
+- Triple-click logo → `navigate({name:"admin"})`
+
+## Verification Results
+- ✅ Lint clean
+- ✅ Project click → URL: `#/projects/bankey-bihari-orchid`, separate page shows
+- ✅ Browser back → URL clears, homepage returns
+- ✅ Navbar "Projects" → URL: `#/projects`, listing page shows
+- ✅ Blog link → URL: `#/blog`, listing page shows
+- ✅ Blog post click → URL: `#/blog/[slug]`, article page shows
+- ✅ Temple click → URL: `#/temples/banke-bihari-temple`, temple page shows
+- ✅ Back button works on all pages
+- ✅ Homepage completely unmounts when on detail page

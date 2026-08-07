@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { X, GitCompare, Check, Trophy, Plus, Trash2 } from "lucide-react";
 import { useApp } from "@/lib/store";
+import { navigate } from "@/lib/router";
 import {
   formatINR,
   PROJECT_STATUS_LABELS,
@@ -208,7 +209,7 @@ export function ComparisonModal() {
                           <Button
                             size="sm"
                             onClick={() => {
-                              useApp.getState().openProjectPage(p.slug);
+                              navigate({name:"project",slug:p.slug});
                               setCompareOpen(false);
                             }}
                             className="w-full gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-8 text-xs"

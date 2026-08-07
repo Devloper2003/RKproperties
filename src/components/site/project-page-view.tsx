@@ -15,6 +15,7 @@ import {
 import { useApp } from "@/lib/store";
 import { formatINR, formatINRFull, PROJECT_STATUS_LABELS, PLOT_STATUS_CONFIG, type Project } from "@/lib/types";
 import { toast } from "sonner";
+import { navigate } from "@/lib/router";
 
 export function ProjectPageView() {
   const { projectPageSlug, closeProjectPage, openLeadForm, openBooking, setSelectedProjectForPlots, openVisit } = useApp();
@@ -40,7 +41,7 @@ export function ProjectPageView() {
       {/* Top navigation bar */}
       <div className="sticky top-0 z-50 bg-spiritual-temple border-b border-gold/20 px-4 sm:px-6 py-3 flex items-center justify-between shadow-lg">
         <button
-          onClick={closeProjectPage}
+          onClick={() => navigate({name:"home"})}
           className="flex items-center gap-2 text-sm font-medium text-cream hover:text-gold transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -248,7 +249,7 @@ export function ProjectPageView() {
                     size="sm"
                     className="text-gold hover:text-gold-dark hover:bg-gold/10"
                     onClick={() => {
-                      closeProjectPage();
+                      navigate({ name: "home" });
                       setSelectedProjectForPlots(project.slug);
                       setTimeout(() => document.getElementById("plots")?.scrollIntoView({ behavior: "smooth" }), 200);
                     }}
@@ -264,7 +265,7 @@ export function ProjectPageView() {
                         key={plot.id}
                         className={`p-2 rounded-lg border-2 ${cfg.border} bg-white text-center cursor-pointer hover:shadow-md transition-all`}
                         title={`${plot.plotNumber} · ${plot.sizeSqyd} sq.yd · ${formatINRFull(plot.price)}`}
-                        onClick={() => { closeProjectPage(); setTimeout(() => openBooking(plot.id), 200); }}
+                        onClick={() => { navigate({name:"home"}); setTimeout(() => openBooking(plot.id), 300); }}
                       >
                         <div className="font-mono text-xs font-bold text-indigo-deep">{plot.plotNumber}</div>
                         <div className={`text-[10px] ${cfg.color}`}>{cfg.label}</div>
@@ -342,7 +343,7 @@ export function ProjectPageView() {
               <Button onClick={() => openLeadForm(project.id)} className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-12">
                 <MessageCircle className="w-4 h-4 mr-2" /> Book Site Visit
               </Button>
-              <Button onClick={() => { closeProjectPage(); setTimeout(() => openVisit(project.id), 200); }} variant="outline" className="border-gold/40 text-indigo-deep hover:bg-gold/10 h-12">
+              <Button onClick={() => { navigate({name:"home"}); setTimeout(() => openVisit(project.id), 300); }} variant="outline" className="border-gold/40 text-indigo-deep hover:bg-gold/10 h-12">
                 <Calendar className="w-4 h-4 mr-2" /> Schedule Visit
               </Button>
               <Button asChild variant="outline" className="border-green-deep/40 text-green-deep hover:bg-green-light/10 h-12">

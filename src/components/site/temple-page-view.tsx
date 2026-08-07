@@ -8,6 +8,7 @@ import { ArrowLeft, MapPin, Share2, Phone, Navigation, Sparkles, Clock } from "l
 import { useApp } from "@/lib/store";
 import type { Temple } from "@/lib/types";
 import { toast } from "sonner";
+import { navigate } from "@/lib/router";
 
 export function TemplePageView() {
   const { templePageSlug, closeTemplePage } = useApp();
@@ -29,7 +30,7 @@ export function TemplePageView() {
     <div className="min-h-screen bg-cream">
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-spiritual-temple border-b border-gold/20 px-4 sm:px-6 py-3 flex items-center justify-between shadow-lg">
-        <button onClick={closeTemplePage} className="flex items-center gap-2 text-sm font-medium text-cream hover:text-gold transition-colors">
+        <button onClick={() => navigate({name:"home"})} className="flex items-center gap-2 text-sm font-medium text-cream hover:text-gold transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
         <Button onClick={() => toast.success("🔗 Link copied!")} size="sm" variant="ghost" className="text-cream/60 hover:text-gold p-2">

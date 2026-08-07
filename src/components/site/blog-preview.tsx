@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, ArrowRight } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { useApp } from "@/lib/store";
+import { navigate } from "@/lib/router";
 import type { BlogPost } from "@/lib/types";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -18,7 +19,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export function BlogPreview() {
-  const { openBlogPage } = useApp();
+  
   const { data: posts = [] } = useQuery<BlogPost[]>({
     queryKey: ["blog-preview"],
     queryFn: async () => (await fetch("/api/blog?limit=3")).json().then((j) => j.data),
@@ -46,7 +47,7 @@ export function BlogPreview() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
               >
-                <Card className="card-luxury rounded-2xl overflow-hidden h-full flex flex-col group cursor-pointer" onClick={() => openBlogPage(post.slug)}>
+                <Card className="card-luxury rounded-2xl overflow-hidden h-full flex flex-col group cursor-pointer" onClick={() => navigate({name:"blog-post",slug:post.slug})}>
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={post.featuredImage}
@@ -83,13 +84,13 @@ export function BlogPreview() {
         )}
 
         <div className="text-center mt-10">
-          <a
-            href="#blog"
+          <button
+            onClick={() => navigate({ name: "blog" })}
             className="inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-dark transition-colors"
           >
             View all articles
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
         </div>
       </div>
     </section>

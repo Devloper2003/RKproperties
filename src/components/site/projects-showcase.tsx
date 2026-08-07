@@ -8,10 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "./section-heading";
 import { useApp } from "@/lib/store";
+import { navigate } from "@/lib/router";
 import { formatINR, PROJECT_STATUS_LABELS, type Project } from "@/lib/types";
 
 export function ProjectsShowcase() {
-  const openProjectPage = useApp((s) => s.openProjectPage);
+  
   const openLeadForm = useApp((s) => s.openLeadForm);
   const toggleCompare = useApp((s) => s.toggleCompare);
   const isComparing = useApp((s) => s.isComparing);
@@ -144,7 +145,7 @@ export function ProjectsShowcase() {
 
                     <div className="mt-auto pt-5 flex gap-2">
                       <Button
-                        onClick={() => openProjectPage(project.slug)}
+                        onClick={() => navigate({name:"project",slug:project.slug})}
                         className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold hover:shadow-[0_4px_14px_rgba(197,162,62,0.4)]"
                         size="sm"
                       >

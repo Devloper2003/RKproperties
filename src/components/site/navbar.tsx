@@ -32,7 +32,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
     if (logoClickTimer.current) clearTimeout(logoClickTimer.current);
     if (newCount >= 3) {
       setLogoClicks(0);
-      toggleView(); // Secret admin access
+      navigate({ name: "admin" }); // Secret admin access
     } else {
       logoClickTimer.current = setTimeout(() => setLogoClicks(0), 600);
     }
@@ -149,16 +149,27 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
                   </SheetClose>
                 </div>
                 <nav className="flex flex-col p-4 gap-1">
-                  {NAV_LINKS.map((link) => (
-                    <SheetClose asChild key={link.href}>
-                      <a
-                        href={link.href}
-                        className="px-4 py-3 text-indigo-deep font-medium rounded-md hover:bg-gold/10 hover:text-gold transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    </SheetClose>
-                  ))}
+                  {NAV_LINKS.map((link) => {
+                    if (link.route) {
+                      return (
+                        <SheetClose asChild key={link.label}>
+                          <button
+                            onClick={() => { setMobile(false); navigate({ name: link.route }); }}
+                            className="text-left px-4 py-3 text-indigo-deep font-medium rounded-md hover:bg-gold/10 hover:text-gold transition-colors"
+                          >
+                            {link.label}
+                          </button>
+                        </SheetClose>
+                      );
+                    }
+                    return (
+                      <SheetClose asChild key={link.label}>
+                        <a href={link.href} className="px-4 py-3 text-indigo-deep font-medium rounded-md hover:bg-gold/10 hover:text-gold transition-colors">
+                          {link.label}
+                        </a>
+                      </SheetClose>
+                    );
+                  })}
                   <div className="mt-4 pt-4 border-t border-gold/15 flex flex-col gap-2">
                     <Button
                       onClick={() => {

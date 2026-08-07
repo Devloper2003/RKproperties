@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { SectionHeading } from "./section-heading";
 import { useApp } from "@/lib/store";
+import { navigate } from "@/lib/router";
 import { SPIRITUAL_QUIZ, QUIZ_RESULTS } from "@/lib/types";
 import { ChevronRight, RotateCcw, Sparkles, MapPin, ArrowRight, Check } from "lucide-react";
 
@@ -241,7 +242,7 @@ export function SpiritualQuiz() {
                       {/* CTAs */}
                       <div className="flex flex-col sm:flex-row gap-2">
                         <Button
-                          onClick={() => openProjectPage(projectSlug)}
+                          onClick={() => navigate({name:"project",slug:projectSlug})}
                           className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-11"
                         >
                           <MapPin className="w-4 h-4 mr-2" />

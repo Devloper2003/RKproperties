@@ -8,6 +8,7 @@ import { ArrowLeft, Clock, Calendar, Tag, Share2, Phone, MessageCircle } from "l
 import { useApp } from "@/lib/store";
 import type { BlogPost } from "@/lib/types";
 import { toast } from "sonner";
+import { navigate } from "@/lib/router";
 
 export function BlogPageView() {
   const { blogPageSlug, closeBlogPage, openLeadForm } = useApp();
@@ -29,7 +30,7 @@ export function BlogPageView() {
     <div className="min-h-screen bg-cream">
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-spiritual-temple border-b border-gold/20 px-4 sm:px-6 py-3 flex items-center justify-between shadow-lg">
-        <button onClick={closeBlogPage} className="flex items-center gap-2 text-sm font-medium text-cream hover:text-gold transition-colors">
+        <button onClick={() => navigate({name:"home"})} className="flex items-center gap-2 text-sm font-medium text-cream hover:text-gold transition-colors">
           <ArrowLeft className="w-4 h4" /> Back to Home
         </button>
         <Button onClick={() => toast.success("🔗 Link copied!")} size="sm" variant="ghost" className="text-cream/60 hover:text-gold p-2">
@@ -83,7 +84,7 @@ export function BlogPageView() {
             <h3 className="font-display text-xl font-bold text-cream mb-2">Interested in Braj Dham plots?</h3>
             <p className="text-sm text-cream/70 mb-4">Talk to our property advisor for personalized guidance.</p>
             <div className="flex flex-col sm:flex-row gap-2 justify-center">
-              <Button onClick={() => { closeBlogPage(); setTimeout(() => openLeadForm(), 200); }} className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold">
+              <Button onClick={() => { navigate({name:"home"}); setTimeout(() => openLeadForm(), 300); }} className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold">
                 <MessageCircle className="w-4 h-4 mr-2" /> Get Callback
               </Button>
               <Button asChild variant="outline" className="border-green-deep/40 text-green-deep hover:bg-green-light/10">
