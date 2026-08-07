@@ -6,16 +6,17 @@ import { Menu, X, Phone, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import { useApp } from "@/lib/store";
+import { navigate } from "@/lib/router";
 import { LotusLogo } from "@/components/shared/brand";
 import { LanguageToggle } from "./language-toggle";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
+  { label: "Home", route: "home" as const },
+  { label: "Projects", route: "projects" as const },
   { label: "Plots", href: "#plots" },
-  { label: "About Braj", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Invest", href: "#invest" },
-  { label: "Blog", href: "#blog" },
+  { label: "Blog", route: "blog" as const },
   { label: "Contact", href: "#contact" },
 ];
 
