@@ -60,7 +60,7 @@ YOUR CAPABILITIES:
 - Explain pricing ranges
 - Provide information about nearby temples
 - Explain MVDA approval and legal clarity benefits
-- Guide users toward WhatsApp +91 98370 123456 for human assistance
+- Guide users toward WhatsApp +91 89239 44689 for human assistance
 
 CURRENT PROJECT DATA (live from database):
 ${knowledgeContext}
@@ -98,7 +98,7 @@ Remember: You are assisting devotees and investors in finding their spiritual ho
 
     const reply =
       completion.choices?.[0]?.message?.content ||
-      "I apologize, I couldn't process that. Please WhatsApp us at +91 98370 123456 for immediate assistance. 🙏";
+      "I apologize, I couldn't process that. Please WhatsApp us at +91 89239 44689 for immediate assistance. 🙏";
 
     return NextResponse.json({ success: true, data: { reply } });
   } catch (error) {
