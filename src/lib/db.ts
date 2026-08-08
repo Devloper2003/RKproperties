@@ -1,24 +1,26 @@
 import { PrismaClient } from '@prisma/client'
-import { neon } from '@neondatabase/serverless'
-import { PrismaNeon } from '@prisma/adapter-neon'
-
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
-const connectionString = process.env.DATABASE_URL!
-
 function createPrismaClient() {
-  if (process.env.NODE_ENV === 'production') {
-    // Neon serverless for Vercel
-    const sql = neon(connectionString)
+  // Only use Neon adapter when we have a postgresql:// URL in production
+  const dbUrl = process.env.DATABASE_URL || ''
+  const isNeon = process.env.NODE_ENV === 'production' && dbUrl.startsWith('postgresql://')
+
+  if (isNeon) {
+    // Dynamic import for Neon (only on Vercel with postgresql URL)
+    const { neon } = require('@neondatabase/serverless')
+    const { PrismaNeon } = require('@prisma/adapter-neon')
+    const sql = neon(dbUrl)
     const adapter = new PrismaNeon(sql)
     return new PrismaClient({ adapter })
   }
-  // Local dev
+
+  // Local dev or non-postgresql URL: use regular PrismaClient
   return new PrismaClient({
-    log: ['warn', 'error'],
+    log: process.env.NODE_ENV === 'development' ? ['warn', 'error'] : ['error'],
   })
 }
 
