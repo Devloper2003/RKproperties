@@ -86,21 +86,22 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5 text-cream/70">
                 <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                <span>Braj Dham Heights, Vrindavan, Mathura, Uttar Pradesh 281121</span>
+                <span>Mathura - Vrindavan Marg, In front of Kailash Nagar Road,
+   Near ATTLA CHUNGI, Vatsalya Gram, Mathura, UP 281121</span>
               </li>
               <li>
-                <a href="tel:+919837012345" className="flex items-center gap-2.5 text-cream/70 hover:text-gold transition-colors">
-                  <Phone className="w-4 h-4 text-gold" /> +91 98370 12345
+                <a href="tel:+918923944689" className="flex items-center gap-2.5 text-cream/70 hover:text-gold transition-colors">
+                  <Phone className="w-4 h-4 text-gold" /> +91 89239 44689
                 </a>
               </li>
               <li>
-                <a href="mailto:info@rkproperties.in" className="flex items-center gap-2.5 text-cream/70 hover:text-gold transition-colors">
-                  <Mail className="w-4 h-4 text-gold" /> info@rkproperties.in
+                <a href="mailto:shailendrrachaudhary@gmail.com" className="flex items-center gap-2.5 text-cream/70 hover:text-gold transition-colors">
+                  <Mail className="w-4 h-4 text-gold" /> shailendrrachaudhary@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/919837012345?text=Namaste! I'd like to know more about RK Properties plots"
+                  href="https://wa.me/918923944689?text=Namaste! I'd like to know more about RK Properties plots"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full bg-green-light text-cream text-xs font-semibold hover:bg-green-deep transition-colors"
