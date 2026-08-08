@@ -99,11 +99,11 @@ export function VisitCtaSection() {
                 Schedule Your Visit
               </Button>
               <a
-                href="tel:+919837012345"
+                href="tel:+918923944689"
                 className="flex items-center justify-center gap-2 w-full py-2.5 rounded-md border border-gold/30 text-indigo-deep text-sm font-medium hover:bg-gold/10 transition-colors"
               >
                 <Phone className="w-4 h-4 text-gold" />
-                Or call +91 98370 12345
+                Or call +91 89239 44689
               </a>
             </div>
 
