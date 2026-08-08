@@ -44,24 +44,25 @@ export function ContactPage() {
               <CardContent className="p-6 space-y-4">
                 <h3 className="font-display text-lg font-bold text-cream mb-2">Contact Information</h3>
                 <div className="space-y-3">
-                  <a href="tel:+919837012345" className="flex items-center gap-3 text-sm text-cream/80 hover:text-gold transition-colors">
+                  <a href="tel:+918923944689" className="flex items-center gap-3 text-sm text-cream/80 hover:text-gold transition-colors">
                     <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center"><Phone className="w-4 h-4 text-gold" /></div>
-                    <div><div className="text-[10px] text-cream/50">Phone</div><div className="font-medium">+91 98370 12345</div></div>
+                    <div><div className="text-[10px] text-cream/50">Phone</div><div className="font-medium">+91 89239 44689</div></div>
                   </a>
-                  <a href="mailto:info@rkproperties.in" className="flex items-center gap-3 text-sm text-cream/80 hover:text-gold transition-colors">
+                  <a href="mailto:ishailendrrachaudhary@gmail.com" className="flex items-center gap-3 text-sm text-cream/80 hover:text-gold transition-colors">
                     <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center"><Mail className="w-4 h-4 text-gold" /></div>
-                    <div><div className="text-[10px] text-cream/50">Email</div><div className="font-medium">info@rkproperties.in</div></div>
+                    <div><div className="text-[10px] text-cream/50">Email</div><div className="font-medium">shailendrrachaudhary@gmail.com</div></div>
                   </a>
                   <div className="flex items-center gap-3 text-sm text-cream/80">
                     <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center"><MapPin className="w-4 h-4 text-gold" /></div>
-                    <div><div className="text-[10px] text-cream/50">Office</div><div className="font-medium">Braj Dham Heights, Vrindavan, Mathura, UP 281121</div></div>
+                    <div><div className="text-[10px] text-cream/50">Office</div><div className="font-medium">Mathura - Vrindavan Marg, In front of Kailash Nagar Road,
+   Near ATTLA CHUNGI, Vatsalya Gram, Mathura, UP 281121</div></div>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-cream/80">
                     <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center"><Clock className="w-4 h-4 text-gold" /></div>
                     <div><div className="text-[10px] text-cream/50">Hours</div><div className="font-medium">Mon-Sun: 9:00 AM - 8:00 PM</div></div>
                   </div>
                 </div>
-                <a href="https://wa.me/919837012345?text=Namaste! I'd like to know more about RK Properties" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-md bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1da851] transition-colors mt-4">
+                <a href="https://wa.me/918923944689?text=Namaste! I'd like to know more about RK Properties plots" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-md bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1da851] transition-colors mt-4">
                   <MessageCircle className="w-4 h-4" /> WhatsApp Us
                 </a>
               </CardContent>
