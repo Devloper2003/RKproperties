@@ -107,7 +107,7 @@ export function TemplePageView() {
               <h3 className="font-display text-xl font-bold text-cream mb-2">Want to visit this temple?</h3>
               <p className="text-sm text-cream/70 mb-4">Our team arranges guided temple tours for site visitors.</p>
               <Button asChild className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold">
-                <a href={`https://wa.me/919837012345?text=Namaste! I want to visit ${temple.name}`} target="_blank" rel="noopener noreferrer">
+                <a href={`https://wa.me/918923944689?text=Namaste! I want to visit ${temple.name}`} target="_blank" rel="noopener noreferrer">
                   <Phone className="w-4 h-4 mr-2" /> Plan a Visit via WhatsApp
                 </a>
               </Button>
