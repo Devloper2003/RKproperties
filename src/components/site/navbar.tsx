@@ -66,7 +66,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
                   scrolled ? "text-muted-foreground" : "text-cream/70"
                 }`}
               >
-                Shahid Ravi Karan Singh
+                Shalinder Singh
               </span>
             </div>
           </button>
@@ -92,13 +92,13 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
           <div className="hidden lg:flex items-center gap-2">
             <LanguageToggle light={!scrolled} />
             <a
-              href="tel:+919837012345"
+              href="tel:+918923944689"
               className={`flex items-center gap-1.5 text-sm font-medium px-3 py-2 rounded-md transition-colors ${
                 scrolled ? "text-indigo-deep hover:text-gold" : "text-cream/90 hover:text-gold"
               }`}
             >
               <Phone className="w-3.5 h-3.5" />
-              +91 98370 12345
+              +91 89239 44689
             </a>
             <Button
               onClick={() => openLeadForm()}
@@ -161,11 +161,11 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
                     </Button>
                     {/* Admin hidden from mobile menu — triple-click logo */}
                     <a
-                      href="tel:+919837012345"
+                      href="tel:+918923944689"
                       className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-2"
                     >
                       <Phone className="w-4 h-4" />
-                      +91 98370 12345
+                      +91 89239 44689
                     </a>
                   </div>
                 </nav>
