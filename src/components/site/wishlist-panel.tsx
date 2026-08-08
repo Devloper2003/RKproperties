@@ -136,7 +136,7 @@ export function WishlistPanel() {
                                 </Button>
                               )}
                               <a
-                                href={`https://wa.me/919837012345?text=Namaste! I'm interested in plot ${plot.plotNumber} at ${plot.project?.name} (${formatINRFull(plot.price)})`}
+                                href={`https://wa.me/918923944689?text=Namaste! I'm interested in plot ${plot.plotNumber} at ${plot.project?.name} (${formatINRFull(plot.price)})`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex-1 inline-flex items-center justify-center gap-1 h-7 px-2 rounded-md bg-[#25D366]/10 text-[#1a8e3b] text-[11px] font-medium hover:bg-[#25D366]/20"
@@ -155,7 +155,7 @@ export function WishlistPanel() {
               {/* Actions footer */}
               <div className="mt-5 pt-5 border-t border-gold/15 space-y-2">
                 <a
-                  href={`https://wa.me/919837012345?text=Namaste! I've shortlisted ${wishlistedPlots.length} plots: ${wishlistedPlots.map(p => p.plotNumber).join(", ")}. Please help me choose.`}
+                  href={`https://wa.me/918923944689?text=Namaste! I've shortlisted ${wishlistedPlots.length} plots: ${wishlistedPlots.map(p => p.plotNumber).join(", ")}. Please help me choose.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full h-11 rounded-md bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1da851]"
