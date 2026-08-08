@@ -487,17 +487,14 @@ const temples = [
 ];
 
 const teamMembers = [
-  { name: "Shri Gopal Das", role: "Founder & Managing Director", photo: "", phone: "+91 98370 12345", whatsapp: "+91 98370 12345", sortOrder: 1 },
-  { name: "Smt. Radha Rani", role: "Director, Spiritual Outreach", photo: "", phone: "+91 98370 23456", whatsapp: "+91 98370 23456", sortOrder: 2 },
-  { name: "Shri Arjun Sharma", role: "Head of Sales", photo: "", phone: "+91 98370 34567", whatsapp: "+91 98370 34567", sortOrder: 3 },
-  { name: "Smt. Meera Gupta", role: "Legal & Compliance Head", photo: "", phone: "+91 98370 45678", whatsapp: "+91 98370 45678", sortOrder: 4 },
-];
+  { name: "Shalinder Singh", role: "Founder & Managing Director", photo: "", phone: "+91 89542 89824", whatsapp: "+91 89542 89824", sortOrder: 1 },
+  ];
 
 const settings = [
-  { key: "whatsapp_number", value: "919837012345", type: "text", group: "contact" },
-  { key: "phone_primary", value: "+91 98370 12345", type: "text", group: "contact" },
-  { key: "email_primary", value: "info@rkproperties.in", type: "text", group: "contact" },
-  { key: "office_address", value: "Braj Dham Heights, Vrindavan, Mathura, UP 281121", type: "text", group: "contact" },
+  { key: "whatsapp_number", value: "918923944689", type: "text", group: "contact" },
+  { key: "phone_primary", value: "+91 89239 44689", type: "text", group: "contact" },
+  { key: "email_primary", value: "shailendrrachaudhary@gmail.com", type: "text", group: "contact" },
+  { key: "office_address", value: "Mathura - Vrindavan Marg, In front of Kailash Nagar Road, Near ATTLA CHUNGI, Vatsalya Gram, Mathura, UP 281121", type: "text", group: "contact" },
   { key: "booking_amount_min", value: "10000", type: "text", group: "booking" },
   { key: "booking_amount_max", value: "50000", type: "text", group: "booking" },
   { key: "gst_percentage", value: "18", type: "text", group: "booking" },
