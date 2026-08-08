@@ -246,7 +246,7 @@ export function PlotRecommendation() {
                       }}
                       className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-12"
                     >
-                      View {topMatch.project.name} Details
+                      View {topMatch.project?.name || "Project"} Details
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                     <Button
