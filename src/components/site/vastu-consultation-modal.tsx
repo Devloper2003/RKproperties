@@ -49,6 +49,7 @@ export function VastuConsultationModal() {
       return;
     }
     setConfirmed(true);
+    setStep(2)
     toast.success("🧭 Vastu consultation requested! Our expert will call within 24 hours.");
   };
 
