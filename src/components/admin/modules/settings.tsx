@@ -45,12 +45,13 @@ export function Settings() {
         <Card className="card-luxury rounded-xl"><CardContent className="p-6 space-y-4 max-w-2xl">
           <h3 className="font-display text-lg font-bold text-indigo-deep">Contact Information</h3>
           <div className="grid grid-cols-2 gap-3">
-            <div><Label className="text-xs">Primary Phone</Label><Input defaultValue="+91 98370 12345" className="bg-white border-gold/25 mt-1" /></div>
-            <div><Label className="text-xs">WhatsApp Number</Label><Input defaultValue="919837012345" className="bg-white border-gold/25 mt-1" /></div>
-            <div><Label className="text-xs">Primary Email</Label><Input defaultValue="info@rkproperties.in" className="bg-white border-gold/25 mt-1" /></div>
-            <div><Label className="text-xs">Support Email</Label><Input defaultValue="support@rkproperties.in" className="bg-white border-gold/25 mt-1" /></div>
+            <div><Label className="text-xs">Primary Phone</Label><Input defaultValue="+91 89239 44689" className="bg-white border-gold/25 mt-1" /></div>
+            <div><Label className="text-xs">WhatsApp Number</Label><Input defaultValue="918923944689" className="bg-white border-gold/25 mt-1" /></div>
+            <div><Label className="text-xs">Primary Email</Label><Input defaultValue="shailendrrachaudhary@gmail.com" className="bg-white border-gold/25 mt-1" /></div>
+            <div><Label className="text-xs">Support Email</Label><Input defaultValue="shailendrrachaudhary@gmail.com" className="bg-white border-gold/25 mt-1" /></div>
           </div>
-          <div><Label className="text-xs">Office Address</Label><Textarea defaultValue="Braj Dham Heights, Vrindavan, Mathura, Uttar Pradesh 281121" className="bg-white border-gold/25 mt-1 min-h-[60px]" /></div>
+          <div><Label className="text-xs">Office Address</Label><Textarea defaultValue="Mathura - Vrindavan Marg, In front of Kailash Nagar Road,
+                     Near ATTLA CHUNGI, Vatsalya Gram, Mathura, UP 281121" className="bg-white border-gold/25 mt-1 min-h-[60px]" /></div>
           <Button onClick={() => save("Contact")} className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold"><Save className="w-4 h-4 mr-1" /> Save</Button>
         </CardContent></Card>
       </TabsContent>
