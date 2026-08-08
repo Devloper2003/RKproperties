@@ -241,7 +241,7 @@ export function PlotRecommendation() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button
                       onClick={() => {
-                        navigate({name:"project",slug:topMatch.project?.slug});
+                         navigate({name:"project",slug:topMatch.project?.slug || ""});
                         toast.success(`Opening ${topMatch.project?.name} details...`);
                       }}
                       className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-12"
