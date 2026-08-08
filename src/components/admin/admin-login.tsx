@@ -118,7 +118,7 @@ export function AdminLogin() {
 
             <div className="text-center pt-3 border-t border-gold/15">
               <p className="text-[11px] text-muted-foreground mb-2">
-                Demo: <code className="text-gold">masteradmin@rkproperties.in</code> / <code className="text-gold">braj2026</code>
+                
               </p>
               <button
                 type="button"
