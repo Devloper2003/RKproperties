@@ -26,7 +26,7 @@ export function WhatsappFab() {
 
       {/* WhatsApp button */}
       <motion.a
-        href="https://wa.me/919837012345?text=Namaste! I'm interested in RK Properties plots in Braj Dham."
+        href="https://wa.me/918923944689?text=Namaste! I'm interested in RK Properties plots in Braj Dham."
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0 }}
