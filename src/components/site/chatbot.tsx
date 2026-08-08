@@ -100,7 +100,7 @@ export function Chatbot() {
               </div>
             </div>
             <a
-              href="https://wa.me/919837012345?text=Namaste! I'd like to speak with a human property advisor"
+              href="https://wa.me/918923944689?text=Namaste! I'd like to speak with a human property advisor"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[10px] px-2 py-1 rounded-full bg-green-light/20 text-green-light hover:bg-green-light/30 flex items-center gap-1"
