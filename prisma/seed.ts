@@ -525,7 +525,7 @@ async function main() {
   // Plots for each project
   for (const p of projects) {
     const plotCount = p.totalAreaAcres >= 35 ? 60 : p.totalAreaAcres >= 25 ? 45 : 35;
-    const plots = generatePlots(p.id || "", 0, p.minPlotSize, p.maxPlotSize, p.priceRangeMin, p.priceRangeMax);
+    const plots = generatePlots(p.slug || "", 0, p.minPlotSize, p.maxPlotSize, p.priceRangeMin, p.priceRangeMax);
     // re-fetch project to get id
   }
   // Since we don't have IDs yet, fetch and create plots
