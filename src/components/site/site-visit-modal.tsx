@@ -326,7 +326,7 @@ export function SiteVisitModal() {
           </AnimatePresence>
 
           {/* Auto-advance when confirmed */}
-          {confirmed && step !== 3 && setStep(3)}
+          {confirmed && step !== 3 && (setStep(3), null)}
         </div>
       </DialogContent>
     </Dialog>
