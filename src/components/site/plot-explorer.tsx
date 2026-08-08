@@ -257,7 +257,7 @@ export function PlotExplorer() {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
           <span className="flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-gold" /> Need help choosing? 
-            <a href="https://wa.me/919837012345?text=Namaste! I need help choosing a plot" target="_blank" rel="noopener noreferrer" className="text-green-deep font-medium hover:underline flex items-center gap-1">
+            <a href="https://wa.me/918923944689?text=Namaste! I need help choosing a plot" target="_blank" rel="noopener noreferrer" className="text-green-deep font-medium hover:underline flex items-center gap-1">
               <MessageCircle className="w-3.5 h-3.5" /> Chat on WhatsApp
             </a>
           </span>
