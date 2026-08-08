@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { AdminLogin } from "./admin-login";
 import { AdminSidebar } from "./admin-sidebar";
 import { AdminTopbar } from "./admin-topbar";
@@ -30,7 +31,50 @@ const MODULE_TITLES: Record<string, { title: string; subtitle: string }> = {
 };
 
 export function AdminPanel() {
-  const { adminAuthed, adminActiveModule } = useApp();
+  const { adminAuthed, adminActiveModule, setAdminAuthed } = useApp();
+  const [checked, setChecked] = useState(false);
+
+  // On mount, restore session from localStorage if within 8 hours
+  useEffect(() => {
+    const SESSION_KEY = "rk_admin_session";
+    const DURATION = 8 * 60 * 60 * 1000;
+    try {
+      const raw = localStorage.getItem(SESSION_KEY);
+      if (raw) {
+        const { loginAt } = JSON.parse(raw);
+        if (Date.now() - loginAt <= DURATION) {
+          setAdminAuthed(true);
+        } else {
+          localStorage.removeItem(SESSION_KEY);
+        }
+      }
+    } catch { /* ignore */ }
+    setChecked(true);
+  }, [setAdminAuthed]);
+
+  // Auto-logout timer: force logout exactly at 8 hours
+  useEffect(() => {
+    if (!adminAuthed) return;
+    const SESSION_KEY = "rk_admin_session";
+    const DURATION = 8 * 60 * 60 * 1000;
+    let timer: ReturnType<typeof setTimeout>;
+    try {
+      const raw = localStorage.getItem(SESSION_KEY);
+      if (raw) {
+        const { loginAt } = JSON.parse(raw);
+        const remaining = DURATION - (Date.now() - loginAt);
+        if (remaining <= 0) {
+          setAdminAuthed(false);
+        } else {
+          timer = setTimeout(() => setAdminAuthed(false), remaining);
+        }
+      }
+    } catch { /* ignore */ }
+    return () => clearTimeout(timer);
+  }, [adminAuthed, setAdminAuthed]);
+
+  // Show nothing while checking session (prevents login flash)
+  if (!checked) return null;
 
   if (!adminAuthed) {
     return <AdminLogin />;

@@ -110,6 +110,8 @@ interface AppState {
 }
 
 const WISHLIST_KEY = "braj_wishlist";
+const ADMIN_SESSION_KEY = "rk_admin_session";
+const SESSION_DURATION_MS = 8 * 60 * 60 * 1000; // 8 hours
 
 function loadWishlist(): string[] {
   if (typeof window === "undefined") return [];
@@ -130,13 +132,44 @@ function saveWishlist(ids: string[]) {
   }
 }
 
+function loadAdminSession(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const raw = localStorage.getItem(ADMIN_SESSION_KEY);
+    if (!raw) return false;
+    const { loginAt } = JSON.parse(raw);
+    // Check if session is still valid (within 8 hours)
+    if (Date.now() - loginAt > SESSION_DURATION_MS) {
+      localStorage.removeItem(ADMIN_SESSION_KEY);
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export const useApp = create<AppState>((set, get) => ({
   view: "site",
   setView: (view) => set({ view }),
   toggleView: () => set((s) => ({ view: s.view === "site" ? "admin" : "site" })),
 
   adminAuthed: false,
-  setAdminAuthed: (adminAuthed) => set({ adminAuthed }),
+  setAdminAuthed: (adminAuthed) => {
+    if (adminAuthed) {
+      // Login — save session with timestamp
+      if (typeof window !== "undefined") {
+        localStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify({ loginAt: Date.now() }));
+      }
+      set({ adminAuthed: true, view: "admin" });
+    } else {
+      // Logout — clear session
+      if (typeof window !== "undefined") {
+        localStorage.removeItem(ADMIN_SESSION_KEY);
+      }
+      set({ adminAuthed: false });
+    }
+  },
   adminActiveModule: "dashboard",
   setAdminActiveModule: (adminActiveModule) => set({ adminActiveModule }),
 
