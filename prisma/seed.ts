@@ -596,14 +596,21 @@ async function main() {
   console.log(`✓ Created ${sampleLeads.length} sample leads`);
 
   // Admin user
-  await db.adminUser.create({
-    data: {
-      email: "admin@rkproperties.in",
-      name: "Super Admin",
-      role: "superadmin",
-      password: "braj2026", // demo only
-    },
-  });
+  const adminEmail = process.env.ADMIN_EMAIL;
+const adminPass = process.env.ADMIN_PASS;
+if (adminEmail && adminPass) {
+    await db.adminUser.create({
+      data: {
+        email: adminEmail,
+        name: "Super Admin",
+        role: "superadmin",
+        password: adminPass,
+      },
+    });
+    console.log("✓ Created authorized user");
+  } else {
+    console.warn("⚠ ADMIN_EMAIL / ADMIN_PASS not set — admin user skipped");
+  }
   console.log("✓ Created admin user (admin@rkproperties.in / braj2026)");
 
   console.log("\n🎉 Seeding complete!");
