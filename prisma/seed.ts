@@ -595,22 +595,23 @@ async function main() {
   }
   console.log(`✓ Created ${sampleLeads.length} sample leads`);
 
-  // Admin user
-  const adminEmail = process.env.ADMIN_EMAIL;
-const adminPass = process.env.ADMIN_PASS;
-if (adminEmail && adminPass) {
-    await db.adminUser.create({
-      data: {
-        email: adminEmail,
-        name: "Super Admin",
-        role: "superadmin",
-        password: adminPass,
-      },
-    });
-    console.log("✓ Created authorized user");
-  } else {
-    console.warn("⚠ ADMIN_EMAIL / ADMIN_PASS not set — admin user skipped");
-  }
+  // Admin user — always create with default credentials (login route will auto-hash on first login)
+  // IMPORTANT: Change these defaults after first login!
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@rkproperties.com";
+  const adminPass = process.env.ADMIN_PASS || "admin123";
+
+  // Upsert so re-running seed doesn't fail on unique constraint
+  await db.adminUser.upsert({
+    where: { email: adminEmail },
+    update: { password: adminPass },
+    create: {
+      email: adminEmail,
+      name: "Super Admin",
+      role: "superadmin",
+      password: adminPass,
+    },
+  });
+  console.log(`✓ Admin user ready: ${adminEmail}`);
 
   console.log("\n🎉 Seeding complete!");
   const projectCount = await db.project.count();
