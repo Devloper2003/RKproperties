@@ -16,7 +16,7 @@ import {
 import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Plus, Pencil, Trash2, MapPin, Building2, ImagePlus, X, GripVertical, Upload } from "lucide-react";
+import { Plus, Pencil, Trash2, MapPin, Building2, ImagePlus, X, Upload } from "lucide-react";
 import { formatINR, PROJECT_STATUS_LABELS, type Project } from "@/lib/types";
 
 const emptyForm = {
@@ -191,7 +191,7 @@ export function Projects() {
             <div className="sm:col-span-2">
               <Label className="text-xs flex items-center gap-1.5"><ImagePlus className="w-3.5 h-3.5 text-gold" /> Gallery Images (shown on project detail page slider)</Label>
               <div className="mt-2 space-y-2">
-                {/* Existing gallery images */
+                {/* Existing gallery images */}
                 {form.galleryImages && form.galleryImages.length > 0 && (
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {form.galleryImages.map((img: string, idx: number) => (
@@ -213,7 +213,7 @@ export function Projects() {
                             }}
                             className="flex-1 text-center text-[10px] py-1 bg-cream/80 hover:bg-cream text-indigo-deep font-medium transition-colors"
                             disabled={idx === 0}
-                          >&#8592; Move</button>
+                          >← Move</button>
                           <button
                             type="button"
                             onClick={() => {
@@ -225,7 +225,7 @@ export function Projects() {
                               }}
                             className="flex-1 text-center text-[10px] py-1 bg-cream/80 hover:bg-cream text-indigo-deep font-medium transition-colors"
                             disabled={idx === form.galleryImages.length - 1}
-                          >Move &#8594;</button>
+                          >Move →</button>
                         </div>
                         <button
                           type="button"
@@ -239,7 +239,7 @@ export function Projects() {
                   </div>
                 )}
 
-                {/* Add new gallery image */
+                {/* Add new gallery image */}
                 <div className="flex gap-2">
                   <Input
                     value={form._newGalleryUrl || ""}
