@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Building2, Phone, Search, CreditCard, Users, History, Save } from "lucide-react";
+import { Building2, Phone, Search, CreditCard, Users, History, Save, Plus, Trash2, Pencil, X } from "lucide-react";
 
 export function Settings() {
   const save = (section: string) => toast.success(`✓ ${section} settings saved`);
@@ -89,31 +89,7 @@ export function Settings() {
       </TabsContent>
 
       <TabsContent value="users" className="mt-4">
-        <Card className="card-luxury rounded-xl"><CardContent className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-display text-lg font-bold text-indigo-deep">Admin Users</h3>
-            <Button size="sm" className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold"><Users className="w-4 h-4 mr-1" /> Add User</Button>
-          </div>
-          <div className="space-y-2">
-            {[
-              { name: "Super Admin", email: "admin@rkproperties.in", role: "SuperAdmin", color: "bg-temple-red/15 text-temple-red border-temple-red/30" },
-              { name: "Gopal Das", email: "gopal@rkproperties.in", role: "Admin", color: "bg-gold/15 text-gold border-gold/30" },
-              { name: "Arjun Sharma", email: "arjun@rkproperties.in", role: "Sales Manager", color: "bg-green-light/15 text-green-deep border-green-light/30" },
-              { name: "Meera Gupta", email: "meera@rkproperties.in", role: "Editor", color: "bg-indigo-deep/10 text-indigo-deep border-indigo-deep/30" },
-            ].map((u) => (
-              <div key={u.email} className="flex items-center justify-between p-3 rounded-lg bg-marble">
-                <div className="flex items-center gap-3">
-                  <Avatar className="w-9 h-9 border border-gold/30"><AvatarFallback className="bg-gradient-to-br from-gold-light to-gold-dark text-cream text-xs font-bold">{u.name.split(" ").map(n => n[0]).join("")}</AvatarFallback></Avatar>
-                  <div><div className="text-sm font-medium text-indigo-deep">{u.name}</div><div className="text-xs text-muted-foreground">{u.email}</div></div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Badge variant="outline" className={u.color}>{u.role}</Badge>
-                  <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-gold h-7 text-xs">Edit</Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent></Card>
+        <UserManager />
       </TabsContent>
 
       <TabsContent value="audit" className="mt-4">
@@ -139,5 +115,190 @@ export function Settings() {
         </CardContent></Card>
       </TabsContent>
     </Tabs>
+  );
+}
+
+/* ─── Admin User Manager (real DB) ─── */
+
+const ROLES = ["superadmin", "admin", "sales_manager", "sales_exec", "editor", "viewer"] as const;
+
+const ROLE_COLORS: Record<string, string> = {
+  superadmin: "bg-temple-red/15 text-temple-red border-temple-red/30",
+  admin: "bg-gold/15 text-gold border-gold/30",
+  sales_manager: "bg-green-light/15 text-green-deep border-green-light/30",
+  sales_exec: "bg-blue-500/15 text-blue-600 border-blue-500/30",
+  editor: "bg-indigo-deep/10 text-indigo-deep border-indigo-deep/30",
+  viewer: "bg-gray-500/15 text-gray-600 border-gray-500/30",
+};
+
+function UserManager() {
+  const [users, setUsers] = useState<{ id: string; email: string; name: string; role: string; createdAt: string }[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [editing, setEditing] = useState<{ id: string; email: string; name: string; role: string } | null>(null);
+  const [form, setForm] = useState({ name: "", email: "", role: "admin", password: "" });
+  const [saving, setSaving] = useState(false);
+
+  const fetchUsers = useCallback(async () => {
+    try {
+      const res = await fetch("/api/admin/users");
+      const json = await res.json();
+      if (json.ok) setUsers(json.data || []);
+    } catch {
+      toast.error("Failed to load users");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { fetchUsers(); }, [fetchUsers]);
+
+  const openCreate = () => {
+    setEditing(null);
+    setForm({ name: "", email: "", role: "admin", password: "" });
+    setShowForm(true);
+  };
+
+  const openEdit = (u: { id: string; email: string; name: string; role: string }) => {
+    setEditing(u);
+    setForm({ name: u.name, email: u.email, role: u.role, password: "" });
+    setShowForm(true);
+  };
+
+  const handleSave = async () => {
+    if (!form.name || !form.email) {
+      toast.error("Name and email are required");
+      return;
+    }
+    if (!editing && !form.password) {
+      toast.error("Password is required for new users");
+      return;
+    }
+
+    setSaving(true);
+    try {
+      if (editing) {
+        // Update existing user
+        const body: Record<string, string> = { name: form.name, email: form.email, role: form.role };
+        if (form.password) body.password = form.password;
+        const res = await fetch(`/api/admin/users/${editing.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        const json = await res.json();
+        if (json.ok) {
+          toast.success("User updated");
+          setShowForm(false);
+          fetchUsers();
+        } else {
+          toast.error(json.error || "Update failed");
+        }
+      } else {
+        // Create new user
+        const res = await fetch("/api/admin/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        const json = await res.json();
+        if (json.ok) {
+          toast.success("User created");
+          setShowForm(false);
+          fetchUsers();
+        } else {
+          toast.error(json.error || "Create failed");
+        }
+      }
+    } catch {
+      toast.error("Something went wrong");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDelete = async (id: string, name: string) => {
+    if (!confirm(`Delete user "${name}"? This cannot be undone.`)) return;
+    try {
+      const res = await fetch(`/api/admin/users/${id}`, { method: "DELETE" });
+      const json = await res.json();
+      if (json.ok) {
+        toast.success("User deleted");
+        fetchUsers();
+      } else {
+        toast.error(json.error || "Delete failed");
+      }
+    } catch {
+      toast.error("Something went wrong");
+    }
+  };
+
+  return (
+    <Card className="card-luxury rounded-xl">
+      <CardContent className="p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-display text-lg font-bold text-indigo-deep">Admin Users</h3>
+          <Button size="sm" onClick={openCreate} className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold">
+            <Plus className="w-4 h-4 mr-1" /> Add User
+          </Button>
+        </div>
+
+        {/* Create / Edit Form */}
+        {showForm && (
+          <div className="mb-4 p-4 rounded-lg bg-white border border-gold/25 space-y-3">
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-semibold text-indigo-deep">{editing ? "Edit User" : "New User"}</h4>
+              <button onClick={() => setShowForm(false)} className="text-muted-foreground hover:text-indigo-deep"><X className="w-4 h-4" /></button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div><Label className="text-xs">Full Name</Label><Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Full name" className="bg-cream border-gold/25 mt-1" /></div>
+              <div><Label className="text-xs">Email</Label><Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="email@example.com" className="bg-cream border-gold/25 mt-1" /></div>
+              <div><Label className="text-xs">Role</Label>
+                <select value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })} className="w-full mt-1 h-9 rounded-md border border-gold/25 bg-cream px-3 text-sm text-indigo-deep focus:outline-none focus:ring-1 focus:ring-gold">
+                  {ROLES.map((r) => <option key={r} value={r}>{r.replace("_", " ").replace(/\b\w/g, (c) => c.toUpperCase())}</option>)}
+                </select>
+              </div>
+              <div><Label className="text-xs">{editing ? "New Password (leave blank to keep current)" : "Password"}</Label><Input type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder={editing ? "Leave blank to keep current" : "Set password"} className="bg-cream border-gold/25 mt-1" /></div>
+            </div>
+            <div className="flex justify-end gap-2 pt-1">
+              <Button variant="outline" onClick={() => setShowForm(false)} className="border-gold/25 text-muted-foreground">Cancel</Button>
+              <Button onClick={handleSave} disabled={saving} className="gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold">
+                {saving ? "Saving..." : editing ? "Update User" : "Create User"}
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* User List */}
+        {loading ? (
+          <div className="text-center py-8 text-muted-foreground text-sm">Loading users...</div>
+        ) : users.length === 0 ? (
+          <div className="text-center py-8 text-muted-foreground text-sm">No users found. Click &quot;Add User&quot; to create one.</div>
+        ) : (
+          <div className="space-y-2">
+            {users.map((u) => (
+              <div key={u.id} className="flex items-center justify-between p-3 rounded-lg bg-marble">
+                <div className="flex items-center gap-3">
+                  <Avatar className="w-9 h-9 border border-gold/30">
+                    <AvatarFallback className="bg-gradient-to-br from-gold-light to-gold-dark text-cream text-xs font-bold">
+                      {u.name.split(" ").map((n) => n[0]).join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <div className="text-sm font-medium text-indigo-deep">{u.name}</div>
+                    <div className="text-xs text-muted-foreground">{u.email}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" className={ROLE_COLORS[u.role] || ROLE_COLORS.viewer}>{u.role.replace("_", " ").replace(/\b\w/g, (c) => c.toUpperCase())}</Badge>
+                  <Button size="sm" variant="ghost" onClick={() => openEdit(u)} className="text-muted-foreground hover:text-gold h-7 text-xs"><Pencil className="w-3 h-3" /></Button>
+                  <Button size="sm" variant="ghost" onClick={() => handleDelete(u.id, u.name)} className="text-muted-foreground hover:text-temple-red h-7 text-xs"><Trash2 className="w-3 h-3" /></Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }
