@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, FileText, Church, Users, Clock } from "lucide-react";
-import type { BlogPost, Testimonial, Temple, TeamMember } from "@/lib/types";
+import type { BlogPost, Testimonial, Temple } from "@/lib/types";
 
 export function Content() {
   const { data: posts = [] } = useQuery<BlogPost[]>({ queryKey: ["blog-admin"], queryFn: async () => (await fetch("/api/blog?limit=50")).json().then((j) => j.data) });
