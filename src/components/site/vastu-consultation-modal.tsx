@@ -200,7 +200,7 @@ export function VastuConsultationModal() {
           </AnimatePresence>
 
           {/* Auto-advance when confirmed */}
-          {confirmed && step !== 2 && setStep(2)}
+         
 
           {/* Expert info */}
           {step === 0 && (
