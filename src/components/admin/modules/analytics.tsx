@@ -40,7 +40,7 @@ export function Analytics() {
     conversions: Math.floor(Math.random() * 6) + 1,
   }));
 
-  const conversionRate = ((data.leadStageBreakdown.find(l => l.stage === "won")?._count?.stage || 0) / data.counts.leads * 100 || 8).toFixed(1);
+  const conversionRate = ((data.leadStageBreakdown.find(l => l.stage === "won")?._count || 0) / data.counts.leads * 100 || 8).toFixed(1);
 
   return (
     <div className="space-y-6">
