@@ -91,6 +91,7 @@ export function SiteVisitModal() {
         }),
       });
       setConfirmed(true);
+      setStep(3)
       toast.success("🙏 Site visit scheduled! Confirmation sent via WhatsApp.");
     } catch {
       toast.error("Failed to schedule. Please WhatsApp us directly.");
@@ -326,7 +327,7 @@ export function SiteVisitModal() {
           </AnimatePresence>
 
           {/* Auto-advance when confirmed */}
-          {confirmed && step !== 3 && (setStep(3), null)}
+         
         </div>
       </DialogContent>
     </Dialog>
