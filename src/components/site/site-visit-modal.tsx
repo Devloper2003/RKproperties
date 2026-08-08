@@ -311,7 +311,7 @@ export function SiteVisitModal() {
                   Our advisor will call 1 hour before your visit.
                 </p>
                 <a
-                  href={`https://wa.me/919837012345?text=Namaste! I just scheduled a site visit for ${selectedProject?.name} on ${date?.toDateString()} at ${timeSlot}. Confirmation: VST-${Date.now().toString().slice(-6)}`}
+                  href={`https://wa.me/918923944689?text=Namaste! I just scheduled a site visit for ${selectedProject?.name} on ${date?.toDateString()} at ${timeSlot}. Confirmation: VST-${Date.now().toString().slice(-6)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1da851] transition-colors"
