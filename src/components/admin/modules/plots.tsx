@@ -198,7 +198,7 @@ export function Plots() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div><Label className="text-xs">Plot Number *</Label><Input value={form.plotNumber} onChange={(e) => setForm({ ...form, plotNumber: e.target.value })} className="bg-white border-gold/25 mt-1" /></div>
-              <div><Label className="text-xs">Size (sq.yd)</Label><Input type="number" value={form.sizeSqyd} onChange={(e) => setForm({ ...form, sizeSqyd: e.target.value })} className="bg-white border-gold/25 mt-1" /></div>
+              <div><Label className="text-xs">Size (sq.yd)</Label><Input type="number" value={form.sizeSqyd} onChange={(e) => setForm({ ...form, sizeSqyd: parseInt(e.target.value) || 0 })} className="bg-white border-gold/25 mt-1" /></div>
               <div><Label className="text-xs">Facing</Label>
                 <Select value={form.facing} onValueChange={(v) => setForm({ ...form, facing: v })}>
                   <SelectTrigger className="bg-white border-gold/25 mt-1 capitalize"><SelectValue /></SelectTrigger>
