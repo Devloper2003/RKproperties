@@ -213,7 +213,7 @@ export function BookingModal() {
                   <p className="text-xs text-muted-foreground mb-4">📩 Confirmation sent to {details.phone} via WhatsApp & email.</p>
                   <div className="flex gap-2">
                     <a
-                      href={`https://wa.me/919837012345?text=Namaste! I just booked plot ${plot.plotNumber}. Booking ID: ${bookingId}`}
+                      href={`https://wa.me/918923944689?text=Namaste! I just booked plot ${plot.plotNumber}. Booking ID: ${bookingId}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-md bg-[#25D366] text-white font-medium text-sm hover:bg-[#1da851]"
