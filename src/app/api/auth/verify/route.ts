@@ -17,7 +17,7 @@ async function sha256(str: string): Promise<string> {
 
 export async function POST(req: NextRequest) {
   try {
-    const { e, p } = await req.json();
+    const { email, password } = await req.json();
 
     if (!e || !p) {
       return NextResponse.json({ ok: false }, { status: 400 });
