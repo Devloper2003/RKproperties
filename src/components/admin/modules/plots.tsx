@@ -206,7 +206,7 @@ export function Plots() {
                 </Select>
               </div>
               <div><Label className="text-xs">Dimensions</Label><Input value={form.dimensions} onChange={(e) => setForm({ ...form, dimensions: e.target.value })} className="bg-white border-gold/25 mt-1" /></div>
-              <div><Label className="text-xs">Price (₹)</Label><Input type="number" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} className="bg-white border-gold/25 mt-1" /></div>
+              <div><Label className="text-xs">Price (₹)</Label><Input type="number" value={form.price} onChange={(e) => setForm({ ...form, price: parseInt(e.target.value) })} className="bg-white border-gold/25 mt-1" /></div>
               <div><Label className="text-xs">Status</Label>
                 <Select value={form.status} onValueChange={(v) => setForm({ ...form, status: v })}>
                   <SelectTrigger className="bg-white border-gold/25 mt-1"><SelectValue /></SelectTrigger>
