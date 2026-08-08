@@ -153,7 +153,7 @@ export function LeadFormModal() {
             {!submitting && <Send className="w-4 h-4 ml-2" />}
           </Button>
           <a
-            href="https://wa.me/919837012345?text=Namaste! I'd like to enquire about RK Properties plots"
+            href="https://wa.me/918923944689?text=Namaste! I'd like to enquire about RK Properties plots"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full py-2.5 rounded-md bg-[#25D366]/10 text-[#1a8e3b] text-sm font-medium hover:bg-[#25D366]/20 transition-colors"
