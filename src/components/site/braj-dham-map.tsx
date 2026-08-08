@@ -200,7 +200,7 @@ export function BrajDhamMap() {
                   </p>
                 </div>
                 <a
-                  href={`https://wa.me/919837012345?text=Namaste! I want to know more about visiting ${selected.name}`}
+                  href={`https://wa.me/918923944689?text=Namaste! I want to know more about visiting ${selected.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-md bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1da851]"
