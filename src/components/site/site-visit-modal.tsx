@@ -150,7 +150,10 @@ export function SiteVisitModal() {
                     mode="single"
                     selected={date}
                     onSelect={setDate}
-                    disabled={disabledDays}
+                    disabled={[
+  { daysOfWeek: [0, 6] },
+  { before: new Date() }
+] as any}
                     className="rounded-xl border border-gold/20"
                     classNames={{
                       day_selected: "bg-gold text-indigo-deep",
