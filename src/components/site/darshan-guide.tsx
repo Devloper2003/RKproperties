@@ -121,7 +121,7 @@ export function DarshanGuide() {
 
                           {/* CTA */}
                           <a
-                            href={`https://wa.me/919837012345?text=Namaste! I want guidance for visiting ${temple.temple}`}
+                            href={`https://wa.me/918923944689?text=Namaste! I want guidance for visiting ${temple.temple}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block w-full text-center py-2 rounded-md bg-[#25D366]/10 text-[#1a8e3b] text-xs font-semibold hover:bg-[#25D366]/20 transition-colors"
