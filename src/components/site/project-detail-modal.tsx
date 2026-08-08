@@ -226,7 +226,7 @@ export function ProjectDetailModal() {
                     variant="outline"
                     className="flex-1 border-green-deep/40 text-green-deep hover:bg-green-light/10 h-12"
                   >
-                    <a href="https://wa.me/919837012345?text=Namaste! I'm interested in {project.name}" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/918923944689?text=Namaste! I'm interested in {project.name}" target="_blank" rel="noopener noreferrer">
                       <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
                     </a>
                   </Button>
@@ -273,7 +273,7 @@ export function ProjectDetailModal() {
               seller: {
                 "@type": "Organization",
                 name: "RK Properties",
-                telephone: "+91-98370-12345",
+                telephone: "+91-89239-44689",
               },
             }),
           }}
