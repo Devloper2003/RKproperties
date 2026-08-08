@@ -222,14 +222,14 @@ export const TOUR_STOPS = [
 export const COMPARISON_DIMENSIONS: { key: string; label: string; icon: string }[] = [
   { key: "location", label: "Location", icon: "📍" },
   { key: "city", label: "City", icon: "🏙️" },
-  { key: "totalAreaAcres", label: "Total Area", icon: "🗺️", suffix: " acres" },
+  { key: "totalAreaAcres", label: "Total Area", icon: "🗺️" },
   { key: "plotSize", label: "Plot Sizes", icon: "📐" },
   { key: "priceRange", label: "Price Range", icon: "💰" },
   { key: "status", label: "Status", icon: "📊" },
   { key: "possessionDate", label: "Possession", icon: "📅" },
   { key: "reraNumber", label: "RERA Number", icon: "📜" },
   { key: "mvdaNumber", label: "MVDA Number", icon: "🏛️" },
-  { key: "amenitiesCount", label: "Amenities", icon: "✨", suffix: "+" },
+  { key: "amenitiesCount", label: "Amenities", icon: "✨" },
   { key: "nearbyTemplesCount", label: "Nearby Temples", icon: "🛕" },
   { key: "usp", label: "USP", icon: "⭐" },
 ];
