@@ -241,8 +241,8 @@ export function PlotRecommendation() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button
                       onClick={() => {
-                        navigate({name:"project",slug:topMatch.project.slug});
-                        toast.success(`Opening ${topMatch.project.name} details...`);
+                        navigate({name:"project",slug:topMatch.project?.slug});
+                        toast.success(`Opening ${topMatch.project?.name} details...`);
                       }}
                       className="flex-1 gold-shimmer bg-gradient-to-br from-gold-light to-gold text-indigo-deep font-semibold h-12"
                     >
@@ -250,7 +250,7 @@ export function PlotRecommendation() {
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                     <Button
-                      onClick={() => openLeadForm(topMatch.project.id)}
+                      onClick={() => openLeadForm(topMatch.project?.id)}
                       variant="outline"
                       className="flex-1 border-gold/30 text-indigo-deep hover:bg-gold/10 h-12"
                     >
