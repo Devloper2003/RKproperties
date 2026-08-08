@@ -611,7 +611,6 @@ if (adminEmail && adminPass) {
   } else {
     console.warn("⚠ ADMIN_EMAIL / ADMIN_PASS not set — admin user skipped");
   }
-  console.log("✓ Created admin user (admin@rkproperties.in / braj2026)");
 
   console.log("\n🎉 Seeding complete!");
   const projectCount = await db.project.count();
