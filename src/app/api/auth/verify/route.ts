@@ -19,11 +19,11 @@ export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json();
 
-    if (!e || !p) {
+    if (!email || !password ) {
       return NextResponse.json({ ok: false }, { status: 400 });
     }
 
-    const user = await db.adminUser.findFirst({ where: { email: e } });
+    const user = await db.adminUser.findFirst({ where: { email } });
 
     if (!user) {
       await new Promise((r) => setTimeout(r, 300));
@@ -33,12 +33,12 @@ export async function POST(req: NextRequest) {
     let isMatch: boolean;
 
     if (user.password.length === 64 && /^[0-9a-f]{64}$/.test(user.password)) {
-      const hash = await sha256(p);
+      const hash = await sha256(password);
       isMatch = hash === user.password;
     } else {
-      isMatch = p === user.password;
+      isMatch = password === user.password;
       if (isMatch) {
-        const hashed = await sha256(p);
+        const hashed = await sha256(password);
         await db.adminUser.update({
           where: { id: user.id },
           data: { password: hashed },
