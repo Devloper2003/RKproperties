@@ -16,7 +16,7 @@ import {
 import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Plus, Pencil, Trash2, MapPin, Building2 } from "lucide-react";
+import { Plus, Pencil, Trash2, MapPin, Building2, ImagePlus, X, GripVertical, Upload } from "lucide-react";
 import { formatINR, PROJECT_STATUS_LABELS, type Project } from "@/lib/types";
 
 const emptyForm = {
@@ -26,6 +26,7 @@ const emptyForm = {
   reraNumber: "", mvdaNumber: "", possessionDate: "", usp: "", description: "",
   longDescription: "", latitude: 27.57, longitude: 77.70,
   amenities: "", heroImage: "/images/projects/bankey-bihari-orchid.png",
+  galleryImages: [] as string[],
   isPublished: true, isFeatured: false,
 };
 
@@ -85,7 +86,8 @@ export function Projects() {
     setForm({
       ...p,
       amenities: Array.isArray(p.amenities) ? p.amenities.join(", ") : "",
-      galleryImages: undefined, nearbyTemples: undefined,
+      galleryImages: Array.isArray(p.galleryImages) ? [...p.galleryImages] : [],
+      nearbyTemples: undefined,
     });
     setShowForm(true);
   };
@@ -184,6 +186,114 @@ export function Projects() {
             <div><Label className="text-xs">Latitude (for Google Map)</Label><Input type="number" step="0.0000001" value={form.latitude || 0} onChange={(e) => setForm({ ...form, latitude: e.target.value })} className="bg-white border-gold/25 mt-1" /></div>
             <div><Label className="text-xs">Longitude (for Google Map)</Label><Input type="number" step="0.0000001" value={form.longitude || 0} onChange={(e) => setForm({ ...form, longitude: e.target.value })} className="bg-white border-gold/25 mt-1" /></div>
             <div className="sm:col-span-2"><Label className="text-xs">Hero Image URL (main project photo)</Label><Input value={form.heroImage || ""} onChange={(e) => setForm({ ...form, heroImage: e.target.value })} placeholder="/images/projects/..." className="bg-white border-gold/25 mt-1 font-mono text-xs" /></div>
+
+            {/* Gallery Images Section */}
+            <div className="sm:col-span-2">
+              <Label className="text-xs flex items-center gap-1.5"><ImagePlus className="w-3.5 h-3.5 text-gold" /> Gallery Images (shown on project detail page slider)</Label>
+              <div className="mt-2 space-y-2">
+                {/* Existing gallery images */
+                {form.galleryImages && form.galleryImages.length > 0 && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {form.galleryImages.map((img: string, idx: number) => (
+                      <div key={idx} className="relative group rounded-lg overflow-hidden border border-gold/20 bg-marble">
+                        <div className="aspect-video bg-marble relative">
+                          <img src={img} alt={`Gallery ${idx + 1}`} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
+                        </div>
+                        <div className="absolute top-1 left-1 bg-indigo-deep/80 text-cream text-[9px] px-1.5 py-0.5 rounded font-mono">{idx + 1}</div>
+                        <div className="flex gap-1">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (idx > 0) {
+                                const updated = [...form.galleryImages];
+                                [updated[idx], updated[idx - 1]] = [updated[idx - 1], updated[idx]];
+                                setForm({ ...form, galleryImages: updated });
+                              }
+                            }}
+                            className="flex-1 text-center text-[10px] py-1 bg-cream/80 hover:bg-cream text-indigo-deep font-medium transition-colors"
+                            disabled={idx === 0}
+                          >&#8592; Move</button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                                if (idx < form.galleryImages.length - 1) {
+                                  const updated = [...form.galleryImages];
+                                  [updated[idx], updated[idx + 1]] = [updated[idx + 1], updated[idx]];
+                                  setForm({ ...form, galleryImages: updated });
+                                }
+                              }}
+                            className="flex-1 text-center text-[10px] py-1 bg-cream/80 hover:bg-cream text-indigo-deep font-medium transition-colors"
+                            disabled={idx === form.galleryImages.length - 1}
+                          >Move &#8594;</button>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setForm({ ...form, galleryImages: form.galleryImages.filter((_: string, i: number) => i !== idx) })}
+                          className="absolute top-1 right-1 w-5 h-5 rounded-full bg-temple-red/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-temple-red"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Add new gallery image */
+                <div className="flex gap-2">
+                  <Input
+                    value={form._newGalleryUrl || ""}
+                    onChange={(e) => setForm({ ...form, _newGalleryUrl: e.target.value })}
+                    placeholder="Paste image URL or /uploads/media/..."
+                    className="flex-1 bg-white border-gold/25 font-mono text-xs h-9"
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="border-gold/30 text-indigo-deep hover:bg-gold/10 h-9"
+                    onClick={() => {
+                      const url = (form as any)._newGalleryUrl?.trim();
+                      if (url) {
+                        setForm({ ...form, galleryImages: [...(form.galleryImages || []), url], _newGalleryUrl: "" });
+                      }
+                    }}
+                  >
+                    <Plus className="w-3.5 h-3.5 mr-1" /> Add
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="border-gold/30 text-indigo-deep hover:bg-gold/10 h-9"
+                    onClick={async () => {
+                      const input = document.createElement("input");
+                      input.type = "file";
+                      input.accept = "image/*";
+                      input.onchange = async (e: any) => {
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        if (file.size > 5 * 1024 * 1024) { toast.error("Max 5MB"); return; }
+                        const fd = new FormData();
+                        fd.append("file", file);
+                        try {
+                          const res = await fetch("/api/admin/media/upload", { method: "POST", body: fd });
+                          const json = await res.json();
+                          if (json.ok) {
+                            setForm({ ...form, galleryImages: [...(form.galleryImages || []), json.data.url] });
+                            toast.success("Image uploaded");
+                          } else { toast.error(json.error || "Upload failed"); }
+                        } catch { toast.error("Upload failed"); }
+                      };
+                      input.click();
+                    }}
+                  >
+                    <Upload className="w-3.5 h-3.5 mr-1" /> Upload
+                  </Button>
+                </div>
+                <p className="text-[10px] text-muted-foreground">Add multiple images — they appear in the project detail page slider. First image = main hero.</p>
+              </div>
+            </div>
             <div className="sm:col-span-2"><Label className="text-xs">Amenities (comma-separated — each word editable)</Label><Input value={form.amenities} onChange={(e) => setForm({ ...form, amenities: e.target.value })} placeholder="Temple Complex, Community Hall, ..." className="bg-white border-gold/25 mt-1" /></div>
             <div className="sm:col-span-2"><Label className="text-xs">USP (Unique Selling Proposition — shown on project page)</Label><Textarea value={form.usp || ""} onChange={(e) => setForm({ ...form, usp: e.target.value })} className="bg-white border-gold/25 mt-1 min-h-[60px]" /></div>
             <div className="sm:col-span-2"><Label className="text-xs">Short Description (for project cards)</Label><Textarea value={form.description || ""} onChange={(e) => setForm({ ...form, description: e.target.value })} className="bg-white border-gold/25 mt-1 min-h-[60px]" /></div>

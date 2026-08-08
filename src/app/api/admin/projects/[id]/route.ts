@@ -28,6 +28,7 @@ export async function PATCH(
         ...(body.mvdaNumber !== undefined ? { mvdaNumber: body.mvdaNumber } : {}),
         ...(body.possessionDate !== undefined ? { possessionDate: body.possessionDate } : {}),
         ...(body.heroImage !== undefined ? { heroImage: body.heroImage } : {}),
+        ...(body.galleryImages ? { galleryImages: JSON.stringify(body.galleryImages) } : {}),
         ...(body.amenities ? { amenities: JSON.stringify(body.amenities) } : {}),
         ...(body.nearbyTemples ? { nearbyTemples: JSON.stringify(body.nearbyTemples) } : {}),
         ...(body.usp !== undefined ? { usp: body.usp } : {}),
