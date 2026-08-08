@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 
     const knowledgeContext = projects
       .map((p) => {
-        const available = availablePlotsByProject.find((a) => a.projectId === p.id)?._count.status || 0;
+        const available = availablePlotsByProject.find((a) => a.projectId === p.slug)?._count.status || 0;
         return `${p.name} (${p.city}) — ${p.location}. Plot sizes: ${p.minPlotSize}-${p.maxPlotSize} sq.yd. Price: ₹${(p.priceRangeMin / 100000).toFixed(0)}-${(p.priceRangeMax / 100000).toFixed(0)} Lakh. Status: ${p.status}. ${available} plots available. USP: ${p.usp} RERA: ${p.reraNumber || "N/A"}, MVDA: ${p.mvdaNumber || "N/A"}.`;
       })
       .join("\n");
