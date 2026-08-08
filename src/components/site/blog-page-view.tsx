@@ -88,7 +88,7 @@ export function BlogPageView() {
                 <MessageCircle className="w-4 h-4 mr-2" /> Get Callback
               </Button>
               <Button asChild variant="outline" className="border-green-deep/40 text-green-deep hover:bg-green-light/10">
-                <a href="https://wa.me/919837012345" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/918923944689" target="_blank" rel="noopener noreferrer">
                   <Phone className="w-4 h-4 mr-2" /> WhatsApp
                 </a>
               </Button>
