@@ -84,23 +84,23 @@ const organizationSchema = {
   areaServed: ["Vrindavan", "Mathura", "Govardhan", "Braj Dham", "India"],
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+91-98370-12345",
+    telephone: "+91-89239-44689",
     contactType: "sales",
-    email: "info@rkproperties.in",
+    email: "shailendrrachaudhary@gmail.com",
     areaServed: "IN",
     availableLanguage: ["Hindi", "English", "Hinglish"],
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Braj Dham Heights, Vrindavan",
+    streetAddress: "In front of Kailash Nagar Road, Near ATTLA CHUNGI, Vatsalya Gram",
     addressLocality: "Mathura",
     addressRegion: "Uttar Pradesh",
     postalCode: "281121",
     addressCountry: "IN",
   },
   sameAs: [
-    "https://facebook.com/rkproperties",
-    "https://instagram.com/rkproperties",
+    "https://www.facebook.com/profile.php?id=61580589940876",
+    "https://instagram.com/rkproperties_official1/",
     "https://youtube.com/@rkproperties",
   ],
 };
