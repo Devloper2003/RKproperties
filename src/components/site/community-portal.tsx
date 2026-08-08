@@ -222,7 +222,7 @@ export function CommunityPortal() {
                   <Button size="sm" variant="outline" className="border-gold/30 text-indigo-deep hover:bg-gold/10" onClick={() => toast.info("💬 Opening resident forum...")}>
                     <MessageCircle className="w-3.5 h-3.5 mr-1" /> Resident Forum
                   </Button>
-                  <Button size="sm" variant="outline" className="border-green-deep/30 text-green-deep hover:bg-green-light/10" onClick={() => window.open("https://wa.me/919837012345?text=Namaste! Resident query from portal", "_blank")}>
+                  <Button size="sm" variant="outline" className="border-green-deep/30 text-green-deep hover:bg-green-light/10" onClick={() => window.open("https://wa.me/918923944689?text=Namaste! Resident query from portal", "_blank")}>
                     <MessageCircle className="w-3.5 h-3.5 mr-1" /> WhatsApp Manager
                   </Button>
                 </div>
