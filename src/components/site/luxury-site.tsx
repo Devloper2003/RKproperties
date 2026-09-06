@@ -52,8 +52,6 @@ import { LeadCta } from "./lead-cta";
 import { Footer } from "./footer";
 import { WhatsappFab } from "./whatsapp-fab";
 import { Chatbot } from "./chatbot";
-import { ProjectDetailModal } from "./project-detail-modal";
-// ProjectDetailModal is replaced by ProjectPageView — keeping import for backward compat but not rendering
 import { LeadFormModal } from "./lead-form-modal";
 import { BookingModal } from "./booking-modal";
 import { ComparisonModal, ComparisonBar } from "./comparison-modal";
@@ -61,6 +59,7 @@ import { PlotComparisonModal, PlotCompareBar } from "./plot-comparison-modal";
 import { WishlistPanel } from "./wishlist-panel";
 import { ScrollProgress } from "./scroll-progress";
 import { SiteVisitModal } from "./site-visit-modal";
+import { LazySection } from "@/components/shared/lazy-section";
 import { useApp } from "@/lib/store";
 
 export function LuxurySite() {
@@ -84,56 +83,58 @@ export function LuxurySite() {
       <FestivalBanner />
       <Navbar scrolled={scrolled} />
       <main className="flex-1">
+        {/* Above-fold: render immediately for fast LCP */}
         <Hero />
         <QuoteRotator />
         <SacredLocations />
-        <KrishnaLilaSection />
-        <SpiritualQuiz />
-        <ProjectsShowcase />
-        <VirtualTourSection />
-        <PlotExplorer />
-        <VastuCompass />
-        <PlotRecommendation />
-        <Usps />
-        <BrajDhamMap />
-        <TownshipMap />
-        <Testimonials />
-        <VideoTestimonials />
-        <TrustSignals />
-        <PriceComparison />
-        <NriSection />
-        <EmiCalculator />
-        <RoiCalculator />
-        <VisitCtaSection />
-        <WhatsappFlow />
-        <FaqSection />
-        <ReferralProgram />
-        <CommunityPortal />
-        <BhajanPlayer />
-        <MantraLibrary />
-        <KrishnaNamesCounter />
-        <BrajCalendar />
-        <BrajWeather />
-        <SankalpSection />
-        <SadhanaTracker />
-        <DarshanGuide />
-        <PilgrimagePlanner />
-        <SatsangSchedule />
-        <BrajRecipes />
-        <GoshalaSection />
-        <ConstructionProgress />
-        <KrishnaStories />
-        <KrishnaQuiz />
-        <BrajPhotoGallery />
-        <SpiritualShop />
-        <BlogPreview />
-        <NewsletterSignup />
-        <LeadCta />
+
+        {/* Below-fold: lazy render via Intersection Observer */}
+        <LazySection minHeight={300}><KrishnaLilaSection /></LazySection>
+        <LazySection minHeight={250}><SpiritualQuiz /></LazySection>
+        <LazySection minHeight={400}><ProjectsShowcase /></LazySection>
+        <LazySection minHeight={350}><VirtualTourSection /></LazySection>
+        <LazySection minHeight={400}><PlotExplorer /></LazySection>
+        <LazySection minHeight={300}><VastuCompass /></LazySection>
+        <LazySection minHeight={300}><PlotRecommendation /></LazySection>
+        <LazySection minHeight={300}><Usps /></LazySection>
+        <LazySection minHeight={400}><BrajDhamMap /></LazySection>
+        <LazySection minHeight={350}><TownshipMap /></LazySection>
+        <LazySection minHeight={350}><Testimonials /></LazySection>
+        <LazySection minHeight={300}><VideoTestimonials /></LazySection>
+        <LazySection minHeight={250}><TrustSignals /></LazySection>
+        <LazySection minHeight={300}><PriceComparison /></LazySection>
+        <LazySection minHeight={300}><NriSection /></LazySection>
+        <LazySection minHeight={350}><EmiCalculator /></LazySection>
+        <LazySection minHeight={250}><RoiCalculator /></LazySection>
+        <LazySection minHeight={250}><VisitCtaSection /></LazySection>
+        <LazySection minHeight={300}><WhatsappFlow /></LazySection>
+        <LazySection minHeight={400}><FaqSection /></LazySection>
+        <LazySection minHeight={300}><ReferralProgram /></LazySection>
+        <LazySection minHeight={350}><CommunityPortal /></LazySection>
+        <LazySection minHeight={200}><BhajanPlayer /></LazySection>
+        <LazySection minHeight={250}><MantraLibrary /></LazySection>
+        <LazySection minHeight={200}><KrishnaNamesCounter /></LazySection>
+        <LazySection minHeight={300}><BrajCalendar /></LazySection>
+        <LazySection minHeight={200}><BrajWeather /></LazySection>
+        <LazySection minHeight={300}><SankalpSection /></LazySection>
+        <LazySection minHeight={250}><SadhanaTracker /></LazySection>
+        <LazySection minHeight={300}><DarshanGuide /></LazySection>
+        <LazySection minHeight={300}><PilgrimagePlanner /></LazySection>
+        <LazySection minHeight={250}><SatsangSchedule /></LazySection>
+        <LazySection minHeight={300}><BrajRecipes /></LazySection>
+        <LazySection minHeight={250}><GoshalaSection /></LazySection>
+        <LazySection minHeight={300}><ConstructionProgress /></LazySection>
+        <LazySection minHeight={250}><KrishnaStories /></LazySection>
+        <LazySection minHeight={250}><KrishnaQuiz /></LazySection>
+        <LazySection minHeight={300}><BrajPhotoGallery /></LazySection>
+        <LazySection minHeight={300}><SpiritualShop /></LazySection>
+        <LazySection minHeight={300}><BlogPreview /></LazySection>
+        <LazySection minHeight={200}><NewsletterSignup /></LazySection>
+        <LazySection minHeight={200}><LeadCta /></LazySection>
       </main>
       <Footer />
       <WhatsappFab />
       <Chatbot />
-      {/* Old ProjectDetailModal removed — replaced by ProjectPageView */}
       <LeadFormModal />
       <BookingModal />
       <ComparisonModal />

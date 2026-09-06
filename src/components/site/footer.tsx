@@ -62,10 +62,10 @@ export function Footer() {
                 "Bankey Bihari Dham",
               ].map((p) => (
                 <li key={p}>
-                  <a href="#projects" className="text-cream/70 hover:text-gold transition-colors">{p}</a>
+                  <a href="/projects" className="text-cream/70 hover:text-gold transition-colors">{p}</a>
                 </li>
               ))}
-              <li><a href="#plots" className="text-cream/70 hover:text-gold transition-colors">View All Plots →</a></li>
+              <li><a href="/plots" className="text-cream/70 hover:text-gold transition-colors">View All Plots →</a></li>
             </ul>
           </div>
 
@@ -73,10 +73,10 @@ export function Footer() {
           <div>
             <h4 className="font-display text-base font-bold text-gold mb-4 uppercase tracking-wide">Quick Links</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><a href="#about" className="text-cream/70 hover:text-gold transition-colors">Why RK Properties</a></li>
-              <li><a href="#invest" className="text-cream/70 hover:text-gold transition-colors">EMI Calculator</a></li>
-              <li><a href="#blog" className="text-cream/70 hover:text-gold transition-colors">Blog & Insights</a></li>
-              <li><a href="#testimonials" className="text-cream/70 hover:text-gold transition-colors">Testimonials</a></li>
+              <li><a href="/about" className="text-cream/70 hover:text-gold transition-colors">Why RK Properties</a></li>
+              <li><a href="/invest" className="text-cream/70 hover:text-gold transition-colors">EMI Calculator</a></li>
+              <li><a href="/blog" className="text-cream/70 hover:text-gold transition-colors">Blog & Insights</a></li>
+              <li><a href="/" className="text-cream/70 hover:text-gold transition-colors">Testimonials</a></li>
             </ul>
           </div>
 

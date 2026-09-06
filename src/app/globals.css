@@ -424,9 +424,47 @@
   }
 }
 
-/* Global smooth scroll */
+/* Global smooth scroll + GPU acceleration */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU-accelerate animated elements for smooth transitions */
+.will-change-transform { will-change: transform; }
+.will-change-opacity { will-change: opacity; }
+
+/* Page transition fade */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-animate {
+  animation: page-enter 0.35s ease-out both;
+}
+
+/* Smooth navbar transition */
+header {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimize scroll performance */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+img[loading="lazy"] {
+  opacity: 0;
+}
+img[loading="lazy"].loaded,
+img[complete] {
+  opacity: 1;
 }
 
 /* Selection */

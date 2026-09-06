@@ -4,20 +4,21 @@ import { useEffect, useCallback } from "react";
 import { useApp } from "@/lib/store";
 
 /**
- * URL hash router — makes the SPA feel like real separate pages.
+ * Path-based router — makes the SPA feel like real separate pages.
  * 
  * Routes:
- * #/                                    → Homepage
- * #/projects                            → Projects listing page
- * #/projects/[slug]                     → Project detail page
- * #/blog                                → Blog listing page
- * #/blog/[slug]                         → Blog post page
- * #/temples                             → Temples listing page
- * #/temples/[slug]                      → Temple detail page
- * #/about                               → About page
- * #/invest                              → Invest/EMI page
- * #/contact                             → Contact page
- * #/admin                               → Admin panel
+ * /                                     → Homepage
+ * /projects                             → Projects listing page
+ * /projects/[slug]                      → Project detail page
+ * /blog                                 → Blog listing page
+ * /blog/[slug]                          → Blog post page
+ * /temples                              → Temples listing page
+ * /temples/[slug]                       → Temple detail page
+ * /plots                                → Plots listing page
+ * /about                                → About page
+ * /invest                               → Invest/EMI page
+ * /contact                              → Contact page
+ * /admin                                → Admin panel
  */
 
 export type Route = 
@@ -34,12 +35,13 @@ export type Route =
   | { name: "contact" }
   | { name: "admin" };
 
-export function parseHash(): Route {
-  const hash = window.location.hash.replace(/^#\/?/, "");
-  const parts = hash.split("/").filter(Boolean);
+/** Parse the current URL pathname into a Route */
+export function parsePath(): Route {
+  const pathname = window.location.pathname;
+  const parts = pathname.split("/").filter(Boolean);
 
   if (parts.length === 0) return { name: "home" };
-  
+
   if (parts[0] === "admin") return { name: "admin" };
   if (parts[0] === "projects" && parts.length === 1) return { name: "projects" };
   if (parts[0] === "projects" && parts[1]) return { name: "project", slug: parts[1] };
@@ -55,28 +57,45 @@ export function parseHash(): Route {
   return { name: "home" };
 }
 
-export function routeToHash(route: Route): string {
+/**
+ * @deprecated Use parsePath() instead.
+ * Kept for backward compatibility — delegates to parsePath().
+ */
+export function parseHash(): Route {
+  return parsePath();
+}
+
+/** Convert a Route to a URL path string (e.g. /projects/my-slug) */
+export function routeToPath(route: Route): string {
   switch (route.name) {
-    case "home": return "#/";
-    case "admin": return "#/admin";
-    case "projects": return "#/projects";
-    case "project": return `#/projects/${route.slug}`;
-    case "blog": return "#/blog";
-    case "blog-post": return `#/blog/${route.slug}`;
-    case "temples": return "#/temples";
-    case "temple": return `#/temples/${route.slug}`;
-    case "plots": return "#/plots";
-    case "about": return "#/about";
-    case "invest": return "#/invest";
-    case "contact": return "#/contact";
+    case "home": return "/";
+    case "admin": return "/admin";
+    case "projects": return "/projects";
+    case "project": return `/projects/${route.slug}`;
+    case "blog": return "/blog";
+    case "blog-post": return `/blog/${route.slug}`;
+    case "temples": return "/temples";
+    case "temple": return `/temples/${route.slug}`;
+    case "plots": return "/plots";
+    case "about": return "/about";
+    case "invest": return "/invest";
+    case "contact": return "/contact";
   }
 }
 
-/** Navigate to a route — updates URL hash and store */
+/**
+ * @deprecated Use routeToPath() instead.
+ * Kept for backward compatibility — returns the path without the # prefix.
+ */
+export function routeToHash(route: Route): string {
+  return routeToPath(route);
+}
+
+/** Navigate to a route — updates URL via pushState and store */
 export function navigate(route: Route) {
-  const hash = routeToHash(route);
-  if (window.location.hash !== hash) {
-    window.history.pushState(null, "", hash);
+  const path = routeToPath(route);
+  if (window.location.pathname !== path) {
+    window.history.pushState(null, "", path);
   }
   // Update store
   const store = useApp.getState();
@@ -103,11 +122,13 @@ export function navigate(route: Route) {
     // Listing pages handled by route state in page.tsx
   }
   
+  // Dispatch popstate so the router hook picks up the change
+  window.dispatchEvent(new PopStateEvent("popstate"));
   window.scrollTo({ top: 0, behavior: "instant" });
 }
 
-/** Hook that listens to hashchange and popstate events */
-export function useHashRouter() {
+/** Hook that listens to popstate events for path-based routing */
+export function usePathRouter() {
   const {
     setView, openProjectPage, closeProjectPage,
     openBlogPage, closeBlogPage,
@@ -115,7 +136,7 @@ export function useHashRouter() {
   } = useApp();
 
   const handleRoute = useCallback(() => {
-    const route = parseHash();
+    const route = parsePath();
 
     // Close everything first
     closeProjectPage();
@@ -157,13 +178,19 @@ export function useHashRouter() {
     // Handle initial route
     handleRoute();
     
-    // Listen for back/forward
+    // Listen for back/forward and programmatic navigation
     window.addEventListener("popstate", handleRoute);
-    window.addEventListener("hashchange", handleRoute);
     
     return () => {
       window.removeEventListener("popstate", handleRoute);
-      window.removeEventListener("hashchange", handleRoute);
     };
   }, [handleRoute]);
+}
+
+/**
+ * @deprecated Use usePathRouter() instead.
+ * Kept for backward compatibility — delegates to usePathRouter().
+ */
+export function useHashRouter() {
+  usePathRouter();
 }
