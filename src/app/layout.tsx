@@ -144,6 +144,20 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
+        {/* 👇 Google Ads tag (gtag.js) */}
+  <Script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=AW-18433321537"
+    strategy="afterInteractive"
+  />
+  <Script id="google-ads-tag" strategy="afterInteractive">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18433321537');
+    `}
+  </Script>
       </head>
       <body
         className={`${playfair.variable} ${inter.variable} ${notoSerifSC.variable} antialiased bg-cream text-foreground`}
