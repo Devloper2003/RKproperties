@@ -33,17 +33,18 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(15,15,26,0.7)_100%)]" />
       </div>
 
-      {/* Floating golden particles */}
-      {Array.from({ length: 14 }).map((_, i) => (
+            {/* Floating golden particles (reduced from 14 to 7 for perf) */}
+      {Array.from({ length: 7 }).map((_, i) => (
         <div
           key={i}
           className="float-particle absolute rounded-full bg-gold/60 pointer-events-none"
           style={{
             width: `${4 + (i % 3) * 2}px`,
             height: `${4 + (i % 3) * 2}px`,
-            left: `${(i * 7.3 + 5) % 95}%`,
+            left: `${(i * 13.5 + 5) % 95}%`,
             top: `${(i * 11.7 + 10) % 80}%`,
             animationDelay: `${(i % 5) * 1.6}s`,
+            animationDuration: `${10 + (i % 3)}s`,
             boxShadow: "0 0 8px rgba(197,162,62,0.6)",
           }}
         />
@@ -51,8 +52,7 @@ export function Hero() {
 
       {/* Rotating mandala decoration */}
       <MandalaSVG className="absolute -top-32 -right-32 w-[500px] h-[500px] text-gold/20 mandala-spin pointer-events-none" />
-      <MandalaSVG className="absolute -bottom-40 -left-40 w-[400px] h-[400px] text-gold/15 mandala-spin pointer-events-none" style={{ animationDirection: "reverse" }} />
-
+      <MandalaSVG className="absolute -bottom-40 -left-40 w-[400px] h-[400px] text-gold/15 mandala-spin pointer-events-none" style={{ animationDirection: "reverse", animationDuration: "100s" }} />
       {/* Content */}
       <div className="relative z-10 container mx-auto max-w-5xl px-4 sm:px-6 text-center pt-24 pb-16">
         <motion.div
