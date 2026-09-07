@@ -472,3 +472,84 @@ img[complete] {
   background: rgba(197, 162, 62, 0.3);
   color: #1a1a2e;
 }
+
+
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  -webkit-backface-visibility: hidden;
+}
+
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
+.mandala-spin,
+.float-particle,
+.pulse-divine,
+.festival-shimmer,
+.diya-flicker,
+.text-shimmer-gold,
+.gold-shimmer::after,
+.page-animate,
+[style*="animation:"] {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+header {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.mandala-spin { animation-duration: 90s !important; }
+.float-particle { animation-duration: 12s !important; }
+.diya-flicker { animation-duration: 4s !important; }
+.festival-shimmer {
+  animation-duration: 8s !important;
+  animation-timing-function: ease-in-out !important;
+}
+
+.backdrop-blur-md { backdrop-filter: blur(6px) !important; -webkit-backdrop-filter: blur(6px) !important; }
+.backdrop-blur-sm { backdrop-filter: blur(3px) !important; -webkit-backdrop-filter: blur(3px) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .mandala-spin, .float-particle, .pulse-divine,
+  .festival-shimmer, .diya-flicker, .text-shimmer-gold, .reveal-up {
+    animation: none !important;
+  }
+  section { content-visibility: visible !important; }
+}
+
+@media (max-width: 768px) {
+  .backdrop-blur-md, .backdrop-blur-sm, .backdrop-blur-lg {
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+  }
+  .mandala-spin { animation-duration: 120s !important; }
+}
+
+@media (page-visible: not) {
+  * { animation-play-state: paused !important; }
+}
