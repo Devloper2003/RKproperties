@@ -89,7 +89,7 @@ const onSubmit = async (data: FormData) => {
     setSubmitting(false);
   }
 };
-};
+
 
   return (
     <Dialog open={leadFormOpen} onOpenChange={(o) => !o && closeLeadForm()}>
