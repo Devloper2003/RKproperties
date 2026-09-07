@@ -2,12 +2,16 @@
 
 import { motion, useScroll, useSpring } from "framer-motion";
 
+/**
+ * Scroll progress bar — top of page.
+ * Perf tuning: lighter spring (stiffness 80, damping 25, restDelta 0.01)
+ */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    restDelta: 0.001,
+    stiffness: 80,
+    damping: 25,
+    restDelta: 0.01,
   });
 
   return (
