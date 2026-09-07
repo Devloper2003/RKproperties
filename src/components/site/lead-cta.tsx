@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Send, Sparkles } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 import type { Project } from "@/lib/types";
 
 const schema = z.object({
