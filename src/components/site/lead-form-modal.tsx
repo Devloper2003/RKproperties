@@ -20,6 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Send, MessageCircle, X } from "lucide-react";
 import { useApp } from "@/lib/store";
 import type { Project } from "@/lib/types";
+import { trackConversion } from "@/lib/gtag";
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -52,36 +53,43 @@ export function LeadFormModal() {
   useEffect(() => {
     if (leadFormProjectId) setValue("projectId", leadFormProjectId);
   }, [leadFormProjectId, setValue]);
-
-  const onSubmit = async (data: FormData) => {
-    setSubmitting(true);
-    try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.name,
-          phone: data.phone,
-          email: data.email || undefined,
-          source: "website",
-          projectId: data.projectId || undefined,
-          budgetRange: data.budget || undefined,
-          notes: data.message || undefined,
-        }),
+const onSubmit = async (data: FormData) => {
+  setSubmitting(true);
+  try {
+    const res = await fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: data.name,
+        phone: data.phone,
+        email: data.email || undefined,
+        source: "website",
+        projectId: data.projectId || undefined,
+        budgetRange: data.budget || undefined,
+        notes: data.message || undefined,
+      }),
+    });
+    if (res.ok) {
+      // 👇 Conversion event fire karo BEFORE toast
+      trackConversion("lead_submit", {
+        event_label: "lead_form_modal",
+        project_id: data.projectId || "none",
+        budget: data.budget || "unknown",
       });
-      if (res.ok) {
-        toast.success("🙏 Namaste! Our property advisor will contact you within 30 minutes.");
-        reset();
-        closeLeadForm();
-      } else {
-        toast.error("Submission failed. Please try WhatsApp.");
-      }
-    } catch {
-      toast.error("Network error. Please try again.");
-    } finally {
-      setSubmitting(false);
+
+      toast.success("🙏 Namaste! Our property advisor will contact you within 30 minutes.");
+      reset();
+      closeLeadForm();
+    } else {
+      toast.error("Submission failed. Please try WhatsApp.");
     }
-  };
+  } catch {
+    toast.error("Network error. Please try again.");
+  } finally {
+    setSubmitting(false);
+  }
+};
+};
 
   return (
     <Dialog open={leadFormOpen} onOpenChange={(o) => !o && closeLeadForm()}>
