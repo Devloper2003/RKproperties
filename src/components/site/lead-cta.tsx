@@ -51,7 +51,14 @@ export function LeadCta() {
           notes: "Lead from homepage CTA section",
         }),
       });
-      if (res.ok) {
+            if (res.ok) {
+        // Conversion event fire karo BEFORE toast
+        trackConversion("lead_submit_cta", {
+          event_label: "homepage_cta_section",
+          project_id: data.projectId || "none",
+          budget: data.budget || "unknown",
+        });
+
         toast.success("🙏 Namaste! Our property advisor will call you within 30 minutes.");
         reset();
       } else {
