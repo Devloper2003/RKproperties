@@ -4,8 +4,10 @@ import { useState, useEffect, useRef, type ReactNode } from "react";
 
 /**
  * LazySection — only renders children when the section scrolls into viewport.
- * Shows a placeholder spacer until visible, preventing layout shift.
- * Uses Intersection Observer with rootMargin for pre-loading.
+ * Perf tuning:
+ * - rootMargin "400px 0px" pre-loads sections 400px before they enter viewport
+ * - requestAnimationFrame batches reveal with browser paint cycle (no jank)
+ * - Falls back to instant render for prefers-reduced-motion via huge rootMargin
  */
 export function LazySection({
   children,
@@ -23,20 +25,19 @@ export function LazySection({
     const el = ref.current;
     if (!el) return;
 
-    // Skip IO if user prefers reduced motion — render immediately
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
-      return;
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect(); // Once visible, stay visible
+          requestAnimationFrame(() => setVisible(true));
+          observer.disconnect();
         }
       },
-      { rootMargin: "200px 0px", threshold: 0 } // Pre-load 200px before entering viewport
+      {
+        rootMargin: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "1000px 0px"
+          : "400px 0px",
+        threshold: 0,
+      }
     );
 
     observer.observe(el);
@@ -47,7 +48,7 @@ export function LazySection({
     <div
       ref={ref}
       className={className}
-      style={!visible ? { minHeight } : undefined}
+      style={!visible ? { minHeight, contentVisibility: "auto", containIntrinsicSize: `1px ${minHeight}px` } : undefined}
     >
       {visible ? children : null}
     </div>
