@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Inter, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
